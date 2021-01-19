@@ -1,17 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SequenceAnimator : MonoBehaviour
 {
     List<Animator> _animators;
     public float WaitBetween = 0.1f;
     public float WaitEnd = 3f;
+    public GameObject[] titleText;
+    List<RectTransform> titleLetters;
+    Coroutine myCoroutine;
+
     void OnEnable()        
     {
         _animators = new List<Animator>(GetComponentsInChildren<Animator>());   // get reference to the animator in each child
-
-        StartCoroutine(DoAnimation());      // start the coroutine
+        foreach (var animator in _animators)
+        {
+            animator.ResetTrigger("DoAnim");
+        }
+        myCoroutine = StartCoroutine(DoAnimation());      // start the coroutine
+    }
+    private void OnDisable()
+    {
+        StopCoroutine(myCoroutine);
+       
     }
 
     IEnumerator DoAnimation()
