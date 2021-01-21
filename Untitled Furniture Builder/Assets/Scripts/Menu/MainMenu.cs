@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject oneStars;
+  
+
+    public GameObject[] levels;
+
+   
     void Start()
     {
-        
+       
+        Instantiate(oneStars, levels[0].transform);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+
+    
 }
