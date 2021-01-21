@@ -50,7 +50,7 @@ float Toon(float3 normal, float3 lightDir)
 {
     float NdotL = max(0.0, dot((normal), (lightDir)));
 
-    return round(NdotL / 0.3);//goes from 0 to 0.3, 0.3 to 0.6, 0.6 to 0.9 and 0.9 to 1. So 4 partations
+    return round(NdotL / _ScaleAndNumberOfRings);//goes from 0 to 0.3, 0.3 to 0.6, 0.6 to 0.9 and 0.9 to 1. So 4 partations
 }
 Varyings Vertex(Attributes input)
 {

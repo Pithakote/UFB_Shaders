@@ -6,7 +6,7 @@
         _BaseColor("Color", Color) = (1, 1, 1, 1)
         _Brightness("Brightness", Range(-1,1)) = 0.3
         _Strength("Strength", Range(0,2)) = 0.3
-        _TriNormalHeight("TriNormalHeight", Range(0,0.005)) = 0.3
+        _ScaleAndNumberOfRings("ScaleAndNumberOfRings", Range(0.1,1)) = 0.5
     }
     SubShader
     {
