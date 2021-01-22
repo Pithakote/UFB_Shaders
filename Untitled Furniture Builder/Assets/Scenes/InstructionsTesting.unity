@@ -162,22 +162,22 @@ PrefabInstance:
     - target: {fileID: 11415212, guid: fe9bfb5044c0cc646baba1ad7d354100, type: 3}
       propertyPath: bookPages.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 4a883d7009d98414da7bd9f36f55843b,
+      objectReference: {fileID: 21300000, guid: a0c6ca3c375615c4fb3d7ff028be3a43,
         type: 3}
     - target: {fileID: 11415212, guid: fe9bfb5044c0cc646baba1ad7d354100, type: 3}
       propertyPath: bookPages.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: c86dac95f2670864a89ae923d0839987,
+      objectReference: {fileID: 21300000, guid: 5f0533e6aea60de419116ee8bf15b89c,
         type: 3}
     - target: {fileID: 11415212, guid: fe9bfb5044c0cc646baba1ad7d354100, type: 3}
       propertyPath: bookPages.Array.data[2]
       value: 
-      objectReference: {fileID: 21300000, guid: 4a883d7009d98414da7bd9f36f55843b,
+      objectReference: {fileID: 21300000, guid: c0215da8a545ea748ae79e6fe470322c,
         type: 3}
     - target: {fileID: 11415212, guid: fe9bfb5044c0cc646baba1ad7d354100, type: 3}
       propertyPath: bookPages.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: 4a883d7009d98414da7bd9f36f55843b,
+      objectReference: {fileID: 21300000, guid: 3cbae0765b6f27a40bc8cc58b392579a,
         type: 3}
     - target: {fileID: 11430880, guid: fe9bfb5044c0cc646baba1ad7d354100, type: 3}
       propertyPath: m_Color.a
