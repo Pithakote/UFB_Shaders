@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToonURPMaterial
+  m_Name: ToonURPMaterialBarbara
   m_Shader: {fileID: 4800000, guid: 419443d4493cfa7409e0656aca16b47f, type: 3}
   m_ShaderKeywords: GLOSS_METALLIC_COLOR GLOSS__METALLIC_COLOR _GLOSS_SPECULAR_SETUP
     _GLOSS__METALLIC _SPECULAR_COLOR _SPECULAR_SETUP
@@ -21,9 +21,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 51606ee4576f20744be8696dfcbfe701, type: 3}
-        m_Scale: {x: 5, y: 5}
-        m_Offset: {x: 3.1, y: 0.62}
+        m_Texture: {fileID: 2800000, guid: 1a4b7e3d81811c04696dd2d64f8a0ebb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - GLOSS: 1
     - _Alpha: 1
@@ -35,12 +35,12 @@ Material:
     - _Occlusion: 0
     - _Overlay: 0
     - _Prop2: 1.05
-    - _ScaleAndNumberOfRings: 0.34
+    - _ScaleAndNumberOfRings: 0.509
     - _Smoothness: 0.888
     - _Specular: 0.636
     - _Strength: 4.8
     m_Colors:
-    - _AmbientColor: {r: 0.9245283, g: 0.6172141, b: 0, a: 1}
+    - _AmbientColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &4329965943301763912
 MonoBehaviour:
   m_ObjectHideFlags: 11

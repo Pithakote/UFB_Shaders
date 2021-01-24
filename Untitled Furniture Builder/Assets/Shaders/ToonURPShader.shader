@@ -15,7 +15,7 @@ Shader "Custom/ToonURPShader"
 
        [HideInInspector] _Diffuse("Diffuse", Range(0,50)) = 1
          [HideInInspector]   _Specular("Specular", Range(0,1)) = 0
-       [HideInInspector] _Metallic("Metallic", Range(0,1)) = 1.06
+       [HideInInspector] _Metallic("Metallic", Range(0,10)) = 1.06
         [HideInInspector]_Smoothness("Smoothness", Range(0,1)) = 0.421
           [HideInInspector]  _Occlusion("Occlusion", Range(0,1)) = 0.138
         [HideInInspector]_Emission("Emission", Range(0,1)) = 0
@@ -41,6 +41,7 @@ Shader "Custom/ToonURPShader"
 
                      Name "ForwardLit"
                      Tags { "LightMode" = "UniversalForward" }
+                Lighting On
                     //Tags { "LightMode" = "SRPDefaultUnlit" }
                    // Cull Back
                   // Use same blending / depth states as Standard shader
@@ -61,11 +62,12 @@ Shader "Custom/ToonURPShader"
             #pragma shader_feature _ALPHAPREMULTIPLY_ON
             //#define shader_feature _ _SPECGLOSSMAP
            // #pragma shader_feature _ _GLOSS_SPECULAR_SETUP _GLOSS_METALLIC
-           #pragma multi_compile _ _GLOSS_SPECULAR_SETUP _GLOSS_METALLIC
+           #pragma shader_feature _ _GLOSS_SPECULAR_SETUP _GLOSS_METALLIC
 
 #if _GLOSS_SPECULAR_SETUP//set from ToonURPShaderGUI
 #define _SPECULAR_SETUP
 #else
+#define _METALLIC
 #endif
             
 //#if (_Gloss==0)
@@ -76,8 +78,8 @@ Shader "Custom/ToonURPShader"
                   // #define _METALLIC
                   // #define _Gloss
                   // #pragma shader_feature _SPECULAR_SETUP
-                 //  #define _SPECULAR_SETUP
-                  // #define _METALLIC_SETUP
+                   #define _SPECULAR_SETUP
+                   #define _METALLIC_SETUP
             
             #pragma shader_feature _GLOSSINESS_FROM_BASE_ALPHA
             #pragma shader_feature _NORMALMAP

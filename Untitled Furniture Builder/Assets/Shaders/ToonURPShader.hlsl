@@ -50,7 +50,7 @@ struct Varyings
 };
 float Toon(float3 normal, float3 lightDir)
 {
-    float NdotL = max(0.0, dot((normal), (lightDir)));
+    float NdotL = max(0.3, dot((normal), (lightDir)));
 
     return floor(NdotL / _ScaleAndNumberOfRings);//goes from 0 to 0.3, 0.3 to 0.6, 0.6 to 0.9 and 0.9 to 1. So 4 partations
 }
@@ -113,8 +113,8 @@ half4 Fragment(Varyings input) : SV_Target
                // return UniversalFragmentBlinnPhong(lightingInput, albedo,1,0,0,1);
     //half4 fragColor = UniversalFragmentBlinnPhong(lightingInput, albedo, _Specular, _Smoothness,  _Emission, 1);// *half4(color, 1);
    // return UniversalFragmentPBR(inputData, albedo, metallic, specular, smoothness, occlusion, emission, alpha);
-    half4 fragColor = UFBUniversalFragmentPBR(lightingInput, albedo, _Metallic, _Specular, _Smoothness, _Occlusion, _Emission, _Alpha);// *half4(color, 1);
-   // half4 fragColor = LightweightFragmentBlinnPhong(lightingInput, albedo, _Glossiness, _Smoothness, _Emission, 1);// *half4(color, 1);
+    half4 fragColor = UFBUniversalFragmentPBR(lightingInput, albedo, _Metallic, _Specular, _Smoothness, _Occlusion, _Emission* _AmbientColor.rgb, _Alpha);// *half4(color, 1);
+   // half4 fragColor = LightweightFragmentBlinnPhong(lightingInput, albedo, _Specular, _Smoothness, _Emission, 1);// *half4(color, 1);
    // fragColor = half4(albedo,1) + MainLightRealtimeShadow(TransformWorldToShadowCoord(lightingInput.positionWS));// *half4(color, 1);
     return fragColor ;
 //#endif

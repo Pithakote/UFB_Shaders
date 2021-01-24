@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToonURPMaterial
+  m_Name: ToonURPMaterialChairCousion
   m_Shader: {fileID: 4800000, guid: 419443d4493cfa7409e0656aca16b47f, type: 3}
   m_ShaderKeywords: GLOSS_METALLIC_COLOR GLOSS__METALLIC_COLOR _GLOSS_SPECULAR_SETUP
     _GLOSS__METALLIC _SPECULAR_COLOR _SPECULAR_SETUP
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 51606ee4576f20744be8696dfcbfe701, type: 3}
+        m_Texture: {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 5, y: 5}
         m_Offset: {x: 3.1, y: 0.62}
     m_Floats:
@@ -40,7 +40,7 @@ Material:
     - _Specular: 0.636
     - _Strength: 4.8
     m_Colors:
-    - _AmbientColor: {r: 0.9245283, g: 0.6172141, b: 0, a: 1}
+    - _AmbientColor: {r: 0.31764707, g: 0.3803922, b: 0.48235297, a: 1}
 --- !u!114 &4329965943301763912
 MonoBehaviour:
   m_ObjectHideFlags: 11

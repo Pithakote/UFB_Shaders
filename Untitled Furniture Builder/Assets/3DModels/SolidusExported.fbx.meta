@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Solidus_SolidusMat
-    second: {fileID: 2100000, guid: 578c669fa408fc2489beff01afd4dd5f, type: 2}
+    second: {fileID: 2100000, guid: a2838fae9bb74f4498a1527d30d0161a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
