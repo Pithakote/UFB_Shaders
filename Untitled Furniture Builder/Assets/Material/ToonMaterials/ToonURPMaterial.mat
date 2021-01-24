@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: ToonURPMaterial
   m_Shader: {fileID: 4800000, guid: 419443d4493cfa7409e0656aca16b47f, type: 3}
-  m_ShaderKeywords: GLOSS_METALLIC_COLOR GLOSS__METALLIC_COLOR _GLOSS_METALLIC _GLOSS__METALLIC
-    _SPECULAR_COLOR _SPECULAR_SETUP
+  m_ShaderKeywords: GLOSS_METALLIC_COLOR GLOSS__METALLIC_COLOR _GLOSS_SPECULAR_SETUP
+    _GLOSS__METALLIC _SPECULAR_COLOR _SPECULAR_SETUP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -30,7 +30,7 @@ Material:
     - _Brightness: -0.8
     - _Diffuse: 0
     - _Emission: 0
-    - _Gloss: 1
+    - _Gloss: 0
     - _Metallic: 1
     - _Occlusion: 0
     - _Overlay: 0
