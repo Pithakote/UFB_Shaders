@@ -2,13 +2,14 @@
 using UnityEditor;
 using System;
 
-public class ToonURPShaderGUI : ShaderGUI
+public class ToonURPShaderGUI : ShaderGUI//is being included in ToonURPShader.shader
 {
     public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] properties)
     {
         // render the default gui
         base.OnGUI(materialEditor, properties);
-
+        GUILayout.Space(12);
+        GUILayout.Label("Main Properties", EditorStyles.boldLabel);
 
         // foreach (MaterialProperty property in properties)
         //  materialEditor.ShaderProperty(property, property.displayName);
@@ -40,8 +41,8 @@ public class ToonURPShaderGUI : ShaderGUI
         //  MaterialProperty _diffuse = ShaderGUI.FindProperty("_Diffuse", properties);
 
 
-        MaterialProperty _specular = ShaderGUI.FindProperty("_Specular", properties);
-        MaterialProperty _metallic = ShaderGUI.FindProperty("_Metallic", properties);
+       
+       
 
         MaterialProperty _smoothness = ShaderGUI.FindProperty("_Smoothness", properties);
 
@@ -59,8 +60,8 @@ public class ToonURPShaderGUI : ShaderGUI
         materialEditor.ShaderProperty(_brightness, _brightness.displayName);
         materialEditor.ShaderProperty(_strength, _strength.displayName);
 
-        materialEditor.ShaderProperty(_specular, _specular.displayName);
-        materialEditor.ShaderProperty(_metallic, _metallic.displayName);
+      
+     
 
         materialEditor.ShaderProperty(_smoothness, _smoothness.displayName);
 
@@ -68,8 +69,16 @@ public class ToonURPShaderGUI : ShaderGUI
 
         materialEditor.ShaderProperty(_scaleAndNumberOfRings, _scaleAndNumberOfRings.displayName);
 
-       // if (_whichGloss.floatValue == 0.0f)
-          //  Debug.Log("first");
+        if (_whichGloss.floatValue == 0.0f)//for specular
+        {
+            MaterialProperty _specular = ShaderGUI.FindProperty("_Specular", properties);
+            materialEditor.ShaderProperty(_specular, _specular.displayName);
+        }
+        else if (_whichGloss.floatValue == 1.0f)//for metalic
+        {
+            MaterialProperty _metallic = ShaderGUI.FindProperty("_Metallic", properties);
+            materialEditor.ShaderProperty(_metallic, _metallic.displayName);
+        }
 
 
       //  materialEditor.ShaderProperty(_diffuse, _diffuse.displayName);

@@ -5,12 +5,12 @@ Shader "Custom/ToonURPShader"
     {
      // [KeywordEnum(SPECULAR_COLOR,METALLIC_COLOR)] GLOSS("Gloss mode subset", Float) = 0
        // [Toggle(_SPECULAR_SETUP)] _Gloss("Gloss?", Float) = 0
-        [KeywordEnum(SPECULAR_SETUP,METALLIC)] [HideInInspector] _Gloss("Glossiness Type", Float) = 1
+        [Space(10)] [Header(Glossiness Options)] [KeywordEnum(SPECULAR_SETUP,METALLIC)] [HideInInspector] _Gloss("Glossiness Type", Float) = 1
          
-        [Space(25)][Header(Surface Options)][HideInInspector]_BaseMap("Texture", 2D) = "white" {}
+        [Space(10)][Header(Surface Options)][HideInInspector]_BaseMap("Texture", 2D) = "white" {}
         [HideInInspector]_AmbientColor("AmbientColor", Color) = (1, 1, 1, 1)
              
-       [Space(25)][Header(Shader Settings)][HideInInspector] _Brightness("Brightness", Range(-1,1)) = -0.47
+       [Space(10)][Header(Shader Settings)][HideInInspector] _Brightness("Brightness", Range(-1,1)) = -0.47
         [HideInInspector]_Strength("Strength/Intensity", Range(0,50)) = 6.6
 
        [HideInInspector] _Diffuse("Diffuse", Range(0,50)) = 1
@@ -63,7 +63,7 @@ Shader "Custom/ToonURPShader"
            // #pragma shader_feature _ _GLOSS_SPECULAR_SETUP _GLOSS_METALLIC
            #pragma multi_compile _ _GLOSS_SPECULAR_SETUP _GLOSS_METALLIC
 
-#if _GLOSS_SPECULAR_SETUP
+#if _GLOSS_SPECULAR_SETUP//set from ToonURPShaderGUI
 #define _SPECULAR_SETUP
 #else
 #endif
