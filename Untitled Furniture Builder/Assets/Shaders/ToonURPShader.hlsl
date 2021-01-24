@@ -3,7 +3,7 @@
 #define TOONURPSHADER_INCLUDED
 
 //Include helper functions from URP
-#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+#include "UFBLighting.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 #include "NMGGeometryHelpers.hlsl"
 //#include "Packages/com.unity.render-pipelines.universal/Shaders/UnlitInput.hlsl" //included for declaring the variables in a separate file 

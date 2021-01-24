@@ -5,7 +5,7 @@ Shader "Custom/ToonURPShader"
     {
      // [KeywordEnum(SPECULAR_COLOR,METALLIC_COLOR)] GLOSS("Gloss mode subset", Float) = 0
        // [Toggle(_SPECULAR_SETUP)] _Gloss("Gloss?", Float) = 0
-        [Space(10)] [Header(Glossiness Options)] [KeywordEnum(SPECULAR_SETUP,METALLIC)] [HideInInspector] _Gloss("Glossiness Type", Float) = 1
+        [Space(10)] [Header(Glossiness Options)] [KeywordEnum(SPECULAR_SETUP,METALLIC)] [HideInInspector] _Gloss("Glossiness Type", Float) = 0
          
         [Space(10)][Header(Surface Options)][HideInInspector]_BaseMap("Texture", 2D) = "white" {}
         [HideInInspector]_AmbientColor("AmbientColor", Color) = (1, 1, 1, 1)
@@ -15,7 +15,7 @@ Shader "Custom/ToonURPShader"
 
        [HideInInspector] _Diffuse("Diffuse", Range(0,50)) = 1
          [HideInInspector]   _Specular("Specular", Range(0,1)) = 0
-       [HideInInspector] _Metallic("Metallic", Range(0,10)) = 1.06
+       [HideInInspector] _Metallic("Metallic", Range(0,1)) = 1.06
         [HideInInspector]_Smoothness("Smoothness", Range(0,1)) = 0.421
           [HideInInspector]  _Occlusion("Occlusion", Range(0,1)) = 0.138
         [HideInInspector]_Emission("Emission", Range(0,1)) = 0
@@ -62,12 +62,13 @@ Shader "Custom/ToonURPShader"
             #pragma shader_feature _ALPHAPREMULTIPLY_ON
             //#define shader_feature _ _SPECGLOSSMAP
            // #pragma shader_feature _ _GLOSS_SPECULAR_SETUP _GLOSS_METALLIC
-           #pragma shader_feature _ _GLOSS_SPECULAR_SETUP _GLOSS_METALLIC
+           #pragma multi_compile _ _GLOSS_SPECULAR_SETUP _GLOSS_METALLIC
 
 #if _GLOSS_SPECULAR_SETUP//set from ToonURPShaderGUI
 #define _SPECULAR_SETUP
-#else
+#elif _GLOSS_METALLIC
 #define _METALLIC
+
 #endif
             
 //#if (_Gloss==0)
@@ -78,8 +79,8 @@ Shader "Custom/ToonURPShader"
                   // #define _METALLIC
                   // #define _Gloss
                   // #pragma shader_feature _SPECULAR_SETUP
-                   #define _SPECULAR_SETUP
-                   #define _METALLIC_SETUP
+                   //#define _SPECULAR_SETUP
+                  // #define _METALLIC_SETUP
             
             #pragma shader_feature _GLOSSINESS_FROM_BASE_ALPHA
             #pragma shader_feature _NORMALMAP
