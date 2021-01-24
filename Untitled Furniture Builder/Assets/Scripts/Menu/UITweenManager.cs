@@ -19,10 +19,10 @@ public class UITweenManager : MonoBehaviour
     void Start()
     {
         homeMenu.DOAnchorPos(Vector2.zero, 0.50f);
-        playButton.DOAnchorPos(new Vector2(0, 61.3f), 0.50f);
-        controlsButton.DOAnchorPos(new Vector2(0, -4.5f), 0.70f);
-        settingsButton.DOAnchorPos(new Vector2(0, -69.9f), 0.90f);
-        quitButton.DOAnchorPos(new Vector2(0, -136.8f), 1.10f);
+        playButton.DOAnchorPos(new Vector2(0, 61.3f), 0.50f, true);
+        controlsButton.DOAnchorPos(new Vector2(0, -4.5f), 0.70f, true);
+        settingsButton.DOAnchorPos(new Vector2(0, -69.9f), 0.90f, true);
+        quitButton.DOAnchorPos(new Vector2(0, -136.8f), 1.10f, true);
     }
     // cog (-400, 86) to (-225, 86)
     // slider (400, 51.4) to (0, 51.4)
@@ -54,7 +54,7 @@ public class UITweenManager : MonoBehaviour
 
 
         controlsMenu.DOAnchorPos(new Vector2(415, 0), 0.25f);
-        controlsText.DOAnchorPos(new Vector2(-2200f, -45.7f), 0.50f);
+        controlsText.DOAnchorPos(new Vector2(800f, -45.7f), 0.50f);
 
     }
     public void OpenSettings()
@@ -69,14 +69,14 @@ public class UITweenManager : MonoBehaviour
         // open settings menu
         settingsMenu.DOAnchorPos(new Vector2(0, 0), 0.25f).SetDelay(0.15f);
         // move each part in 
-        settingsText.DOAnchorPos(new Vector2(0, -45.7f), 0.50f);
-        cog1.DOAnchorPos(new Vector2(27.4f, -52.8f), 0.80f);
-        cog2.DOAnchorPos(new Vector2(61, -27.8f), 0.80f);       
-        slider.DOAnchorPos(new Vector2(0, 51.4f), 0.80f);
-        toggle1.DOAnchorPos(new Vector2(-175, -22.8f), 0.80f);
-        toggle2.DOAnchorPos(new Vector2(-114.2f, -22.8f), 0.80f);
-        dropDown.DOAnchorPos(new Vector2(129, -26.4f), 0.80f);
-        settingsBackButton.DOAnchorPos(new Vector2(0, 30.4f), 0.80f);
+        settingsText.DOAnchorPos(new Vector2(0, -45.7f), 0.50f, true);
+        cog1.DOAnchorPos(new Vector2(27.4f, -52.8f), 0.80f, true);
+        cog2.DOAnchorPos(new Vector2(61, -27.8f), 0.80f, true);       
+        slider.DOAnchorPos(new Vector2(0, 51.4f), 0.80f, true);
+        toggle1.DOAnchorPos(new Vector2(-175, -22.8f), 0.80f, true);
+        toggle2.DOAnchorPos(new Vector2(-114.2f, -22.8f), 0.80f, true);
+        dropDown.DOAnchorPos(new Vector2(129, -26.4f), 0.80f, true);
+        settingsBackButton.DOAnchorPos(new Vector2(0, 30.4f), 0.80f, true);
     }
     public void CloseSettings()
     {
