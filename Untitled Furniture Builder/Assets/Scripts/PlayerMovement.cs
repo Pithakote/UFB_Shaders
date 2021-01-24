@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         controller = GetComponent<CharacterController>();
-        controller.height = 3.5f;
+        controller.height = 1.5f;
     }
     void Update()
     {
