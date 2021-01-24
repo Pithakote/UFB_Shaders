@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class UITweenManager : MonoBehaviour
 {
@@ -23,6 +24,14 @@ public class UITweenManager : MonoBehaviour
         controlsButton.DOAnchorPos(new Vector2(0, -4.5f), 0.70f, true);
         settingsButton.DOAnchorPos(new Vector2(0, -69.9f), 0.90f, true);
         quitButton.DOAnchorPos(new Vector2(0, -136.8f), 1.10f, true);
+
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            cog1.DOLocalRotate(new Vector3(0.0f, 0.0f, 90f), 1.0f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear).SetRelative();
+            cog2.DOLocalRotate(new Vector3(0.0f, 0.0f, -90f), 1.0f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear).SetRelative();
+        }
+        else
+            return;
     }
     // cog (-400, 86) to (-225, 86)
     // slider (400, 51.4) to (0, 51.4)
@@ -30,6 +39,7 @@ public class UITweenManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       // cog1.DORotate(new Vector3(0, 360, 0), 2f).SetLoops(-1, LoopType.Incremental);
         
     }
 
