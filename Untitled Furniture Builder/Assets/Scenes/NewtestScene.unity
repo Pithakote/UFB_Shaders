@@ -332,6 +332,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7887587906704532359, guid: 272ffa3e258b8a949bef5facf0bdd8a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9157943139577863650, guid: 272ffa3e258b8a949bef5facf0bdd8a4,
         type: 3}
       propertyPath: m_Layer
@@ -1504,13 +1509,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032040044}
-  m_LocalRotation: {x: 0.44669628, y: -0.2292763, z: -0.015974727, w: 0.8646616}
+  m_LocalRotation: {x: -0.44234705, y: 0.38027143, z: -0.06419999, w: -0.8096919}
   m_LocalPosition: {x: -2.34, y: 13.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 49.921, y: -759.642, z: -21.165}
+  m_LocalEulerAnglesHint: {x: 49.921, y: -1140.254, z: -21.165}
 --- !u!114 &2032040047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1609,7 +1614,7 @@ PrefabInstance:
     - target: {fileID: 243041194690276544, guid: 96802532905852844b2fc81cfebdc0bd,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 533193074659131909, guid: 96802532905852844b2fc81cfebdc0bd,
         type: 3}
