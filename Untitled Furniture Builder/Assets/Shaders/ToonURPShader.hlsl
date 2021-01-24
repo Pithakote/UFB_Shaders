@@ -4,6 +4,7 @@
 
 //Include helper functions from URP
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 #include "NMGGeometryHelpers.hlsl"
 //#include "Packages/com.unity.render-pipelines.universal/Shaders/UnlitInput.hlsl" //included for declaring the variables in a separate file 
 #include "ToonURPProperties.hlsl" //included for declaring the variables in a separate file 
@@ -91,8 +92,8 @@ half4 Fragment(Varyings input) : SV_Target
 
     half2 uv = input.uv;
     half4 texColor = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, uv);
-    half3 color = texColor.rgb * _BaseColor.rgb;
-    half alpha = texColor.a * _BaseColor.a;
+    half3 color = texColor.rgb * _AmbientColor.rgb;
+    half alpha = texColor.a * _AmbientColor.a;
    
     // Initialize some information for the lighting function
     InputData lightingInput = (InputData)0;
@@ -102,14 +103,20 @@ half4 Fragment(Varyings input) : SV_Target
     lightingInput.viewDirectionWS = GetViewDirectionFromPosition(input.positionWS);
     lightingInput.shadowCoord = CalculateShadowCoord(input.positionWS, input.positionCS);
 
-    float3 albedo = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, uv).rgb;
+    float3 albedo = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, uv).rgb 
+                    * half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w)
+                    *_AmbientColor.rgb;
     albedo *= Toon(input.normalWS, _MainLightPosition.xyz) * _Strength + _Brightness;
 
                 //return  half4(color, alpha);
                 //return  half4(albedo, 1.0);
                // return UniversalFragmentBlinnPhong(lightingInput, albedo,1,0,0,1);
-    half4 fragColor = LightweightFragmentBlinnPhong(lightingInput, albedo, 1, 0, 0, 1);// *half4(color, 1);
-    return fragColor;
+    //half4 fragColor = UniversalFragmentBlinnPhong(lightingInput, albedo, _Specular, _Smoothness,  _Emission, 1);// *half4(color, 1);
+   // return UniversalFragmentPBR(inputData, albedo, metallic, specular, smoothness, occlusion, emission, alpha);
+    half4 fragColor = UFBUniversalFragmentPBR(lightingInput, albedo, _Metallic, _Specular, _Smoothness, _Occlusion, _Emission, _Alpha);// *half4(color, 1);
+   // half4 fragColor = LightweightFragmentBlinnPhong(lightingInput, albedo, _Glossiness, _Smoothness, _Emission, 1);// *half4(color, 1);
+   // fragColor = half4(albedo,1) + MainLightRealtimeShadow(TransformWorldToShadowCoord(lightingInput.positionWS));// *half4(color, 1);
+    return fragColor ;
 //#endif
 }
 #endif

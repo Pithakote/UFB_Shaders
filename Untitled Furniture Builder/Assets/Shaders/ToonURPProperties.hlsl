@@ -5,13 +5,20 @@
 
 CBUFFER_START(UnityPerMaterial)
 float4 _BaseMap_ST;
-half4 _BaseColor;
+half4 _AmbientColor;
 half _Cutoff;
-half _Glossiness;
+float _Specular;
+//half _Glossiness;
 half _Metallic;
 float _Brightness;
 float _Strength;
+float _Diffuse;
+
+float _Smoothness;
+float _Occlusion;
+float _Emission;
 float _ScaleAndNumberOfRings;
+float _Alpha;
 CBUFFER_END
 
 #endif

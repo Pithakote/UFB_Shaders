@@ -9,7 +9,8 @@ Shader "Unlit/ToonShader"
 
     _Brightness("Brightness", Range(0,1)) = 0.3
     _Strength("Strength", Range(0,1)) = 0.3
-    }
+
+              }
     SubShader
     {
         Tags { "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" "Queue" = "Geometry" }
