@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 14577341}
   - component: {fileID: 14577343}
   - component: {fileID: 14577342}
-  - component: {fileID: 14577344}
   m_Layer: 5
   m_Name: cog2
   m_TagString: Untagged
@@ -196,18 +195,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14577340}
   m_CullTransparentMesh: 0
---- !u!114 &14577344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14577340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91703174ef73e404388461c558234802, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &35699183
 GameObject:
   m_ObjectHideFlags: 0
@@ -3811,6 +3798,7 @@ GameObject:
   - component: {fileID: 1206552438}
   - component: {fileID: 1206552437}
   - component: {fileID: 1206552436}
+  - component: {fileID: 1206552441}
   m_Layer: 5
   m_Name: Back_button
   m_TagString: Untagged
@@ -4013,6 +4001,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206552434}
   m_CullTransparentMesh: 0
+--- !u!114 &1206552441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206552434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ec008b9a804c444977c33ca90f20e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentUI: {fileID: 1701317460}
+  _nextUI: {fileID: 438207909}
+  _currentUIEndPos: {x: 415, y: 0}
+  _nextUIEndPos: {x: 0, y: 0}
+  _duration: 0.25
+  children: []
 --- !u!1 &1281560958
 GameObject:
   m_ObjectHideFlags: 0
@@ -4027,6 +4033,7 @@ GameObject:
   - component: {fileID: 1281560961}
   - component: {fileID: 1281560960}
   - component: {fileID: 1281560964}
+  - component: {fileID: 1281560965}
   m_Layer: 5
   m_Name: Controls_button
   m_TagString: Untagged
@@ -4138,17 +4145,6 @@ MonoBehaviour:
           m_StringArgument: controls_open
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 526011799}
-        m_MethodName: OpenControls
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1281560962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4229,6 +4225,24 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1281560965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281560958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ec008b9a804c444977c33ca90f20e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentUI: {fileID: 438207909}
+  _nextUI: {fileID: 1701317460}
+  _currentUIEndPos: {x: -800, y: 0}
+  _nextUIEndPos: {x: 0, y: 0}
+  _duration: 0.25
+  children: []
 --- !u!1 &1290253756
 GameObject:
   m_ObjectHideFlags: 0
@@ -6751,7 +6765,6 @@ GameObject:
   - component: {fileID: 1920193035}
   - component: {fileID: 1920193038}
   - component: {fileID: 1920193037}
-  - component: {fileID: 1920193036}
   m_Layer: 5
   m_Name: cog1
   m_TagString: Untagged
@@ -6778,18 +6791,6 @@ RectTransform:
   m_AnchoredPosition: {x: -177.59996, y: -52.80005}
   m_SizeDelta: {x: 48.653168, y: 48.653168}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1920193036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1920193034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91703174ef73e404388461c558234802, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1920193037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6954,6 +6955,7 @@ GameObject:
   - component: {fileID: 1951047302}
   - component: {fileID: 1951047301}
   - component: {fileID: 1951047305}
+  - component: {fileID: 1951047306}
   m_Layer: 5
   m_Name: Settings_button
   m_TagString: Untagged
@@ -7156,6 +7158,24 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1951047306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951047299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ec008b9a804c444977c33ca90f20e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentUI: {fileID: 438207909}
+  _nextUI: {fileID: 1976090000}
+  _currentUIEndPos: {x: -800, y: 0}
+  _nextUIEndPos: {x: 0, y: 0}
+  _duration: 0.25
+  children: []
 --- !u!1 &1958776781
 GameObject:
   m_ObjectHideFlags: 0
@@ -7721,6 +7741,7 @@ GameObject:
   - component: {fileID: 2145379342}
   - component: {fileID: 2145379341}
   - component: {fileID: 2145379345}
+  - component: {fileID: 2145379346}
   m_Layer: 5
   m_Name: Back_button
   m_TagString: Untagged
@@ -7832,17 +7853,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 526011799}
-        m_MethodName: CloseSettings
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &2145379343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7923,3 +7933,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2145379346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145379339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ec008b9a804c444977c33ca90f20e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentUI: {fileID: 1976090000}
+  _nextUI: {fileID: 438207909}
+  _currentUIEndPos: {x: 0, y: -415}
+  _nextUIEndPos: {x: 0, y: 0}
+  _duration: 0.25
+  children: []

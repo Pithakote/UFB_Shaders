@@ -17,6 +17,10 @@ public class UITweenManager : MonoBehaviour
     public RectTransform lvl1Button, lvl2Button, lvl3Button, lvl4Button, lvl5Button;
     // controls panel
     public RectTransform controlsText, controlsBackButton;
+
+    IButtonInteractable buttonInteraction;
+
+    
     void Start()
     {
         homeMenu.DOAnchorPos(Vector2.zero, 0.50f);
@@ -25,46 +29,54 @@ public class UITweenManager : MonoBehaviour
         settingsButton.DOAnchorPos(new Vector2(0, -69.9f), 0.90f, true);
         quitButton.DOAnchorPos(new Vector2(0, -136.8f), 1.10f, true);
 
-        if (SceneManager.GetActiveScene().name == "MainMenu")
-        {
-            cog1.DOLocalRotate(new Vector3(0.0f, 0.0f, 90f), 1.0f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear).SetRelative();
-            cog2.DOLocalRotate(new Vector3(0.0f, 0.0f, -90f), 1.0f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear).SetRelative();
-        }
-        else
-            return;
+        cogAnim();
     }
-    // cog (-400, 86) to (-225, 86)
-    // slider (400, 51.4) to (0, 51.4)
 
-    // Update is called once per frame
-    void Update()
+    void cogAnim()
     {
-       // cog1.DORotate(new Vector3(0, 360, 0), 2f).SetLoops(-1, LoopType.Incremental);
-        
+        UICogBehaviour cogBehaviour = new UICogBehaviour(cog1, cog2, new Vector3(0, 0, 90f), 1.0f);
+
+        cogBehaviour.ButtonBehaviour();
+    }
+
+    public void buttonAddListener(Button button) 
+    {
+        button.onClick.AddListener(delegate { OpenControls(); });
+    }
+  
+    public void ButtonFunction()
+    {
+        buttonInteraction.ButtonBehaviour();
     }
 
     public void OpenControls()
     {
-        homeMenu.DOAnchorPos(new Vector2(-800, 0), 0.25f);
-        playButton.DOAnchorPos(new Vector2(-168, 61.3f), 0f);
-        controlsButton.DOAnchorPos(new Vector2(-168, -4.5f), 0f);
-        settingsButton.DOAnchorPos(new Vector2(-168, -69.9f), 0f);
-        quitButton.DOAnchorPos(new Vector2(-168, -136.8f), 0f);
-
-        controlsMenu.DOAnchorPos(new Vector2(0, 0), 0.25f).SetDelay(0.15f);
-        controlsText.DOAnchorPos(new Vector2(0, -45.7f), 0.50f);
+        UINextPanelBehaviour UImove = new UINextPanelBehaviour(homeMenu, controlsMenu, new Vector2(-800, 0), new Vector2(0, 0), 0.25f);
+        buttonInteraction = UImove;
+        ButtonFunction();
+        //homeMenu.DOAnchorPos(new Vector2(-800, 0), 0.25f);
+        //playButton.DOAnchorPos(new Vector2(-168, 61.3f), 0f);
+        //controlsButton.DOAnchorPos(new Vector2(-168, -4.5f), 0f);
+        //settingsButton.DOAnchorPos(new Vector2(-168, -69.9f), 0f);
+        //quitButton.DOAnchorPos(new Vector2(-168, -136.8f), 0f);
+        //
+        //controlsMenu.DOAnchorPos(new Vector2(0, 0), 0.25f).SetDelay(0.15f);
+        //controlsText.DOAnchorPos(new Vector2(0, -45.7f), 0.50f);
     }
     public void CloseControls()
     {
-        homeMenu.DOAnchorPos(new Vector2(0, 0), 0.25f);
-        playButton.DOAnchorPos(new Vector2(0, 61.3f), 0.20f);
-        controlsButton.DOAnchorPos(new Vector2(0, -4.5f), 0.40f);
-        settingsButton.DOAnchorPos(new Vector2(0, -69.9f), 0.60f);
-        quitButton.DOAnchorPos(new Vector2(0, -136.8f), 0.80f);
-
-
-        controlsMenu.DOAnchorPos(new Vector2(415, 0), 0.25f);
-        controlsText.DOAnchorPos(new Vector2(800f, -45.7f), 0.50f);
+        UINextPanelBehaviour UImove1 = new UINextPanelBehaviour(controlsMenu, homeMenu, new Vector2(415, 0), new Vector2(0, 0), 0.25f);
+        buttonInteraction = UImove1;
+        ButtonFunction();
+        //homeMenu.DOAnchorPos(new Vector2(0, 0), 0.25f);
+        //playButton.DOAnchorPos(new Vector2(0, 61.3f), 0.20f);
+        //controlsButton.DOAnchorPos(new Vector2(0, -4.5f), 0.40f);
+        //settingsButton.DOAnchorPos(new Vector2(0, -69.9f), 0.60f);
+        //quitButton.DOAnchorPos(new Vector2(0, -136.8f), 0.80f);
+        //
+        //
+        //controlsMenu.DOAnchorPos(new Vector2(415, 0), 0.25f);
+        //controlsText.DOAnchorPos(new Vector2(800f, -45.7f), 0.50f);
 
     }
     public void OpenSettings()
