@@ -36,11 +36,11 @@ Material:
     - _Overlay: 0
     - _Prop2: 1.05
     - _ScaleAndNumberOfRings: 0.34
-    - _Smoothness: 0.888
-    - _Specular: 0.636
-    - _Strength: 4.8
+    - _Smoothness: 0.711
+    - _Specular: 0.731
+    - _Strength: 12.7
     m_Colors:
-    - _AmbientColor: {r: 0.29411766, g: 0.35686275, b: 0.46274513, a: 1}
+    - _AmbientColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &4329965943301763912
 MonoBehaviour:
   m_ObjectHideFlags: 11

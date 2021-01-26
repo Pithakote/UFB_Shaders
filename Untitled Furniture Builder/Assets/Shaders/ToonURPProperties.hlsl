@@ -19,6 +19,14 @@ float _Occlusion;
 float _Emission;
 float _ScaleAndNumberOfRings;
 float _Alpha;
+
+float _LightSpecCutOff;
+float _LightSpecCutOffSmoothness;
+float _ViewSpecCutOff;
+half4 _SpecularColor;
+half4 _FresnelInnerRimPower;
+half4 _FresnelOuterRimSmoothness;
+half4 _FresnelOuterRimColor;
 CBUFFER_END
 
 #endif

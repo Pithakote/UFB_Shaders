@@ -305,7 +305,8 @@ inline void UFBInitializeBRDFData(half3 albedo, half metallic, half3 specular, h
 
 #ifdef _ALPHAPREMULTIPLY_ON
     outBRDFData.diffuse *= alpha;
-    alpha = alpha * oneMinusReflectivity + reflectivity;
+   alpha = alpha * oneMinusReflectivity + reflectivity;
+    //alpha = 1.0f;
 #endif
 }
 
@@ -528,6 +529,7 @@ half3 LightingSpecular(half3 lightColor, half3 lightDir, half3 normal, half3 vie
     half NdotH = saturate(dot(normal, halfVec));
     half modifier = pow(NdotH, smoothness);
     half3 specularReflection = specular.rgb * modifier;
+    
     return lightColor * specularReflection;
 }
 
