@@ -31,7 +31,8 @@ Shader "Custom/ToonURPShaderTransparent"
             _FresnelOuterRimSmoothness("FresnelOuterRimSmoothness", Range(0,1)) = 0.5
             
             // _AmbientLight("AmbientLight",Float) = half3(unity_SHAr.w,unity_SHAg.w,unity_SHAb.w)
-           
+            _OutlineThickness("Outline Thickness", Float) = 1.07
+        _OutlineColor("Outline Color", Color) = (0,0,0,255)
     }
        // CustomEditor "ToonURPShaderGUI"
         SubShader
@@ -43,12 +44,34 @@ Shader "Custom/ToonURPShaderTransparent"
                  "Queue" = "Transparent"
             }
             // LOD 100
-            LOD 100
+          
+             Pass//outline pass
+           {
+            Name "Outlines"
+            Cull Front
             ZWrite Off
-                Blend One OneMinusSrcAlpha
+           // ZTest Always
+            Blend One OneMinusSrcAlpha
+            //cull front faces
+          //Cull Back
+
+           HLSLPROGRAM
+   #pragma prefer_hlslcc gles
+     #pragma exclude_renderers d3d11_9x
+
+   #pragma vertex Vertex
+   #pragma fragment Fragment
+
+   #include "Outlines.hlsl"
+           ENDHLSL
+        }
+            
+
             Pass//main object render
             {
-
+                  LOD 100
+            ZWrite Off
+                Blend One OneMinusSrcAlpha
                      Name "ForwardLit"
                      Tags { "LightMode" = "UniversalForward" }
                 Lighting On
@@ -111,7 +134,8 @@ Shader "Custom/ToonURPShaderTransparent"
 
             //#pragma multi_compile _ _MIXED_LIGHTING_SUBTRACTIVE
 
-
+               #define _ADDITIONAL_LIGHTS;
+            #define _ADDITIONAL_LIGHTS_VERTEX;
             // Unity defined keywords
            // #pragma multi_compile _DIRLIGHTMAP_COMBINED
           //  #pragma multi_compile _LIGHTMAP_ON
@@ -129,7 +153,8 @@ Shader "Custom/ToonURPShaderTransparent"
 
                 ENDHLSL
             }
-            
+             
+             
           
         }
         CustomEditor "ToonURPShaderTransparentGUI"

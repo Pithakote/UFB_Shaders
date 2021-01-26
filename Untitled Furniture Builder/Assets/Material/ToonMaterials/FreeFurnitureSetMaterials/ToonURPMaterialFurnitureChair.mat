@@ -7,14 +7,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToonSpecularLit
+  m_Name: ToonURPMaterialFurnitureChair
   m_Shader: {fileID: 4800000, guid: 419443d4493cfa7409e0656aca16b47f, type: 3}
   m_ShaderKeywords: GLOSS_METALLIC_COLOR GLOSS__METALLIC_COLOR _GLOSS_SPECULAR_SETUP
     _GLOSS__METALLIC _SPECULAR_COLOR _SPECULAR_SETUP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -33,15 +33,15 @@ Material:
     - _Gloss: 0
     - _Metallic: 1
     - _Occlusion: 0
-    - _OutlineThickness: 1.06
+    - _OutlineThickness: 1.07
     - _Overlay: 0
     - _Prop2: 1.05
-    - _ScaleAndNumberOfRings: 0.395
-    - _Smoothness: 0.881
-    - _Specular: 0.86
-    - _Strength: 50
+    - _ScaleAndNumberOfRings: 0.339
+    - _Smoothness: 0.313
+    - _Specular: 0.789
+    - _Strength: 13
     m_Colors:
-    - _AmbientColor: {r: 0.9245283, g: 0.6172141, b: 0, a: 1}
+    - _AmbientColor: {r: 0.8113208, g: 0.6369954, b: 0.11863652, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &4329965943301763912
 MonoBehaviour:

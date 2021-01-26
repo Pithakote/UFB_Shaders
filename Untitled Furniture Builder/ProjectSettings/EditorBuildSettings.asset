@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/InstructionsTesting.unity
     guid: 1fc8cdf225d9d64479e74ec1e0233654
   - enabled: 1
-    path: Assets/Scenes/ShaderShowScene.unity
+    path: Assets/Scenes/ShaderShowScene/ShaderShowScene.unity
     guid: e75bd56597d9b9641b6f80aeb49278d8
   m_configObjects: {}

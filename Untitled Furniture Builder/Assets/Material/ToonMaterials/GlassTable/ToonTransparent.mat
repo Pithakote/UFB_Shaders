@@ -7,20 +7,20 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToonTransparentGlass1
+  m_Name: ToonTransparent
   m_Shader: {fileID: 4800000, guid: 32aa4c42b722c784a8555bb66edac524, type: 3}
   m_ShaderKeywords: _GLOSS_SPECULAR_SETUP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -48,10 +48,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Alpha: 0.421
+    - _Alpha: 0
     - _AlphaClip: 0
     - _Blend: 0
-    - _Brightness: -0.74
+    - _Brightness: -1
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
@@ -59,15 +59,18 @@ Material:
     - _DstBlend: 0
     - _Emission: 0
     - _EnvironmentReflections: 1
+    - _FresnelInnerRimPower: 6.49
+    - _FresnelOuterRimSmoothness: 0.519
     - _Gloss: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _LightSpecCutOff: 0.216
+    - _LightSpecCutOff: 0.378
     - _LightSpecCutOffSmoothness: 0
     - _Metallic: 0.964
     - _Occlusion: 0.138
     - _OcclusionStrength: 1
+    - _OutlineThickness: 1.08
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _ScaleAndNumberOfRings: 0.1
@@ -76,18 +79,20 @@ Material:
     - _Specular: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Strength: 0.4
+    - _Strength: 0
     - _Surface: 0
-    - _ViewSpecCutOff: 0.616
+    - _ViewSpecCutOff: 0.486
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _AmbientColor: {r: 1, g: 0.10849059, b: 0.10849059, a: 1}
+    - _AmbientColor: {r: 0.6132076, g: 0.1706568, b: 0.1706568, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FresnelOuterRimColor: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 0}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0.7019608}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SpecularColor: {r: 0.7985493, g: 0.9150943, b: 0.9119865, a: 0.6392157}
+    - _SpecularColor: {r: 0.31038606, g: 0.7075471, b: 0.6708862, a: 0}
 --- !u!114 &5218997568424806776
 MonoBehaviour:
   m_ObjectHideFlags: 11

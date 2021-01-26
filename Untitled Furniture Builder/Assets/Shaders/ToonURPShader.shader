@@ -24,8 +24,8 @@ Shader "Custom/ToonURPShader"
 
 
 
-        _OutlineThickness("Thiskness", Float) = 1
-        _OutlineColor("Color", Color) = (1,1,1,1)
+        _OutlineThickness("Outline Thickness", Float) = 1.07
+        _OutlineColor("Outline Color", Color) = (0,0,0,255)
 
             // _AmbientLight("AmbientLight",Float) = half3(unity_SHAr.w,unity_SHAg.w,unity_SHAb.w)
            
@@ -37,16 +37,23 @@ Shader "Custom/ToonURPShader"
             {
                 "RenderType" = "Opaque"
                 "RenderPipeline" = "UniversalPipeline"
+            //"Queue" = "Geometry"
                 // "Queue" = "Geometry"
             }
             // LOD 100
                    LOD 100
+            
             Pass//main object render
             {
 
                      Name "ForwardLit"
-                     Tags { "LightMode" = "UniversalForward" }
+                     Tags {   "LightMode" = "UniversalForward" }
+             //ZWrite Off
+            // ZWrite On
+           // ZTest LEqual
                 Lighting On
+            //ZWrite Off
+           // ZTest Always
                     //Tags { "LightMode" = "SRPDefaultUnlit" }
                    // Cull Back
                   // Use same blending / depth states as Standard shader
@@ -132,9 +139,9 @@ Shader "Custom/ToonURPShader"
                 Name "ShadowCaster"
                 Tags { "Queue" = "Transparent"
                     "LightMode" = "ShadowCaster" }
-               Blend One One
-                ZWrite On
-               ZTest LEqual
+               //Blend One One
+               //ZWrite On
+               //ZTest LEqual
                 HLSLPROGRAM
                 // Signal this shader requires geometry programs
                 #pragma vertex Vertex
@@ -173,11 +180,11 @@ Shader "Custom/ToonURPShader"
                 ENDHLSL
            }
 
-               Pass
+               Pass//outline pass
            {
             Name "Outlines"
             Cull Front
-            ZWrite Off
+           // ZWrite Off
             Blend One OneMinusSrcAlpha
                //cull front faces
              //Cull Back
