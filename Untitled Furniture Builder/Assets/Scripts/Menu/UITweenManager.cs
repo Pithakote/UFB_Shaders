@@ -51,79 +51,79 @@ public class UITweenManager : MonoBehaviour
 
     public void OpenControls()
     {
-        //UINextPanelBehaviour UImove = new UINextPanelBehaviour(homeMenu, controlsMenu, new Vector2(-800, 0), new Vector2(0, 0), 0.25f);
-        //buttonInteraction = UImove;
-        //ButtonFunction();
-        //homeMenu.DOAnchorPos(new Vector2(-800, 0), 0.25f);
-        //playButton.DOAnchorPos(new Vector2(-168, 61.3f), 0f);
-        //controlsButton.DOAnchorPos(new Vector2(-168, -4.5f), 0f);
-        //settingsButton.DOAnchorPos(new Vector2(-168, -69.9f), 0f);
-        //quitButton.DOAnchorPos(new Vector2(-168, -136.8f), 0f);
-        //
-        //controlsMenu.DOAnchorPos(new Vector2(0, 0), 0.25f).SetDelay(0.15f);
-        //controlsText.DOAnchorPos(new Vector2(0, -45.7f), 0.50f);
+        UINextPanelBehaviour UImove = new UINextPanelBehaviour(homeMenu, controlsMenu, new Vector2(-800, 0), new Vector2(0, 0), 0.25f);
+        buttonInteraction = UImove;
+        ButtonFunction();
+        homeMenu.DOAnchorPos(new Vector2(-800, 0), 0.25f);
+        playButton.DOAnchorPos(new Vector2(-168, 61.3f), 0f);
+        controlsButton.DOAnchorPos(new Vector2(-168, -4.5f), 0f);
+        settingsButton.DOAnchorPos(new Vector2(-168, -69.9f), 0f);
+        quitButton.DOAnchorPos(new Vector2(-168, -136.8f), 0f);
+        
+        controlsMenu.DOAnchorPos(new Vector2(0, 0), 0.25f).SetDelay(0.15f);
+        controlsText.DOAnchorPos(new Vector2(0, -45.7f), 0.50f);
     }
     public void CloseControls()
     {
-        //UINextPanelBehaviour UImove = new UINextPanelBehaviour(controlsMenu, homeMenu, new Vector2(415, 0), new Vector2(0, 0), 0.25f);
-        //buttonInteraction = UImove;
-        //ButtonFunction();
-        //homeMenu.DOAnchorPos(new Vector2(0, 0), 0.25f);
-        //playButton.DOAnchorPos(new Vector2(0, 61.3f), 0.20f);
-        //controlsButton.DOAnchorPos(new Vector2(0, -4.5f), 0.40f);
-        //settingsButton.DOAnchorPos(new Vector2(0, -69.9f), 0.60f);
-        //quitButton.DOAnchorPos(new Vector2(0, -136.8f), 0.80f);
-        //
-        //
-        //controlsMenu.DOAnchorPos(new Vector2(415, 0), 0.25f);
-        //controlsText.DOAnchorPos(new Vector2(800f, -45.7f), 0.50f);
+        UINextPanelBehaviour UImove = new UINextPanelBehaviour(controlsMenu, homeMenu, new Vector2(415, 0), new Vector2(0, 0), 0.25f);
+        buttonInteraction = UImove;
+        ButtonFunction();
+        homeMenu.DOAnchorPos(new Vector2(0, 0), 0.25f);
+        playButton.DOAnchorPos(new Vector2(0, 61.3f), 0.20f);
+        controlsButton.DOAnchorPos(new Vector2(0, -4.5f), 0.40f);
+        settingsButton.DOAnchorPos(new Vector2(0, -69.9f), 0.60f);
+        quitButton.DOAnchorPos(new Vector2(0, -136.8f), 0.80f);
+        
+        
+        controlsMenu.DOAnchorPos(new Vector2(415, 0), 0.25f);
+        controlsText.DOAnchorPos(new Vector2(800f, -45.7f), 0.50f);
 
     }
     public void OpenSettings()
     {
-       //UINextPanelBehaviour UImove = new UINextPanelBehaviour(homeMenu, settingsMenu, new Vector2(-800, 0), new Vector2(0, 0), 0.25f);
-       //buttonInteraction = UImove;
-       //ButtonFunction();
-        //// hide home menu
-        //homeMenu.DOAnchorPos(new Vector2(-800, 0), 0.25f);
-        //playButton.DOAnchorPos(new Vector2(-168, 61.3f), 0.50f);
-        //controlsButton.DOAnchorPos(new Vector2(-168, -4.5f), 0.70f);
-        //settingsButton.DOAnchorPos(new Vector2(-168, -69.9f), 0.90f);
-        //quitButton.DOAnchorPos(new Vector2(-168, -136.8f), 1.10f);
-        //
-        //// open settings menu
-        //settingsMenu.DOAnchorPos(new Vector2(0, 0), 0.25f).SetDelay(0.15f);
-        //// move each part in 
-        //settingsText.DOAnchorPos(new Vector2(0, -45.7f), 0.50f, true);
-        //cog1.DOAnchorPos(new Vector2(27.4f, -52.8f), 0.80f, true);
-        //cog2.DOAnchorPos(new Vector2(61, -27.8f), 0.80f, true);       
-        //slider.DOAnchorPos(new Vector2(0, 51.4f), 0.80f, true);
-        //toggle1.DOAnchorPos(new Vector2(-175, -22.8f), 0.80f, true);
-        //toggle2.DOAnchorPos(new Vector2(-114.2f, -22.8f), 0.80f, true);
-        //dropDown.DOAnchorPos(new Vector2(129, -26.4f), 0.80f, true);
-        //settingsBackButton.DOAnchorPos(new Vector2(0, 30.4f), 0.80f, true);
+        UINextPanelBehaviour UImove = new UINextPanelBehaviour(homeMenu, settingsMenu, new Vector2(-800, 0), new Vector2(0, 0), 0.25f);
+        buttonInteraction = UImove;
+        ButtonFunction();
+        // hide home menu
+        homeMenu.DOAnchorPos(new Vector2(-800, 0), 0.25f);
+        playButton.DOAnchorPos(new Vector2(-168, 61.3f), 0.50f);
+        controlsButton.DOAnchorPos(new Vector2(-168, -4.5f), 0.70f);
+        settingsButton.DOAnchorPos(new Vector2(-168, -69.9f), 0.90f);
+        quitButton.DOAnchorPos(new Vector2(-168, -136.8f), 1.10f);
+        
+        // open settings menu
+        settingsMenu.DOAnchorPos(new Vector2(0, 0), 0.25f).SetDelay(0.15f);
+        // move each part in 
+        settingsText.DOAnchorPos(new Vector2(0, -45.7f), 0.50f, true);
+        cog1.DOAnchorPos(new Vector2(27.4f, -52.8f), 0.80f, true);
+        cog2.DOAnchorPos(new Vector2(61, -27.8f), 0.80f, true);       
+        slider.DOAnchorPos(new Vector2(0, 51.4f), 0.80f, true);
+        toggle1.DOAnchorPos(new Vector2(-175, -22.8f), 0.80f, true);
+        toggle2.DOAnchorPos(new Vector2(-114.2f, -22.8f), 0.80f, true);
+        dropDown.DOAnchorPos(new Vector2(129, -26.4f), 0.80f, true);
+        settingsBackButton.DOAnchorPos(new Vector2(0, 30.4f), 0.80f, true);
     }
     public void CloseSettings()
     {
-        //UINextPanelBehaviour UImove = new UINextPanelBehaviour(settingsMenu, homeMenu, new Vector2(0, -415), new Vector2(0, 0), 0.25f);
-        //buttonInteraction = UImove;
-        //ButtonFunction();
-        //homeMenu.DOAnchorPos(new Vector2(0, 0), 0.25f);
-        //playButton.DOAnchorPos(new Vector2(0, 61.3f), 0.50f);
-        //controlsButton.DOAnchorPos(new Vector2(0, -4.5f), 0.70f);
-        //settingsButton.DOAnchorPos(new Vector2(0, -69.9f), 0.90f);
-        //quitButton.DOAnchorPos(new Vector2(0, -136.8f), 1.10f);
-        //
-        //settingsMenu.DOAnchorPos(new Vector2(0, -415), 0.25f);
-        //// move each part back to it's original pos
-        //cog1.DOAnchorPos(new Vector2(-200, -52.8f), 0.50f);
-        //cog2.DOAnchorPos(new Vector2(-200, -27.8f), 0.60f);
-        //slider.DOAnchorPos(new Vector2(400, 51.4f), 0.70f);
-        //toggle1.DOAnchorPos(new Vector2(-400, -22.8f), 0.80f);
-        //toggle2.DOAnchorPos(new Vector2(-350, -22.8f), 0.90f);
-        //dropDown.DOAnchorPos(new Vector2(129, -200), 1.00f);
-        //settingsBackButton.DOAnchorPos(new Vector2(0, -400.0f), 0.80f);
-        //settingsText.DOAnchorPos(new Vector2(-750f, -45.7f), 0.0f);
+        UINextPanelBehaviour UImove = new UINextPanelBehaviour(settingsMenu, homeMenu, new Vector2(0, -415), new Vector2(0, 0), 0.25f);
+        buttonInteraction = UImove;
+        ButtonFunction();
+        homeMenu.DOAnchorPos(new Vector2(0, 0), 0.25f);
+        playButton.DOAnchorPos(new Vector2(0, 61.3f), 0.50f);
+        controlsButton.DOAnchorPos(new Vector2(0, -4.5f), 0.70f);
+        settingsButton.DOAnchorPos(new Vector2(0, -69.9f), 0.90f);
+        quitButton.DOAnchorPos(new Vector2(0, -136.8f), 1.10f);
+        
+        settingsMenu.DOAnchorPos(new Vector2(0, -415), 0.25f);
+        // move each part back to it's original pos
+        cog1.DOAnchorPos(new Vector2(-200, -52.8f), 0.50f);
+        cog2.DOAnchorPos(new Vector2(-200, -27.8f), 0.60f);
+        slider.DOAnchorPos(new Vector2(400, 51.4f), 0.70f);
+        toggle1.DOAnchorPos(new Vector2(-400, -22.8f), 0.80f);
+        toggle2.DOAnchorPos(new Vector2(-350, -22.8f), 0.90f);
+        dropDown.DOAnchorPos(new Vector2(129, -200), 1.00f);
+        settingsBackButton.DOAnchorPos(new Vector2(0, -400.0f), 0.80f);
+        settingsText.DOAnchorPos(new Vector2(-750f, -45.7f), 0.0f);
 
 
     }

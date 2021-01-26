@@ -18,21 +18,19 @@ public class UINextPanelBehaviour : IButtonInteractable
     // create a list that holds the children of the currentUI (play button, controls etc)
     List<RectTransform> _children;
 
-    public UINextPanelBehaviour(RectTransform currentUI, RectTransform nextUI, Vector2 currentUIEndPos, Vector2 nextUIEndPos, float duration, List<RectTransform> children, List<Vector2> buttonEndPos, List<float> buttonDuration)
+    public UINextPanelBehaviour(RectTransform currentUI, RectTransform nextUI, Vector2 currentUIEndPos, Vector2 nextUIEndPos, float duration)
     {
         _currentUI = currentUI;
         _nextUI = nextUI;
         _currentUIEndPos = currentUIEndPos;
         _nextUIEndPos = nextUIEndPos;
         _duration = duration;
-        _children = children;
-        _buttonEndPos = buttonEndPos;
-        _buttonDuration = buttonDuration;
+        
 
-        for(int i = 0; i < _children.Count; i++)
-        {
-            _children[i] = _currentUI.GetComponentInChildren<RectTransform>();
-        }
+        //for(int i = 0; i < _children.Count; i++)
+        //{
+        //    _children[i] = _currentUI.GetComponentInChildren<RectTransform>();
+        //}
         
        
 
@@ -50,11 +48,11 @@ public class UINextPanelBehaviour : IButtonInteractable
         
        
 
-        for (int i = 0; i < _children.Count; i++)
-        {
-            _children[i].DOAnchorPos(_buttonEndPos[i], _buttonDuration[i]);
-
-        }
+        //for (int i = 0; i < _children.Count; i++)
+        //{
+        //    _children[i].DOAnchorPos(_buttonEndPos[i], _buttonDuration[i]);
+        //
+        //}
 
 
     }
