@@ -1,7 +1,5 @@
 # UntitledFurnitureBuilder
 
-# UntitledFurnitureBuilder
-
 ## Template Scene
 A template scene has been made available and can be found in Scenes->TemplateSceneOrShaderShowScene->ShaderShowScene(Folder)->ShaderShowScene(Scene).
 
