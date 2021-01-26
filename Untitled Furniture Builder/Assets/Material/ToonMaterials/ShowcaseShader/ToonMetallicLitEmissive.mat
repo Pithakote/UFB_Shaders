@@ -33,6 +33,7 @@ Material:
     - _Gloss: 0
     - _Metallic: 0
     - _Occlusion: 0
+    - _OutlineThickness: 1.06
     - _Overlay: 0
     - _Prop2: 1.05
     - _ScaleAndNumberOfRings: 0.448
@@ -41,6 +42,7 @@ Material:
     - _Strength: 50
     m_Colors:
     - _AmbientColor: {r: 1, g: 0.8608516, b: 0, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &4329965943301763912
 MonoBehaviour:
   m_ObjectHideFlags: 11

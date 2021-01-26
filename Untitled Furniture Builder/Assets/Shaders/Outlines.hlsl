@@ -19,8 +19,8 @@ struct VertexOutput
 	float2 uv : TEXCOORD1;
 	float3 normalWS : TEXCOORD2;
 };
-float _Thickness;
-float4 _Color;
+float _OutlineThickness;
+float4 _OutlineColor;
 
 VertexOutput Vertex(Attributes input)
 {
@@ -30,8 +30,8 @@ VertexOutput Vertex(Attributes input)
 
 	//extruding the object along the normal to make it a little bigger
 	//float3 posOS = input.positionOS.xyz + input.normalOS * _Thickness;
-	float3 posOS = input.positionOS.xyz  * _Thickness;
-	input.positionOS.xyz *= _Thickness ;
+	float3 posOS = input.positionOS.xyz  * _OutlineThickness;
+	input.positionOS.xyz *= _OutlineThickness;
 
 	//output.positionCS = GetVertexPositionInputs(input.positionOS).positionCS;
 	VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
@@ -51,6 +51,6 @@ VertexOutput Vertex(Attributes input)
 
 float4 Fragment(VertexOutput input) : SV_Target
 {
-	return _Color;
+	return _OutlineColor;
 }
 #endif

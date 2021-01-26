@@ -22,6 +22,11 @@ Shader "Custom/ToonURPShader"
         [HideInInspector]_Alpha("Alpha", Range(0,1)) = 1
        [HideInInspector] _ScaleAndNumberOfRings("ScaleAndNumberOfRings", Range(0.1,1)) = 0.338
 
+
+
+        _OutlineThickness("Thiskness", Float) = 1
+        _OutlineColor("Color", Color) = (1,1,1,1)
+
             // _AmbientLight("AmbientLight",Float) = half3(unity_SHAr.w,unity_SHAg.w,unity_SHAb.w)
            
     }
@@ -166,6 +171,26 @@ Shader "Custom/ToonURPShader"
                 #include "ToonURPShader.hlsl"
 
                 ENDHLSL
+           }
+
+               Pass
+           {
+            Name "Outlines"
+            Cull Front
+            ZWrite Off
+            Blend One OneMinusSrcAlpha
+               //cull front faces
+             //Cull Back
+
+              HLSLPROGRAM
+      #pragma prefer_hlslcc gles
+        #pragma exclude_renderers d3d11_9x
+
+      #pragma vertex Vertex
+      #pragma fragment Fragment
+
+      #include "Outlines.hlsl"
+              ENDHLSL
            }
       
         }

@@ -4,17 +4,19 @@
     {
         _Thickness("Thiskness", Float) = 1
         _Color("Color", Color) = (1,1,1,1)
+        _Alpha("Alpha", Range(0,1)) = 0.5
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" "Queue" = "Transparent" "RednerPipeline" = "UniversalPipeline"}
+        Tags { "RenderType"="Transparent" "Queue" = "Transparent" "RednerPipeline" = "UniversalPipeline"}
         LOD 100
 
         Pass
         {
          Name "Outlines"
          Cull Front
-         ZWrite On
+         ZWrite Off
+         Blend One OneMinusSrcAlpha
          //cull front faces
        //Cull Back
 

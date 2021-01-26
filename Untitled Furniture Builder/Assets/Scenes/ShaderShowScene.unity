@@ -1484,7 +1484,7 @@ PrefabInstance:
     - target: {fileID: 6800398303002138120, guid: 43274005c1142df438e218539deec372,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43274005c1142df438e218539deec372, type: 3}
@@ -1987,22 +1987,22 @@ PrefabInstance:
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.2687615
+      value: 0.44320646
       objectReference: {fileID: 0}
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9049726
+      value: -0.4603571
       objectReference: {fileID: 0}
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.107753545
+      value: 0.12254513
       objectReference: {fileID: 0}
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.31173888
+      value: 0.7593563
       objectReference: {fileID: 0}
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
@@ -2012,17 +2012,17 @@ PrefabInstance:
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -1.5740001
+      value: 51.807003
       objectReference: {fileID: 0}
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 1658.49
+      value: 1367.243
       objectReference: {fileID: 0}
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -33.63
+      value: -21.037
       objectReference: {fileID: 0}
     - target: {fileID: 8195757611375516708, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
@@ -2062,7 +2062,7 @@ PrefabInstance:
     - target: {fileID: 9182825474940715278, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d86f001c0a9236440b367314445a79fd, type: 3}
@@ -5166,7 +5166,7 @@ PrefabInstance:
     - target: {fileID: 6800398303002138120, guid: 43274005c1142df438e218539deec372,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43274005c1142df438e218539deec372, type: 3}
