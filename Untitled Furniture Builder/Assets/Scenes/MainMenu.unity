@@ -4018,7 +4018,21 @@ MonoBehaviour:
   _currentUIEndPos: {x: 415, y: 0}
   _nextUIEndPos: {x: 0, y: 0}
   _duration: 0.25
-  children: []
+  _children:
+  - {fileID: 2051451904}
+  - {fileID: 1281560959}
+  - {fileID: 1951047300}
+  - {fileID: 547115304}
+  _buttonEndPos:
+  - {x: 0, y: 61.3}
+  - {x: 0, y: -4.5}
+  - {x: 0, y: -69.9}
+  - {x: 0, y: -136.8}
+  _buttonDuration:
+  - 0.2
+  - 0.4
+  - 0.6
+  - 0.8
 --- !u!1 &1281560958
 GameObject:
   m_ObjectHideFlags: 0
@@ -4132,7 +4146,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: home_close
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1701317459}
         m_MethodName: SetActive
@@ -4242,7 +4256,9 @@ MonoBehaviour:
   _currentUIEndPos: {x: -800, y: 0}
   _nextUIEndPos: {x: 0, y: 0}
   _duration: 0.25
-  children: []
+  _children: []
+  _buttonEndPos: []
+  _buttonDuration: []
 --- !u!1 &1290253756
 GameObject:
   m_ObjectHideFlags: 0
@@ -7175,7 +7191,9 @@ MonoBehaviour:
   _currentUIEndPos: {x: -800, y: 0}
   _nextUIEndPos: {x: 0, y: 0}
   _duration: 0.25
-  children: []
+  _children: []
+  _buttonEndPos: []
+  _buttonDuration: []
 --- !u!1 &1958776781
 GameObject:
   m_ObjectHideFlags: 0
@@ -7950,4 +7968,6 @@ MonoBehaviour:
   _currentUIEndPos: {x: 0, y: -415}
   _nextUIEndPos: {x: 0, y: 0}
   _duration: 0.25
-  children: []
+  _children: []
+  _buttonEndPos: []
+  _buttonDuration: []

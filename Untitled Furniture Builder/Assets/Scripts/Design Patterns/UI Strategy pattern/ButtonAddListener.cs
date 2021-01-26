@@ -17,7 +17,12 @@ public class ButtonAddListener : MonoBehaviour
     [SerializeField]
     float _duration;
     [SerializeField]
-    List<RectTransform> children;
+    List<RectTransform> _children;
+    [SerializeField]
+    List<Vector2> _buttonEndPos;
+    [SerializeField]
+    List<float> _buttonDuration;
+
 
     IButtonInteractable buttonInteraction;
 
@@ -27,8 +32,9 @@ public class ButtonAddListener : MonoBehaviour
     }
     public void OpenUI()
     {
-        UINextPanelBehaviour UImove = new UINextPanelBehaviour(_currentUI, _nextUI, _currentUIEndPos, _nextUIEndPos, _duration);
+        UINextPanelBehaviour UImove = new UINextPanelBehaviour(_currentUI, _nextUI, _currentUIEndPos, _nextUIEndPos, _duration, _children, _buttonEndPos, _buttonDuration);
         buttonInteraction = UImove;
         buttonInteraction.ButtonBehaviour();
+       
     }        
 }
