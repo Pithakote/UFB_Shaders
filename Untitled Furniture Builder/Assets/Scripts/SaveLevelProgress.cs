@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SaveLevelProgress : MonoBehaviour
 {
     public Text levelProgText;
-    public int levelProgress;
+    public int levelProgress;  
 
 
     public void completeLvl1()
