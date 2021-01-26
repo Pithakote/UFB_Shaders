@@ -94,8 +94,8 @@ half4 Fragment(Varyings input) : SV_Target
 
     half2 uv = input.uv;
     half4 texColor = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, uv);
-    half3 color = texColor.rgb * _AmbientColor.rgb;
-    half alpha = texColor.a * _AmbientColor.a;
+    half3 color = texColor.rgb * _TextureColor.rgb;
+    half alpha = texColor.a * _TextureColor.a;
    
     // Initialize some information for the lighting function
     InputData lightingInput = (InputData)0;
@@ -107,7 +107,7 @@ half4 Fragment(Varyings input) : SV_Target
 
     float3 albedo = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, uv).rgb 
                     * half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w)
-                    *_AmbientColor.rgb;
+                    * _TextureColor.rgb;
     //albedo *= Toon(input.normalWS, _MainLightPosition.xyz) * _Strength + _Brightness;
     albedo *=  _Strength + _Brightness;
     float toonDotProduct = dot(input.normalWS, _MainLightPosition.xyz - lightingInput.viewDirectionWS);

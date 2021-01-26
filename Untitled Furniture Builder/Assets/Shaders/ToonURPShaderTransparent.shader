@@ -23,12 +23,12 @@ Shader "Custom/ToonURPShaderTransparent"
        [HideInInspector] _ScaleAndNumberOfRings("ScaleAndNumberOfRings", Range(0.1,1)) = 0.338
 
             _SpecularColor("SpecularColor", Color) = (1, 1, 1, 1)
-            _FresnelOuterRimColor("FresnelOuterRimColor", Color) = (1, 1, 1, 1)
+           [HideInInspector]  _FresnelOuterRimColor("FresnelOuterRimColor", Color) = (1, 1, 1, 1)
             _LightSpecCutOff("LightSpecularCutoff", Range(0,1)) = 0.5
             _LightSpecCutOffSmoothness("LightSpecularCutoffSmoothness", Range(0,1)) = 0.05
             _ViewSpecCutOff("ViewSpecCutOff", Range(0,1)) = 0.5
-            _FresnelInnerRimPower("FresnelInnerRimPower", Range(0,20)) = 1
-            _FresnelOuterRimSmoothness("FresnelOuterRimSmoothness", Range(0,1)) = 0.5
+            [HideInInspector] _FresnelInnerRimPower("FresnelInnerRimPower", Range(0,20)) = 1
+            [HideInInspector] _FresnelOuterRimSmoothness("FresnelOuterRimSmoothness", Range(0,1)) = 0.5
             
             // _AmbientLight("AmbientLight",Float) = half3(unity_SHAr.w,unity_SHAg.w,unity_SHAb.w)
             _OutlineThickness("Outline Thickness", Float) = 1.07
@@ -157,5 +157,5 @@ Shader "Custom/ToonURPShaderTransparent"
              
           
         }
-        CustomEditor "ToonURPShaderTransparentGUI"
+       // CustomEditor "ToonURPShaderTransparentGUI"
 }

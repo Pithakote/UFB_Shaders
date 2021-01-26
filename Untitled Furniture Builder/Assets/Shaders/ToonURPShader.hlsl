@@ -74,7 +74,7 @@ Varyings Vertex(Attributes input)
     output.normalWS = (normalInput.normalWS);
 
 
-  //  output.positionCS = CalculatePositionCSWithShadowCasterLogic(output.positionCS, output.normalWS);
+   output.positionCS = CalculatePositionCSWithShadowCasterLogic(vertexInput.positionWS, normalInput.normalWS);
 
     output.uv = TRANSFORM_TEX(input.uv, _BaseMap);
     return output;
@@ -82,18 +82,22 @@ Varyings Vertex(Attributes input)
 
 half4 Fragment(Varyings input) : SV_Target
 {
-// #ifdef SHADOW_CASTER_PASS
-//    // If in the shadow caster pass, we can just return now
-//    // It's enough to signal that should will cast a shadow
-//    return half4(0,0,0,0);
-//#else
-  //  UNITY_SETUP_INSTANCE_ID(input);
-  //  UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+    // #ifdef SHADOW_CASTER_PASS
+    //    // If in the shadow caster pass, we can just return now
+    //    // It's enough to signal that should will cast a shadow
+    //    return half4(0,0,0,0);
+    //#else
+      //  UNITY_SETUP_INSTANCE_ID(input);
+      //  UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
 
+    #ifdef SHADOW_CASTER_PASS
+
+            return 0;
+    #else
     half2 uv = input.uv;
     half4 texColor = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, uv);
-    half3 color = texColor.rgb * _AmbientColor.rgb;
-    half alpha = texColor.a * _AmbientColor.a;
+    half3 color = texColor.rgb * _TextureColor.rgb;
+    half alpha = texColor.a * _TextureColor.a;
    
     // Initialize some information for the lighting function
     InputData lightingInput = (InputData)0;
@@ -101,22 +105,32 @@ half4 Fragment(Varyings input) : SV_Target
    // lightingInput.normalWS =  NormalizeNormalPerPixel(input.normalWS); // No need to renormalize, since triangles all share normals
     lightingInput.normalWS =  (input.normalWS); // No need to renormalize, since triangles all share normals
     lightingInput.viewDirectionWS = GetViewDirectionFromPosition(input.positionWS);
+    //lightingInput.positionCS = CalculatePositionCSWithShadowCasterLogic(input.positionCS, input.normalWS);
     lightingInput.shadowCoord = CalculateShadowCoord(input.positionWS, input.positionCS);
 
     float3 albedo = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, uv).rgb 
                     * half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w)
-                    *_AmbientColor.rgb;
+                    * _TextureColor.rgb;
+   
     albedo *= Toon(input.normalWS, _MainLightPosition.xyz) * _Strength + _Brightness;
+    /*
+    float3 lightcalc = dot(input.normalWS, _MainLightPosition.xyz);// *_Strength + _Brightness;
+    lightcalc = smoothstep(0.01,0.01, lightcalc);
+    lightcalc = lightcalc + GetMainLight(lightingInput.shadowCoord).color;
+    lightcalc = lightcalc + half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w);
 
+    lightcalc = lightcalc * albedo;
+    */
+        //* _AmbientColor.rgb;
                 //return  half4(color, alpha);
                 //return  half4(albedo, 1.0);
                // return UniversalFragmentBlinnPhong(lightingInput, albedo,1,0,0,1);
     //half4 fragColor = UniversalFragmentBlinnPhong(lightingInput, albedo, _Specular, _Smoothness,  _Emission, 1);// *half4(color, 1);
    // return UniversalFragmentPBR(inputData, albedo, metallic, specular, smoothness, occlusion, emission, alpha);
-    half4 fragColor = UFBUniversalFragmentPBR(lightingInput, albedo, _Metallic, _Specular, _Smoothness, _Occlusion, _Emission* _AmbientColor.rgb, _Alpha);// *half4(color, 1);
+    half4 fragColor = UFBUniversalFragmentPBR(lightingInput, albedo, _Metallic, _Specular, _Smoothness, _Occlusion, _Emission* _TextureColor, _Alpha);// *half4(color, 1);
    // half4 fragColor = LightweightFragmentBlinnPhong(lightingInput, albedo, _Specular, _Smoothness, _Emission, 1);// *half4(color, 1);
    // fragColor = half4(albedo,1) + MainLightRealtimeShadow(TransformWorldToShadowCoord(lightingInput.positionWS));// *half4(color, 1);
     return fragColor ;
-//#endif
+#endif
 }
 #endif

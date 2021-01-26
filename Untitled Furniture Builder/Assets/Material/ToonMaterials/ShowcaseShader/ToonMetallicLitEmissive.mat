@@ -43,6 +43,7 @@ Material:
     m_Colors:
     - _AmbientColor: {r: 1, g: 0.8608516, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _TextureColor: {r: 1, g: 0.8064977, b: 0, a: 1}
 --- !u!114 &4329965943301763912
 MonoBehaviour:
   m_ObjectHideFlags: 11

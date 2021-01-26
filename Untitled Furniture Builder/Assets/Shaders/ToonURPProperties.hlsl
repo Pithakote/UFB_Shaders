@@ -5,7 +5,7 @@
 
 CBUFFER_START(UnityPerMaterial)
 float4 _BaseMap_ST;
-half4 _AmbientColor;
+half4 _TextureColor;
 half _Cutoff;
 float _Specular;
 //half _Glossiness;

@@ -38,11 +38,12 @@ Material:
     - _Prop2: 1.05
     - _ScaleAndNumberOfRings: 0.395
     - _Smoothness: 0.881
-    - _Specular: 0.86
-    - _Strength: 50
+    - _Specular: 0.964
+    - _Strength: 36
     m_Colors:
     - _AmbientColor: {r: 0.9245283, g: 0.6172141, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _TextureColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &4329965943301763912
 MonoBehaviour:
   m_ObjectHideFlags: 11

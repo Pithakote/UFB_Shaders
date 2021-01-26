@@ -8,7 +8,7 @@ Shader "Custom/ToonURPShader"
         [Space(10)] [Header(Glossiness Options)] [KeywordEnum(SPECULAR_SETUP,METALLIC)] [HideInInspector] _Gloss("Glossiness Type", Float) = 0
          
         [Space(10)][Header(Surface Options)][HideInInspector]_BaseMap("Texture", 2D) = "white" {}
-        [HideInInspector]_AmbientColor("AmbientColor", Color) = (1, 1, 1, 1)
+        [HideInInspector]_TextureColor("TextureColor", Color) = (1, 1, 1, 1)
              
        [Space(10)][Header(Shader Settings)][HideInInspector] _Brightness("Brightness", Range(-1,1)) = -0.47
         [HideInInspector]_Strength("Strength/Intensity", Range(0,50)) = 6.6
@@ -144,9 +144,7 @@ Shader "Custom/ToonURPShader"
                //ZTest LEqual
                 HLSLPROGRAM
                 // Signal this shader requires geometry programs
-                #pragma vertex Vertex
-               // #pragma geometry Geometry
-                #pragma fragment Fragment           
+                        
 
                 #pragma prefer_hlslcc gles
                 #pragma exclude_renderers d3d11_9x
@@ -161,12 +159,16 @@ Shader "Custom/ToonURPShader"
                 //#pragma multi_compile _ DOTS_INSTANCING_ON
                // #pragma require geometry
                 // #pragma vertex vert;
+                #pragma multi_compile _ _MAIN_LIGHT_SHADOWS
+                #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
                // #pragma fragment frag;
                 // This sets up various keywords for different light types and shadow settings
                 #pragma multi_compile_shadowcaster
 
                 // Register our functions
-          
+           #pragma vertex Vertex
+               // #pragma geometry Geometry
+                #pragma fragment Fragment  
            
                 // Define a special keyword so our logic can change if inside the shadow caster pass
                 #define SHADOW_CASTER_PASS

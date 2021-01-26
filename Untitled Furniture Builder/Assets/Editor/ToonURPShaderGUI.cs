@@ -34,7 +34,7 @@ public class ToonURPShaderGUI : ShaderGUI//is being included in ToonURPShader.sh
 
         MaterialProperty _baseMap = ShaderGUI.FindProperty("_BaseMap", properties);
       
-        MaterialProperty _textureColor = ShaderGUI.FindProperty("_AmbientColor", properties);
+        MaterialProperty _textureColor = ShaderGUI.FindProperty("_TextureColor", properties);
 
         MaterialProperty _brightness = ShaderGUI.FindProperty("_Brightness", properties);
         MaterialProperty _strength = ShaderGUI.FindProperty("_Strength", properties);
