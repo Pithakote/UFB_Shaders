@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class player_manager : MonoBehaviour
 {
-	public float upTime = 0.5f;
-	public float pitckupHeight = 0.5f;
-	public GameObject floor;
-	public GameObject pickedUp;
-	
+	[SerializeField]
+	float upTime = 0.5f;
+	[SerializeField]
+	float pitckupHeight = 0.5f;
+	[SerializeField]
+	GameObject floor;
+	[SerializeField]
+	GameObject pickedUp;
+
+	[SerializeField]
 	float forceAmount = 2000;
 	float distance_plane;
 	Vector3 goalPosition;
@@ -41,7 +46,9 @@ public class player_manager : MonoBehaviour
             if (Physics.Raycast(ray_, out hitMouse))
             {
 				goalPosition = new Vector3(hitMouse.point.x, entPos.y, hitMouse.point.z);
-            }else{
+            }
+			else
+			{
 				Vector2 mPos = new Vector2();
 				mPos.x = mousePos.x;
 				mPos.y = mousePos.y;
