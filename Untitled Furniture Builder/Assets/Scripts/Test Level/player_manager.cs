@@ -98,6 +98,12 @@ public class player_manager : MonoBehaviour
 
 						Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
 						rigidbody.constraints = RigidbodyConstraints.None;
+
+						
+						Renderer _renderer = GetComponent<Renderer>();
+						_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
+						_renderer.material.SetColor("_OutlineColor", Color.red);
+
 					}
 				}
 			}
@@ -115,7 +121,6 @@ public class player_manager : MonoBehaviour
 			//pickedUp.transform.position = goalPosition;
 			Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
 			rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-
 		}
 	}
 
