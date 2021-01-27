@@ -17,5 +17,6 @@ public class EmissiveShowcase : MonoBehaviour
     {
         float _emissiveness = Mathf.PingPong(Time.time,1.0f);
         _renderer.material.SetFloat("_Emission", _emissiveness);
+
     }
 }
