@@ -5,6 +5,7 @@ using UnityEngine;
 public class player_manager : MonoBehaviour
 {
 	public float upTime = 0.5f;
+	public float pitckupHeight = 0.5f;
 	public GameObject floor;
 	public GameObject pickedUp;
 	
@@ -13,6 +14,8 @@ public class player_manager : MonoBehaviour
 	Vector3 goalPosition;
 	Vector3 origin;
 	float startTime;
+	[SerializeField]
+	Color pickupColor;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +51,7 @@ public class player_manager : MonoBehaviour
 			}
 			
 			//Move upwards
-			float up_dist = distance_plane + 1.25f;
+			float up_dist = distance_plane + pitckupHeight;
 			Vector3 up = new Vector3(0,1,0);
 			Vector3 maxUp = new Vector3(entPos.x, up_dist, entPos.z);
 			
@@ -102,7 +105,7 @@ public class player_manager : MonoBehaviour
 						
 						Renderer _renderer = pickedUp.GetComponent<Renderer>();
 						_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
-						_renderer.material.SetColor("_OutlineColor", Color.red);
+						_renderer.material.SetColor("_OutlineColor", pickupColor);
 
 					}
 				}
@@ -124,6 +127,9 @@ public class player_manager : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(1))
         {
+			if (pickedUp == null)//null check
+				return;
+
 			print("RMB clicked");
 			//pickedUp.transform.position = goalPosition;
 			Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
