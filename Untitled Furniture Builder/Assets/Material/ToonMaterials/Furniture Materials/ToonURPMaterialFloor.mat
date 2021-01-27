@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToonURPMaterialFurnitureDesk
+  m_Name: ToonURPMaterialFloor
   m_Shader: {fileID: 4800000, guid: 419443d4493cfa7409e0656aca16b47f, type: 3}
   m_ShaderKeywords: GLOSS_METALLIC_COLOR GLOSS__METALLIC_COLOR _GLOSS_SPECULAR_SETUP
     _GLOSS__METALLIC _SPECULAR_COLOR _SPECULAR_SETUP
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 7728ecc1645fc83488fe60c476ec17d6, type: 3}
+        m_Texture: {fileID: 2800000, guid: a1b933450b916ac478fdb763b92dd00b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -35,12 +35,12 @@ Material:
     - _Occlusion: 0
     - _Overlay: 0
     - _Prop2: 1.05
-    - _ScaleAndNumberOfRings: 0.339
-    - _Smoothness: 0.313
-    - _Specular: 0.789
-    - _Strength: 13
+    - _ScaleAndNumberOfRings: 0.146
+    - _Smoothness: 0
+    - _Specular: 0.293
+    - _Strength: 25.8
     m_Colors:
-    - _AmbientColor: {r: 0.8113208, g: 0.6369954, b: 0.11863652, a: 1}
+    - _AmbientColor: {r: 0.6226415, g: 0.4643428, b: 0, a: 1}
 --- !u!114 &4329965943301763912
 MonoBehaviour:
   m_ObjectHideFlags: 11

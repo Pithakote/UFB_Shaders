@@ -95,6 +95,9 @@ public class player_manager : MonoBehaviour
 						pickedUp = ent;
 						origin = ent.transform.position;
 						startTime = Time.time;
+
+						Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
+						rigidbody.constraints = RigidbodyConstraints.None;
 					}
 				}
 			}
@@ -104,6 +107,15 @@ public class player_manager : MonoBehaviour
 			//released
 			print ("Released");
 			pickedUp = null;
+		}
+
+		if (Input.GetMouseButtonDown(1))
+        {
+			print("RMB clicked");
+			//pickedUp.transform.position = goalPosition;
+			Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
+			rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+
 		}
 	}
 
