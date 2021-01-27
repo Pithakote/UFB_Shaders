@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToonURPMaterialFurnitureDesk2
+  m_Name: ToonURPMaterialFurnitureStool
   m_Shader: {fileID: 4800000, guid: 419443d4493cfa7409e0656aca16b47f, type: 3}
   m_ShaderKeywords: GLOSS_METALLIC_COLOR GLOSS__METALLIC_COLOR _GLOSS_SPECULAR_SETUP
     _GLOSS__METALLIC _SPECULAR_COLOR _SPECULAR_SETUP
@@ -33,7 +33,7 @@ Material:
     - _Gloss: 0
     - _Metallic: 1
     - _Occlusion: 0
-    - _OutlineThickness: 1.05
+    - _OutlineThickness: 1.11
     - _Overlay: 0
     - _Prop2: 1.05
     - _ScaleAndNumberOfRings: 0.185

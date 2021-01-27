@@ -100,7 +100,7 @@ public class player_manager : MonoBehaviour
 						rigidbody.constraints = RigidbodyConstraints.None;
 
 						
-						Renderer _renderer = GetComponent<Renderer>();
+						Renderer _renderer = pickedUp.GetComponent<Renderer>();
 						_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
 						_renderer.material.SetColor("_OutlineColor", Color.red);
 
@@ -112,7 +112,14 @@ public class player_manager : MonoBehaviour
 		{
 			//released
 			print ("Released");
+
+
+			Renderer _renderer = pickedUp.GetComponent<Renderer>();
+			_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
+			_renderer.material.SetColor("_OutlineColor", Color.black);
+
 			pickedUp = null;
+;
 		}
 
 		if (Input.GetMouseButtonDown(1))
