@@ -35,6 +35,7 @@ Material:
     - _Gloss: 0
     - _Metallic: 1.06
     - _Occlusion: 0.138
+    - _OutlineThickness: 1.07
     - _ScaleAndNumberOfRings: 0.338
     - _Smoothness: 0.421
     - _Specular: 0
@@ -42,6 +43,8 @@ Material:
     m_Colors:
     - _AmbientColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 255}
+    - _TextureColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6
