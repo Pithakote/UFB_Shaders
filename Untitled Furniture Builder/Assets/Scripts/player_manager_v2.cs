@@ -57,7 +57,7 @@ public class player_manager_v2 : MonoBehaviour
 			}
 			
 			//Move upwards
-			float up_dist = distance_plane + 1.25f;
+			float up_dist = origin.y + 1.25f;
 			Vector3 up = new Vector3(0,1,0);
 			Vector3 maxUp = new Vector3(entPos.x, up_dist, entPos.z);
 			

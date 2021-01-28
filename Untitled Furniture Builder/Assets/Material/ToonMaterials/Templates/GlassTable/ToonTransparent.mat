@@ -90,9 +90,9 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelOuterRimColor: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 0}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0.77254903}
+    - _OutlineColor: {r: 0, g: 0.97092485, b: 1, a: 0.77254903}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SpecularColor: {r: 0, g: 1, b: 0.88574815, a: 0}
+    - _SpecularColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5218997568424806776
 MonoBehaviour:
   m_ObjectHideFlags: 11
