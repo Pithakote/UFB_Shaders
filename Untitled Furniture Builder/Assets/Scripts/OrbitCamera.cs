@@ -20,11 +20,11 @@ public class OrbitCamera : MonoBehaviour
         // when A or D key is pressed - rotate the camera around the objToOrbit's transform (the item of furniture in that level)
         if(Input.GetKey(KeyCode.A))
         {
-            gameObject.transform.RotateAround(objToOrbit.transform.position, Vector3.up, orbitSpeed * Time.deltaTime);
+            gameObject.transform.RotateAround(objToOrbit.transform.position, Vector3.down, orbitSpeed * Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            gameObject.transform.RotateAround(objToOrbit.transform.position, Vector3.down, orbitSpeed * Time.deltaTime);
+            gameObject.transform.RotateAround(objToOrbit.transform.position, Vector3.up, orbitSpeed * Time.deltaTime);
         }
         // when W or S is pressed - rotate the camera about itself, which gives a panning up/down effect
         else if (Input.GetKey(KeyCode.W))

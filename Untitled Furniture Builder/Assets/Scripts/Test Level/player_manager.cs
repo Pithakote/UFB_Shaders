@@ -143,6 +143,8 @@ public class player_manager : MonoBehaviour
 			Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
 			rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 		}
+
+		
 	}
 
 }

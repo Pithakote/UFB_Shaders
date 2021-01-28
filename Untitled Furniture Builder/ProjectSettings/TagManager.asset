@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Physics
+  - Desk
+  - Instructions
   layers:
   - Default
   - TransparentFX
@@ -14,12 +16,10 @@ TagManager:
   - UI
   - 
   - 
-
   - 
-
+  - 
+  - 
   - Ground
-  - 
-  - 
   - 
   - 
   - 
