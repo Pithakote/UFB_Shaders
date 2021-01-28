@@ -33,13 +33,13 @@ Material:
     - _Gloss: 0
     - _Metallic: 1
     - _Occlusion: 0
-    - _OutlineThickness: 1.11
+    - _OutlineThickness: 1.02
     - _Overlay: 0
     - _Prop2: 1.05
-    - _ScaleAndNumberOfRings: 0.185
+    - _ScaleAndNumberOfRings: 0.179
     - _Smoothness: 0.42
     - _Specular: 0.823
-    - _Strength: 3.7
+    - _Strength: 29
     m_Colors:
     - _AmbientColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
