@@ -17,7 +17,7 @@ public class UITweenManager : MonoBehaviour
     public RectTransform lvl1Button, lvl2Button, lvl3Button, lvl4Button, lvl5Button;
     // controls panel
     public RectTransform controlsText, controlsBackButton;
-    void Start()
+    void OnEnable()
     {
         homeMenu.DOAnchorPos(Vector2.zero, 0.50f);
         playButton.DOAnchorPos(new Vector2(0, 61.3f), 0.50f, true);

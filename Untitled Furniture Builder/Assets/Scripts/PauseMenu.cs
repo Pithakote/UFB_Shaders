@@ -26,12 +26,12 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    private void Resume()
+    public void Resume()
     {
         pauseMenuUI.SetActive(false);
         GameIsPaused = false;
         Cursor.visible = false;
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         MouseLook.canMove = true;
     }
 
@@ -40,13 +40,15 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         GameIsPaused = true;
         MouseLook.canMove = false;
-        StartCoroutine(setPaused());
+        Time.timeScale = 0f;
+        //StartCoroutine(setPaused());
+
     }
 
     IEnumerator setPaused()
     {
         yield return new WaitForSeconds(0.5f);
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
     }
 
     public void QuitGame()
@@ -58,5 +60,6 @@ public class PauseMenu : MonoBehaviour
     public void loadMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
     }
 }

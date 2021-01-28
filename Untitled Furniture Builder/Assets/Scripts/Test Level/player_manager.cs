@@ -123,7 +123,8 @@ public class player_manager : MonoBehaviour
 			//released
 			print ("Released");
 
-
+			if (pickedUp == null)//null check
+				return;
 			Renderer _renderer = pickedUp.GetComponent<Renderer>();
 			_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
 			_renderer.material.SetColor("_OutlineColor", Color.black);
