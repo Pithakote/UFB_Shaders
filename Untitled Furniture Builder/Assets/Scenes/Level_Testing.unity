@@ -2327,15 +2327,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1216432769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b6ee401d3066104490e9525adf09b8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 982ccc64fcb7faa40af14dfbad72d520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upTime: 0.25
-  pitckupHeight: 1
-  floor: {fileID: 437437582}
+  upTime: 0.5
+  floor: {fileID: 276266325}
   pickedUp: {fileID: 0}
-  forceAmount: 2000
-  pickupColor: {r: 1, g: 0.8724341, b: 0, a: 0}
 --- !u!4 &1216432771
 Transform:
   m_ObjectHideFlags: 0
