@@ -10,9 +10,9 @@ public class CamSwitchTest : MonoBehaviour
     [SerializeField]
     private GameObject instructionsButton;
 
-  
-
    
+
+
     private void Update()
     {
         // checking to see if the instructions on the desk have been clicked
@@ -28,9 +28,19 @@ public class CamSwitchTest : MonoBehaviour
 
                 if (obj != null && obj.tag == "Instructions")
                 {
-                    print("hit");
-                    instructionsUI.SetActive(true);
-                    instructionsButton.SetActive(true);
+                    if(CameraLerpSwitch.instance.currentPos != CameraLerpSwitch.instance.camPos[0])
+                    {
+                        CameraLerpSwitch.instance.currentPos = CameraLerpSwitch.instance.camPos[0];
+                        print("hit");
+                        instructionsUI.SetActive(true);
+                        instructionsButton.SetActive(true);
+                    }
+                    else if(CameraLerpSwitch.instance.currentPos == CameraLerpSwitch.instance.camPos[0])
+                    {
+                        print("hit");
+                        instructionsUI.SetActive(true);
+                        instructionsButton.SetActive(true);
+                    }
                 }
             }
         }
