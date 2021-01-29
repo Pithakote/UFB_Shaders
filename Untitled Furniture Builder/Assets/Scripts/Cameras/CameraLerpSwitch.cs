@@ -2,95 +2,108 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class CameraLerpSwitch : MonoBehaviour
 {
     public Camera mainCamera;
+    public Transform camTransform;
 
-    public Transform[] camPos;   
+    [SerializeField]
+    Transform nextPos;
+    public Transform[] camPos;
     public Transform currentPos;
-    public float transitionSpeed;
-    public static CameraLerpSwitch instance;
     public TMPro.TMP_Text currentPosText;
-    Animator _animator; 
+    public float transitionSpeed;
 
+    [Header("Camera-Shake Tween Settings")]
+    [SerializeField]
+    float strength;
+    [SerializeField]
+    float duration;
+    [SerializeField]
+    int vibrato;
+    [SerializeField]
+    float randomness;
+
+    public delegate void onKeyPressed();
+    public event onKeyPressed keyPressedEvent;
+        
 
     private void Start()
     {
         currentPos = camPos[3];
-        //_animator = mainCamera.GetComponent<Animator>();
-        //_animator.SetBool("shakeCam", false);
+        keyPressedEvent += getKeysPressed;
     }
 
-    private void Awake()
+    private void OnDisable()
     {
-        instance = this;
+        keyPressedEvent -= getKeysPressed;
     }
 
-    private void Update()
+    void doCamShake()
     {
+        transform.DOShakePosition(duration, new Vector3(0, 0, strength), vibrato, randomness);
+    }
+
+    void getKeysPressed()
+    {               
         // check for 1,2,3,4 keyboard input and switch camera position accordingly
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            currentPos = camPos[0];
+            nextPos = camPos[0];
+            currentPosText.text = "Instructions";
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            currentPos = camPos[1];
+            nextPos = camPos[1];
+            currentPosText.text = "Build";
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            currentPos = camPos[2];
+            nextPos = camPos[2];
+            currentPosText.text = "Kitchen";
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            currentPos = camPos[3];            
-        }   
-
-        if (currentPos == camPos[0])
-            currentPosText.text = "Instructions";
-        else if(currentPos == camPos[1])
-            currentPosText.text = "Build";
-        else if (currentPos == camPos[2])
-            currentPosText.text = "Kitchen";
-        else if (currentPos == camPos[3])
+            nextPos = camPos[3];
             currentPosText.text = "Top-Down";
+        }
+        if (currentPos == nextPos && currentPos != null && nextPos != null)
+        {
+            doCamShake();
+        }
+        else
+        {
+            currentPos = nextPos;
+            nextPos = null;
+        }        
+    }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            keyPressedEvent.Invoke();
+        }
     }
     private void LateUpdate()   // late update prevents camera stutter and is generally recommended for camera movement
     {
         // Linear interpolate between the current pos and the next desired pos
         gameObject.transform.position = Vector3.Lerp(transform.position, currentPos.position, Time.deltaTime * transitionSpeed);
 
+
+
+        // null check
         if (currentPos == null)
             return;
 
+        Vector3 offset = new Vector3(0.1f, 0.1f, 0.1f);
         // Linear interpolation between the angles of the current pos and the desired pos
         Vector3 currentAngle = new Vector3(
-            Mathf.LerpAngle(transform.rotation.eulerAngles.x, currentPos.transform.rotation.eulerAngles.x, Time.deltaTime * transitionSpeed),
-            Mathf.LerpAngle(transform.rotation.eulerAngles.y, currentPos.transform.rotation.eulerAngles.y, Time.deltaTime * transitionSpeed),
-            Mathf.LerpAngle(transform.rotation.eulerAngles.z, currentPos.transform.rotation.eulerAngles.z, Time.deltaTime * transitionSpeed)
+            Mathf.LerpAngle(transform.rotation.eulerAngles.x, currentPos.transform.rotation.eulerAngles.x - 0.1f, Time.deltaTime * transitionSpeed),
+            Mathf.LerpAngle(transform.rotation.eulerAngles.y, currentPos.transform.rotation.eulerAngles.y - 0.1f, Time.deltaTime * transitionSpeed),
+            Mathf.LerpAngle(transform.rotation.eulerAngles.z, currentPos.transform.rotation.eulerAngles.z - 0.1f, Time.deltaTime * transitionSpeed)
             );
-
         transform.eulerAngles = currentAngle;
-        /*
-        if (Input.GetKeyDown(KeyCode.Alpha1) && currentPos == camPos[0])
-        {
-            _animator.SetBool("shakeCam", true);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && currentPos == camPos[1])
-        {
-            _animator.SetBool("shakeCam", true);
-
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && currentPos == camPos[2])
-        {
-            _animator.SetBool("shakeCam", true);
-
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4) && currentPos == camPos[3])
-        {
-            _animator.SetBool("shakeCam", true);
-
-        }*/
     }
 }

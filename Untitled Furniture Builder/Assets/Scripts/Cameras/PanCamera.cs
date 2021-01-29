@@ -10,28 +10,27 @@ public class PanCamera : MonoBehaviour
    
     [SerializeField]
     private float panSpeed;
-
+    private Quaternion camRotation;
 
     void Update()
-    {
-
+    {       
         // when A or D key is pressed - rotate the camera around the objToOrbit's transform (the item of furniture in that level)
         if (Input.GetKey(KeyCode.A))
-        {
-            gameObject.transform.Rotate(0.0f, -panSpeed, 0.0f, Space.Self);
+        {           
+            transform.Rotate(0.0f, -panSpeed, 0.0f, Space.Self);       
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            gameObject.transform.Rotate(0.0f, panSpeed, 0.0f, Space.Self);
+            transform.Rotate(0.0f, panSpeed, 0.0f, Space.Self);
         }
         // when W or S is pressed - rotate the camera about itself, which gives a panning up/down effect
         else if (Input.GetKey(KeyCode.W))
         {
-            gameObject.transform.Rotate(-panSpeed, 0.0f, 0.0f, Space.Self);
+            transform.Rotate(-panSpeed, 0.0f, 0.0f, Space.Self);
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            gameObject.transform.Rotate(panSpeed, 0.0f, 0.0f, Space.Self);
+            transform.Rotate(panSpeed, 0.0f, 0.0f, Space.Self);
         }
         // call SetCursorState every frame to check if the player has pressed 'Space'
         SetCursorState();

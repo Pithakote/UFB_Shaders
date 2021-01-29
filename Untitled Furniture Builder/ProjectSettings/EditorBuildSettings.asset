@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/InstructionsTesting.unity
     guid: 1fc8cdf225d9d64479e74ec1e0233654
   - enabled: 1
+    path: Assets/Scenes/CameraPosTesting.unity
+    guid: 7855dc7a4c08ebd4fa9a04b490726d7a
+  - enabled: 1
     path: Assets/Scenes/Level_Testing.unity
     guid: bb1bf88b8a32bd74fa9a4cc112dfa3e3
   m_configObjects: {}

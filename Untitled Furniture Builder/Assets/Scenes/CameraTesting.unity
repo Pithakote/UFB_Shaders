@@ -474,7 +474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objToOrbit: {fileID: 760159099}
   orbitSpeed: 50
-  panSpeed: 0.6
+  panSpeed: 0.4
 --- !u!4 &175208105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 475434, guid: 7d5fac0efe938994aba24a88ba9c3057,

@@ -4051,14 +4051,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 2055269645}
+  camTransform: {fileID: 1104039462}
+  nextPos: {fileID: 0}
   camPos:
   - {fileID: 115989434}
   - {fileID: 1793615288}
   - {fileID: 1119320475}
   - {fileID: 404633857}
-  transitionSpeed: 4
   currentPos: {fileID: 0}
   currentPosText: {fileID: 294466657}
+  transitionSpeed: 4
+  strength: 5
+  duration: 0.2
+  vibrato: 50
+  randomness: 1
 --- !u!114 &1104039461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4066,12 +4072,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104039459}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 764ca036558d62247a2aeda80c2aff69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panSpeed: 1
+  panSpeed: 0.5
 --- !u!4 &1104039462
 Transform:
   m_ObjectHideFlags: 0
@@ -7568,7 +7574,6 @@ GameObject:
   - component: {fileID: 2055269642}
   - component: {fileID: 2055269641}
   - component: {fileID: 2055269647}
-  - component: {fileID: 2055269648}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7583,7 +7588,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055269640}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 764ca036558d62247a2aeda80c2aff69, type: 3}
   m_Name: 
@@ -7724,33 +7729,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
+  camTransform: {fileID: 0}
+  nextPos: {fileID: 0}
   camPos:
   - {fileID: 115989434}
   - {fileID: 1793615288}
   - {fileID: 1119320475}
   - {fileID: 404633857}
-  transitionSpeed: 4
   currentPos: {fileID: 0}
   currentPosText: {fileID: 294466657}
---- !u!95 &2055269648
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055269640}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b39053156eaa4b44ab303b03c7e7618c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  transitionSpeed: 4
+  strength: 0
+  duration: 0
+  vibrato: 0
+  randomness: 0
 --- !u!1 &2068211261 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2938772735295673699, guid: 08d164588375dbe429244ec7fb756aa6,
