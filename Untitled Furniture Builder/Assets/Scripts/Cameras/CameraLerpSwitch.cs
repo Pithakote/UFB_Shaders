@@ -100,10 +100,13 @@ public class CameraLerpSwitch : MonoBehaviour
         Vector3 offset = new Vector3(0.1f, 0.1f, 0.1f);
         // Linear interpolation between the angles of the current pos and the desired pos
         Vector3 currentAngle = new Vector3(
-            Mathf.LerpAngle(transform.rotation.eulerAngles.x, currentPos.transform.rotation.eulerAngles.x - 0.1f, Time.deltaTime * transitionSpeed),
-            Mathf.LerpAngle(transform.rotation.eulerAngles.y, currentPos.transform.rotation.eulerAngles.y - 0.1f, Time.deltaTime * transitionSpeed),
-            Mathf.LerpAngle(transform.rotation.eulerAngles.z, currentPos.transform.rotation.eulerAngles.z - 0.1f, Time.deltaTime * transitionSpeed)
-            );
+           Mathf.LerpAngle(transform.rotation.eulerAngles.x, currentPos.transform.rotation.eulerAngles.x -0.1f, Time.deltaTime * transitionSpeed),
+           Mathf.LerpAngle(transform.rotation.eulerAngles.y, currentPos.transform.rotation.eulerAngles.y -0.1f, Time.deltaTime * transitionSpeed),
+           Mathf.LerpAngle(transform.rotation.eulerAngles.z, currentPos.transform.rotation.eulerAngles.z -0.1f, Time.deltaTime * transitionSpeed)
+            //Mathf.SmoothStep(transform.rotation.eulerAngles.x, currentPos.transform.rotation.eulerAngles.x - 0.1f, Time.deltaTime * transitionSpeed),
+            //Mathf.SmoothStep(transform.rotation.eulerAngles.y, currentPos.transform.rotation.eulerAngles.y - 0.1f, Time.deltaTime * transitionSpeed),
+            //Mathf.SmoothStep(transform.rotation.eulerAngles.z, currentPos.transform.rotation.eulerAngles.z - 0.1f, Time.deltaTime * transitionSpeed)
+            ); 
         transform.eulerAngles = currentAngle;
     }
 }
