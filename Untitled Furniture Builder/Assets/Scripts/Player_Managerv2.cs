@@ -22,6 +22,8 @@ public class Player_Managerv2 : MonoBehaviour
 	float startAng;
 	[SerializeField]
 	float snapTime = 0.5f;
+	[SerializeField]
+	float snapAngle;
 	
 	float scrollTime;
 
@@ -31,12 +33,14 @@ public class Player_Managerv2 : MonoBehaviour
 	float deltaSnap;
 	[SerializeField]
 	Color pickupColor;
+	[SerializeField]
+	float speed;
 
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		distance_plane = floor.transform.position.y;
+		//distance_plane = floor.transform.position.y;
 	}
 
 	// Update is called once per frame
@@ -108,20 +112,41 @@ public class Player_Managerv2 : MonoBehaviour
 				startAng = angles[axis];
 				scrollTime = Time.time;
 				deltaSnap = scrollDelta.y;
+
+				
 			}
 
 			if (Time.time < scrollTime + snapTime)
 			{
-				float snap_angle = 89.0f;
+				snapAngle = 90.0f;
 				float minAngle = startAng;
-				float maxAngle = startAng + (snap_angle * deltaSnap);
+				float maxAngle = startAng + (snapAngle * deltaSnap);
 				
 
 				float frac = (Time.time - scrollTime) / snapTime;
+
+				//if(axis == 1)
+				//	pickedUp.transform.RotateAround(pickedUp.transform.position, Vector3.left, speed * deltaSnap * Time.deltaTime );
+				//else
+				//	pickedUp.transform.RotateAround(pickedUp.transform.position, Vector3.right, speed * deltaSnap * Time.deltaTime );
+
+
 				float angle = Mathf.LerpAngle(minAngle, maxAngle, frac);
 
+
+
+				//float angle;
+				//if (minAngle > maxAngle)
+				//	angle = Mathf.LerpAngle(maxAngle, minAngle, frac);
+				//else
+				//	angle = Mathf.LerpAngle(minAngle, maxAngle, frac);
+
+				print(minAngle);
+				print(maxAngle);
+				
+
 				if (axis == 0)
-					pickedUp.transform.rotation = Quaternion.Euler(angle, angles[1], angles[2]); // = new Vector3(angle, angles[1], angles[2]);
+					pickedUp.transform.rotation = Quaternion.Euler(angles[0] + 30, angles[1], angles[2]); // = new Vector3(angle, angles[1], angles[2]);
 				else if (axis == 1)
 					pickedUp.transform.rotation = Quaternion.Euler(angles[0], angle, angles[2]);
 			}
