@@ -6,6 +6,7 @@
 CBUFFER_START(UnityPerMaterial)
 float4 _BaseMap_ST;
 half4 _TextureColor;
+float4 _OuterRimColor;
 half _Cutoff;
 float _Specular;
 //half _Glossiness;
@@ -24,9 +25,13 @@ float _LightSpecCutOff;
 float _LightSpecCutOffSmoothness;
 float _ViewSpecCutOff;
 half4 _SpecularColor;
-half4 _FresnelInnerRimPower;
-half4 _FresnelOuterRimSmoothness;
+float _RimPower;
+float _FresnelInnerRimPower;
+float _FresnelOuterRimSmoothness;
+float _FresnelInnerRimSmoothness;
 half4 _FresnelOuterRimColor;
+half4 _InnerRimColor;
+half4 _FinalColor;
 CBUFFER_END
 
 #endif

@@ -56,6 +56,14 @@ float Toon(float3 normal, float3 lightDir)
    // return dot((normal), (lightDir));
     return floor(NdotL / _ScaleAndNumberOfRings);//goes from 0 to 0.3, 0.3 to 0.6, 0.6 to 0.9 and 0.9 to 1. So 4 partations
 }
+float Unity_FresnelEffect_float(float3 Normal, float3 ViewDir, float Power)
+{
+    return pow((1.0 - saturate(dot(normalize(Normal), normalize(ViewDir)))), Power);
+}
+void Unity_Smoothstep_float(float Edge1, float Edge2, float In, out float Out)
+{
+    Out = smoothstep(Edge1, Edge2, In);
+}
 Varyings Vertex(Attributes input)
 {
     Varyings output = (Varyings)0;
@@ -110,32 +118,34 @@ half4 Fragment(Varyings input) : SV_Target
                     * _TextureColor.rgb;
     //albedo *= Toon(input.normalWS, _MainLightPosition.xyz) * _Strength + _Brightness;
     albedo *=  _Strength + _Brightness;
-    float toonDotProduct = dot(input.normalWS, _MainLightPosition.xyz - lightingInput.viewDirectionWS);
+    albedo = half3(0, 0, 0);
+
+    float toonDotProduct = dot(input.normalWS, _MainLightPosition.xyz- lightingInput.viewDirectionWS);
     float smoothValue = smoothstep(_LightSpecCutOff, _LightSpecCutOff + _LightSpecCutOffSmoothness, toonDotProduct);
     
 
-    float specularDotProduct = dot(input.normalWS, lightingInput.viewDirectionWS);
+    float specularDotProduct = dot( lightingInput.viewDirectionWS, input.normalWS);
     float specularSmoothValue = smoothstep(_ViewSpecCutOff, _ViewSpecCutOff + _LightSpecCutOffSmoothness, specularDotProduct);
 
-    float finalColor = (specularSmoothValue + smoothValue);// *_SpecularColor;
+    float specularColor = (specularSmoothValue + smoothValue)* _SpecularColor;// *_SpecularColor;
 
-    float fresnel = dot(lightingInput.normalWS, lightingInput.viewDirectionWS);
-    fresnel = saturate(1 - fresnel);
-    fresnel = pow(fresnel, _FresnelInnerRimPower);
-
-    fresnel = smoothstep(0.5, 0.5 +_FresnelOuterRimSmoothness,fresnel);
-
-    fresnel = _FresnelOuterRimColor * fresnel;
-
-
-    //return  half4(color, alpha);
-                //return  half4(albedo, 1.0);
-               // return UniversalFragmentBlinnPhong(lightingInput, albedo,1,0,0,1);
-    //half4 fragColor = UniversalFragmentBlinnPhong(lightingInput, albedo, _Specular, _Smoothness,  _Emission, 1);// *half4(color, 1);
-   // return UniversalFragmentPBR(inputData, albedo, metallic, specular, smoothness, occlusion, emission, alpha);
-    half4 fragColor = UFBUniversalFragmentPBR(lightingInput, albedo , _Metallic,
-                                                _Specular, _Smoothness, _Occlusion,
-                                                finalColor* _SpecularColor, _Alpha);// *half4(color, 1);
+    //-----Outer Glow
+    float4 _fresnelOuterRim =  Unity_FresnelEffect_float(input.normalWS, lightingInput.viewDirectionWS, _RimPower);
+    _fresnelOuterRim = smoothstep(0.5, 0.5 + _FresnelOuterRimSmoothness, _fresnelOuterRim);
+    _fresnelOuterRim = _fresnelOuterRim * _OuterRimColor;
+  //---------------------
+     //-----Inner Glow
+    float4 _fresnelInnerRim = Unity_FresnelEffect_float(input.normalWS, lightingInput.viewDirectionWS, _FresnelInnerRimPower);
+    _fresnelInnerRim = 1 - _fresnelInnerRim;
+    _fresnelInnerRim = smoothstep(0.5 - _FresnelInnerRimSmoothness, 0.5, _fresnelInnerRim);
+    _fresnelInnerRim = _fresnelInnerRim * _InnerRimColor;
+    //---------------------
+    float4 finalColor = (_fresnelOuterRim + _fresnelInnerRim + specularColor);
+    finalColor += _FinalColor;
+    finalColor = saturate(finalColor);
+    half4 fragColor = UFBUniversalFragmentPBR(lightingInput, finalColor.rgb, 0,
+                                                0, 0, 1,
+        finalColor.rgb, finalColor.a);// *half4(color, 1);
    // half4 fragColor = LightweightFragmentBlinnPhong(lightingInput, albedo, _Specular, _Smoothness, toonDotProduct, _Alpha);// *half4(color, 1);
    // fragColor = half4(albedo,1) + MainLightRealtimeShadow(TransformWorldToShadowCoord(lightingInput.positionWS));// *half4(color, 1);
    // fragColor.a = _Alpha;

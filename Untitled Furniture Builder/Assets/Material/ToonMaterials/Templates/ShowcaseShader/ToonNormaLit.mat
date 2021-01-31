@@ -25,9 +25,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - <noninit>: 0
     - GLOSS: 1
     - _Alpha: 1
-    - _Brightness: 1
+    - _Brightness: 0.362
     - _Diffuse: 0
     - _Emission: 0
     - _Gloss: 0
@@ -36,14 +37,13 @@ Material:
     - _OutlineThickness: 1.14
     - _Overlay: 0
     - _Prop2: 1.05
-
-    - _ScaleAndNumberOfRings: 0.333
-    - _Smoothness: 0
+    - _ScaleAndNumberOfRings: 0.364
+    - _Smoothness: 0.421
     - _Specular: 0
-    - _Strength: 14.8
+    - _Strength: 6.6
     m_Colors:
-    - _AmbientColor: {r: 0.764151, g: 0.61815405, b: 0.3280082, a: 1}
-
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 255}
+    - _TextureColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &4329965943301763912
 MonoBehaviour:
   m_ObjectHideFlags: 11

@@ -36,10 +36,10 @@ Material:
     - _OutlineThickness: 1.06
     - _Overlay: 0
     - _Prop2: 1.05
-    - _ScaleAndNumberOfRings: 0.448
+    - _ScaleAndNumberOfRings: 0.464
     - _Smoothness: 1
     - _Specular: 0
-    - _Strength: 50
+    - _Strength: 41.4
     m_Colors:
     - _AmbientColor: {r: 1, g: 0.8608516, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}

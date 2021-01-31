@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ToonGlassUnlitGraphMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: f49c099c54e5e084e9dcd640fa6f5906,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Vector1_1538E258: 0
+    - Vector1_550A67C3: 0.7
+    - Vector1_642DC384: 0.81
+    - Vector1_78188B83: 0.73
+    - Vector1_984A39AF: 0.0586
+    - Vector1_B73FF984: 0.52
+    - Vector1_CD26A062: 0.0778
+    m_Colors:
+    - Color_1C555BEC: {r: 0.5339979, g: 0.9019054, b: 0.9056604, a: 0}
+    - Color_29EA2942: {r: 0.7735849, g: 0.6710305, b: 0, a: 1}
+    - Color_69ECC828: {r: 1, g: 0.34433958, b: 0.34433958, a: 1}
+    - Color_F71EB5AD: {r: 0.24942142, g: 0.8748125, b: 0.8962264, a: 0.2}
