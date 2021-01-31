@@ -166,7 +166,7 @@ Shader "Custom/ToonURPShader"
 
                 ENDHLSL
            }
-               /*
+               
            Pass//outline pass
            {
                     Name "Outlines"
@@ -186,7 +186,7 @@ Shader "Custom/ToonURPShader"
                       #include "Outlines.hlsl"
                       ENDHLSL
            }
-      */
+      
         }
         CustomEditor "ToonURPShaderGUI"
 }

@@ -3763,17 +3763,17 @@ PrefabInstance:
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.143
+      value: 1.1430179
       objectReference: {fileID: 0}
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 36.544
+      value: 36.547436
       objectReference: {fileID: 0}
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.00441237
       objectReference: {fileID: 0}
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
@@ -3788,7 +3788,7 @@ PrefabInstance:
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9999903
       objectReference: {fileID: 0}
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
@@ -3798,7 +3798,7 @@ PrefabInstance:
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -0.50600004
       objectReference: {fileID: 0}
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
@@ -4465,6 +4465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1216432771}
   - component: {fileID: 1216432770}
+  - component: {fileID: 1216432772}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -4479,7 +4480,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216432769}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b6ee401d3066104490e9525adf09b8c, type: 3}
   m_Name: 
@@ -4489,7 +4490,7 @@ MonoBehaviour:
   floor: {fileID: 437437582}
   pickedUp: {fileID: 0}
   forceAmount: 2000
-  pickupColor: {r: 1, g: 0.8724341, b: 0, a: 0}
+  pickupColor: {r: 1, g: 0.8724341, b: 0, a: 1}
 --- !u!4 &1216432771
 Transform:
   m_ObjectHideFlags: 0
@@ -4504,6 +4505,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1216432772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216432769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf6fa5dc8b2e94459833fb3961f94dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upTime: 0.25
+  floor: {fileID: 276266325}
+  pickedUp: {fileID: 0}
+  forceAmount: 2000
+  axis: 0
+  snapTime: 0.5
+  upDistance: 1
+  deltaSnap: 0
+  pickupColor: {r: 0.83013296, g: 0.9056604, b: 0.055535804, a: 1}
 --- !u!1 &1218495895
 GameObject:
   m_ObjectHideFlags: 0
