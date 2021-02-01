@@ -21,6 +21,7 @@ public class GrabAndDrop : MonoBehaviour
     float zDistance = 1.0f;
     private void OnMouseDrag()
     {
+
         var mousePos = Input.mousePosition;
     
         // Set the position of the transform to a position defined by the mouse
@@ -37,27 +38,7 @@ public class GrabAndDrop : MonoBehaviour
         rigidbody.angularVelocity = vel;
     }
     void Update()
-    {
-        //if(Input.GetMouseButton(0))
-        //{   
-        //    RaycastHit hit;
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //
-        //    if (Physics.Raycast(ray, out hit))
-        //    {
-        //        if (hit.transform.name == "Physics")
-        //        {
-        //            print("object is clicked by mouse");
-        //          
-        //        }
-        //    }
-        //}
-        //
-        //else if(Input.GetMouseButtonUp(0))
-        //{
-        //    return;
-        //}
-        //OnMouseDown();
+    {  
 
         // rotation
         if (Input.GetKey(KeyCode.R))
