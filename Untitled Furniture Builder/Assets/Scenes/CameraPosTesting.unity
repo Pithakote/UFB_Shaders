@@ -4518,7 +4518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upTime: 0.25
-  floor: {fileID: 0}
+  floor: {fileID: 276266325}
   pickedUp: {fileID: 0}
   forceAmount: 2000
   axis: 0
@@ -4528,6 +4528,7 @@ MonoBehaviour:
   deltaSnap: 0
   pickupColor: {r: 0.83013296, g: 0.9056604, b: 0.055535804, a: 1}
   speed: 90
+  rotSpeed: 80
 --- !u!1 &1218495895
 GameObject:
   m_ObjectHideFlags: 0

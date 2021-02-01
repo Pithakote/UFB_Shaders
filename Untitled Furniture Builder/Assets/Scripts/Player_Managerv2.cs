@@ -36,14 +36,12 @@ public class Player_Managerv2 : MonoBehaviour
 	[SerializeField]
 	float speed;
 
+	[SerializeField]
+	float rotSpeed;
 
-	// Start is called before the first frame update
-	void Start()
-	{
-		//distance_plane = floor.transform.position.y;
-	}
 
-	// Update is called once per frame
+
+	
 	void Update()
 	{
 		Vector2 mousePos = Input.mousePosition;
@@ -103,54 +101,33 @@ public class Player_Managerv2 : MonoBehaviour
 			if (dist > 0.2f)
 				rigidbody.AddForce((goalPosition - entPos).normalized * forceAmount * Time.deltaTime);
 
-			//Rotate
-			Vector3 angles = pickedUp.transform.eulerAngles;
-			Vector2 scrollDelta = Input.mouseScrollDelta;
-
-			if (Input.GetKey(KeyCode.R) && scrollDelta.y != 0)
-			{
-				startAng = angles[axis];
-				scrollTime = Time.time;
-				deltaSnap = scrollDelta.y;
-
-				
-			}
-
-			if (Time.time < scrollTime + snapTime)
-			{
-				snapAngle = 90.0f;
-				float minAngle = startAng;
-				float maxAngle = startAng + (snapAngle * deltaSnap);
-				
-
-				float frac = (Time.time - scrollTime) / snapTime;
-
-				//if(axis == 1)
-				//	pickedUp.transform.RotateAround(pickedUp.transform.position, Vector3.left, speed * deltaSnap * Time.deltaTime );
-				//else
-				//	pickedUp.transform.RotateAround(pickedUp.transform.position, Vector3.right, speed * deltaSnap * Time.deltaTime );
-
-
-				float angle = Mathf.LerpAngle(minAngle, maxAngle, frac);
-
-
-
-				//float angle;
-				//if (minAngle > maxAngle)
-				//	angle = Mathf.LerpAngle(maxAngle, minAngle, frac);
-				//else
-				//	angle = Mathf.LerpAngle(minAngle, maxAngle, frac);
-
-				print(minAngle);
-				print(maxAngle);
-				
-
-				if (axis == 0)
-					pickedUp.transform.rotation = Quaternion.Euler(angles[0] + 30, angles[1], angles[2]); // = new Vector3(angle, angles[1], angles[2]);
-				else if (axis == 1)
-					pickedUp.transform.rotation = Quaternion.Euler(angles[0], angle, angles[2]);
-			}
+			
+			
 		}
+
+		if (Input.GetKey(KeyCode.R))
+		{
+			Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
+			
+			float mouseDX = Input.GetAxis("Mouse X");
+			float mouseDY = Input.GetAxis("Mouse Y");
+			rigidbody.constraints = RigidbodyConstraints.FreezePosition;
+
+			pickedUp.transform.Rotate(new Vector3(mouseDX, mouseDY, 0) * Time.deltaTime * rotSpeed);
+
+			Cursor.visible = false;
+
+			if (rigidbody == null)
+				return;
+		}
+		else if(Input.GetKeyUp(KeyCode.R))
+        {
+			Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
+			Cursor.visible = true;
+			rigidbody.constraints = RigidbodyConstraints.None;
+
+		}
+
 
 		//Find pick up entitiy
 		if (Input.GetMouseButtonDown(0))
@@ -172,14 +149,19 @@ public class Player_Managerv2 : MonoBehaviour
 						pickedUp = ent;
 						origin = ent.transform.position;
 						startTime = Time.time;
+						Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
+						rigidbody.constraints = RigidbodyConstraints.None;
+
 
 						Renderer _renderer = pickedUp.GetComponent<Renderer>();
 						_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
 						_renderer.material.SetColor("_OutlineColor", pickupColor);
+						
 					}
 
 				}
 			}
+			
 		}
 		else if (Input.GetMouseButtonUp(0))
 		{
