@@ -21,7 +21,7 @@ struct VertexOutput
 };
 float _OutlineThickness;
 float4 _OutlineColor;
-
+Vector _OutlinePosition;
 VertexOutput Vertex(Attributes input)
 {
 	VertexOutput output = (VertexOutput)0;
@@ -30,7 +30,8 @@ VertexOutput Vertex(Attributes input)
 
 	//extruding the object along the normal to make it a little bigger
 	//float3 posOS = input.positionOS.xyz + input.normalOS * _Thickness;
-	float3 posOS = input.positionOS.xyz  * _OutlineThickness;
+	//float3 posOS = input.positionOS.xyz  * _OutlineThickness;
+	input.positionOS.xyz += _OutlinePosition;
 	input.positionOS.xyz *= _OutlineThickness;
 
 	//output.positionCS = GetVertexPositionInputs(input.positionOS).positionCS;
