@@ -2016,6 +2016,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5886725122310526079, guid: 807f34e713b77474fa0b0cca977debae, type: 3}
+--- !u!114 &498878525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498878519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509af542e5ab54d4494c04709c6dd405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenCamera: {fileID: 2055269645}
+  rotSpeed: 100
+  zDistance: 1
 --- !u!1 &515849997 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: de6380a6119977c4692c0eaa17f3f170,
@@ -2634,11 +2649,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4068732887779152, guid: ba577e1642715534585fb21ba6d0529a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5082362
+      value: 3.506
       objectReference: {fileID: 0}
     - target: {fileID: 4068732887779152, guid: ba577e1642715534585fb21ba6d0529a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.084877
+      value: -4.996
       objectReference: {fileID: 0}
     - target: {fileID: 4068732887779152, guid: ba577e1642715534585fb21ba6d0529a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3329,6 +3344,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de6380a6119977c4692c0eaa17f3f170, type: 3}
+--- !u!1 &822587396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 822587397}
+  m_Layer: 0
+  m_Name: guide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &822587397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822587396}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.071, y: 0.285, z: 1.358}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1104039462}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &871164067
 GameObject:
   m_ObjectHideFlags: 0
@@ -4170,6 +4215,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2055269646}
+  - {fileID: 822587397}
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 58.968002, y: -83.37, z: 8.108001}
@@ -4618,7 +4664,7 @@ MonoBehaviour:
   deltaSnap: 0
   pickupColor: {r: 0.83013296, g: 0.9056604, b: 0.055535804, a: 1}
   speed: 90
-  rotSpeed: 80
+  rotSpeed: 100
 --- !u!1 &1218495895
 GameObject:
   m_ObjectHideFlags: 0
@@ -5535,7 +5581,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.8588236, b: 0.003921569, a: 1}
   m_Intensity: 1.43
-  m_Range: 1.43
+  m_Range: 4.19
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -5773,7 +5819,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.8588236, b: 0.003921569, a: 1}
   m_Intensity: 2.03
-  m_Range: 1.43
+  m_Range: 4.26
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -7868,8 +7914,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f472ca05db420b4c869df5a4b0a9c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
-  camTransform: {fileID: 0}
+  mainCamera: {fileID: 2055269645}
+  camTransform: {fileID: 1104039462}
   nextPos: {fileID: 0}
   camPos:
   - {fileID: 115989434}
@@ -7879,10 +7925,10 @@ MonoBehaviour:
   currentPos: {fileID: 0}
   currentPosText: {fileID: 294466657}
   transitionSpeed: 4
-  strength: 0
-  duration: 0
-  vibrato: 0
-  randomness: 0
+  strength: 5
+  duration: 0.2
+  vibrato: 50
+  randomness: 1
 --- !u!1 &2068211261 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2938772735295673699, guid: 08d164588375dbe429244ec7fb756aa6,
@@ -8083,8 +8129,8 @@ GameObject:
   - component: {fileID: 4445812975670034}
   - component: {fileID: 33780603051381910}
   - component: {fileID: 23168755829715178}
-  - component: {fileID: 1221571850538813}
   - component: {fileID: 1221571850538814}
+  - component: {fileID: 1221571850538813}
   m_Layer: 0
   m_Name: seat
   m_TagString: Physics
@@ -8849,7 +8895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979505842197420}
   m_LocalRotation: {x: -0.7071069, y: -0, z: 0.0000000018626451, w: 0.7071067}
-  m_LocalPosition: {x: -0.09861791, y: -0.32904243, z: -0.109558105}
+  m_LocalPosition: {x: -0.09861791, y: -0.328, z: -0.109558105}
   m_LocalScale: {x: 14.930432, y: 14.930427, z: 15.631172}
   m_Children: []
   m_Father: {fileID: 760159100}

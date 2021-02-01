@@ -107,6 +107,8 @@ public class Player_Managerv2 : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.R))
 		{
+			if (pickedUp == null)
+				return;
 			Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
 			
 			float mouseDX = Input.GetAxis("Mouse X");
@@ -117,17 +119,16 @@ public class Player_Managerv2 : MonoBehaviour
 
 			Cursor.visible = false;
 
-			if (rigidbody == null)
-				return;
+			
 		}
 		else if(Input.GetKeyUp(KeyCode.R))
         {
+			if (pickedUp == null)
+				return;
 			Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
 			Cursor.visible = true;
 			rigidbody.constraints = RigidbodyConstraints.None;
 
-			if (rigidbody == null)
-				return;
 		}
 
 

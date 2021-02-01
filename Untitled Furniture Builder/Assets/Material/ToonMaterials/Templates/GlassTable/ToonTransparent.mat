@@ -93,7 +93,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FinalColor: {r: 0.37219644, g: 0.6415094, b: 0.6353887, a: 0.12156863}
+    - _FinalColor: {r: 0.3721964, g: 0.6415094, b: 0.6353887, a: 0}
     - _FresnelOuterRimColor: {r: 1, g: 1, b: 1, a: 1}
     - _InnerRimColor: {r: 1, g: 0.34433955, b: 0.34433955, a: 1}
     - _OuterRimColor: {r: 0.42274824, g: 0.9383975, b: 0.9433962, a: 0}
