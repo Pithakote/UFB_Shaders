@@ -126,6 +126,8 @@ public class Player_Managerv2 : MonoBehaviour
 			Cursor.visible = true;
 			rigidbody.constraints = RigidbodyConstraints.None;
 
+			if (rigidbody == null)
+				return;
 		}
 
 
