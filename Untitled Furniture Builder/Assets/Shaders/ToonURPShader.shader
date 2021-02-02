@@ -171,7 +171,7 @@ Shader "Custom/ToonURPShader"
            {
                     Name "Outlines"
                     Cull Front
-                   // ZWrite Off
+                    ZWrite On
                     Blend One OneMinusSrcAlpha
                        //cull front faces
                      //Cull Back
