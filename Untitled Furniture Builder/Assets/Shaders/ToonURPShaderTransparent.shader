@@ -115,11 +115,11 @@ Shader "Custom/ToonURPShaderTransparent"
 
                 #endif
             */
-                //#if (_Gloss==0)
-                //        #define _SPECULAR_SETUP
-                //#else
-                //        #define _METALLIC
-                //#endif
+                #if (_Gloss==0)
+                        #define _SPECULAR_SETUP
+                #else
+                        #define _METALLIC
+                #endif
                   // #define _METALLIC
                   // #define _Gloss
                   // #pragma shader_feature _SPECULAR_SETUP
