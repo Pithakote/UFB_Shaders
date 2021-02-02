@@ -1,4 +1,10 @@
 # UntitledFurnitureBuilder
+## Team Roles
+Jacob - Project Manager/developer <br/>
+Anish - Lead Developer <br/>
+Ryan - Designer <br/>
+Tina - Sound/modelling <br/>
+Aryan - Developer
 
 ## Template Scene
 A template scene has been made available and can be found in Scenes->TemplateSceneOrShaderShowScene->ShaderShowScene(Folder)->ShaderShowScene(Scene).
