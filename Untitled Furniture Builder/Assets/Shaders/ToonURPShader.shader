@@ -22,7 +22,7 @@ Shader "Custom/ToonURPShader"
             [HideInInspector] _ScaleAndNumberOfRings("ScaleAndNumberOfRings", Range(0.1,1)) = 0.338
 
 
-
+            [Header(Outline Options)]
             _OutlineThickness("Outline Thickness", Float) = 1.07
             _OutlineColor("Outline Color", Color) = (0,0,0,255)
             _OutlinePosition("Outline Position", Vector) = (0,0,0)
