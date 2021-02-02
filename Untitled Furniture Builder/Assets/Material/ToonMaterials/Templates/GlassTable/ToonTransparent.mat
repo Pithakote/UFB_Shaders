@@ -59,24 +59,24 @@ Material:
     - _DstBlend: 0
     - _Emission: 0
     - _EnvironmentReflections: 1
-    - _FresnelInnerRimPower: 0.0389
+    - _FresnelInnerRimPower: 0.0256
     - _FresnelInnerRimSmoothness: 0
-    - _FresnelOuterRimSmoothness: 0
+    - _FresnelOuterRimSmoothness: 0.12
     - _FresnelRimPower: 1.14
     - _Gloss: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _InnerRimPower: 0.74
-    - _LightSpecCutOff: 0.465
-    - _LightSpecCutOffSmoothness: 0.1
+    - _LightSpecCutOff: 0.545
+    - _LightSpecCutOffSmoothness: 0.253
     - _Metallic: 0.964
     - _Occlusion: 0.138
     - _OcclusionStrength: 1
     - _OutlineThickness: 1.06
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RimPower: 0.506
+    - _RimPower: 0.699
     - _ScaleAndNumberOfRings: 0.1
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
@@ -85,7 +85,7 @@ Material:
     - _SrcBlend: 1
     - _Strength: 0
     - _Surface: 0
-    - _ViewSpecCutOff: 0.58
+    - _ViewSpecCutOff: 0.487
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -93,13 +93,13 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FinalColor: {r: 0.3721964, g: 0.6415094, b: 0.6353887, a: 0}
+    - _FinalColor: {r: 0.55193126, g: 0.745283, b: 0.7396786, a: 0.09803922}
     - _FresnelOuterRimColor: {r: 1, g: 1, b: 1, a: 1}
     - _InnerRimColor: {r: 1, g: 0.34433955, b: 0.34433955, a: 1}
     - _OuterRimColor: {r: 0.42274824, g: 0.9383975, b: 0.9433962, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 0.49803922}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecularColor: {r: 0.36320752, g: 1, b: 1, a: 1}
 --- !u!114 &5218997568424806776
 MonoBehaviour:
   m_ObjectHideFlags: 11
