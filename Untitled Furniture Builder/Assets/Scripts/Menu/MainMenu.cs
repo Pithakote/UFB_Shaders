@@ -5,20 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject oneStars;
-  
 
-    public GameObject[] levels;
 
-   
-    void Start()
-    {
-       if(SceneManager.GetActiveScene().name == "MainMenu")
-       {
-           Instantiate(oneStars, levels[0].transform);
-       }
-
-    }
 
     public void LoadLevel()
     {
