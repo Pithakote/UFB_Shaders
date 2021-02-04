@@ -48,24 +48,12 @@ public class drag : MonoBehaviour
             gameObject.transform.Rotate(new Vector3(mouseDX, mouseDY, 0) * Time.deltaTime * 200);
 
             Cursor.visible = false;
-        }
-
-
-
-
-
-
-
-
-       
+        }      
         
-    }
-
-   
+    }  
 
     void Update()
     {
-
         if (Input.GetKey(KeyCode.R))
         {
             canRotate = true;
@@ -75,11 +63,8 @@ public class drag : MonoBehaviour
             canRotate = false;
         }
 
-
-            if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))
         {
-            
-
             print("RMB clicked");
             //pickedUp.transform.position = goalPosition;
             Rigidbody rigidbody = this.gameObject.GetComponent<Rigidbody>();
