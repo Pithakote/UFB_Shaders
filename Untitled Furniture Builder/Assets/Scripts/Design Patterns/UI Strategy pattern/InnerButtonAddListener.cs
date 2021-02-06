@@ -21,15 +21,13 @@ public class InnerButtonAddListener : MonoBehaviour
        // if (_thisButtonRectTransform == null)
             _thisButtonRectTransform = this.gameObject.GetComponent<RectTransform>();
     }
-    public void MoveToScreen(RectTransform thisButtonRectTransform)
-    {
-        if (_thisButtonRectTransform == null)
-            _thisButtonRectTransform = thisButtonRectTransform;
+    public void MoveToScreen()
+    {     
 
         InnerButtonBehaviour InnerButtonMove = new InnerButtonBehaviour(_thisButtonRectTransform, _nextUIEndPos);
         //buttonInteraction = InnerButtonMove;
         InnerButtonMove.ButtonBehaviour();
         Debug.Log("MoveToScreen function done");
-       
-    }        
+
+    }
 }
