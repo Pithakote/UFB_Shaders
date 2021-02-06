@@ -1569,6 +1569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 526011800}
   - component: {fileID: 526011799}
+  - component: {fileID: 526011801}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -1625,6 +1626,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &526011801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526011798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c0a622033900842a8f337aad19cf67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  homeMenu: {fileID: 0}
+  controlsMenu: {fileID: 0}
+  settingsMenu: {fileID: 0}
+  levelSelectMenu: {fileID: 0}
+  playButton: {fileID: 0}
+  controlsButton: {fileID: 0}
+  settingsButton: {fileID: 0}
+  quitButton: {fileID: 0}
+  cog1: {fileID: 0}
+  cog2: {fileID: 0}
+  slider: {fileID: 0}
+  toggle1: {fileID: 0}
+  toggle2: {fileID: 0}
+  dropDown: {fileID: 0}
+  settingsBackButton: {fileID: 0}
+  settingsText: {fileID: 0}
+  lvl1Button: {fileID: 0}
+  lvl2Button: {fileID: 0}
+  lvl3Button: {fileID: 0}
+  lvl4Button: {fileID: 0}
+  lvl5Button: {fileID: 0}
+  controlsText: {fileID: 0}
+  controlsBackButton: {fileID: 0}
 --- !u!1 &538166704
 GameObject:
   m_ObjectHideFlags: 0
@@ -4027,6 +4063,7 @@ GameObject:
   - component: {fileID: 1281560961}
   - component: {fileID: 1281560960}
   - component: {fileID: 1281560964}
+  - component: {fileID: 1281560965}
   m_Layer: 5
   m_Name: Controls_button
   m_TagString: Untagged
@@ -4115,40 +4152,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1281560962}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 438207908}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: home_close
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1701317459}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: controls_open
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 526011799}
-        m_MethodName: OpenControls
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1281560962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4229,6 +4233,23 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1281560965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281560958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ec008b9a804c444977c33ca90f20e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentUI: {fileID: 438207909}
+  _nextUI: {fileID: 1701317460}
+  _currentUIEndPos: {x: -800, y: 0}
+  _nextUIEndPos: {x: -168, y: -4.5}
+  _duration: 0.5
 --- !u!1 &1290253756
 GameObject:
   m_ObjectHideFlags: 0
@@ -4374,6 +4395,7 @@ GameObject:
   - component: {fileID: 1346546311}
   - component: {fileID: 1346546310}
   - component: {fileID: 1346546309}
+  - component: {fileID: 1346546312}
   m_Layer: 5
   m_Name: Controls_text
   m_TagString: Untagged
@@ -4516,6 +4538,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346546307}
   m_CullTransparentMesh: 0
+--- !u!114 &1346546312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346546307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd62ca247b62eb44ac17b22a0b179ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentUI: {fileID: 0}
+  _nextUI: {fileID: 0}
+  _currentUIEndPos: {x: 0, y: 0}
+  _duration: 0
+  _thisButtonRectTransform: {fileID: 0}
+  _nextUIEndPos: {x: 0, y: 0}
 --- !u!1 &1360526812
 GameObject:
   m_ObjectHideFlags: 0
@@ -6370,7 +6410,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 73b4f0fa4cda7c84980f1731d17dfe57, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.085
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
