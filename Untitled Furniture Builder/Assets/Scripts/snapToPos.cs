@@ -33,8 +33,9 @@ public class snapToPos : MonoBehaviour
         // offset = transform.localPosition - snapparent.transform.position;
         transform.parent = snapPosition.transform;
         transform.up = snapPosition.transform.up;
-        transform.localPosition = new Vector3(snapPosition.transform.localPosition.x, snapPosition.transform.localPosition.y + offset.y, snapPosition.transform.localPosition.z);
-        //transform.localRotation = snapPosition.transform.localRotation;
+           transform.localPosition = new Vector3(0, offset.y, 0);
+       // transform.localPosition = Vector3.zero;
+      //  transform.localRotation = snapPosition.transform.localRotation;
 
 
         
