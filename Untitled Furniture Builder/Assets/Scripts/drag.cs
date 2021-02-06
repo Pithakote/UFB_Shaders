@@ -17,6 +17,8 @@ public class drag : MonoBehaviour
 
     void OnMouseDown()
     {
+        Rigidbody rigidbody = this.gameObject.GetComponent<Rigidbody>();
+        rigidbody.constraints = RigidbodyConstraints.None;
         dist = Camera.main.WorldToScreenPoint(transform.position);
         posX = Input.mousePosition.x - dist.x;
         PosY = Input.mousePosition.y - dist.y;
@@ -45,7 +47,7 @@ public class drag : MonoBehaviour
             float mouseDY = Input.GetAxis("Mouse Y");
             rigidbody.constraints = RigidbodyConstraints.FreezePosition;
 
-            gameObject.transform.Rotate(new Vector3(mouseDX, mouseDY, 0) * Time.deltaTime * 200);
+            gameObject.transform.Rotate(new Vector3(mouseDY, mouseDX, 0) * Time.deltaTime * 200);
 
             Cursor.visible = false;
         }      
@@ -70,11 +72,7 @@ public class drag : MonoBehaviour
             Rigidbody rigidbody = this.gameObject.GetComponent<Rigidbody>();
             rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         }
-        else if (Input.GetMouseButtonUp(1))
-        {
-            Rigidbody rigidbody = this.gameObject.GetComponent<Rigidbody>();
-            rigidbody.constraints = RigidbodyConstraints.None;
-        }
+       
     }
 
     

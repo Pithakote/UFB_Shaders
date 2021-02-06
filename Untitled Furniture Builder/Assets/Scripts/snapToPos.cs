@@ -9,34 +9,74 @@ public class snapToPos : MonoBehaviour
 
     [SerializeField] private Vector3 offset; // the offset of this object's position from the parent
     [SerializeField] float yPosOffset;
+    [SerializeField] bool setXAxis;
+
+    [SerializeField] GameObject snapPosition;
+
+    private void Start()
+    {
+        
+    }
 
     void updateTransParent(bool snapped)
     {
         if (snapped == false)
             return;
+        offset = new Vector3(offset.x, yPosOffset, offset.z);
 
-        offset = new Vector3(offset.x, offset.y, yPosOffset);
+        snapPosition.transform.parent = snapparent.transform;
+        snapPosition.transform.up = snapparent.transform.up;
 
-        transform.parent = snapparent.transform;
-        transform.localPosition = snapparent.transform.localPosition + offset;
-        transform.up = snapparent.transform.up;
+        snapPosition.transform.localPosition = new Vector3(0, snapparent.transform.localPosition.y, 0);
+        //snapPosition.transform.localRotation = snapparent.transform.localRotation;
+
+        // offset = transform.localPosition - snapparent.transform.position;
+        transform.parent = snapPosition.transform;
+        transform.up = snapPosition.transform.up;
+        transform.localPosition = new Vector3(snapPosition.transform.localPosition.x, snapPosition.transform.localPosition.y + offset.y, snapPosition.transform.localPosition.z);
+        //transform.localRotation = snapPosition.transform.localRotation;
+
+
+        
+
+
+
+
 
         Rigidbody rigidbody = this.gameObject.GetComponent<Rigidbody>();
-        rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        Destroy(rigidbody);
+        //rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 
-        gameObject.GetComponent<MeshCollider>().enabled = false;       
+        //rigidbody.isKinematic = true;
+        gameObject.GetComponent<MeshCollider>().enabled = false;
+
+        if (setXAxis)
+            transform.right = snapparent.transform.right;
+        else return;
     }
     void OnTriggerEnter(Collider col)
-    {
+    {                  
+
+
         if (col.tag == "parent")
-        {
-            // if col.getcomponent<drag> = true, then do it.
-            snapped = true;
-            snapparent = col.gameObject;
-            updateTransParent(snapped);           
+        {                     
+                // if col.getcomponent<drag> = true, then do it.
+                snapped = true;
+                snapparent = col.gameObject;
+                updateTransParent(snapped);                       
         }
+        
+       
+       
+
     }
+
+}
+    // if leg already attached
+    // do nothing
+    // if no leg attached
+    // attach leg
 
     // do a check so each point only has 1 leg attached
 
-}
+
