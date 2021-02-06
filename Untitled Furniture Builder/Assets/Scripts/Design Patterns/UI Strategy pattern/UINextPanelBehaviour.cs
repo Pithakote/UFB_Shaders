@@ -13,8 +13,7 @@ public class UINextPanelBehaviour : IButtonInteractable
     Vector2 _nextUIEndPos;
     float _duration;
    
-    List<GameObject> _children;
-  
+    List<GameObject> _children;  
 
     public UINextPanelBehaviour(RectTransform currentUI, RectTransform nextUI, Vector2 currentUIEndPos, Vector2 nextUIEndPos, float duration)
     {
@@ -48,7 +47,6 @@ public class UINextPanelBehaviour : IButtonInteractable
         
         //all children's behaviour
         _children.ForEach(childr=>childr.GetComponent<InnerButtonAddListener>().MoveToScreen());
-
 
     }
 

@@ -12,7 +12,8 @@ public class InnerButtonAddListener : MonoBehaviour
     RectTransform _thisButtonRectTransform;
     [SerializeField]
     Vector2 _nextUIEndPos;
-
+    [SerializeField]
+    float duration;
     IButtonInteractable buttonInteraction;
 
     private void Start()
@@ -24,7 +25,7 @@ public class InnerButtonAddListener : MonoBehaviour
     public void MoveToScreen()
     {     
 
-        InnerButtonBehaviour InnerButtonMove = new InnerButtonBehaviour(_thisButtonRectTransform, _nextUIEndPos);
+        InnerButtonBehaviour InnerButtonMove = new InnerButtonBehaviour(_thisButtonRectTransform, _nextUIEndPos, duration);
         //buttonInteraction = InnerButtonMove;
         InnerButtonMove.ButtonBehaviour();
         Debug.Log("MoveToScreen function done");
