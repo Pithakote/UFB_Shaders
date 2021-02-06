@@ -47,7 +47,7 @@ public class drag : MonoBehaviour
             float mouseDY = Input.GetAxis("Mouse Y");
             rigidbody.constraints = RigidbodyConstraints.FreezePosition;
 
-            gameObject.transform.Rotate(new Vector3(mouseDY, mouseDX, 0) * Time.deltaTime * 200);
+            gameObject.transform.Rotate(new Vector3(-mouseDX, 0, mouseDY) * Time.deltaTime * 300);
 
             Cursor.visible = false;
         }      
