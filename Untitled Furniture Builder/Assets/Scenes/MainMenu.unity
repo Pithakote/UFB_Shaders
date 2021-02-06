@@ -1569,7 +1569,6 @@ GameObject:
   m_Component:
   - component: {fileID: 526011800}
   - component: {fileID: 526011799}
-  - component: {fileID: 526011801}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -1626,41 +1625,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &526011801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526011798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29c0a622033900842a8f337aad19cf67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  homeMenu: {fileID: 0}
-  controlsMenu: {fileID: 0}
-  settingsMenu: {fileID: 0}
-  levelSelectMenu: {fileID: 0}
-  playButton: {fileID: 0}
-  controlsButton: {fileID: 0}
-  settingsButton: {fileID: 0}
-  quitButton: {fileID: 0}
-  cog1: {fileID: 0}
-  cog2: {fileID: 0}
-  slider: {fileID: 0}
-  toggle1: {fileID: 0}
-  toggle2: {fileID: 0}
-  dropDown: {fileID: 0}
-  settingsBackButton: {fileID: 0}
-  settingsText: {fileID: 0}
-  lvl1Button: {fileID: 0}
-  lvl2Button: {fileID: 0}
-  lvl3Button: {fileID: 0}
-  lvl4Button: {fileID: 0}
-  lvl5Button: {fileID: 0}
-  controlsText: {fileID: 0}
-  controlsBackButton: {fileID: 0}
 --- !u!1 &538166704
 GameObject:
   m_ObjectHideFlags: 0
@@ -4248,7 +4212,7 @@ MonoBehaviour:
   _currentUI: {fileID: 438207909}
   _nextUI: {fileID: 1701317460}
   _currentUIEndPos: {x: -800, y: 0}
-  _nextUIEndPos: {x: -168, y: -4.5}
+  _nextUIEndPos: {x: 0, y: 0}
   _duration: 0.5
 --- !u!1 &1290253756
 GameObject:
@@ -4550,12 +4514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd62ca247b62eb44ac17b22a0b179ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentUI: {fileID: 0}
-  _nextUI: {fileID: 0}
-  _currentUIEndPos: {x: 0, y: 0}
-  _duration: 0
-  _thisButtonRectTransform: {fileID: 0}
-  _nextUIEndPos: {x: 0, y: 0}
+  _thisButtonRectTransform: {fileID: 1346546308}
+  _nextUIEndPos: {x: 0, y: -45}
 --- !u!1 &1360526812
 GameObject:
   m_ObjectHideFlags: 0
@@ -4938,9 +4898,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

@@ -18,7 +18,7 @@ public class InnerButtonBehaviour : IButtonInteractable
     }
     public void ButtonBehaviour()
     {
-        _thisButtonRectTransform.DOAnchorPos(_comeToScreenPosition, 0.35f);
+        _thisButtonRectTransform.DOAnchorPos(_comeToScreenPosition, 0.50f);
     }
 
   
