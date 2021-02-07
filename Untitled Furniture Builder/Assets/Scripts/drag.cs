@@ -13,6 +13,7 @@ public class drag : MonoBehaviour
     float PosY;
     bool canRotate;
 
+    [SerializeField] Transform objRotateAround;
    
 
     void OnMouseDown()
@@ -47,8 +48,10 @@ public class drag : MonoBehaviour
             float mouseDY = Input.GetAxis("Mouse Y");
             rigidbody.constraints = RigidbodyConstraints.FreezePosition;
 
-            gameObject.transform.Rotate(new Vector3(-mouseDX, 0, mouseDY) * Time.deltaTime * 300);
-
+            //gameObject.transform.Rotate(new Vector3(-mouseDX, 0, mouseDY) * Time.deltaTime * 300);
+            if (objRotateAround == null)
+                objRotateAround = this.gameObject.transform;
+            gameObject.transform.RotateAround(objRotateAround.position, new Vector3(-mouseDX, 0, mouseDY), Time.deltaTime * 300);
             Cursor.visible = false;
         }      
         
