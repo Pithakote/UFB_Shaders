@@ -11,7 +11,7 @@ public class InnerButtonAddListener : MonoBehaviour
    // [SerializeField]
     RectTransform _thisButtonRectTransform;
     [SerializeField]
-    Vector2 _nextUIEndPos;
+    Vector2 _ComeToScreenPosition;
     [SerializeField]
     float duration;
     IButtonInteractable buttonInteraction;
@@ -19,13 +19,13 @@ public class InnerButtonAddListener : MonoBehaviour
     private void Start()
     {
         //this.GetComponent<Button>().onClick.AddListener(delegate { OpenUI(); });
-       // if (_thisButtonRectTransform == null)
+       if (_thisButtonRectTransform == null)
             _thisButtonRectTransform = this.gameObject.GetComponent<RectTransform>();
     }
     public void MoveToScreen()
     {     
 
-        InnerButtonBehaviour InnerButtonMove = new InnerButtonBehaviour(_thisButtonRectTransform, _nextUIEndPos, duration);
+        InnerButtonBehaviour InnerButtonMove = new InnerButtonBehaviour(_thisButtonRectTransform, _ComeToScreenPosition, duration);
         //buttonInteraction = InnerButtonMove;
         InnerButtonMove.ButtonBehaviour();
         Debug.Log("MoveToScreen function done");

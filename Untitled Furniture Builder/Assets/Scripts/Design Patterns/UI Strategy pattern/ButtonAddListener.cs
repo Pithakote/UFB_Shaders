@@ -24,6 +24,9 @@ public class ButtonAddListener : MonoBehaviour
     private void Awake()
     {
         this.GetComponent<Button>().onClick.AddListener(delegate { OpenUI(); });
+
+        if (_currentUI == null)
+            _currentUI = gameObject.GetComponent<RectTransform>();
     }
     public void OpenUI()
     {
