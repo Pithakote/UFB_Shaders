@@ -11,16 +11,20 @@ public class InnerButtonAddListener : MonoBehaviour
    // [SerializeField]
     RectTransform _thisButtonRectTransform;
     [SerializeField]
-    Vector2 _ComeToScreenPosition;
+    Vector2 _ComeToScreenPosition, _HideFromScreenPosition;
     [SerializeField]
     float duration;
-    IButtonInteractable buttonInteraction;
+    [SerializeField]
+    bool _IsBackButton;
 
     private void Start()
     {
         //this.GetComponent<Button>().onClick.AddListener(delegate { OpenUI(); });
        if (_thisButtonRectTransform == null)
             _thisButtonRectTransform = this.gameObject.GetComponent<RectTransform>();
+
+        if(_IsBackButton)
+        this.GetComponent<Button>().onClick.AddListener(delegate { MoveAwayFromScreen(); });
     }
     public void MoveToScreen()
     {     
@@ -29,6 +33,16 @@ public class InnerButtonAddListener : MonoBehaviour
         //buttonInteraction = InnerButtonMove;
         InnerButtonMove.ButtonBehaviour();
         Debug.Log("MoveToScreen function done");
+
+    }
+
+    public void MoveAwayFromScreen()
+    {
+
+        InnerButtonBehaviour InnerButtonMoveAway = new InnerButtonBehaviour(_thisButtonRectTransform, _HideFromScreenPosition, duration);
+        //buttonInteraction = InnerButtonMove;
+        InnerButtonMoveAway.ButtonBehaviour();
+      //  Debug.Log("MoveToScreen function done");
 
     }
 }

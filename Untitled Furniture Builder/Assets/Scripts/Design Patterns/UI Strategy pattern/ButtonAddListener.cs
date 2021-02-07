@@ -4,35 +4,68 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class ButtonAddListener : MonoBehaviour
+public abstract class ButtonAddListener : MonoBehaviour
+
 {
-    [SerializeField]
-    RectTransform _currentUI;
-    [SerializeField]
-    RectTransform _nextUI;
-    [SerializeField]
-    Vector2 _currentUIEndPos;
-    [SerializeField]
-    Vector2 _nextUIEndPos;
-    [SerializeField]
-    float _duration;
+  
+
+
+
+
+    protected GameManager _instance;
+    [SerializeField] bool _isBackButton;
+    
+
+    #region Event Subscription Code Region
+    protected void OnEnable()
+    {
+        
+        this.GetComponent<Button>().onClick.AddListener(delegate { ButtonAction(); });
+    }
+    protected void UnSubscribe()
+    {
+
+        if (this.GetComponent<Button>().onClick != null)
+            this.GetComponent<Button>().onClick.RemoveListener(delegate { ButtonAction(); });
+    }
+    protected void OnDisable()
+    {
+
+        UnSubscribe();
+    }
+    protected void OnDestroy()
+    {
+        UnSubscribe();
+
+    }
+    #endregion
+
+    protected virtual void Awake()
+    {
+          
+    }
+
+    protected  void Start()
+    {
+        _instance = GameManager.Instance;
+    }
+    public abstract ICommand ReturnButtonBehaviour();
+    protected virtual void ButtonAction()
+    {
+        if (_instance == null)
+            Debug.Log("Singleton instance is null");
+        else
+        {
+            if (!_isBackButton)
+                _instance.PerformButtonBehaviour(ReturnButtonBehaviour());
+          //  else
+         //       _instance.PerformUndoBehaviour(ReturnUndoButtonBehaviour());
+        }
+    }
+
    
 
+ 
 
-    IButtonInteractable buttonInteraction;
-
-    private void Awake()
-    {
-        this.GetComponent<Button>().onClick.AddListener(delegate { OpenUI(); });
-
-        if (_currentUI == null)
-            _currentUI = gameObject.GetComponent<RectTransform>();
-    }
-    public void OpenUI()
-    {
-        UINextPanelBehaviour UImove = new UINextPanelBehaviour(_currentUI, _nextUI, _currentUIEndPos, _nextUIEndPos, _duration);
-        buttonInteraction = UImove;
-        buttonInteraction.ButtonBehaviour();
-       
-    }        
+   
 }

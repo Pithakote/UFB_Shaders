@@ -142,6 +142,7 @@ public class UISP : MonoBehaviour
 
     public void OpenLevelSelect()
     {
+        /*
         // hide home menu
         homeMenu.DOAnchorPos(new Vector2(-800, 0), 0.25f);
         playButton.DOAnchorPos(new Vector2(-168, 61.3f), 0f);
@@ -157,6 +158,7 @@ public class UISP : MonoBehaviour
         lvl3Button.DOAnchorPos(new Vector2(2.5f, 19.1f), 0.70f);
         lvl4Button.DOAnchorPos(new Vector2(82.5f, 19.1f), 0.80f);
         lvl5Button.DOAnchorPos(new Vector2(162.5f, 19.1f), 0.90f);
+        */
     }
 
     public void CloseLevelSelect()

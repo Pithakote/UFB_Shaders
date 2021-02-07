@@ -5,6 +5,7 @@ using UnityEngine;
 public interface IButtonInteractable
 {
      void ButtonBehaviour();   
+    // void UndoButtonBehaviour();   
     
 }
 
