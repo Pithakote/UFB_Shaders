@@ -7,6 +7,12 @@ TagManager:
   - Physics
   - Desk
   - Instructions
+  - parent
+  - Snappable
+  - screw
+  - leg
+  - legParent
+  - screwParent
   layers:
   - Default
   - TransparentFX
