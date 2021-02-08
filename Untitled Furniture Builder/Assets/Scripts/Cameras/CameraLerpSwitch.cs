@@ -69,6 +69,11 @@ public class CameraLerpSwitch : MonoBehaviour
             nextPos = camPos[3];
             currentPosText.text = "Top-Down";
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            nextPos = camPos[4];
+            currentPosText.text = "Radio";
+        }
         if (currentPos == nextPos && currentPos != null && nextPos != null)
         {
             doCamShake();
@@ -81,7 +86,7 @@ public class CameraLerpSwitch : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Alpha4))
+        if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Alpha5))
         {
             keyPressedEvent.Invoke();
         }
