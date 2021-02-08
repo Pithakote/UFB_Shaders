@@ -5,19 +5,21 @@ using UnityEngine;
 public class Player_Managerv2 : MonoBehaviour
 {
 	public float upTime = 0.5f;
-	public GameObject floor;
-	public GameObject pickedUp;
+	public GameObject snappable;
+	public static GameObject pickedUp;
 
 	//Drag
 	[SerializeField]
-	float forceAmount = 2000;
+	float forceAmount = 5000;
 	float distance_plane;
 	Vector3 goalPosition;
 	Vector3 origin;
 	float startTime;
+	float upLerp = 0;
 
 	//Rotate
 	[SerializeField]
+	bool rotating = false;
 	int axis = 1;
 	float startAng;
 	[SerializeField]
@@ -38,9 +40,20 @@ public class Player_Managerv2 : MonoBehaviour
 
 	[SerializeField]
 	float rotSpeed;
-
-
-
+	//-----------------
+	
+	void Start()
+	{
+		Vector3 pos = new Vector3(3.5f, 3.5f, 35f);
+		Vector3 offset_pos = new Vector3(0.0f, 0, 3.0f);
+		Vector3 offset = new Vector3(1,0,0.5f);
+		Vector3 offset2 = new Vector3(2,0,1.5f);
+		string model = "Assets/3DModels/Bar Chair/Objects/WoodenChair.fbx";
+		
+		SpawnSnappable(model, pos + offset_pos, offset, 0, 1);
+		SpawnSnappable(model, pos, offset, 1, 2);
+		SpawnSnappable(model, pos - offset_pos, offset2, 3, 4);
+	}
 	
 	void Update()
 	{
@@ -55,10 +68,26 @@ public class Player_Managerv2 : MonoBehaviour
 			Ray ray_ = Camera.main.ScreenPointToRay(mousePos);
 			RaycastHit hitMouse;
 			Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
-
+			
+			if (pickedUp.tag == "Snappable" && rigidbody == null || pickedUp.tag == "Preview")
+				return;
+			
 			//Move to raycast
-			if (Physics.Raycast(ray_, out hitMouse))
+			if (rotating == false && Physics.Raycast(ray_, out hitMouse))
 			{
+				if (hitMouse.collider.gameObject != pickedUp) {
+					float hitY = hitMouse.point.y;
+					float dist_hit = Mathf.Abs(hitY - distance_plane);
+					float min_dist = 0.025f;
+					
+					if ( hitY != distance_plane ){
+						distance_plane = hitY;
+						origin = entPos;
+						//origin = hitMouse.point;
+						startTime = Time.time;
+					}
+				}
+				
 				goalPosition = new Vector3(hitMouse.point.x, entPos.y, hitMouse.point.z);
 			}
 			else
@@ -72,18 +101,14 @@ public class Player_Managerv2 : MonoBehaviour
 			}
 
 			//Move upwards
-			float up_dist = origin.y + upDistance;
-			Vector3 up = new Vector3(0, 1, 0);
+			float up_dist = distance_plane + upDistance;
 			Vector3 maxUp = new Vector3(entPos.x, up_dist, entPos.z);
 
-			if (entPos.y < maxUp.y)
+			if ( Mathf.Abs(maxUp.y - entPos.y) > 0.1f )
 			{
 				float distCovered = (Time.time - startTime);// * speed;
 				float fractionOfJourney = distCovered / upTime;
-				float upLerp = Mathf.Lerp(origin.y, maxUp.y, fractionOfJourney);
-
-				up = new Vector3(entPos.x, upLerp, entPos.z);
-				pickedUp.transform.position = up;
+				upLerp = Mathf.Lerp(origin.y, maxUp.y, fractionOfJourney);
 			}
 			else
 			{
@@ -93,42 +118,35 @@ public class Player_Managerv2 : MonoBehaviour
 				rigidbody.velocity = vel;
 				rigidbody.angularVelocity = vel;
 			}
-			entPos = entPos + rigidbody.velocity;
+			Vector3 up = new Vector3(entPos.x, upLerp, entPos.z);
+			pickedUp.transform.position = up;
 
+			entPos = entPos + rigidbody.velocity;
 			float dist = Vector3.Distance(goalPosition, entPos);
 
 			//Move in mouse dir
 			if (dist > 0.2f)
 				rigidbody.AddForce((goalPosition - entPos).normalized * forceAmount * Time.deltaTime);
-
-			
-			
 		}
 
-		if (Input.GetKey(KeyCode.R))
+		if (Input.GetKey(KeyCode.R) && pickedUp != null)
 		{
-			if (pickedUp == null)
-				return;
+			//Vals
 			Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
+			float mouseDX = Mathf.Clamp(Input.GetAxis("Mouse X"), -1, 1);
+			float mouseDY = Mathf.Clamp(Input.GetAxis("Mouse Y"), -1, 1);
 			
-			float mouseDX = Input.GetAxis("Mouse X");
-			float mouseDY = Input.GetAxis("Mouse Y");
-			rigidbody.constraints = RigidbodyConstraints.FreezePosition;
-
+			FreezeConstraints( rigidbody, true );
 			pickedUp.transform.Rotate(new Vector3(mouseDX, mouseDY, 0) * Time.deltaTime * rotSpeed);
-
-			Cursor.visible = false;
-
 			
+			if (rotating == false)
+				rotating = true;
 		}
-		else if(Input.GetKeyUp(KeyCode.R))
+		else if(Input.GetKeyUp(KeyCode.R) && pickedUp != null)
         {
-			if (pickedUp == null)
-				return;
 			Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
-			Cursor.visible = true;
-			rigidbody.constraints = RigidbodyConstraints.None;
-
+			FreezeConstraints( rigidbody, false );
+			rotating = false;
 		}
 
 
@@ -146,15 +164,23 @@ public class Player_Managerv2 : MonoBehaviour
 				{
 					//Hit object
 					GameObject ent = hit.collider.gameObject;
+					Rigidbody rigidbody = ent.GetComponent<Rigidbody>();
 
-					if (ent != null && ent.tag == "Physics")
+					if (ent != null && rigidbody != null && ent.tag == "Physics" || ent != null && rigidbody != null && ent.tag == "Snappable")
 					{
+						snap comp = ent.GetComponent<snap>();
+						if (ent.tag == "Snappable" && comp != null){
+							GameObject snapped = comp.snapped;
+							if ( snapped != null )
+								ent = snapped;
+						}
+						
+						upLerp = 0;
+						rotating = false;
 						pickedUp = ent;
 						origin = ent.transform.position;
 						startTime = Time.time;
-						Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
 						rigidbody.constraints = RigidbodyConstraints.None;
-
 
 						Renderer _renderer = pickedUp.GetComponent<Renderer>();
 						_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
@@ -169,29 +195,51 @@ public class Player_Managerv2 : MonoBehaviour
 		else if (Input.GetMouseButtonUp(0))
 		{
 			//released
-			//print ("Released");
-
-			if (pickedUp == null)//null check
-				return;
-			Renderer _renderer = pickedUp.GetComponent<Renderer>();
-			_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
-			_renderer.material.SetColor("_OutlineColor", Color.black);
-			pickedUp = null;
-
+			if (pickedUp != null) {
+				FreezeConstraints( pickedUp.GetComponent<Rigidbody>(), false );
+				Renderer _renderer = pickedUp.GetComponent<Renderer>();
+				_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
+				_renderer.material.SetColor("_OutlineColor", Color.black);
+				pickedUp = null;
+			}
 		}
 
 
 
 		if (Input.GetMouseButtonDown(1))
 		{
-			if (pickedUp == null)//null check
-				return;
-
-			print("RMB clicked");
-			//pickedUp.transform.position = goalPosition;
-			Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
-			rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+			if (pickedUp != null) {
+				//pickedUp.transform.position = goalPosition;
+				Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
+				FreezeConstraints( rigidbody, true );
+			}
 		}
 	}
 
+	void SpawnSnappable(string model, Vector3 origin, Vector3 offset, int id, int snap_to)
+	{
+		GameObject ent = Instantiate(snappable);
+		ent.transform.position = origin;
+		//
+		snap s = ent.GetComponent<snap>();
+		s.id = id;
+		s.snap_to_id = snap_to;
+		s.offset = offset;
+		s.model = model;
+	}
+	
+	void FreezeConstraints( Rigidbody rigidbody, bool b )
+	{
+		if (b == true){
+			rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+			Cursor.visible = false;
+			//rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+		} else {
+			rigidbody.constraints = RigidbodyConstraints.None;
+			Cursor.visible = true;
+		}
+	}
+	
 }
+
+
