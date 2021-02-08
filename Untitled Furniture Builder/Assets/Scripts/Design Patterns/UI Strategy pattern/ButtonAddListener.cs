@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.EventSystems;
 
 public abstract class ButtonAddListener : MonoBehaviour
 
@@ -13,14 +14,33 @@ public abstract class ButtonAddListener : MonoBehaviour
 
 
     protected GameManager _instance;
-    [SerializeField] bool _isBackButton;
-    
+    //[SerializeField] bool _isBackButton;
+    EventTrigger.Entry entry, exit;
 
     #region Event Subscription Code Region
     protected void OnEnable()
     {
         
         this.GetComponent<Button>().onClick.AddListener(delegate { ButtonAction(); });
+        
+
+        if (this.GetComponent<EventTrigger>() == null)
+            return;
+        #region Event Trigger to code
+        //EventTrigger trigger = GetComponent<EventTrigger>();
+        entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerEnter;
+        entry.callback.AddListener((BaseEventData) => { HoverEnterAction(); });
+        this.gameObject.GetComponent<EventTrigger>().triggers.Add(entry);
+        #endregion
+
+        #region Event Trigger to code
+        //EventTrigger trigger = GetComponent<EventTrigger>();
+        exit = new EventTrigger.Entry();
+        exit.eventID = EventTriggerType.PointerDown;
+        exit.callback.AddListener((BaseEventData) => { PointerClickAction(); });
+        this.gameObject.GetComponent<EventTrigger>().triggers.Add(exit);
+        #endregion
     }
     protected void UnSubscribe()
     {
@@ -56,16 +76,22 @@ public abstract class ButtonAddListener : MonoBehaviour
             Debug.Log("Singleton instance is null");
         else
         {
-            if (!_isBackButton)
+           
                 _instance.PerformButtonBehaviour(ReturnButtonBehaviour());
-          //  else
-         //       _instance.PerformUndoBehaviour(ReturnUndoButtonBehaviour());
         }
     }
+    protected virtual void HoverEnterAction()
+    {
+        Debug.Log("Hovering Enter Action");
+        _instance.AudioManager.PlayHoverAudio();
+    }
 
-   
+    protected virtual void PointerClickAction()
+    {
+        Debug.Log("Hovering Exit Action");
+        _instance.AudioManager.PlayClickAudio();
+    }
 
- 
 
-   
+
 }

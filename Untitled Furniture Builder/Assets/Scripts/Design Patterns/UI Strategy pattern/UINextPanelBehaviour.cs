@@ -36,9 +36,9 @@ public class UINextPanelBehaviour : IButtonInteractable
             //if the InnerButtonAddListener is not present continue the loop but don't add
             if (_nextUI.gameObject.transform.GetChild(i).GetComponentInChildren<InnerButtonAddListener>() == null)
                 continue;
+
           //  if (_nextUI.gameObject.transform.GetChild(i).GetComponentInChildren<InnerButtonAddListener>() != null)
-                _children.Add(_nextUI.gameObject.transform.GetChild(i).gameObject);
-               
+                _children.Add(_nextUI.gameObject.transform.GetChild(i).gameObject);               
 
         }        
 

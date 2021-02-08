@@ -20,8 +20,7 @@ public class UIButtonListener : ButtonAddListener, ICommand
             _currentUI = gameObject.GetComponent<RectTransform>();
     }
     public override ICommand ReturnButtonBehaviour()
-    {
-      
+    {      
         return this;
     }
 

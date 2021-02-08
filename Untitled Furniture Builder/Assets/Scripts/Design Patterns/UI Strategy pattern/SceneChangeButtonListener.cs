@@ -15,8 +15,7 @@ public class SceneChangeButtonListener : ButtonAddListener, ICommand
     }
 
     public override ICommand ReturnButtonBehaviour()
-    {
-       
+    {       
         return this;
     }
 

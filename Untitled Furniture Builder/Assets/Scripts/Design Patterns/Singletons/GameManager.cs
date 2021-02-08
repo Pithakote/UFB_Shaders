@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     public IButtonInteractable _buttonBehaviour;
     CommandProcessor _commandProcessor;
+    audioManager _audioManager; 
+
+    public audioManager AudioManager { get { return _audioManager; } }
     private void OnEnable()
     {
         if (Instance == null)
@@ -22,6 +25,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _commandProcessor = GetComponent<CommandProcessor>();
+        _audioManager = GetComponent<audioManager>();
     }
 
     public void PerformButtonBehaviour(ICommand _buttonbehaviour)//called on the buttons to make the behaviours flexible for all kinds of behaviour
