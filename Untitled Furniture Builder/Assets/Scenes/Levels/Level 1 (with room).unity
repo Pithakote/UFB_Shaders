@@ -1082,6 +1082,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.012799988
       objectReference: {fileID: 0}
+    - target: {fileID: 3433782755126606109, guid: 054529de03c3a69489542a413b43ebc0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Snappable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433782755483755643, guid: 054529de03c3a69489542a413b43ebc0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Snappable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433782756216204564, guid: 054529de03c3a69489542a413b43ebc0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Snappable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433782756489211260, guid: 054529de03c3a69489542a413b43ebc0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Snappable
+      objectReference: {fileID: 0}
     - target: {fileID: 3794215929766151598, guid: 054529de03c3a69489542a413b43ebc0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1167,7 +1187,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7742623690233460380, guid: 054529de03c3a69489542a413b43ebc0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Snappable
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7742623690233460381, guid: 054529de03c3a69489542a413b43ebc0, type: 3}
+    - {fileID: 2550821796942428039, guid: 054529de03c3a69489542a413b43ebc0, type: 3}
+    - {fileID: 2550821796942428036, guid: 054529de03c3a69489542a413b43ebc0, type: 3}
+    - {fileID: 2550821796972985678, guid: 054529de03c3a69489542a413b43ebc0, type: 3}
+    - {fileID: 2550821796972985679, guid: 054529de03c3a69489542a413b43ebc0, type: 3}
+    - {fileID: 2550821797371124645, guid: 054529de03c3a69489542a413b43ebc0, type: 3}
+    - {fileID: 2550821797371124666, guid: 054529de03c3a69489542a413b43ebc0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 054529de03c3a69489542a413b43ebc0, type: 3}
 --- !u!1 &243876292
 GameObject:
@@ -1462,7 +1494,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d18450aa2239d6748a7bcc1dacb1c80a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.469
+      value: -3.663
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d18450aa2239d6748a7bcc1dacb1c80a,
         type: 3}
@@ -5973,15 +6005,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1216432769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b6ee401d3066104490e9525adf09b8c, type: 3}
+  m_Script: {fileID: 11500000, guid: eaf6fa5dc8b2e94459833fb3961f94dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upTime: 0.25
-  pitckupHeight: 0.5
-  floor: {fileID: 437437582}
-  pickedUp: {fileID: 0}
-  forceAmount: 2000
-  pickupColor: {r: 1, g: 0.8724341, b: 0, a: 0}
+  upTime: 0.5
+  snappable: {fileID: 0}
+  forceAmount: 25000
+  mask:
+    serializedVersion: 2
+    m_Bits: 256
+  rotating: 0
+  snapTime: 0.5
+  snapAngle: 0
+  upDistance: 0.5
+  deltaSnap: 0
+  pickupColor: {r: 0, g: 0, b: 0, a: 0}
+  speed: 0
+  rotSpeed: 1000
 --- !u!4 &1216432771
 Transform:
   m_ObjectHideFlags: 0
@@ -6232,6 +6272,26 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1257747906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0bf0e70a8bd45044eaa51b5387ba5c07,
+    type: 3}
+  m_PrefabInstance: {fileID: 1124327740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1257747907
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257747906}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2766541631056868802, guid: 0bf0e70a8bd45044eaa51b5387ba5c07, type: 3}
 --- !u!1001 &1276635795
 PrefabInstance:
   m_ObjectHideFlags: 0

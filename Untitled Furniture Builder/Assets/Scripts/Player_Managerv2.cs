@@ -10,12 +10,16 @@ public class Player_Managerv2 : MonoBehaviour
 
 	//Drag
 	[SerializeField]
-	float forceAmount = 5000;
+	float forceAmount = 15000;
 	float distance_plane;
 	Vector3 goalPosition;
 	Vector3 origin;
 	float startTime;
 	float upLerp = 0;
+	float scroll = 0;
+	private Vector3 surface_normal = new Vector3(0,1,0);
+	public LayerMask mask;
+	bool invertMask;
 
 	//Rotate
 	[SerializeField]
@@ -50,9 +54,9 @@ public class Player_Managerv2 : MonoBehaviour
 		Vector3 offset2 = new Vector3(2,0,1.5f);
 		string model = "Assets/3DModels/Bar Chair/Objects/WoodenChair.fbx";
 		
-		SpawnSnappable(model, pos + offset_pos, offset, 0, 1);
-		SpawnSnappable(model, pos, offset, 1, 2);
-		SpawnSnappable(model, pos - offset_pos, offset2, 3, 4);
+		//SpawnSnappable(model, pos + offset_pos, offset, 0, 1);
+		//SpawnSnappable(model, pos, offset, 1, 2);
+		//SpawnSnappable(model, pos - offset_pos, offset2, 3, 4);
 	}
 	
 	void Update()
@@ -73,14 +77,25 @@ public class Player_Managerv2 : MonoBehaviour
 				return;
 			
 			//Move to raycast
-			if (rotating == false && Physics.Raycast(ray_, out hitMouse))
+			//print("Move");
+			LayerMask newMask = ~(invertMask ? ~mask.value : mask.value);
+			if (rotating == false && Physics.Raycast(ray_, out hitMouse, Mathf.Infinity, newMask))
 			{
-				if (hitMouse.collider.gameObject != pickedUp) {
+				GameObject hitObj = hitMouse.collider.gameObject;
+				if (hitObj != null){
+					print(hitObj.tag);
+					//print(hitObj.layer);
+					//print( layermask_to_layer(mask.value) );
+				}
+				
+				float ang = Vector3.Angle(hitMouse.normal, transform.up);
+				print( ang );
+				if ( ang == 0 ){
 					float hitY = hitMouse.point.y;
 					float dist_hit = Mathf.Abs(hitY - distance_plane);
 					float min_dist = 0.025f;
 					
-					if ( hitY != distance_plane ){
+					if ( hitY != distance_plane && dist_hit > min_dist ){
 						distance_plane = hitY;
 						origin = entPos;
 						//origin = hitMouse.point;
@@ -90,6 +105,7 @@ public class Player_Managerv2 : MonoBehaviour
 				
 				goalPosition = new Vector3(hitMouse.point.x, entPos.y, hitMouse.point.z);
 			}
+			/*
 			else
 			{
 				Vector2 mPos = new Vector2();
@@ -98,26 +114,26 @@ public class Player_Managerv2 : MonoBehaviour
 
 				Vector3 worldPos = cam.ScreenToWorldPoint(new Vector3(mPos.x, mPos.y, camPos.y));
 				goalPosition = new Vector3(worldPos.x, entPos.y, worldPos.z);
-			}
+			}*/
 
 			//Move upwards
-			float up_dist = distance_plane + upDistance;
+			float mscroll = Input.GetAxis("Mouse ScrollWheel");
+			scroll = Mathf.Clamp(scroll + mscroll, -(upDistance*.5f), upDistance*2);
+			float up_dist = distance_plane + upDistance + scroll;
 			Vector3 maxUp = new Vector3(entPos.x, up_dist, entPos.z);
 
-			if ( Mathf.Abs(maxUp.y - entPos.y) > 0.1f )
+			if ( Mathf.Abs(maxUp.y - entPos.y) > 0.2f )
 			{
 				float distCovered = (Time.time - startTime);// * speed;
 				float fractionOfJourney = distCovered / upTime;
 				upLerp = Mathf.Lerp(origin.y, maxUp.y, fractionOfJourney);
 			}
-			else
-			{
-				Vector3 vel = rigidbody.velocity;
-				vel = new Vector3(0, 0, 0);
 
-				rigidbody.velocity = vel;
-				rigidbody.angularVelocity = vel;
-			}
+			Vector3 vel = rigidbody.velocity;
+			vel = new Vector3(0, 0, 0);
+			rigidbody.velocity = vel;
+			rigidbody.angularVelocity = vel;
+
 			Vector3 up = new Vector3(entPos.x, upLerp, entPos.z);
 			pickedUp.transform.position = up;
 
@@ -125,8 +141,12 @@ public class Player_Managerv2 : MonoBehaviour
 			float dist = Vector3.Distance(goalPosition, entPos);
 
 			//Move in mouse dir
-			if (dist > 0.2f)
-				rigidbody.AddForce((goalPosition - entPos).normalized * forceAmount * Time.deltaTime);
+			if (dist > 0.12f){
+				//print(dist);
+				float perc = 0.12f / dist;
+				//print(perc);
+				rigidbody.AddForce((goalPosition - entPos).normalized * (forceAmount - (forceAmount * perc)) * Time.deltaTime);
+			}
 		}
 
 		if (Input.GetKey(KeyCode.R) && pickedUp != null)
@@ -148,8 +168,7 @@ public class Player_Managerv2 : MonoBehaviour
 			FreezeConstraints( rigidbody, false );
 			rotating = false;
 		}
-
-
+		
 		//Find pick up entitiy
 		if (Input.GetMouseButtonDown(0))
 		{
@@ -175,6 +194,9 @@ public class Player_Managerv2 : MonoBehaviour
 								ent = snapped;
 						}
 						
+						distance_plane = hit.point.y;
+						IgnoreRaycast( ent, true );
+						scroll = (upDistance/2);
 						upLerp = 0;
 						rotating = false;
 						pickedUp = ent;
@@ -187,7 +209,6 @@ public class Player_Managerv2 : MonoBehaviour
 						_renderer.material.SetColor("_OutlineColor", pickupColor);
 						
 					}
-
 				}
 			}
 			
@@ -196,6 +217,7 @@ public class Player_Managerv2 : MonoBehaviour
 		{
 			//released
 			if (pickedUp != null) {
+				IgnoreRaycast( pickedUp, false );
 				FreezeConstraints( pickedUp.GetComponent<Rigidbody>(), false );
 				Renderer _renderer = pickedUp.GetComponent<Renderer>();
 				_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
@@ -203,8 +225,6 @@ public class Player_Managerv2 : MonoBehaviour
 				pickedUp = null;
 			}
 		}
-
-
 
 		if (Input.GetMouseButtonDown(1))
 		{
@@ -221,12 +241,32 @@ public class Player_Managerv2 : MonoBehaviour
 		GameObject ent = Instantiate(snappable);
 		ent.transform.position = origin;
 		//
-		snap s = ent.GetComponent<snap>();
-		s.id = id;
-		s.snap_to_id = snap_to;
-		s.offset = offset;
-		s.model = model;
+		//snap s = ent.GetComponent<snap>();
+		//s.id = id;
+		//s.snap_to_id = snap_to;
+		//s.offset = offset;
+		//s.model = model;
 	}
+	
+	void IgnoreRaycast( GameObject ent, bool b )
+	{
+		if (b == true)
+			ent.layer = layermask_to_layer( mask );
+		else
+			ent.layer = 0;
+	}
+	
+	//---
+	public static int layermask_to_layer(LayerMask layerMask) {
+         int layerNumber = 0;
+         int layer = layerMask.value;
+         while(layer > 0) {
+             layer = layer >> 1;
+             layerNumber++;
+         }
+         return layerNumber - 1;
+    }
+	//---
 	
 	void FreezeConstraints( Rigidbody rigidbody, bool b )
 	{
