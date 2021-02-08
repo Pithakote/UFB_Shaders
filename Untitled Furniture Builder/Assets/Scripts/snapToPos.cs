@@ -49,7 +49,7 @@ public class snapToPos : MonoBehaviour
         //rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 
         //rigidbody.isKinematic = true;
-        gameObject.GetComponent<MeshCollider>().enabled = false;
+        //gameObject.GetComponent<MeshCollider>().enabled = false;
 
         if (setXAxis)
             transform.right = snapparent.transform.right;
