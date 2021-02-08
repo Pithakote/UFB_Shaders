@@ -51,7 +51,7 @@ public class drag : MonoBehaviour
             //gameObject.transform.Rotate(new Vector3(-mouseDX, 0, mouseDY) * Time.deltaTime * 300);
             if (objRotateAround == null)
                 objRotateAround = this.gameObject.transform;
-            gameObject.transform.RotateAround(objRotateAround.position, new Vector3(-mouseDX, 0, mouseDY), Time.deltaTime * 300);
+            gameObject.transform.RotateAround(objRotateAround.position, new Vector3(mouseDX, 0, mouseDY), Time.deltaTime * 200);
             Cursor.visible = false;
         }      
         

@@ -49,6 +49,8 @@ public class snapToPos1 : MonoBehaviour
 
         Rigidbody rigidbody = this.gameObject.GetComponent<Rigidbody>();
         Destroy(rigidbody);
+        if (rigidbody == null)
+            return;
         //rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 
         //rigidbody.isKinematic = true;

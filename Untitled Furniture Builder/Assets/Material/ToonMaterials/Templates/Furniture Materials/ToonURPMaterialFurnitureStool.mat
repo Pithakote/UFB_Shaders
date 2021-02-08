@@ -37,9 +37,9 @@ Material:
     - _Overlay: 0
     - _Prop2: 1.05
     - _ScaleAndNumberOfRings: 0.179
-    - _Smoothness: 0.42
+    - _Smoothness: 1
     - _Specular: 0.823
-    - _Strength: 29
+    - _Strength: 50
     m_Colors:
     - _AmbientColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
