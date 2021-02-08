@@ -42,7 +42,7 @@ public class audioManager : MonoBehaviour
     public void PlayClickAudio()
     {
         _audioSource.clip = _audio2;
-        _audioSource.Play();
+        _audioSource.PlayOneShot(_audioSource.clip);
     }
 
     public void StopHoverAudio()
