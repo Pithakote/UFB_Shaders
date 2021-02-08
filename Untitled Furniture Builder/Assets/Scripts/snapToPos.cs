@@ -47,22 +47,29 @@ public class snapToPos : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
 
-
-
-        triggerPoint = col.gameObject;
-
-        if (triggerPoint.GetComponent<TriggerCheck>() != null && !triggerPoint.GetComponent<TriggerCheck>().triggerIsTaken)
+        if (triggerPoint.GetComponent<TriggerCheck>() != null )
         {
-            triggerPoint.GetComponent<TriggerCheck>().triggerIsTaken = true;
-
-                // if col.getcomponent<drag> = true, then do it.
-                snapped = true;
-                snapparent = col.gameObject;
-                updateTransParent(snapped);                       
+            snapped = true;
+                    snapparent = col.gameObject;
+                  updateTransParent(snapped);
         }
-        
-       
-       
+
+        //triggerPoint = col.gameObject;
+
+        //if (triggerPoint.GetComponent<TriggerCheck>() != null && !triggerPoint.GetComponent<TriggerCheck>().screwTriggerIsTaken)
+        //{
+        //    triggerPoint.GetComponent<TriggerCheck>().screwTriggerIsTaken = true;
+        //    triggerPoint.gameObject.transform.parent.GetComponent<CheckTrigger>().numTakenPoints++;
+        //
+        //        snapped = true;
+        //        snapparent = col.gameObject;
+        //        updateTransParent(snapped);
+        //       
+        //}
+
+
+
+
 
     }
 
@@ -75,11 +82,6 @@ public class snapToPos : MonoBehaviour
     //}
 
 }
-    // if leg already attached
-    // do nothing
-    // if no leg attached
-    // attach leg
-
-    // do a check so each point only has 1 leg attached
+   
 
 

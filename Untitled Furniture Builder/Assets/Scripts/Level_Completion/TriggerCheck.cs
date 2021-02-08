@@ -5,16 +5,22 @@ using UnityEngine;
 public class TriggerCheck : MonoBehaviour
 {
 
-    public bool triggerIsTaken;
+    public bool screwTriggerIsTaken;
+    // bool legTriggerIsTaken;
+    // bool legScrewTaken;
+    // bool AllLegScrewTaken;
+
+   
+
+   
+
+   
+
+  
+
+    
 
 
-
-
-
-    private void Update()
-    {
-       
-    }
 }
     
 

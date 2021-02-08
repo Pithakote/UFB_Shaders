@@ -9,8 +9,9 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public Animator animator;
-
-    private bool AnimatorIsPlaying()
+    [SerializeField]
+   
+private bool AnimatorIsPlaying()
     {
         return animator.GetCurrentAnimatorStateInfo(0).length > animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
     }
@@ -24,6 +25,8 @@ public class PauseMenu : MonoBehaviour
             else
                 Pause();
         }
+
+        
     }
 
     public void Resume()
@@ -62,4 +65,6 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
     }
+
+   
 }
