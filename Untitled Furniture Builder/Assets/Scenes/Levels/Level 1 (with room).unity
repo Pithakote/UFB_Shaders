@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.3254717, g: 0.3116545, b: 0.3116545, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: c46f8d8b90d4c7b459cc590f934e3e3e,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -274,8 +274,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.8588236, b: 0.003921569, a: 1}
-  m_Intensity: 0.52
-  m_Range: 1.43
+  m_Intensity: 1.43
+  m_Range: 4.19
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1655,6 +1655,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294466655}
   m_CullTransparentMesh: 0
+--- !u!1 &332396090 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2550821796486406296, guid: 054529de03c3a69489542a413b43ebc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 201936908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &332396095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332396090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fadcae5b2c975047902666fa7cbacb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerIsTaken: 0
 --- !u!1 &335098740 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ea74eb1c1df4df74eb289c8040ea5b5d,
@@ -1774,6 +1793,25 @@ Transform:
   m_Father: {fileID: 2031110424}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &391511920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2550821797363722881, guid: 054529de03c3a69489542a413b43ebc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 201936908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &391511925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391511920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fadcae5b2c975047902666fa7cbacb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerIsTaken: 0
 --- !u!1 &404633853
 GameObject:
   m_ObjectHideFlags: 0
@@ -3903,8 +3941,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.8588236, b: 0.003921569, a: 1}
-  m_Intensity: 0.52
-  m_Range: 1.43
+  m_Intensity: 1.43
+  m_Range: 4.19
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -4290,6 +4328,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a4e254c0b0d9214ea7b53f9c0c43b10, type: 3}
+--- !u!1 &859483418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2550821796021885542, guid: 054529de03c3a69489542a413b43ebc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 201936908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &859483423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859483418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fadcae5b2c975047902666fa7cbacb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerIsTaken: 0
 --- !u!1 &871164067
 GameObject:
   m_ObjectHideFlags: 0
@@ -5054,6 +5111,25 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3762537565554048671, guid: b37603f8ea8ba83489df2180bfd8eef2, type: 3}
+--- !u!1 &1084489796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2550821795805094676, guid: 054529de03c3a69489542a413b43ebc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 201936908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1084489801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084489796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fadcae5b2c975047902666fa7cbacb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerIsTaken: 0
 --- !u!1001 &1095049934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5136,6 +5212,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5bd014777af68fa43acd8504c644496e, type: 2}
+    - target: {fileID: 5791826322711149471, guid: eeda58e99a068244c9c51c7590205a8e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791826322711149471, guid: eeda58e99a068244c9c51c7590205a8e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791826322711149471, guid: eeda58e99a068244c9c51c7590205a8e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791826322711149471, guid: eeda58e99a068244c9c51c7590205a8e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eeda58e99a068244c9c51c7590205a8e, type: 3}
 --- !u!4 &1095049935 stripped
@@ -6302,7 +6398,7 @@ PrefabInstance:
     - target: {fileID: 7573636931794615683, guid: 5234d24a9f1a45c4b9b03d7baa0eb1c7,
         type: 3}
       propertyPath: m_Name
-      value: ScrewDoubleSided (3)
+      value: ScrewDoubleSided
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5234d24a9f1a45c4b9b03d7baa0eb1c7, type: 3}
@@ -7063,6 +7159,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1325008595}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1332711699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7742623690233460380, guid: 054529de03c3a69489542a413b43ebc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 201936908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1332711701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332711699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55b4a34c305bef4caea41ca05a2dec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1345186650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7384,7 +7498,7 @@ PrefabInstance:
     - target: {fileID: 7573636931794615683, guid: 5234d24a9f1a45c4b9b03d7baa0eb1c7,
         type: 3}
       propertyPath: m_Name
-      value: ScrewDoubleSided (1)
+      value: ScrewDoubleSided
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5234d24a9f1a45c4b9b03d7baa0eb1c7, type: 3}
@@ -8035,7 +8149,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.8588236, b: 0.003921569, a: 1}
   m_Intensity: 1.43
-  m_Range: 1.43
+  m_Range: 4.19
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -8397,8 +8511,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.8588236, b: 0.003921569, a: 1}
-  m_Intensity: 2.03
-  m_Range: 1.43
+  m_Intensity: 1.43
+  m_Range: 4.19
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -8452,7 +8566,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh95934
+  m_Name: pb_Mesh18824
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10775,7 +10889,7 @@ PrefabInstance:
     - target: {fileID: 7573636931794615683, guid: 5234d24a9f1a45c4b9b03d7baa0eb1c7,
         type: 3}
       propertyPath: m_Name
-      value: ScrewDoubleSided (2)
+      value: ScrewDoubleSided
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5234d24a9f1a45c4b9b03d7baa0eb1c7, type: 3}

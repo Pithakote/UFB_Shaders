@@ -13,6 +13,8 @@ public class snapToPos : MonoBehaviour
 
     [SerializeField] GameObject snapPosition;
 
+    GameObject triggerPoint;
+
     private void Start()
     {
         
@@ -23,10 +25,10 @@ public class snapToPos : MonoBehaviour
         if (snapped == false)
             return;
         offset = new Vector3(offset.x, yPosOffset, offset.z);
-
+        
         snapPosition.transform.parent = snapparent.transform;
         snapPosition.transform.up = snapparent.transform.up;
-
+        
         snapPosition.transform.localPosition = new Vector3(0, snapparent.transform.localPosition.y, 0);
         
         transform.parent = snapPosition.transform;
@@ -43,11 +45,16 @@ public class snapToPos : MonoBehaviour
         else return;
     }
     void OnTriggerEnter(Collider col)
-    {                  
+    {
 
 
-        if (col.tag == "parent")
-        {                     
+
+        triggerPoint = col.gameObject;
+
+        if (triggerPoint.GetComponent<TriggerCheck>() != null && !triggerPoint.GetComponent<TriggerCheck>().triggerIsTaken)
+        {
+            triggerPoint.GetComponent<TriggerCheck>().triggerIsTaken = true;
+
                 // if col.getcomponent<drag> = true, then do it.
                 snapped = true;
                 snapparent = col.gameObject;
@@ -58,6 +65,14 @@ public class snapToPos : MonoBehaviour
        
 
     }
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other == null && other.gameObject != triggerPoint)
+    //        return;
+    //    triggerPoint = other.gameObject;
+    //    triggerPoint.GetComponent<TriggerCheck>().triggerIsTaken = false;      
+    //}
 
 }
     // if leg already attached
