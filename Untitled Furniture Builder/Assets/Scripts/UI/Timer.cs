@@ -9,6 +9,8 @@ public class Timer : MonoBehaviour
 {
     public TextMeshProUGUI timeText;
     public float startTime;
+    public GameObject TimerUI;
+    public GameObject GameOverUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,10 @@ public class Timer : MonoBehaviour
         //need to load a different scene or UI text when timer hits 0
         // for now it just resets
         if (startTime == 0)
-            startTime = 60.0f;
+        {
+            startTime = 0;
+            TimerUI.SetActive(false);
+            GameOverUI.SetActive(true);
+        }
     }
 }
