@@ -121,7 +121,7 @@ public class player_manager : MonoBehaviour
 		else if (Input.GetMouseButtonUp(0))
 		{
 			//released
-			print ("Released");
+			//print ("Released");
 
 			if (pickedUp == null)//null check
 				return;

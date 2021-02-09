@@ -27,9 +27,9 @@ Material:
     m_Floats:
     - GLOSS: 1
     - _Alpha: 1
-    - _Brightness: -0.926
+    - _Brightness: -0.79
     - _Diffuse: 0
-    - _Emission: 0.008
+    - _Emission: 0
     - _Gloss: 0
     - _Metallic: 1
     - _Occlusion: 0
@@ -37,9 +37,9 @@ Material:
     - _Overlay: 0
     - _Prop2: 1.05
     - _ScaleAndNumberOfRings: 0.185
-    - _Smoothness: 0.42
+    - _Smoothness: 0.72
     - _Specular: 0.823
-    - _Strength: 23.7
+    - _Strength: 50
     m_Colors:
     - _AmbientColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
