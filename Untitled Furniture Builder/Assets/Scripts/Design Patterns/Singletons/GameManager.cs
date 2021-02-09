@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioManager))]
+[RequireComponent(typeof(ButtonListenerManager))]
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
 
     public IButtonInteractable _buttonBehaviour;
-    CommandProcessor _commandProcessor;
-    audioManager _audioManager; 
+   
+    AudioManager _audioManager;
+    ButtonListenerManager _buttonListenerManager;
 
-    public audioManager AudioManager { get { return _audioManager; } }
+    public AudioManager AudioManager { get { return _audioManager; } }
+    public ButtonListenerManager ButtonListenerManager { get { return _buttonListenerManager; } }
     private void OnEnable()
     {
         if (Instance == null)
@@ -24,20 +28,12 @@ public class GameManager : MonoBehaviour
     }
     private void Awake()
     {
-        _commandProcessor = GetComponent<CommandProcessor>();
-        _audioManager = GetComponent<audioManager>();
+        
+        _audioManager = GetComponent<AudioManager>();
+        _buttonListenerManager = GetComponent<ButtonListenerManager>();
     }
 
-    public void PerformButtonBehaviour(ICommand _buttonbehaviour)//called on the buttons to make the behaviours flexible for all kinds of behaviour
-    {
-        _commandProcessor.ExecuteBehaviour(_buttonbehaviour);
-    
-    }
-
-    public void PerformUndoBehaviour()
-    {
-        _commandProcessor.UndoBehaviour();
-    }
+  
 
 
 }

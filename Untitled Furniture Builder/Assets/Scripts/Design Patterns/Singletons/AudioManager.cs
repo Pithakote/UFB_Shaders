@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class audioManager : MonoBehaviour
+[RequireComponent(typeof(AudioSource))]
+public class AudioManager : MonoBehaviour
 {
     /*
     public GameObject audioObj1;

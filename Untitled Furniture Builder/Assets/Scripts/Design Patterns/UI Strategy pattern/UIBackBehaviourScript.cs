@@ -24,6 +24,6 @@ public class UIBackBehaviourScript : ButtonAddListener, ICommand
     protected override void ButtonAction()
     {
        // Debug.Log("Undo Button Class");
-        _instance.PerformUndoBehaviour();
+        _instance.ButtonListenerManager.PerformUndoBehaviour();
     }
 }

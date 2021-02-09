@@ -77,7 +77,7 @@ public abstract class ButtonAddListener : MonoBehaviour
         else
         {
            
-                _instance.PerformButtonBehaviour(ReturnButtonBehaviour());
+                _instance.ButtonListenerManager.PerformButtonBehaviour(ReturnButtonBehaviour());
         }
     }
     protected virtual void HoverEnterAction()
