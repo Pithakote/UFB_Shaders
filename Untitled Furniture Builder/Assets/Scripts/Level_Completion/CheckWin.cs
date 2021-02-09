@@ -7,14 +7,29 @@ public class CheckWin : MonoBehaviour
 
     [SerializeField] GameObject checkButton;
 
-    CheckTrigger _enteredObject;
-    public CheckTrigger EnteredObject { get { return _enteredObject; } }
+    public CheckTrigger _enteredObjectLocal;
+    public CheckTrigger EnteredObject { get { return _enteredObjectLocal; } }
 
     private void OnTriggerEnter(Collider other)
     {
-        _enteredObject = other.gameObject.GetComponent<CheckTrigger>();
-        checkButton.SetActive(true);      
+        //it's sometimes getting trigger cubes not the cylinder
+        //so that's why check trigger class isn't being detected
+
+        if (other.gameObject.GetComponent<CheckTrigger>())//if the culinder touches the trigger
+            _enteredObjectLocal = other.gameObject.GetComponent<CheckTrigger>();
+        else if (other.gameObject.transform.parent.GetComponent<TriggerCheck>())//checks for trigger points
+            _enteredObjectLocal = other.gameObject.transform.parent.GetComponent<CheckTrigger>();
+            
         
+        checkButton.SetActive(true);
+        //checkbutton will work regardless of the conditions
+
+        //if the child touches the trigger it's parent is guranteed to have a class
+
+        //optional if the "triggercheck" class is being checked in the else if
+        //NOTE: if legs or screws are attached, the trigger might pick up on those first,
+        //then the else if won't work. the trigger should ignore them and this
+        //can be achieved by using the layers in the physics settings of unity.
     }
 
     private void OnTriggerExit(Collider other)

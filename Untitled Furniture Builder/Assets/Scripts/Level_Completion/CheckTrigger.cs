@@ -11,7 +11,8 @@ public class CheckTrigger : MonoBehaviour
     GameObject levelCompleteUI;
 
     public int numChildren, numTakenPoints;
-
+    bool _isComplete;
+    public bool IsComplete { get { return _isComplete; } }
     private void Start()
     {
         numTakenPoints = 0;
@@ -29,17 +30,18 @@ public class CheckTrigger : MonoBehaviour
             // players build has all of the required parts!!!
             Debug.Log("YES");
             //levelCompleteUI.SetActive(true);          
+            //_isComplete = true;
             return true;
         }
         else
         {
             Debug.Log("NO");
             Debug.Log(numTakenPoints + "  " + numChildren);
-
             return false;
-        }
-           
 
+        }
+
+        #region old unused code
         //for (int i = 0; i < this.gameObject.transform.childCount; i++)
         //{
         //    //if the InnerButtonAddListener is not present continue the loop but don't add
@@ -49,7 +51,7 @@ public class CheckTrigger : MonoBehaviour
         //    _children.Add(gameObject.transform.GetChild(i).gameObject);
         //
         //}
-        
+
 
 
 
@@ -77,11 +79,14 @@ public class CheckTrigger : MonoBehaviour
         //    
         //}
 
-        
-       
+        #endregion
+
     }
 
-    
+    private void OnValidate()
+    {
+        checkChildren();
+    }
 
 
 }

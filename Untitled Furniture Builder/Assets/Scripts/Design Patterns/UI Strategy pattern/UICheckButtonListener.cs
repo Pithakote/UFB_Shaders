@@ -5,15 +5,19 @@ using UnityEngine;
 public class UICheckButtonListener : UIButtonListener
 {
 
-    [SerializeField] CheckWin _enterTriggerPoint;
+    [SerializeField] private GameObject _enterTriggerPoint;// = new CheckWin();
+   
+   
     protected override void ButtonAction()
     {
-        if (_enterTriggerPoint.EnteredObject.checkChildren())
-            base.ButtonAction();
+        if (_instance == null)
+            Debug.Log("Singleton instance is null");
         else
-            Debug.Log("UI Check button listener not triggered");
-
-
-
+        {
+            if (_enterTriggerPoint.GetComponent<CheckWin>().EnteredObject.checkChildren())
+                _instance.ButtonListenerManager.PerformButtonBehaviour(ReturnButtonBehaviour());
+            else
+                Debug.Log("UI Check button listener not triggered");
+        }
     }
 }
