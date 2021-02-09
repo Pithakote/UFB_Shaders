@@ -6,9 +6,14 @@ public class CheckWin : MonoBehaviour
 {
 
     [SerializeField] GameObject checkButton;
+
+    CheckTrigger _enteredObject;
+    public CheckTrigger EnteredObject { get { return _enteredObject; } }
+
     private void OnTriggerEnter(Collider other)
     {
-        checkButton.SetActive(true);
+        _enteredObject = other.gameObject.GetComponent<CheckTrigger>();
+        checkButton.SetActive(true);      
         
     }
 

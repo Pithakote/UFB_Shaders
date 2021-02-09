@@ -19,7 +19,7 @@ public class CheckTrigger : MonoBehaviour
     }
     
 
-    public void checkChildren()
+    public bool checkChildren()
     {
         
 
@@ -28,12 +28,17 @@ public class CheckTrigger : MonoBehaviour
         {
             // players build has all of the required parts!!!
             Debug.Log("YES");
-            
-
+            //levelCompleteUI.SetActive(true);          
+            return true;
         }
         else
+        {
             Debug.Log("NO");
-        Debug.Log(numTakenPoints + "  " + numChildren);
+            Debug.Log(numTakenPoints + "  " + numChildren);
+
+            return false;
+        }
+           
 
         //for (int i = 0; i < this.gameObject.transform.childCount; i++)
         //{
