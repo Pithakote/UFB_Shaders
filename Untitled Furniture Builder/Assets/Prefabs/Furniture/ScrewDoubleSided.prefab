@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7339635356475642504}
   - component: {fileID: 7339635356475642496}
   - component: {fileID: 7339635356475642511}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ScrewDoubleSided
   m_TagString: screw
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.005
+  m_Radius: 0.03
   m_Height: 0.093629465
   m_Direction: 1
   m_Center: {x: 0.000011482043, y: 0.0046331156, z: -0.000011313008}

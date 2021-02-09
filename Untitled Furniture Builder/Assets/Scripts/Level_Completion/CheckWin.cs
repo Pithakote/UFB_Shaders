@@ -16,11 +16,27 @@ public class CheckWin : MonoBehaviour
         //so that's why check trigger class isn't being detected
 
         if (other.gameObject.GetComponent<CheckTrigger>())//if the culinder touches the trigger
+        {
+            Debug.Log(other.gameObject.name);
             _enteredObjectLocal = other.gameObject.GetComponent<CheckTrigger>();
+        }
+        /*
         else if (other.gameObject.transform.parent.GetComponent<TriggerCheck>())//checks for trigger points
+        {
+            Debug.Log(other.gameObject.name);
             _enteredObjectLocal = other.gameObject.transform.parent.GetComponent<CheckTrigger>();
-            
-        
+        }
+        else if (other.gameObject.transform.parent.GetComponent<ScrewSnapToPos>())//screw check
+        {
+            Debug.Log(other.gameObject.name);
+            _enteredObjectLocal = other.gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<CheckTrigger>();
+        }
+        else if (other.gameObject.transform.parent.GetComponent<snapToPos>())//check for legs                 
+        {
+            Debug.Log(other.gameObject.name);
+            _enteredObjectLocal = other.gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<CheckTrigger>();//parent class
+        }
+        */
         checkButton.SetActive(true);
         //checkbutton will work regardless of the conditions
 
