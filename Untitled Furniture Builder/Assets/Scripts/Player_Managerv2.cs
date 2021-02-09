@@ -1,13 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class Player_Managerv2 : MonoBehaviour
 {
+	
+	[DllImport("user32.dll")]
+    public static extern bool SetCursorPos(int X, int Y);
+	
 	public float upTime = 0.5f;
-	public GameObject snappable;
 	public static GameObject pickedUp;
-
+	GameObject levelManager;
+	public static GameObject[] snappables;
+	
 	//Drag
 	[SerializeField]
 	float forceAmount = 15000;
@@ -22,25 +28,16 @@ public class Player_Managerv2 : MonoBehaviour
 	bool invertMask;
 
 	//Rotate
-	[SerializeField]
+	Vector2 storedMousePos;
 	bool rotating = false;
 	int axis = 1;
 	float startAng;
-	[SerializeField]
-	float snapTime = 0.5f;
-	[SerializeField]
-	float snapAngle;
-	
 	float scrollTime;
 
 	[SerializeField]
 	float upDistance;
 	[SerializeField]
-	float deltaSnap;
-	[SerializeField]
 	Color pickupColor;
-	[SerializeField]
-	float speed;
 
 	[SerializeField]
 	float rotSpeed;
@@ -48,15 +45,11 @@ public class Player_Managerv2 : MonoBehaviour
 	
 	void Start()
 	{
-		Vector3 pos = new Vector3(3.5f, 3.5f, 35f);
-		Vector3 offset_pos = new Vector3(0.0f, 0, 3.0f);
-		Vector3 offset = new Vector3(1,0,0.5f);
-		Vector3 offset2 = new Vector3(2,0,1.5f);
-		string model = "Assets/3DModels/Bar Chair/Objects/WoodenChair.fbx";
-		
 		//SpawnSnappable(model, pos + offset_pos, offset, 0, 1);
 		//SpawnSnappable(model, pos, offset, 1, 2);
 		//SpawnSnappable(model, pos - offset_pos, offset2, 3, 4);
+		levelManager = GameObject.Find("LevelManager");
+		//snappables = levelManager.GetComponent<LevelManager>().snappables;
 	}
 	
 	void Update()
@@ -82,18 +75,18 @@ public class Player_Managerv2 : MonoBehaviour
 			if (rotating == false && Physics.Raycast(ray_, out hitMouse, Mathf.Infinity, newMask))
 			{
 				GameObject hitObj = hitMouse.collider.gameObject;
+				string tag = "";
 				if (hitObj != null){
 					print(hitObj.tag);
-					//print(hitObj.layer);
-					//print( layermask_to_layer(mask.value) );
+					tag = hitObj.tag;
 				}
 				
 				float ang = Vector3.Angle(hitMouse.normal, transform.up);
-				print( ang );
+				//print( ang );
 				if ( ang == 0 ){
 					float hitY = hitMouse.point.y;
 					float dist_hit = Mathf.Abs(hitY - distance_plane);
-					float min_dist = 0.025f;
+					float min_dist = 0.1f;
 					
 					if ( hitY != distance_plane && dist_hit > min_dist ){
 						distance_plane = hitY;
@@ -144,13 +137,18 @@ public class Player_Managerv2 : MonoBehaviour
 			if (dist > 0.12f){
 				//print(dist);
 				float perc = 0.12f / dist;
-				//print(perc);
 				rigidbody.AddForce((goalPosition - entPos).normalized * (forceAmount - (forceAmount * perc)) * Time.deltaTime);
 			}
 		}
-
+		
+		//ROTATE
+		//Store mouse data
+		if (Input.GetKeyDown(KeyCode.R))
+			storedMousePos = Input.mousePosition;
+		
 		if (Input.GetKey(KeyCode.R) && pickedUp != null)
 		{
+			SetCursorPos( (int)storedMousePos.x, Screen.height - (int)storedMousePos.y);
 			//Vals
 			Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
 			float mouseDX = Mathf.Clamp(Input.GetAxis("Mouse X"), -1, 1);
@@ -168,6 +166,7 @@ public class Player_Managerv2 : MonoBehaviour
 			FreezeConstraints( rigidbody, false );
 			rotating = false;
 		}
+		//-----------
 		
 		//Find pick up entitiy
 		if (Input.GetMouseButtonDown(0))
@@ -176,6 +175,7 @@ public class Player_Managerv2 : MonoBehaviour
 			if (pickedUp == null)
 			{
 				//pressed
+				mousePos = Input.mousePosition;
 				Ray ray = Camera.main.ScreenPointToRay(mousePos);
 				RaycastHit hit;
 
@@ -185,13 +185,31 @@ public class Player_Managerv2 : MonoBehaviour
 					GameObject ent = hit.collider.gameObject;
 					Rigidbody rigidbody = ent.GetComponent<Rigidbody>();
 
-					if (ent != null && rigidbody != null && ent.tag == "Physics" || ent != null && rigidbody != null && ent.tag == "Snappable")
+					if (ent != null && rigidbody != null && ent.tag == "Physics" || ent != null && ent.tag == "Snappable" || ent != null && ent.tag == "Preview" && ent.transform.root.gameObject.GetComponent<Rigidbody>() != null)
 					{
+						if (ent.tag == "Preview"){
+							ent = ent.transform.parent.gameObject;
+							rigidbody = ent.GetComponent<Rigidbody>();
+						}
+						
 						snap comp = ent.GetComponent<snap>();
-						if (ent.tag == "Snappable" && comp != null){
+						if (comp != null){
 							GameObject snapped = comp.snapped;
 							if ( snapped != null )
 								ent = snapped;
+							
+							//Enable preview
+							int to_id = comp.snap_to_id;
+							print(snappables.Length);
+							if ( to_id > -1 && to_id < snappables.Length ){
+								print(to_id);
+								GameObject connect_to = snappables[to_id];
+								snap p_comp = connect_to.GetComponent<snap>();
+								Mesh mesh = ent.GetComponent<MeshFilter>().mesh;
+								Vector3 newOffset = comp.offset;
+								
+								p_comp.InitPreview(mesh, newOffset);
+							}
 						}
 						
 						distance_plane = hit.point.y;
@@ -235,20 +253,8 @@ public class Player_Managerv2 : MonoBehaviour
 			}
 		}
 	}
-
-	void SpawnSnappable(string model, Vector3 origin, Vector3 offset, int id, int snap_to)
-	{
-		GameObject ent = Instantiate(snappable);
-		ent.transform.position = origin;
-		//
-		//snap s = ent.GetComponent<snap>();
-		//s.id = id;
-		//s.snap_to_id = snap_to;
-		//s.offset = offset;
-		//s.model = model;
-	}
 	
-	void IgnoreRaycast( GameObject ent, bool b )
+	public void IgnoreRaycast( GameObject ent, bool b )
 	{
 		if (b == true)
 			ent.layer = layermask_to_layer( mask );
@@ -257,7 +263,7 @@ public class Player_Managerv2 : MonoBehaviour
 	}
 	
 	//---
-	public static int layermask_to_layer(LayerMask layerMask) {
+	public int layermask_to_layer(LayerMask layerMask) {
          int layerNumber = 0;
          int layer = layerMask.value;
          while(layer > 0) {

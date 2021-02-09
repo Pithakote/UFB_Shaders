@@ -7,10 +7,11 @@ public class snap : MonoBehaviour
 	//Values
 	public int snap_to_id;
 	public int id;
+	public Vector3 offset;
+	public GameObject preview;
+	
 	public GameObject snapped;
-	public Material public_mat;
-	public bool drawPreview = true;
-	Vector3 pos;
+	public GameObject preview_ent;
 	
 	//Components
 	Rigidbody rigid;
@@ -20,55 +21,122 @@ public class snap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        meshFilter = GetComponent<MeshFilter>();
-		//col = GetComponent<MeshCollider>();
-		rigid = GetComponent<Rigidbody>();
+		loadVars();
+		//if (snap_to_id != -1)
+		//	InitPreview();
     }
+	
+	void loadVars()
+	{
+        meshFilter = GetComponent<MeshFilter>();
+		rigid = GetComponent<Rigidbody>();
+	}
 
 	void Update()
 	{
-		if (drawPreview == false)
+		if (preview_ent == null)
 			return;
-		//--
-		Mesh mesh = meshFilter.mesh;
-		Vector3 offset = new Vector3(0.5f,0,-0.5f);
-		Vector3 pos = transform.position + offset;
-		Material material = public_mat;
 		
-		Graphics.DrawMesh(mesh, pos, transform.rotation, material, 0);
+		if (Player_Managerv2.pickedUp == transform.gameObject )
+		{
+			if (preview_ent.activeSelf == true)
+				preview_ent.SetActive(false);
+		}else {
+			if (preview_ent.activeSelf == false)
+				preview_ent.SetActive(true);
+		}
 	}
 	
-	void OnTriggerEnter(Collider other)
+	void OnTriggerStay(Collider other)
     {
 		if (rigid == null) return;
 		//--
         GameObject hit = other.gameObject;
-		string tag = hit.tag;
+		float dist = Vector3.Distance(transform.position, hit.transform.position);
 		
-		if (tag != "Snappable" || snapped != null)
+		//print(dist);
+		//if ( dist > 2.5 )
+		//	return;
+		
+		string tag = hit.tag;
+		if (tag != "Preview" || snapped != null)
 			return;
 		
-		if ( snap_to_id == hit.GetComponent<snap>().id ){
-			transform.position =  hit.transform.position;
-			transform.SetParent( hit.transform );
+		
+		//Angle Check
+		Vector3 myAngles = transform.eulerAngles;
+		Vector3 otherAngles = hit.transform.eulerAngles;
+		float difference = Mathf.DeltaAngle(otherAngles.z, myAngles.z);
+		difference = Mathf.Abs( difference );
+		
+		float min_angle = 45;
+		print(difference);
+		if ( difference > min_angle )
+			return;
+		
+		GameObject parent = other.transform.parent.gameObject;
+		if ( snap_to_id == parent.GetComponent<snap>().id ){
+			Player_Managerv2.pickedUp = null;
+			//--
+			transform.position =  parent.transform.position;
+			transform.SetParent( parent.transform );
 			
 			//Physics.IgnoreCollision(col, other);
-			snapped = hit;
-			drawPreview = false;
-			snapped.GetComponent<snap>().drawPreview = false;
+			snapped = parent;
+			//drawPreview = false;
+			//snapped.GetComponent<snap>().drawPreview = false;
 			Destroy( rigid );
 			
 			//Snap to position (connect)
-			Vector3 offset = new Vector3(0.5f,0,-0.5f);
+			Vector3 angles = snapped.transform.eulerAngles;
+			//Vector3 offset = new Vector3(0.5f,0,-0.5f);
+			
+			snapped.transform.eulerAngles = new Vector3(0,0,0);
 			transform.position = snapped.transform.position + offset;
-			transform.eulerAngles = snapped.transform.eulerAngles;
+			snapped.transform.eulerAngles = angles;
+			transform.eulerAngles = angles;
+			
+			//previews
+			Destroy(preview_ent);
+			Destroy(parent.GetComponent<snap>().preview_ent);
 		}
     }
 
+	public void InitPreview(Mesh mesh, Vector3 newOffset)
+	{
+		if (preview_ent != null)
+			Destroy( preview_ent );
+		
+		GameObject spawned = Instantiate(preview);
+		spawned.layer = 8;
+		spawned.transform.localScale = transform.localScale;
+		spawned.transform.SetParent( transform );
+			
+		MeshFilter filter = spawned.GetComponent<MeshFilter>();
+		filter.sharedMesh = mesh;
+		filter.mesh = mesh;
+			
+		//Snap to position (connect)
+		//Vector3 offset = new Vector3(0.5f,0,-0.5f);
+		
+		Vector3 ang = transform.eulerAngles;
+		transform.eulerAngles = new Vector3(0,0,0);
+		
+		spawned.transform.position = transform.position + newOffset;
+		spawned.transform.eulerAngles = transform.eulerAngles;
+		
+		transform.eulerAngles = ang;	
+		preview_ent = spawned;
+	}
 	
 	public void SetModel( string dir )
 	{
-		meshFilter.sharedMesh = Resources.Load<Mesh>(dir);
+		if (meshFilter == null)
+			loadVars();
+		
+		Mesh loaded = (Mesh)Resources.Load(dir,typeof(Mesh));
+		meshFilter.mesh = loaded;
+		meshFilter.sharedMesh = loaded;
 	}
     
 }
