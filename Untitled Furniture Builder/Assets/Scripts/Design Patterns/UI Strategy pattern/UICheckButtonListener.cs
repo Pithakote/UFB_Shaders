@@ -10,8 +10,10 @@ public class UICheckButtonListener : UIButtonListener
    
     protected override void ButtonAction()
     {
+       // _instance.ButtonListenerManager.PerformButtonBehaviour(ReturnButtonBehaviour());
         if (_instance == null)
             Debug.Log("Singleton instance is null");
+
         else
         {
             if (_enterTriggerPoint.GetComponent<CheckWin>().EnteredObject.checkChildren())
