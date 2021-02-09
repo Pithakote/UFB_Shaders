@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class snapToPos1 : MonoBehaviour
+public class ScrewSnapToPos : MonoBehaviour
 {
     bool snapped = false;
     GameObject snapparent; // the gameobject this transform will be snapped to
@@ -11,7 +11,7 @@ public class snapToPos1 : MonoBehaviour
     [SerializeField] float yPosOffset;
     [SerializeField] bool setXAxis;
 
-    
+    GameObject triggerPoint;
 
     private void Start()
     {
@@ -61,19 +61,23 @@ public class snapToPos1 : MonoBehaviour
         else return;
     }
     void OnTriggerEnter(Collider col)
-    {                  
+    {
 
 
-        if (col.tag == "parent")
-        {                     
-                // if col.getcomponent<drag> = true, then do it.
-                snapped = true;
-                snapparent = col.gameObject;
-                updateTransParent(snapped);                       
+        triggerPoint = col.gameObject;
+        if (triggerPoint.GetComponent<TriggerCheck>() != null && !triggerPoint.GetComponent<TriggerCheck>().screwTriggerIsTaken)
+        {
+            triggerPoint.GetComponent<TriggerCheck>().screwTriggerIsTaken = true;
+
+            triggerPoint.gameObject.transform.parent.GetComponent<CheckTrigger>().numTakenPoints++;
+
+            snapped = true;
+            snapparent = col.gameObject;
+            updateTransParent(snapped);
         }
-        
-       
-       
+
+
+
 
     }
 

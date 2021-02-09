@@ -17,14 +17,19 @@ public class CheckTrigger : MonoBehaviour
         numTakenPoints = 0;
         numChildren = this.gameObject.transform.childCount;
     }
-
+    
 
     public void checkChildren()
     {
+        
+
         //this._children = new List<GameObject>();
         if (numTakenPoints >= numChildren)
         {
+            // players build has all of the required parts!!!
             Debug.Log("YES");
+            
+
         }
         else
             Debug.Log("NO");

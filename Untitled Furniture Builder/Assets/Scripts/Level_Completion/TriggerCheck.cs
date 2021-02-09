@@ -6,19 +6,19 @@ public class TriggerCheck : MonoBehaviour
 {
 
     public bool screwTriggerIsTaken;
-    // bool legTriggerIsTaken;
+  
+    public bool legTriggerIsTaken;
     // bool legScrewTaken;
     // bool AllLegScrewTaken;
 
-   
-
-   
-
-   
-
   
+   
 
-    
+
+
+
+
+
 
 
 }
