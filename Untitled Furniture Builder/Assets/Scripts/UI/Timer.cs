@@ -8,27 +8,33 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public TextMeshProUGUI timeText;    
-    [SerializeField] float startTime;
-    public GameObject TimerUI;
+    public float startTime;
+    public static float time;
+    //public GameObject TimerUI;
     public GameObject GameOverUI;
     public static string minutes;
     public static string seconds;
+
+   
     // Start is called before the first frame update
     void Start()
     {
         //startTime = 60.0f;
+        time = startTime;
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         if (!CheckLevelWin.isWin)
         {
-            startTime -= Time.deltaTime;
-            minutes = ((int)startTime / 60).ToString();
-            seconds = (startTime % 60).ToString("00");
+            time -= Time.deltaTime;
+            minutes = ((int)time / 60).ToString();
+            seconds = (time % 60).ToString("00");
 
             timeText.text = minutes + ":" + seconds;
+            Debug.Log(time);
         }
         else
             return;
@@ -39,7 +45,7 @@ public class Timer : MonoBehaviour
         if (startTime <= 0)
         {
             startTime = 0;
-            TimerUI.SetActive(false);
+            gameObject.SetActive(false);
             GameOverUI.SetActive(true);
         }
     }
