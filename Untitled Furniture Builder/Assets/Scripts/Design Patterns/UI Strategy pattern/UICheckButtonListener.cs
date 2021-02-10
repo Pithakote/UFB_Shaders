@@ -10,16 +10,17 @@ public class UICheckButtonListener : UIButtonListener
    
     protected override void ButtonAction()
     {
-       // _instance.ButtonListenerManager.PerformButtonBehaviour(ReturnButtonBehaviour());
-        if (_instance == null)
-            Debug.Log("Singleton instance is null");
-
-        else
-        {
-            if (_enterTriggerPoint.GetComponent<CheckWin>().EnteredObject.checkChildren())
-                _instance.ButtonListenerManager.PerformButtonBehaviour(ReturnButtonBehaviour());
-            else
-                Debug.Log("UI Check button listener not triggered");
-        }
+        _instance.ButtonListenerManager.PerformButtonBehaviour(ReturnButtonBehaviour());
+        // _instance.ButtonListenerManager.PerformButtonBehaviour(ReturnButtonBehaviour());
+        // if (_instance == null)
+        //     Debug.Log("Singleton instance is null");
+        //
+        // else
+        // {
+        //     if (_enterTriggerPoint.GetComponent<CheckWin>().EnteredObject.checkChildren())
+        //         _instance.ButtonListenerManager.PerformButtonBehaviour(ReturnButtonBehaviour());
+        //     else
+        //         Debug.Log("UI Check button listener not triggered");
+        // }
     }
 }

@@ -5972,7 +5972,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 256
-  upDistance: 0.64
+  upDistance: 0.3
   pickupColor: {r: 1, g: 0.96763766, b: 0, a: 0}
   rotSpeed: 1000
 --- !u!4 &1216432771
@@ -10225,7 +10225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1236058f2f1e66a48bcd95537c811a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startpos: {x: 2.6, y: 2.5, z: 37}
+  triggerMinDistance: 0
+  minAngleSnap: 45
+  startpos: {x: 2.6, y: 2.5, z: 35.9}
   materialShader: {fileID: 2100000, guid: 572836f6f4637ab4a9b1c63a1b2f98f9, type: 2}
   snappable: {fileID: 4059220095760975271, guid: 1adad0167df1d1e4e85e61abefdd3e6c,
     type: 3}

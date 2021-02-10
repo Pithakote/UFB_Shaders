@@ -5,11 +5,9 @@ using UnityEngine;
 public class TriggerCheck : MonoBehaviour
 {
 
-    public bool screwTriggerIsTaken;
-  
+    public bool screwTriggerIsTaken;  
     public bool legTriggerIsTaken;
-    // bool legScrewTaken;
-    // bool AllLegScrewTaken;
+   
 
   
    
