@@ -10,8 +10,8 @@ public abstract class BaseState
         _gameManager = gameManager;
     }
 
-    public virtual void DoEscapeKeyAction()
+    public virtual void DoStateAction()
     {
-    //    Debug.Log(this.GetType().Name + " is being called");
+        Debug.Log(this.GetType().Name + " is being called");
     }
 }

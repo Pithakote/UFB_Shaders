@@ -11,7 +11,12 @@ public class UIResumePauseButtonListener : ButtonAddListener
 
     protected override void ButtonAction()
     {
+        //_pauseMenu.SetActive(false);
+       // Cursor.visible = false;
+       // Time.timeScale = 1f;
+
+        //_gameManager.StateManager.CurrentState = _gameManager.StateManager.InGameState;//change to in-game state
         _instance.StateManager.CurrentState = _instance.StateManager.InGameState;
-     
+        _instance.ButtonListenerManager.PerformButtonBehaviour(_instance.StateManager.CurrentState);
     }
 }

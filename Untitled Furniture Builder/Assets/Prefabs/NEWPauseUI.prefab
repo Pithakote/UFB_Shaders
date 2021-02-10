@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 2851693922638805181}
   - component: {fileID: 4626933478895373599}
   - component: {fileID: 8585190530542356790}
+  - component: {fileID: 1289449496103466435}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -328,6 +329,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1289449496103466435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320746740862046506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50662fb37990049408911e56ef533acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1804939727164134058
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,7 +821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3301538402492696619
 RectTransform:
   m_ObjectHideFlags: 0

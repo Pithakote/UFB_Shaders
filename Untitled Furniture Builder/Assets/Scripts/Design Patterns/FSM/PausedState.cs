@@ -11,15 +11,16 @@ public class PausedState : BaseState
         _pauseMenu = pauseMenu;
     }
 
-    public override void DoEscapeKeyAction()//going into the game
+    public override void DoStateAction()//going into the game
     {
-        base.DoEscapeKeyAction();
-
-        _pauseMenu.SetActive(false);
-        Cursor.visible = false;
-        Time.timeScale = 1f;
+       
 
         _gameManager.StateManager.CurrentState = _gameManager.StateManager.InGameState;//change to in-game state
+
+        base.DoStateAction();
+        _pauseMenu.SetActive(true);
+        Cursor.visible = true;
+        Time.timeScale = 0f;
     }
 
   

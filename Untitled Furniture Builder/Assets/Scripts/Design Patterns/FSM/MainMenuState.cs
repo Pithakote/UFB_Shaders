@@ -9,9 +9,9 @@ public class MainMenuState : BaseState
         
     }
 
-    public override void DoEscapeKeyAction()
+    public override void DoStateAction()
     {
-        base.DoEscapeKeyAction();
+        base.DoStateAction();
         
         //throw new System.NotImplementedException();
     }

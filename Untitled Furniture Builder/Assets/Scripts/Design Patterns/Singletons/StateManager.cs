@@ -51,7 +51,7 @@ public class StateManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            _currentState.DoEscapeKeyAction();
+            _instance.ButtonListenerManager.PerformButtonBehaviour(_currentState);
         
     }
 }

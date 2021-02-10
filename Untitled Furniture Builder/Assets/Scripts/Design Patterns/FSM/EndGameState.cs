@@ -8,7 +8,7 @@ public class EndGameState : BaseState
     { 
     
     }
-    public override void DoEscapeKeyAction()
+    public override void DoStateAction()
     {
         throw new System.NotImplementedException();
     }

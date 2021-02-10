@@ -411,6 +411,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: -236.0943, y: 0}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!95 &108756575
 Animator:
@@ -750,6 +751,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: -198}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!114 &121428829
 MonoBehaviour:
@@ -1940,6 +1942,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 140.8, y: 76}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 2.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!114 &308091905
 MonoBehaviour:
@@ -4977,6 +4980,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: -87.99999}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!114 &801395792
 MonoBehaviour:
@@ -7185,6 +7189,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: -165.1197}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!95 &1208615169
 Animator:
@@ -9080,24 +9085,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 08e091500e68ded43b4abfb1b3f718d0, type: 3}
---- !u!1 &1422107830 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1320746740862046506, guid: 16c85a81fcd64794a8d16329290d9668,
-    type: 3}
-  m_PrefabInstance: {fileID: 3301538403243841538}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1422107837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1422107830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50662fb37990049408911e56ef533acd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1439372205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9235,6 +9222,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: -273.0945, y: -151.5707}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!114 &1450781896
 MonoBehaviour:
@@ -10757,6 +10745,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: -165, y: 76}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 1.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!114 &1660225665
 MonoBehaviour:
@@ -10934,6 +10923,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 348.37, y: 122.6086}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!95 &1677983290
 Animator:
@@ -11104,6 +11094,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: -11.19998, y: 76}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 2
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!114 &1724085726
 MonoBehaviour:
@@ -12202,6 +12193,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: -360.66, y: 122.6087}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!95 &1837820336
 Animator:
@@ -13792,6 +13784,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: -322.5706}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!114 &2116782424
 MonoBehaviour:
