@@ -46,7 +46,7 @@ public class UINextPanelBehaviour : IButtonInteractable
     
     public void ButtonBehaviour()
     {
-        
+        if(_currentUI != null)
         _currentUI.DOAnchorPos(_currentUIEndPos, _duration);
 
         _nextUI.DOAnchorPos(_nextUIEndPos, _duration);

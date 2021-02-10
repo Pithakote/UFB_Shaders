@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : LocalManager
 {
 	//Game Manager
 	public float triggerMinDistance = 0;
@@ -14,32 +14,47 @@ public class LevelManager : MonoBehaviour
 	public int[] snap_tos;
 	public Vector3[] snap_offsets;
 	public GameObject[] snappables;
-	
-    // Start is called before the first frame update
-    void Start()
-    {
-		Vector3 offset = new Vector3(0.5f,0,-0.5f);
+
+	[SerializeField]
+	GameObject _pauseMenuObject;
+
+	protected override void SetInitialState()
+	{
+		//base class abstraction
+		_instance.StateManager.PauseMenuObject = _pauseMenuObject;
+		_instance.StateManager.InGameState = new InGameState(_instance, _pauseMenuObject);
+		_instance.StateManager.CurrentState = _instance.StateManager.InGameState;
 		
+	}
+
+	void InitializeSnappable()
+	{
+		Vector3 offset = new Vector3(0.5f, 0, -0.5f);
+
 		int amt_snappables = snap_tos.Length;
 		snappables = new GameObject[amt_snappables];
-		
-		for (int i = 0;  i <= amt_snappables - 1; i++)
+
+		for (int i = 0; i <= amt_snappables - 1; i++)
 		{
-			float min = Random.Range(-1,1);
+			float min = Random.Range(-1, 1);
 			if (min == 0)
 				min = 0.5f;
-			
+
 			snappables[i] = SpawnSnappable(snap_meshes[i], startpos + (offset * i), snap_offsets[i], i, snap_tos[i]);
 		}
-		
-		Player_Managerv2.snappables = snappables;
-    } 
 
-    // Update is called once per frame
-    void Update()
+		Player_Managerv2.snappables = snappables;
+	}
+  
+    protected override void Start()
     {
-        
-    }
+		//base class abstraction
+		base.Start();
+
+		InitializeSnappable();
+
+	} 
+  
 	
 	GameObject SpawnSnappable(Mesh model, Vector3 origin, Vector3 offset, int id, int snap_to)
 	{
