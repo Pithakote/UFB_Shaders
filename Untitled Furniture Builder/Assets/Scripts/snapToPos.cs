@@ -13,6 +13,8 @@ public class snapToPos : MonoBehaviour
 
     [SerializeField] GameObject snapPosition;
 
+    GameObject triggerPoint;
+
     private void Start()
     {
         
@@ -23,10 +25,10 @@ public class snapToPos : MonoBehaviour
         if (snapped == false)
             return;
         offset = new Vector3(offset.x, yPosOffset, offset.z);
-
+        
         snapPosition.transform.parent = snapparent.transform;
         snapPosition.transform.up = snapparent.transform.up;
-
+        
         snapPosition.transform.localPosition = new Vector3(0, snapparent.transform.localPosition.y, 0);
         
         transform.parent = snapPosition.transform;
@@ -43,28 +45,47 @@ public class snapToPos : MonoBehaviour
         else return;
     }
     void OnTriggerEnter(Collider col)
-    {                  
+    {
+        triggerPoint = col.gameObject;
+        if (triggerPoint.GetComponent<TriggerCheck>() != null && !triggerPoint.GetComponent<TriggerCheck>().legTriggerIsTaken)
+        {
+            triggerPoint.GetComponent<TriggerCheck>().legTriggerIsTaken = true;
 
+            triggerPoint.gameObject.transform.parent.GetComponent<CheckTrigger>().numTakenPoints++;
 
-        if (col.tag == "parent")
-        {                     
-                // if col.getcomponent<drag> = true, then do it.
-                snapped = true;
-                snapparent = col.gameObject;
-                updateTransParent(snapped);                       
+            snapped = true;
+            snapparent = col.gameObject;
+            updateTransParent(snapped);
         }
-        
-       
-       
+
+        //
+
+        //if (triggerPoint.GetComponent<TriggerCheck>() != null && !triggerPoint.GetComponent<TriggerCheck>().screwTriggerIsTaken)
+        //{
+        //    triggerPoint.GetComponent<TriggerCheck>().screwTriggerIsTaken = true;
+        //    triggerPoint.gameObject.transform.parent.GetComponent<CheckTrigger>().numTakenPoints++;
+        //
+        //        snapped = true;
+        //        snapparent = col.gameObject;
+        //        updateTransParent(snapped);
+        //       
+        //}
+
+
+
+
 
     }
 
-}
-    // if leg already attached
-    // do nothing
-    // if no leg attached
-    // attach leg
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other == null && other.gameObject != triggerPoint)
+    //        return;
+    //    triggerPoint = other.gameObject;
+    //    triggerPoint.GetComponent<TriggerCheck>().triggerIsTaken = false;      
+    //}
 
-    // do a check so each point only has 1 leg attached
+}
+   
 
 

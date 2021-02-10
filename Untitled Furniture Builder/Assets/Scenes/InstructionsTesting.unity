@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 16964564}
   - component: {fileID: 16964563}
   - component: {fileID: 16964562}
+  - component: {fileID: 16964567}
   m_Layer: 5
   m_Name: Ready_button
   m_TagString: Untagged
@@ -266,18 +267,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 16964565}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1515056186}
-        m_MethodName: LoadNextScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &16964565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +305,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16964560}
   m_CullTransparentMesh: 0
+--- !u!114 &16964567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16964560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa1da4f11c097f458f6a1b2a742a683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentUI: {fileID: 0}
+  _nextUI: {fileID: 0}
+  _currentUIEndPos: {x: 0, y: 0}
+  _nextUIEndPos: {x: 0, y: 0}
+  _duration: 0
+  _nextScene: {fileID: 102900000, guid: 7855dc7a4c08ebd4fa9a04b490726d7a, type: 3}
 --- !u!1 &633393129
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,6 +989,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920514622369981462, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 206.16719
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920514622369981462, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 425.09805
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920514622369982548, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 412.33438
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920514622369982548, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 713.7321
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920514622369983140, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 206.16719
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920514622369983140, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 425.09805
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920514622370025930, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 206.16719
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920514622370025930, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 425.09805
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8366c3c34656a9142844b625fd457858, type: 3}
