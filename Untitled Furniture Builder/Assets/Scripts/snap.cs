@@ -10,13 +10,24 @@ public class snap : MonoBehaviour
 	public Vector3 offset;
 	public GameObject preview;
 	
+	public int min_angle = 45;
+	public float triggerMinDistance = 0;
 	public GameObject snapped;
 	public GameObject preview_ent;
+	
+	//Lerp
+	float anim_time = 1.0f;
+	GameObject lerped_ent;
+	Vector3 lerp_startpos;
+	Vector3 lerp_pos;
+	Vector3 lerp_startang;
+	Vector3 lerp_ang;
+	float lerp_start = -100;
 	
 	//Components
 	Rigidbody rigid;
 	MeshFilter meshFilter;
-	//MeshCollider col;
+	MeshCollider col;
 	
     // Start is called before the first frame update
     void Start()
@@ -30,10 +41,13 @@ public class snap : MonoBehaviour
 	{
         meshFilter = GetComponent<MeshFilter>();
 		rigid = GetComponent<Rigidbody>();
+		col = GetComponent<MeshCollider>();
 	}
 
 	void Update()
 	{
+		UpdateLerp();
+		
 		if (preview_ent == null)
 			return;
 		
@@ -47,16 +61,38 @@ public class snap : MonoBehaviour
 		}
 	}
 	
+	void UpdateLerp()
+	{
+		if (lerp_start == null || lerp_start + anim_time <= Time.time){
+			if (col.enabled == false){
+				col.enabled = true;
+				
+				snapped.transform.root.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+			}
+			//--
+			return;
+		}
+		//--
+		float distCovered = (Time.time - lerp_start);
+		float fractionOfJourney = distCovered / anim_time;
+		//transform.position = Vector3.Lerp(lerp_startpos, lerp_pos, fractionOfJourney);
+		transform.eulerAngles = Vector3.Lerp(lerp_startang, lerp_ang, fractionOfJourney);
+	}
+	
 	void OnTriggerStay(Collider other)
     {
 		if (rigid == null) return;
 		//--
         GameObject hit = other.gameObject;
-		float dist = Vector3.Distance(transform.position, hit.transform.position);
 		
 		//print(dist);
 		//if ( dist > 2.5 )
 		//	return;
+		if (triggerMinDistance > 0){
+			float dist = Vector3.Distance(transform.position, hit.transform.position);
+			if (dist > triggerMinDistance)
+				return;
+		}
 		
 		string tag = hit.tag;
 		if (tag != "Preview" || snapped != null)
@@ -69,8 +105,7 @@ public class snap : MonoBehaviour
 		float difference = Mathf.DeltaAngle(otherAngles.z, myAngles.z);
 		difference = Mathf.Abs( difference );
 		
-		float min_angle = 45;
-		print(difference);
+		//print(difference);
 		if ( difference > min_angle )
 			return;
 		
@@ -78,11 +113,15 @@ public class snap : MonoBehaviour
 		if ( snap_to_id == parent.GetComponent<snap>().id ){
 			Player_Managerv2.pickedUp = null;
 			//--
+			Vector3 oldPos = transform.position;
+			Vector3 oldAng = transform.eulerAngles;
+			
 			transform.position =  parent.transform.position;
 			transform.SetParent( parent.transform );
 			
 			//Physics.IgnoreCollision(col, other);
 			snapped = parent;
+			parent.transform.root.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
 			//drawPreview = false;
 			//snapped.GetComponent<snap>().drawPreview = false;
 			Destroy( rigid );
@@ -92,9 +131,10 @@ public class snap : MonoBehaviour
 			//Vector3 offset = new Vector3(0.5f,0,-0.5f);
 			
 			snapped.transform.eulerAngles = new Vector3(0,0,0);
+			SetGameObjectMoveTo( oldPos, oldAng, snapped.transform.position + offset, angles );
 			transform.position = snapped.transform.position + offset;
 			snapped.transform.eulerAngles = angles;
-			transform.eulerAngles = angles;
+			//transform.eulerAngles = angles;
 			
 			//previews
 			Destroy(preview_ent);
@@ -102,6 +142,16 @@ public class snap : MonoBehaviour
 		}
     }
 
+	void SetGameObjectMoveTo(  Vector3 startPos, Vector3 startAng, Vector3 pos, Vector3 toAng )
+	{
+		col.enabled = false;
+		lerp_startpos = startPos;
+		lerp_pos = pos;
+		lerp_ang = toAng;
+		lerp_startang = startAng;
+		lerp_start = Time.time;
+	}
+	
 	public void InitPreview(Mesh mesh, Vector3 newOffset)
 	{
 		if (preview_ent != null)

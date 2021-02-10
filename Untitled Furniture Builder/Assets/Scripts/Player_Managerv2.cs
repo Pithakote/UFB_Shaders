@@ -11,6 +11,7 @@ public class Player_Managerv2 : MonoBehaviour
 	
 	public float upTime = 0.5f;
 	public static GameObject pickedUp;
+	public static GameObject screwEnt;
 	GameObject levelManager;
 	public static GameObject[] snappables;
 	
@@ -185,47 +186,55 @@ public class Player_Managerv2 : MonoBehaviour
 					GameObject ent = hit.collider.gameObject;
 					Rigidbody rigidbody = ent.GetComponent<Rigidbody>();
 
+					if (ent.tag == "screw"){
+						ent.GetComponent<screw>().onMouseClick();
+						screwEnt = ent;
+					}
+					
 					if (ent != null && rigidbody != null && ent.tag == "Physics" || ent != null && ent.tag == "Snappable" || ent != null && ent.tag == "Preview" && ent.transform.root.gameObject.GetComponent<Rigidbody>() != null)
 					{
-						if (ent.tag == "Preview"){
-							ent = ent.transform.parent.gameObject;
-							rigidbody = ent.GetComponent<Rigidbody>();
-						}
-						
-						snap comp = ent.GetComponent<snap>();
-						if (comp != null){
-							GameObject snapped = comp.snapped;
-							if ( snapped != null )
-								ent = snapped;
-							
-							//Enable preview
-							int to_id = comp.snap_to_id;
-							print(snappables.Length);
-							if ( to_id > -1 && to_id < snappables.Length ){
-								print(to_id);
-								GameObject connect_to = snappables[to_id];
-								snap p_comp = connect_to.GetComponent<snap>();
-								Mesh mesh = ent.GetComponent<MeshFilter>().mesh;
-								Vector3 newOffset = comp.offset;
-								
-								p_comp.InitPreview(mesh, newOffset);
+						if (screwEnt == null){
+							if (ent.tag == "Preview"){
+								ent = ent.transform.root.gameObject;
+								rigidbody = ent.GetComponent<Rigidbody>();
 							}
-						}
 						
-						distance_plane = hit.point.y;
-						IgnoreRaycast( ent, true );
-						scroll = (upDistance/2);
-						upLerp = 0;
-						rotating = false;
-						pickedUp = ent;
-						origin = ent.transform.position;
-						startTime = Time.time;
-						rigidbody.constraints = RigidbodyConstraints.None;
+							snap comp = ent.GetComponent<snap>();
+							if (comp != null){
+								GameObject snapped = comp.snapped;
+								if ( snapped != null )
+									ent = snapped;
+							
+								//Enable preview
+								int to_id = comp.snap_to_id;
+								//print(snappables.Length);
+								if ( to_id > -1 && to_id < snappables.Length ){
+									//print(to_id);
+									GameObject connect_to = snappables[to_id];
+									snap p_comp = connect_to.GetComponent<snap>();
+									Mesh mesh = ent.GetComponent<MeshFilter>().mesh;
+									Vector3 newOffset = comp.offset;
+								
+									p_comp.InitPreview(mesh, newOffset);
+								}
+							}
+						
+							distance_plane = hit.point.y;
+							IgnoreRaycast( ent, true );
+							scroll = (upDistance/2);
+							upLerp = 0;
+							rotating = false;
+							pickedUp = ent;
+							origin = ent.transform.position;
+							startTime = Time.time;
+							rigidbody.constraints = RigidbodyConstraints.None;
 
-						Renderer _renderer = pickedUp.GetComponent<Renderer>();
-						_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
-						_renderer.material.SetColor("_OutlineColor", pickupColor);
-						
+							Renderer _renderer = pickedUp.GetComponent<Renderer>();
+							_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
+							_renderer.material.SetColor("_OutlineColor", pickupColor);
+						} else if ( ent.tag == "Snappable" || ent.transform.root.tag == "Snappable") {
+							screwEnt.GetComponent<screw>().onMouseAttach( ent );
+						}
 					}
 				}
 			}

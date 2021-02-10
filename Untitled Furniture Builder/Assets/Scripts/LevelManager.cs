@@ -5,6 +5,8 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
 	//Game Manager
+	public float triggerMinDistance = 0;
+	public int minAngleSnap = 45;
 	public Vector3 startpos;
 	public Material materialShader;
 	public GameObject snappable;
@@ -31,7 +33,7 @@ public class LevelManager : MonoBehaviour
 		}
 		
 		Player_Managerv2.snappables = snappables;
-    }
+    } 
 
     // Update is called once per frame
     void Update()
@@ -60,7 +62,11 @@ public class LevelManager : MonoBehaviour
 		
 		ent.GetComponent<MeshCollider>().sharedMesh = model;
 		ent.GetComponent<MeshRenderer>().material = materialShader;
-		//s.SetModel( model );
+		
+		if (triggerMinDistance > 0)
+			s.triggerMinDistance = triggerMinDistance;
+		
+		s.min_angle = minAngleSnap;
 		//--
 		return ent;
 	}
