@@ -26,8 +26,8 @@ public class CheckLevelWin : MonoBehaviour
         var meshFilter = other.GetComponent<MeshFilter>();
         var mesh = meshFilter.sharedMesh;
         Debug.Log(mesh.name);
-        
-        if (enteredObject.GetComponent<MeshFilter>().sharedMesh.name == "Cylinder Instance" || enteredObject.GetComponent<MeshFilter>().sharedMesh.name == "Cylinder")
+
+        if (enteredObject.GetComponent<snap>().snap_to_id == -1)
         {
             Debug.Log(other.gameObject.transform.childCount);
 
