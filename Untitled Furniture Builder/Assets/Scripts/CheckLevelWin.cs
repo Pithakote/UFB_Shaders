@@ -8,7 +8,7 @@ public class CheckLevelWin : MonoBehaviour
     [SerializeField] int numChildrenRequired;
     GameObject enteredObject;
     
-    bool isWin;
+    public static bool isWin;
     private void Start()
     {
         checkButton.SetActive(false);
@@ -33,7 +33,9 @@ public class CheckLevelWin : MonoBehaviour
 
             if (enteredObject.transform.childCount >= snap.numSnapped && snap.numSnapped == numChildrenRequired)
             {
+                isWin = true;
                 checkButton.SetActive(true);
+
             }
             else
                 Debug.Log("not enough children in object");

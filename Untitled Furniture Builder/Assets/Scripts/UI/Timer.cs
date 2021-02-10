@@ -7,10 +7,12 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public TextMeshProUGUI timeText;
-    public float startTime;
+    public TextMeshProUGUI timeText;    
+    [SerializeField] float startTime;
     public GameObject TimerUI;
     public GameObject GameOverUI;
+    public static string minutes;
+    public static string seconds;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,15 +22,21 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        startTime -= Time.deltaTime;
-        string minutes = ((int)startTime / 60).ToString();
-        string seconds = (startTime % 60).ToString("00");
+        if (!CheckLevelWin.isWin)
+        {
+            startTime -= Time.deltaTime;
+            minutes = ((int)startTime / 60).ToString();
+            seconds = (startTime % 60).ToString("00");
 
-        timeText.text = minutes + ":" + seconds;
+            timeText.text = minutes + ":" + seconds;
+        }
+        else
+            return;
+       
 
         //need to load a different scene or UI text when timer hits 0
         // for now it just resets
-        if (startTime == 0)
+        if (startTime <= 0)
         {
             startTime = 0;
             TimerUI.SetActive(false);
