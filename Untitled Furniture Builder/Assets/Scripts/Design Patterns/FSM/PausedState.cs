@@ -18,9 +18,9 @@ public class PausedState : BaseState
         _gameManager.StateManager.CurrentState = _gameManager.StateManager.InGameState;//change to in-game state
 
         base.DoStateAction();
-        _pauseMenu.SetActive(true);
-        Cursor.visible = true;
-        Time.timeScale = 0f;
+        _pauseMenu.SetActive(false);
+        Cursor.visible = false;
+        Time.timeScale = 1f;
     }
 
   

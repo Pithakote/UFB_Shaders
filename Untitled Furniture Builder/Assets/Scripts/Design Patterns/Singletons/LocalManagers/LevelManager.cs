@@ -24,7 +24,9 @@ public class LevelManager : LocalManager
 		_instance.StateManager.PauseMenuObject = _pauseMenuObject;
 		_instance.StateManager.InGameState = new InGameState(_instance, _pauseMenuObject);
 		_instance.StateManager.CurrentState = _instance.StateManager.InGameState;
-		
+
+		Debug.Log(_instance.StateManager.CurrentState + " is being called");
+
 	}
 
 	void InitializeSnappable()

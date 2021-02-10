@@ -20,10 +20,12 @@ public class InGameState : BaseState
         _gameManager.StateManager.PausedState = new PausedState(_gameManager, _gameManager.StateManager.PauseMenuObject);
         _gameManager.StateManager.CurrentState = _gameManager.StateManager.PausedState;//change to paused state
 
+       
+
         base.DoStateAction();
-        _pauseMenu.SetActive(false);
-        Cursor.visible = false;
-        Time.timeScale = 1f;
+        _pauseMenu.SetActive(true);
+        Cursor.visible = true;
+        Time.timeScale = 0f;
     }
  
     

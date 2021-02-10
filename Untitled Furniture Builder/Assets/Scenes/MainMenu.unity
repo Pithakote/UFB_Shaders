@@ -2213,29 +2213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad5e89fabbd95d2408361df4282e63cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  homeMenu: {fileID: 438207909}
-  controlsMenu: {fileID: 1701317460}
-  settingsMenu: {fileID: 1976090000}
-  levelSelectMenu: {fileID: 1935387792}
-  playButton: {fileID: 2051451904}
-  controlsButton: {fileID: 1281560959}
-  settingsButton: {fileID: 1951047300}
-  quitButton: {fileID: 547115304}
-  cog1: {fileID: 1920193035}
-  cog2: {fileID: 14577341}
-  slider: {fileID: 1043031249}
-  toggle1: {fileID: 863949510}
-  toggle2: {fileID: 872980753}
-  dropDown: {fileID: 1904858264}
-  settingsBackButton: {fileID: 2145379340}
-  settingsText: {fileID: 749565196}
-  lvl1Button: {fileID: 1485471663}
-  lvl2Button: {fileID: 910156142}
-  lvl3Button: {fileID: 627365747}
-  lvl4Button: {fileID: 201499877}
-  lvl5Button: {fileID: 1360526813}
-  controlsText: {fileID: 1346546308}
-  controlsBackButton: {fileID: 1206552435}
   _initialUIElements:
   - {fileID: 438207908}
   - {fileID: 2051451903}
@@ -2372,6 +2349,7 @@ GameObject:
   - component: {fileID: 547115305}
   - component: {fileID: 547115309}
   - component: {fileID: 547115310}
+  - component: {fileID: 547115311}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -2558,6 +2536,18 @@ MonoBehaviour:
   duration: 1.1
   _delayTime: 0
   _IsBackButton: 0
+--- !u!114 &547115311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547115303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e75b9fdfd2cd0d4999003e3a0831dfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &553107798
 GameObject:
   m_ObjectHideFlags: 0
