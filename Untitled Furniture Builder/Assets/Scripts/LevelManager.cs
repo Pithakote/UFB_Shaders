@@ -10,14 +10,10 @@ public class LevelManager : MonoBehaviour
 	public Vector3 startpos;
 	public Material materialShader;
 	public GameObject snappable;
-	public GameObject tray;
-	public GameObject screw;
 	public Mesh[] snap_meshes;
 	public int[] snap_tos;
 	public Vector3[] snap_offsets;
-	public int[] screw_snap_id;
 	public GameObject[] snappables;
-	public GameObject[] screws;
 	
     // Start is called before the first frame update
     void Start()
@@ -27,7 +23,6 @@ public class LevelManager : MonoBehaviour
 		int amt_snappables = snap_tos.Length;
 		snappables = new GameObject[amt_snappables];
 		
-		//Spawn pieces
 		for (int i = 0;  i <= amt_snappables - 1; i++)
 		{
 			float min = Random.Range(-1,1);
@@ -35,21 +30,6 @@ public class LevelManager : MonoBehaviour
 				min = 0.5f;
 			
 			snappables[i] = SpawnSnappable(snap_meshes[i], startpos + (offset * i), snap_offsets[i], i, snap_tos[i]);
-		}
-		
-		//Spawn Screws
-		Vector3 tray_pos = tray.transform.position + new Vector3(0,3.5f,0);
-		screws = new GameObject[screw_snap_id.Length];
-		
-		for (int i = 0; i <= screw_snap_id.Length - 1; i++)
-		{
-			GameObject newScrew = Instantiate(screw);
-			newScrew.transform.position = tray_pos;
-			newScrew.GetComponent<screw>().snap_to_id = i;
-			//--
-			int id = screw_snap_id[i];
-			GameObject piece = snappables[id];
-			piece.GetComponent<snap>().screwable = true;
 		}
 		
 		Player_Managerv2.snappables = snappables;
