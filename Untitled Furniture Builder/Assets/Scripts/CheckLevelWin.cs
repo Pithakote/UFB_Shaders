@@ -25,11 +25,11 @@ public class CheckLevelWin : MonoBehaviour
 
         var meshFilter = other.GetComponent<MeshFilter>();
         var mesh = meshFilter.sharedMesh;
-        Debug.Log(mesh.name);
+        //Debug.Log(mesh.name);
 
         if (enteredObject.GetComponent<snap>().snap_to_id == -1)
         {
-            Debug.Log(other.gameObject.transform.childCount);
+            //Debug.Log(other.gameObject.transform.childCount);
 
             if (enteredObject.transform.childCount >= snap.numSnapped && snap.numSnapped == numChildrenRequired)
             {
@@ -42,7 +42,7 @@ public class CheckLevelWin : MonoBehaviour
         }
         else
             return;
-        Debug.Log(other.gameObject.transform.childCount);
+       // Debug.Log(other.gameObject.transform.childCount);
        // if (other.gameObject.transform.childCount >= 8)
        // {
        //     Debug.Log(other);

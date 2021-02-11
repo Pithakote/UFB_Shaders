@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ScoreManager : Timer
+public class ScoreManager : MonoBehaviour
 {
     
     float timeLeft;
@@ -29,6 +29,7 @@ public class ScoreManager : Timer
     {
         score = 0;
         baseScore = 1000;
+        Debug.Log("startTime = " + Timer.initialTime);
     }
 
     private void Update()
@@ -36,7 +37,8 @@ public class ScoreManager : Timer
        
         if (CheckLevelWin.isWin)
         {
-            timeLeft = ((int)Timer.time / 60) + (Timer.time % 60);
+            //timeLeft = ((int)Timer.time / 60) + (Timer.time % 60);
+            timeLeft = int.Parse(Timer.minutes)*60 + int.Parse(Timer.seconds);
 
             numTimeLeft = (int)timeLeft;
 
@@ -48,17 +50,19 @@ public class ScoreManager : Timer
             //else if (score <= 3199)
             //    levelRating = 1;
 
-            //if (numTimeLeft >= startTime * 0.75f)
-            //    levelRating = 3;
-            //else if (numTimeLeft <= startTime * 0.74f && numTimeLeft >= startTime * 0.50f)
-            //    levelRating = 2;
-            //else if (numTimeLeft <= startTime * 0.49f)
-            //    levelRating = 1;
-            //else if (numTimeLeft >= 0)
-            //    return;
+            if (numTimeLeft >= Timer.initialTime * 0.75f)
+                levelRating = 3;
+            else if (numTimeLeft <= Timer.initialTime * 0.74f && numTimeLeft >= Timer.initialTime * 0.50f)
+                levelRating = 2;
+            else if (numTimeLeft <= Timer.initialTime * 0.49f)
+                levelRating = 1;
+            else if (numTimeLeft >= 0)
+                return;
 
             Debug.Log(score);
             Debug.Log("lvlRating" + levelRating);
+            Debug.Log("numTimeLeft = " + numTimeLeft);
+            
         }
 
         
@@ -89,6 +93,11 @@ public class ScoreManager : Timer
         
     }
 
-   
+    public void Reset()
+    {
+        CheckLevelWin.isWin = false;
+    }
+
+
 
 }

@@ -1056,7 +1056,7 @@ PrefabInstance:
     - target: {fileID: 2074748826372044809, guid: 82f4e373a569a564d9374c593372c10e,
         type: 3}
       propertyPath: m_Volume
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f4e373a569a564d9374c593372c10e, type: 3}
@@ -5151,6 +5151,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1216432772}
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &857935811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7423,9 +7434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8371e8c240cbda458807b2c1628cffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeText: {fileID: 0}
-  startTime: 0
-  GameOverUI: {fileID: 0}
   scoreText: {fileID: 306377427}
   oneStar: {fileID: 250176396}
   twoStar: {fileID: 1084070397}
