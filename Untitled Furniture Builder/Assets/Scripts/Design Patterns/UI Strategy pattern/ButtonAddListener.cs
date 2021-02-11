@@ -20,7 +20,7 @@ public abstract class ButtonAddListener : MonoBehaviour
     #region Event Subscription Code Region
     protected void OnEnable()
     {
-        
+        if(this.GetComponent<Button>())
         this.GetComponent<Button>().onClick.AddListener(delegate { ButtonAction(); });
         
 
@@ -48,11 +48,11 @@ public abstract class ButtonAddListener : MonoBehaviour
         if (this.GetComponent<Button>().onClick != null)
             this.GetComponent<Button>().onClick.RemoveListener(delegate { ButtonAction(); });
     }
-    protected void OnDisable()
-    {
+    //protected void OnDisable()
+    //{
 
-        UnSubscribe();
-    }
+    //    UnSubscribe();
+    //}
     protected void OnDestroy()
     {
         UnSubscribe();
@@ -82,13 +82,13 @@ public abstract class ButtonAddListener : MonoBehaviour
     }
     protected virtual void HoverEnterAction()
     {
-        Debug.Log("Hovering Enter Action");
+       // Debug.Log("Hovering Enter Action");
         _instance.AudioManager.PlayHoverAudio();
     }
 
     protected virtual void PointerClickAction()
     {
-        Debug.Log("Hovering Exit Action");
+       // Debug.Log("Hovering Exit Action");
         _instance.AudioManager.PlayClickAudio();
     }
 

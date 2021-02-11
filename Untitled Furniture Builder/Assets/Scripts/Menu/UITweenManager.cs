@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class UITweenManager : MonoBehaviour
 {
+    /*
     // panels
     public RectTransform homeMenu, controlsMenu, settingsMenu, levelSelectMenu;
     // home panel
@@ -17,32 +18,36 @@ public class UITweenManager : MonoBehaviour
     public RectTransform lvl1Button, lvl2Button, lvl3Button, lvl4Button, lvl5Button;
     // controls panel
     public RectTransform controlsText, controlsBackButton;
+    */
+    [SerializeField]
+    List<GameObject> _initialUIElements;
     void Start()
     {
+        #region old code 
+        /*
         homeMenu.DOAnchorPos(Vector2.zero, 0.50f);
-        playButton.DOAnchorPos(new Vector2(0, 61.3f), 0.50f);
-        controlsButton.DOAnchorPos(new Vector2(0, -4.5f), 0.70f);
-        settingsButton.DOAnchorPos(new Vector2(0, -69.9f), 0.90f);
-        quitButton.DOAnchorPos(new Vector2(0, -136.8f), 1.10f);
+        playButton.DOAnchorPos(new Vector2(0, 61.3f), 0.50f, true);
+        controlsButton.DOAnchorPos(new Vector2(0, -4.5f), 0.70f, true);
+        settingsButton.DOAnchorPos(new Vector2(0, -69.9f), 0.90f, true);
+        quitButton.DOAnchorPos(new Vector2(0, -136.8f), 1.10f, true);
 
-        if (SceneManager.GetActiveScene().name == "MainMenu")
-        {
+       // if (SceneManager.GetActiveScene().name == "MainMenu")
+       // {
             cog1.DOLocalRotate(new Vector3(0.0f, 0.0f, 90f), 1.0f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear).SetRelative();
             cog2.DOLocalRotate(new Vector3(0.0f, 0.0f, -90f), 1.0f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear).SetRelative();
-        }
-        else
-            return;
+       // }
+       // else
+       //     return;
+        */
+        #endregion
+        foreach (GameObject uiElement in _initialUIElements)
+            uiElement.GetComponent<InnerButtonAddListener>().MoveToScreen();
+       
     }
-    // cog (-400, 86) to (-225, 86)
-    // slider (400, 51.4) to (0, 51.4)
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-       // cog1.DORotate(new Vector3(0, 360, 0), 2f).SetLoops(-1, LoopType.Incremental);
-        
-    }
-
+   
+    /*
     public void OpenControls()
     {
         homeMenu.DOAnchorPos(new Vector2(-800, 0), 0.25f);
@@ -146,4 +151,5 @@ public class UITweenManager : MonoBehaviour
         lvl4Button.DOAnchorPos(new Vector2(82.5f, 112f), 0.80f);
         lvl5Button.DOAnchorPos(new Vector2(162.5f, 112f), 0.90f);
     }
+    */
 }

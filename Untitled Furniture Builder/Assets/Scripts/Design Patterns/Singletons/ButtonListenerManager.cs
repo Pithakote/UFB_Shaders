@@ -16,6 +16,11 @@ public class ButtonListenerManager : MonoBehaviour
 
     }
 
+    public void PerformButtonBehaviour(BaseState _state)
+    {
+        _state.DoStateAction();
+    }
+
     public void PerformUndoBehaviour()
     {
         _commandProcessor.UndoBehaviour();
