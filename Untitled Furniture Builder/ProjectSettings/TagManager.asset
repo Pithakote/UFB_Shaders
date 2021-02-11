@@ -13,7 +13,6 @@ TagManager:
   - leg
   - legParent
   - screwParent
-  - Stool
   layers:
   - Default
   - TransparentFX
@@ -27,8 +26,8 @@ TagManager:
   - 
   - 
   - Ground
-  - IgnoreTrigger
-  - Trigger
+  - 
+  - 
   - 
   - 
   - 

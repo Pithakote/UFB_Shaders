@@ -8,7 +8,6 @@ public class drag : MonoBehaviour
     //The desired distance from the camera to the object
     [SerializeField]
     float zDistance = 1.0f;
-    float zoomAmount;
     Vector3 dist;
     float posX;
     float PosY;
@@ -32,9 +31,7 @@ public class drag : MonoBehaviour
             Vector3 curPos = new Vector3(Input.mousePosition.x - posX, Input.mousePosition.y - PosY, zDistance);
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(curPos);
             transform.position = worldPos;
-           
-            zDistance += Input.GetAxis("Mouse ScrollWheel");
-            zDistance = Mathf.Clamp(zDistance, 0f, 1.5f);
+            zDistance += Input.GetAxis("Mouse ScrollWheel") * 2;
             GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
 
@@ -78,8 +75,6 @@ public class drag : MonoBehaviour
             Rigidbody rigidbody = this.gameObject.GetComponent<Rigidbody>();
             rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         }
-
-       
        
     }
 
