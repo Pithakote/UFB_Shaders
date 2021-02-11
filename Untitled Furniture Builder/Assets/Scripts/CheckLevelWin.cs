@@ -27,30 +27,30 @@ public class CheckLevelWin : MonoBehaviour
         var mesh = meshFilter.sharedMesh;
         //Debug.Log(mesh.name);
 
-        if (enteredObject.GetComponent<snap>().snap_to_id == -1)
+        if (enteredObject.GetComponent<snap>().snap_to_id != -1 || other == null)
+            return;
+
+
+        //Debug.Log(other.gameObject.transform.childCount);
+
+        if (enteredObject.transform.childCount >= snap.numSnapped && snap.numSnapped == numChildrenRequired)
         {
-            //Debug.Log(other.gameObject.transform.childCount);
+            isWin = true;
+            checkButton.SetActive(true);
 
-            if (enteredObject.transform.childCount >= snap.numSnapped && snap.numSnapped == numChildrenRequired)
-            {
-                isWin = true;
-                checkButton.SetActive(true);
-
-            }
-            else
-                Debug.Log("not enough children in object");
         }
         else
-            return;
-       // Debug.Log(other.gameObject.transform.childCount);
-       // if (other.gameObject.transform.childCount >= 8)
-       // {
-       //     Debug.Log(other);
-       //     //checkButton.SetActive(true);
-       // }
+            Debug.Log("not enough children in object");
+
+        // Debug.Log(other.gameObject.transform.childCount);
+        // if (other.gameObject.transform.childCount >= 8)
+        // {
+        //     Debug.Log(other);
+        //     //checkButton.SetActive(true);
+        // }
     }
 
-   
-   
+
+
 
 }
