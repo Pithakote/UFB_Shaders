@@ -37,6 +37,18 @@ public class screw : MonoBehaviour
         meshFilter = GetComponent<MeshFilter>();
 		rigid = GetComponent<Rigidbody>();
 	}
+	
+	void SetSnapToPos()
+	{
+		if (snapped == null)
+			return;
+		//--
+		Vector3 angles = snapped.transform.eulerAngles;
+		snapped.transform.eulerAngles = new Vector3(0,0,0);
+		transform.position = lerp_pos;
+		transform.eulerAngles = lerp_ang;
+		snapped.transform.eulerAngles = angles;
+	}
 
 	void Update()
 	{
@@ -48,6 +60,7 @@ public class screw : MonoBehaviour
 		if (lerp_start == null || lerp_start + anim_time <= Time.time){
 			if (moving == true && lerp_start + anim_time + air_time <= Time.time ){
 				moving = false;
+				SetSnapToPos();
 				
 				if (rigid != null)
 					rigid.constraints = RigidbodyConstraints.None;
@@ -126,7 +139,13 @@ public class screw : MonoBehaviour
 	
 	public void onMouseAttach( GameObject ent )
 	{
-		 SetAttached( ent );
+		snap s = ent.GetComponent<snap>();
+		GameObject parent = s.snapped;
+		
+		if (parent != null){
+			SetAttached( ent );
+			s.screwed = true;
+		}
 	}
 	
 	public void SetModel( Mesh loaded )
