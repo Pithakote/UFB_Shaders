@@ -8,7 +8,7 @@ public class CheckLevelWin : MonoBehaviour
     [SerializeField] int numChildrenRequired;
     GameObject enteredObject;
     
-    bool isWin;
+    public static bool isWin;
     private void Start()
     {
         checkButton.SetActive(false);
@@ -25,22 +25,24 @@ public class CheckLevelWin : MonoBehaviour
 
         var meshFilter = other.GetComponent<MeshFilter>();
         var mesh = meshFilter.sharedMesh;
-        Debug.Log(mesh.name);
+        //Debug.Log(mesh.name);
 
         if (enteredObject.GetComponent<snap>().snap_to_id == -1)
         {
-            Debug.Log(other.gameObject.transform.childCount);
+            //Debug.Log(other.gameObject.transform.childCount);
 
             if (enteredObject.transform.childCount >= snap.numSnapped && snap.numSnapped == numChildrenRequired)
             {
+                isWin = true;
                 checkButton.SetActive(true);
+
             }
             else
                 Debug.Log("not enough children in object");
         }
         else
             return;
-        Debug.Log(other.gameObject.transform.childCount);
+       // Debug.Log(other.gameObject.transform.childCount);
        // if (other.gameObject.transform.childCount >= 8)
        // {
        //     Debug.Log(other);

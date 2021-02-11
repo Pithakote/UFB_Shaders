@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Untitled Furniture Builder/Assets/3DModels/MAIN MODELS/Materials.meta
 guid: a990d3ed54f23624fb60d506f39b70a0
+=======
+guid: 965222c527c46d045b0b03e2e6d0d6e6
+>>>>>>> UFB-52_Save/Load_Level-progress:Untitled Furniture Builder/Assets/Models.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
