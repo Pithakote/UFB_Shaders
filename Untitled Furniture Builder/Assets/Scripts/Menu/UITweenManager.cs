@@ -17,13 +17,13 @@ public class UITweenManager : MonoBehaviour
     public RectTransform lvl1Button, lvl2Button, lvl3Button, lvl4Button, lvl5Button;
     // controls panel
     public RectTransform controlsText, controlsBackButton;
-    void Start()
+    void OnEnable()
     {
         homeMenu.DOAnchorPos(Vector2.zero, 0.50f);
-        playButton.DOAnchorPos(new Vector2(0, 61.3f), 0.50f);
-        controlsButton.DOAnchorPos(new Vector2(0, -4.5f), 0.70f);
-        settingsButton.DOAnchorPos(new Vector2(0, -69.9f), 0.90f);
-        quitButton.DOAnchorPos(new Vector2(0, -136.8f), 1.10f);
+        playButton.DOAnchorPos(new Vector2(0, 61.3f), 0.50f, true);
+        controlsButton.DOAnchorPos(new Vector2(0, -4.5f), 0.70f, true);
+        settingsButton.DOAnchorPos(new Vector2(0, -69.9f), 0.90f, true);
+        quitButton.DOAnchorPos(new Vector2(0, -136.8f), 1.10f, true);
 
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {

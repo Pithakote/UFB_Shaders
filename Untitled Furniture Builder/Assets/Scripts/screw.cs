@@ -92,14 +92,9 @@ public class screw : MonoBehaviour
 			
 		//Snap to position (connect)
 		Vector3 angles = snapped.transform.eulerAngles;
-
-
-		snap.numSnapped++;
-
-
+			
 		snapped.transform.eulerAngles = new Vector3(0,0,0);
 		SetGameObjectMoveTo( oldPos, oldAng, snapped.transform.position + offset, angles );
-		transform.position = snapped.transform.position + offset;
 		snapped.transform.eulerAngles = angles;
     }
 

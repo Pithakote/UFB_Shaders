@@ -28,8 +28,6 @@ public class snap : MonoBehaviour
 	Rigidbody rigid;
 	MeshFilter meshFilter;
 	MeshCollider col;
-
-	public static int numSnapped;
 	
     // Start is called before the first frame update
     void Start()
@@ -37,7 +35,6 @@ public class snap : MonoBehaviour
 		loadVars();
 		//if (snap_to_id != -1)
 		//	InitPreview();
-		numSnapped = 0;
     }
 	
 	void loadVars()
@@ -62,8 +59,6 @@ public class snap : MonoBehaviour
 			if (preview_ent.activeSelf == false)
 				preview_ent.SetActive(true);
 		}
-
-		
 	}
 	
 	void UpdateLerp()
@@ -133,13 +128,11 @@ public class snap : MonoBehaviour
 			
 			//Snap to position (connect)
 			Vector3 angles = snapped.transform.eulerAngles;
-			numSnapped++;
 			//Vector3 offset = new Vector3(0.5f,0,-0.5f);
-
+			
 			snapped.transform.eulerAngles = new Vector3(0,0,0);
 			SetGameObjectMoveTo( oldPos, oldAng, snapped.transform.position + offset, angles );
 			transform.position = snapped.transform.position + offset;
-			
 			snapped.transform.eulerAngles = angles;
 			//transform.eulerAngles = angles;
 			

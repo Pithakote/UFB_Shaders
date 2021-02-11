@@ -13,14 +13,13 @@ public class MainMenu : MonoBehaviour
    
     void Start()
     {
-        
        if(SceneManager.GetActiveScene().name == "MainMenu")
        {
            Instantiate(oneStars, levels[0].transform);
        }
-       
+
     }
-    /*
+
     public void LoadLevel()
     {
         SceneManager.LoadScene("InstructionsTesting");
@@ -30,7 +29,7 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    */
+
     
 
     
