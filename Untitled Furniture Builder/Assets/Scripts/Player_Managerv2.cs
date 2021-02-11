@@ -149,17 +149,27 @@ public class Player_Managerv2 : MonoBehaviour
 		
 		if (Input.GetKey(KeyCode.R) && pickedUp != null)
 		{
-			SetCursorPos( (int)storedMousePos.x, Screen.height - (int)storedMousePos.y);
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
+			//SetCursorPos( (int)storedMousePos.x, Screen.height - (int)storedMousePos.y);
+			//SetCursorPos( Screen.width/2, Screen.height/2);
 			//Vals
 			Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
-			float mouseDX = Mathf.Clamp(Input.GetAxis("Mouse X"), -1, 1);
-			float mouseDY = Mathf.Clamp(Input.GetAxis("Mouse Y"), -1, 1);
+			//float mouseDX = Mathf.Clamp(Input.GetAxis("Mouse X"), -1, 1);
+			//float mouseDY = Mathf.Clamp(Input.GetAxis("Mouse Y"), -1, 1);
+			float mouseDX = Input.GetAxis("Mouse X");
+			float mouseDY = Input.GetAxis("Mouse Y");
+
+
+			rigidbody.velocity = new Vector3(0, 0, 0);
+			rigidbody.angularVelocity = new Vector3(0, 0, 0);
 			
 			FreezeConstraints( rigidbody, true );
-			pickedUp.transform.Rotate(new Vector3(mouseDX, mouseDY, 0) * Time.deltaTime * rotSpeed);
+			pickedUp.transform.Rotate(new Vector3(mouseDX, 0, mouseDY) * Time.deltaTime * rotSpeed);
 			
 			if (rotating == false)
 				rotating = true;
+			
 		}
 		else if(Input.GetKeyUp(KeyCode.R) && pickedUp != null)
         {
@@ -172,6 +182,7 @@ public class Player_Managerv2 : MonoBehaviour
 		//Find pick up entitiy
 		if (Input.GetMouseButtonDown(0))
 		{
+
 			//Only find if we dont have a picked up
 			if (pickedUp == null)
 			{
@@ -185,6 +196,9 @@ public class Player_Managerv2 : MonoBehaviour
 					//Hit object
 					GameObject ent = hit.collider.gameObject;
 					Rigidbody rigidbody = ent.GetComponent<Rigidbody>();
+					Cursor.visible = true;
+					Cursor.lockState = CursorLockMode.None;
+					//rigidbody.constraints = RigidbodyConstraints.None;
 
 					if (ent.tag == "screw"){
 						ent.GetComponent<screw>().onMouseClick();
@@ -227,7 +241,13 @@ public class Player_Managerv2 : MonoBehaviour
 							pickedUp = ent;
 							origin = ent.transform.position;
 							startTime = Time.time;
-							rigidbody.constraints = RigidbodyConstraints.None;
+							if (rigidbody == null)
+								return;
+							else
+                            {
+								rigidbody.constraints = RigidbodyConstraints.None;
+							}
+
 
 							Renderer _renderer = pickedUp.GetComponent<Renderer>();
 							_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
@@ -253,14 +273,20 @@ public class Player_Managerv2 : MonoBehaviour
 			}
 		}
 
-		if (Input.GetMouseButtonDown(1))
-		{
-			if (pickedUp != null) {
-				//pickedUp.transform.position = goalPosition;
-				Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
-				FreezeConstraints( rigidbody, true );
-			}
-		}
+		//if (Input.GetMouseButtonDown(1))
+		//{
+		//	if (pickedUp != null)
+		//	{
+		//		Debug.Log("RMB clicked");
+		//		//pickedUp.transform.position = goalPosition;
+		//		Rigidbody rigidbody = pickedUp.GetComponent<Rigidbody>();
+		//		FreezeConstraints(rigidbody, true);
+		//	}
+		//}
+
+
+
+		
 	}
 	
 	public void IgnoreRaycast( GameObject ent, bool b )

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Untitled Furniture Builder/Assets/Audio/Music/Edited.meta
 guid: b85642c0199ed8f4a983c58b5445aed0
+=======
+guid: a20faa4cedf194c469816801480a82a2
+>>>>>>> UFB-52_Save/Load_Level-progress:Untitled Furniture Builder/Assets/Sprites/UI Sprites/GUI + HUD sprites/Level_Selection.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
