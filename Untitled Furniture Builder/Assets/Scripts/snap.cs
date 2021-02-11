@@ -10,10 +10,15 @@ public class snap : MonoBehaviour
 	public Vector3 offset;
 	public GameObject preview;
 	
+	public bool screwable = false;
+	public bool screwed = false;
 	public int min_angle = 45;
 	public float triggerMinDistance = 0;
 	public GameObject snapped;
 	public GameObject preview_ent;
+	
+	//Drop
+	float stay_time = 3.0f;
 	
 	//Lerp
 	float anim_time = 1.0f;
@@ -46,7 +51,27 @@ public class snap : MonoBehaviour
 		rigid = GetComponent<Rigidbody>();
 		col = GetComponent<MeshCollider>();
 	}
+	
+	void SetSnapToPos()
+	{
+		if (snapped == null)
+			return;
+		//--
+		Vector3 angles = snapped.transform.eulerAngles;
+		snapped.transform.eulerAngles = new Vector3(0,0,0);
+		transform.position = lerp_pos;
+		transform.eulerAngles = lerp_ang;
+		snapped.transform.eulerAngles = angles;
+	}
 
+	void DropPiece()
+	{
+		transform.SetParent( null );
+		snapped = null;
+		Rigidbody rg = gameObject.AddComponent<Rigidbody>();
+		rigid = rg;
+	}
+	
 	void Update()
 	{
 		UpdateLerp();
@@ -73,6 +98,12 @@ public class snap : MonoBehaviour
 				col.enabled = true;
 				
 				snapped.transform.root.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+			}
+			
+			if ( screwable == true && lerp_start + anim_time + stay_time <= Time.time){
+				//Drop
+				if (snapped != null && screwed == false)
+					DropPiece();
 			}
 			//--
 			return;
@@ -103,13 +134,13 @@ public class snap : MonoBehaviour
 		if (tag != "Preview" || snapped != null)
 			return;
 		
-		
 		//Angle Check
 		Vector3 myAngles = transform.eulerAngles;
 		Vector3 otherAngles = hit.transform.eulerAngles;
 		float difference = Mathf.DeltaAngle(otherAngles.z, myAngles.z);
 		difference = Mathf.Abs( difference );
 		
+		print(transform.name);
 		//print(difference);
 		if ( difference > min_angle )
 			return;
