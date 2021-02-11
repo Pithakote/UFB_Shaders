@@ -241,13 +241,7 @@ public class Player_Managerv2 : MonoBehaviour
 							pickedUp = ent;
 							origin = ent.transform.position;
 							startTime = Time.time;
-							if (rigidbody == null)
-								return;
-							else
-                            {
-								rigidbody.constraints = RigidbodyConstraints.None;
-							}
-
+							rigidbody.constraints = RigidbodyConstraints.None;
 
 							Renderer _renderer = pickedUp.GetComponent<Renderer>();
 							_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader

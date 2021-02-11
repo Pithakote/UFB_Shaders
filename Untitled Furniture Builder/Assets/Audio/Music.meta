@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Untitled Furniture Builder/Assets/Audio/Music.meta
 guid: fc31684705176644abf5e0175e3893ac
-=======
-guid: 5f8276650ae620c4ab48ef0d6afca4de
->>>>>>> UFB-52_Save/Load_Level-progress:Untitled Furniture Builder/Assets/Scripts/Save+Load.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

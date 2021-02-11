@@ -37,7 +37,6 @@ public class snap : MonoBehaviour
 		loadVars();
 		//if (snap_to_id != -1)
 		//	InitPreview();
-		numSnapped = 0;
     }
 	
 	void loadVars()

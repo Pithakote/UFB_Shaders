@@ -43,7 +43,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         GameIsPaused = true;
         MouseLook.canMove = false;
-       //Time.timeScale = 0f;
+        Time.timeScale = 0f;
         //StartCoroutine(setPaused());
 
     }
