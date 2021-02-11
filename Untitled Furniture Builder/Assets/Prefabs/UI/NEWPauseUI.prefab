@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 2851693922638805181}
   - component: {fileID: 4626933478895373599}
   - component: {fileID: 8585190530542356790}
+  - component: {fileID: 1289449496103466435}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -328,6 +329,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1289449496103466435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320746740862046506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50662fb37990049408911e56ef533acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1804939727164134058
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +355,7 @@ GameObject:
   - component: {fileID: 4522650759670846975}
   - component: {fileID: 2648434391531193498}
   - component: {fileID: 8023054691748822001}
+  - component: {fileID: 2657952928143205468}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -522,6 +536,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2657952928143205468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804939727164134058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e75b9fdfd2cd0d4999003e3a0831dfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2033682338651155700
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,13 +827,14 @@ GameObject:
   - component: {fileID: 3301538402492696619}
   - component: {fileID: 3301538402492696618}
   - component: {fileID: 3301538402492696613}
+  - component: {fileID: 2407802150196231586}
   m_Layer: 5
-  m_Name: PauseUI
+  m_Name: NEWPauseUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3301538402492696619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -867,6 +894,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &2407802150196231586
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3301538402492696612}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 06b3302053960d745bc3f602bc1d7ac1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3775451898627051722
 GameObject:
   m_ObjectHideFlags: 0
