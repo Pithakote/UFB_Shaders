@@ -9,22 +9,18 @@ public class InnerButtonBehaviour : IButtonInteractable
     
     Vector2 _comeToScreenPosition, _awarFromScreenPosition;
     RectTransform _thisButtonRectTransform;
-    float _duration, _delayTime;
+    float _duration;
     
     
-    public InnerButtonBehaviour(RectTransform thisButtonRectTransform,
-                                Vector2 comeToScreenPosition,
-                                float duration,
-                                float delayTime)
+    public InnerButtonBehaviour(RectTransform thisButtonRectTransform, Vector2 comeToScreenPosition, float duration)
     {
         _thisButtonRectTransform = thisButtonRectTransform;
         _comeToScreenPosition = comeToScreenPosition;
         _duration = duration;
-        _delayTime = delayTime;
     }
     public void ButtonBehaviour()
     {
-        _thisButtonRectTransform.DOAnchorPos(_comeToScreenPosition, _duration).SetDelay(_delayTime) ;
+        _thisButtonRectTransform.DOAnchorPos(_comeToScreenPosition, _duration);
     }
 
   

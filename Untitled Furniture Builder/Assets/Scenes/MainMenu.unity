@@ -1468,7 +1468,6 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: -122, y: 0}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.6
-  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &355914817
 GameObject:
@@ -1895,7 +1894,6 @@ GameObject:
   - component: {fileID: 438207909}
   - component: {fileID: 438207911}
   - component: {fileID: 438207910}
-  - component: {fileID: 438207912}
   m_Layer: 5
   m_Name: Home
   m_TagString: Untagged
@@ -1924,7 +1922,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1344.0994, y: 0}
+  m_AnchoredPosition: {x: -1760, y: 208}
   m_SizeDelta: {x: 800, y: 416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &438207910
@@ -1964,23 +1962,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438207908}
   m_CullTransparentMesh: 0
---- !u!114 &438207912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438207908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd62ca247b62eb44ac17b22a0b179ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ComeToScreenPosition: {x: 0, y: 0}
-  _HideFromScreenPosition: {x: 0, y: 0}
-  duration: 0.5
-  _delayTime: 0
-  _IsBackButton: 0
 --- !u!1 &450375146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2193,9 +2174,8 @@ GameObject:
   m_Component:
   - component: {fileID: 526011800}
   - component: {fileID: 526011799}
-  - component: {fileID: 526011801}
   m_Layer: 0
-  m_Name: LevelMainMenuManager
+  m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2213,12 +2193,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad5e89fabbd95d2408361df4282e63cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialUIElements:
-  - {fileID: 438207908}
-  - {fileID: 2051451903}
-  - {fileID: 1281560958}
-  - {fileID: 1951047299}
-  - {fileID: 547115303}
+  homeMenu: {fileID: 438207909}
+  controlsMenu: {fileID: 1701317460}
+  settingsMenu: {fileID: 1976090000}
+  levelSelectMenu: {fileID: 1935387792}
+  playButton: {fileID: 2051451904}
+  controlsButton: {fileID: 1281560959}
+  settingsButton: {fileID: 1951047300}
+  quitButton: {fileID: 547115304}
+  cog1: {fileID: 1920193035}
+  cog2: {fileID: 14577341}
+  slider: {fileID: 1043031249}
+  toggle1: {fileID: 863949510}
+  toggle2: {fileID: 872980753}
+  dropDown: {fileID: 1904858264}
+  settingsBackButton: {fileID: 2145379340}
+  settingsText: {fileID: 749565196}
+  lvl1Button: {fileID: 1485471663}
+  lvl2Button: {fileID: 910156142}
+  lvl3Button: {fileID: 627365747}
+  lvl4Button: {fileID: 201499877}
+  lvl5Button: {fileID: 1360526813}
+  controlsText: {fileID: 1346546308}
+  controlsBackButton: {fileID: 1206552435}
 --- !u!4 &526011800
 Transform:
   m_ObjectHideFlags: 0
@@ -2233,18 +2230,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &526011801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526011798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3754322b839c8b4db84c28d59a2610c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &538166704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2348,8 +2333,6 @@ GameObject:
   - component: {fileID: 547115306}
   - component: {fileID: 547115305}
   - component: {fileID: 547115309}
-  - component: {fileID: 547115310}
-  - component: {fileID: 547115311}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -2374,7 +2357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2250.014, y: -136.8}
+  m_AnchoredPosition: {x: -168, y: -136.8}
   m_SizeDelta: {x: 232.55756, y: 60.83696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &547115305
@@ -2519,35 +2502,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &547115310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547115303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd62ca247b62eb44ac17b22a0b179ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ComeToScreenPosition: {x: 0, y: -136.8}
-  _HideFromScreenPosition: {x: 0, y: 0}
-  duration: 1.1
-  _delayTime: 0
-  _IsBackButton: 0
---- !u!114 &547115311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547115303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e75b9fdfd2cd0d4999003e3a0831dfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &553107798
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,7 +2815,6 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: -100}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.6
-  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &613460231
 GameObject:
@@ -3337,7 +3290,6 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: 0}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.8
-  _delayTime: 0
   _IsBackButton: 0
 --- !u!114 &729885082
 MonoBehaviour:
@@ -3687,7 +3639,6 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: 0}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
-  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &783450795
 GameObject:
@@ -4759,7 +4710,6 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: 38}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.9
-  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &1100621585
 GameObject:
@@ -5402,7 +5352,6 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: 0}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.8
-  _delayTime: 0
   _IsBackButton: 0
 --- !u!114 &1206552442
 MonoBehaviour:
@@ -5431,7 +5380,6 @@ GameObject:
   - component: {fileID: 1281560960}
   - component: {fileID: 1281560964}
   - component: {fileID: 1281560965}
-  - component: {fileID: 1281560966}
   m_Layer: 5
   m_Name: Controls_button
   m_TagString: Untagged
@@ -5456,7 +5404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2250.014, y: -4.4999857}
+  m_AnchoredPosition: {x: -168, y: -4.5}
   m_SizeDelta: {x: 232.55756, y: 60.83696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1281560960
@@ -5607,23 +5555,6 @@ MonoBehaviour:
   _currentUIEndPos: {x: -1155, y: 0}
   _nextUIEndPos: {x: 0, y: 0}
   _duration: 0.5
---- !u!114 &1281560966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281560958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd62ca247b62eb44ac17b22a0b179ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ComeToScreenPosition: {x: 0, y: -4.5}
-  _HideFromScreenPosition: {x: 0, y: 0}
-  duration: 0.7
-  _delayTime: 0
-  _IsBackButton: 0
 --- !u!1 &1290253756
 GameObject:
   m_ObjectHideFlags: 0
@@ -5927,7 +5858,6 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: 0}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
-  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &1360526812
 GameObject:
@@ -7724,7 +7654,6 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 20, y: 30}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.8
-  _delayTime: 0
   _IsBackButton: 0
 --- !u!114 &1723670044
 MonoBehaviour:
@@ -7970,7 +7899,6 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 50, y: -80}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.8
-  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &1789766954
 GameObject:
@@ -8189,7 +8117,6 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: -290}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.6
-  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &1791334611
 GameObject:
@@ -8890,7 +8817,6 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 129, y: -82}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.8
-  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &1920193034
 GameObject:
@@ -9108,7 +9034,6 @@ GameObject:
   - component: {fileID: 1951047301}
   - component: {fileID: 1951047305}
   - component: {fileID: 1951047306}
-  - component: {fileID: 1951047307}
   m_Layer: 5
   m_Name: Settings_button
   m_TagString: Untagged
@@ -9133,7 +9058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2250.014, y: -69.89998}
+  m_AnchoredPosition: {x: -168, y: -69.9}
   m_SizeDelta: {x: 232.55756, y: 60.83696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1951047301
@@ -9284,23 +9209,6 @@ MonoBehaviour:
   _currentUIEndPos: {x: -1155, y: 0}
   _nextUIEndPos: {x: 0, y: 0}
   _duration: 0.6
---- !u!114 &1951047307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951047299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd62ca247b62eb44ac17b22a0b179ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ComeToScreenPosition: {x: 0, y: -69.9}
-  _HideFromScreenPosition: {x: 0, y: 0}
-  duration: 0.9
-  _delayTime: 0
-  _IsBackButton: 0
 --- !u!1 &1958776781
 GameObject:
   m_ObjectHideFlags: 0
@@ -9517,7 +9425,6 @@ GameObject:
   - component: {fileID: 2051451905}
   - component: {fileID: 2051451909}
   - component: {fileID: 2051451910}
-  - component: {fileID: 2051451911}
   m_Layer: 5
   m_Name: Play_button
   m_TagString: Untagged
@@ -9542,7 +9449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2250.014, y: 61.299984}
+  m_AnchoredPosition: {x: -168, y: 61.3}
   m_SizeDelta: {x: 232.55756, y: 60.83696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2051451905
@@ -9693,23 +9600,6 @@ MonoBehaviour:
   _currentUIEndPos: {x: -1155, y: 0}
   _nextUIEndPos: {x: 0, y: 0}
   _duration: 0.6
---- !u!114 &2051451911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2051451903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd62ca247b62eb44ac17b22a0b179ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ComeToScreenPosition: {x: 0, y: 61}
-  _HideFromScreenPosition: {x: 0, y: 0}
-  duration: 0.5
-  _delayTime: 0
-  _IsBackButton: 0
 --- !u!1 &2106737068
 GameObject:
   m_ObjectHideFlags: 0
@@ -10123,12 +10013,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2656620914274500719, guid: cb93d3948c669aa4f849730110f864bf,
-        type: 3}
-      propertyPath: _pauseMenuObject
-      value: 
-      objectReference: {fileID: 3301538402492696612, guid: 16c85a81fcd64794a8d16329290d9668,
-        type: 3}
     - target: {fileID: 3231293374686780862, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
       propertyPath: m_Name

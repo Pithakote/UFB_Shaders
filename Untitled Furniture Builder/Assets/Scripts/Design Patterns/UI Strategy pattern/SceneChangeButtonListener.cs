@@ -10,9 +10,6 @@ public class SceneChangeButtonListener : ButtonAddListener, ICommand
 
     public void Execute()
     {
-        if(Time.timeScale != 1f)
-            Time.timeScale = 1f;
-
         SceneChangeBehaviour NewSceneChange = new SceneChangeBehaviour(_nextScene);
         NewSceneChange.ButtonBehaviour();
     }
