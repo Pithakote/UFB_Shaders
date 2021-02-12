@@ -41,8 +41,28 @@ public class UITweenManager : MonoBehaviour
         */
         #endregion
         foreach (GameObject uiElement in _initialUIElements)
-            uiElement.GetComponent<InnerButtonAddListener>().MoveToScreen();
-       
+        {
+            if (uiElement.GetComponent<InGameInnerButtonListener>() != null)
+            {
+                uiElement.GetComponent<InGameInnerButtonListener>().MoveToScreen();
+                uiElement.GetComponent<InGameInnerButtonListener>().MoveAwayFromScreen();
+            }
+            else if (uiElement.GetComponent<InnerButtonAddListener>() != null)
+            {
+                uiElement.GetComponent<InnerButtonAddListener>().MoveToScreen();
+            }
+            else
+                return;
+
+
+
+           
+
+            //uiElement.GetComponent<InnerButtonAddListener>().MoveAwayFromScreen();
+
+        }
+
+
     }
     
 
