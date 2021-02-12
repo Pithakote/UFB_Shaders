@@ -8,7 +8,11 @@ public class LevelManager : LocalManager
 	public float triggerMinDistance = 0;
 	public int minAngleSnap = 45;
 	public Vector3 startpos;
-	public Material materialShader;
+
+
+	public Material[] materialShader;
+	public Material defaultMaterial;
+
 	public GameObject snappable;
 	public Mesh[] snap_meshes;
 	public int[] snap_tos;
@@ -31,7 +35,7 @@ public class LevelManager : LocalManager
 
 	void InitializeSnappable()
 	{
-		Vector3 offset = new Vector3(0.5f, 0, -0.5f);
+		Vector3 offset = new Vector3(0.1f, 0, -0.1f);
 
 		int amt_snappables = snap_tos.Length;
 		snappables = new GameObject[amt_snappables];
@@ -42,7 +46,8 @@ public class LevelManager : LocalManager
 			if (min == 0)
 				min = 0.5f;
 
-			snappables[i] = SpawnSnappable(snap_meshes[i], startpos + (offset * i), snap_offsets[i], i, snap_tos[i]);
+			Material customMaterial = materialShader[i];
+			snappables[i] = SpawnSnappable(snap_meshes[i], startpos + (offset * i), snap_offsets[i], i, snap_tos[i], customMaterial);
 		}
 
 		Player_Managerv2.snappables = snappables;
@@ -58,7 +63,7 @@ public class LevelManager : LocalManager
 	}
 
 
-	GameObject SpawnSnappable(Mesh model, Vector3 origin, Vector3 offset, int id, int snap_to)
+	GameObject SpawnSnappable(Mesh model, Vector3 origin, Vector3 offset, int id, int snap_to, Material customMaterial)
 	{
 		GameObject ent = Instantiate(snappable);
 		ent.transform.position = origin;
@@ -77,8 +82,16 @@ public class LevelManager : LocalManager
 			col.sharedMesh = model;
 		}
 
+		Material selectedMaterial;
+		if (customMaterial != null)
+		{
+			selectedMaterial = customMaterial;
+		}
+		else
+			selectedMaterial = defaultMaterial;
+
 		ent.GetComponent<MeshCollider>().sharedMesh = model;
-		ent.GetComponent<MeshRenderer>().material = materialShader;
+		ent.GetComponent<MeshRenderer>().material = selectedMaterial;
 
 		if (triggerMinDistance > 0)
 			s.triggerMinDistance = triggerMinDistance;
