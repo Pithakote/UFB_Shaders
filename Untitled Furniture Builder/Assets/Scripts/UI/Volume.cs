@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-
+using UnityEngine.UI;
 public class Volume : MonoBehaviour
 {
     public AudioMixer audio;
@@ -12,6 +12,8 @@ public class Volume : MonoBehaviour
     private void Start()
     {
         _audioSrc = GameManager.Instance.AudioManager.AudioSourceBackgroundMusic;
+
+        gameObject.GetComponent<Slider>().value = _audioSrc.volume;
     }
 
     public void MusicVolume (float volumeSlider)
