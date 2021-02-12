@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: c46f8d8b90d4c7b459cc590f934e3e3e,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1322,6 +1322,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game Over
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417513010141441849, guid: 30b5333e10e61324e9f786e39e3f66d5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417513010141441850, guid: 30b5333e10e61324e9f786e39e3f66d5,
         type: 3}
@@ -10676,6 +10681,47 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6920514622361049802, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: bookPages.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920514622361049802, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: bookPages.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 40b3560f61947c1438ef61a32bfb26c1,
+        type: 3}
+    - target: {fileID: 6920514622361049802, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: bookPages.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2f31569c771e0ad4b8cfed2a9f90fbd4,
+        type: 3}
+    - target: {fileID: 6920514622361049802, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: bookPages.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6adda40968955054d8d741a37da34b8a,
+        type: 3}
+    - target: {fileID: 6920514622361049802, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: bookPages.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: a8a1bd37bde811145b3a6510932f6861,
+        type: 3}
+    - target: {fileID: 6920514622361049802, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: bookPages.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: b97a4d2c715916344aa84065fe55621a,
+        type: 3}
+    - target: {fileID: 6920514622361049802, guid: 8366c3c34656a9142844b625fd457858,
+        type: 3}
+      propertyPath: bookPages.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 86d78dc63d538ce49b4b1d1bb2bd9f25,
+        type: 3}
     - target: {fileID: 6920514622369972890, guid: 8366c3c34656a9142844b625fd457858,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11901,7 +11947,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5e1f195db69f0ac43a4fb8dcf049d993, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6adda40968955054d8d741a37da34b8a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12780,7 +12826,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a0c6ca3c375615c4fb3d7ff028be3a43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6adda40968955054d8d741a37da34b8a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14460,6 +14506,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8445814531348986470, guid: 0b455560250cb6840b972298f7f04b05,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a8a1bd37bde811145b3a6510932f6861,
+        type: 3}
+    - target: {fileID: 8445814531348986470, guid: 0b455560250cb6840b972298f7f04b05,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8445814531348986488, guid: 0b455560250cb6840b972298f7f04b05,
         type: 3}
       propertyPath: instructionsUI
@@ -14470,6 +14527,12 @@ PrefabInstance:
       propertyPath: instructionsButton
       value: 
       objectReference: {fileID: 1890659482}
+    - target: {fileID: 8445814532331365800, guid: 0b455560250cb6840b972298f7f04b05,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b97a4d2c715916344aa84065fe55621a,
+        type: 3}
     - target: {fileID: 8445814532331365802, guid: 0b455560250cb6840b972298f7f04b05,
         type: 3}
       propertyPath: instructionsUI

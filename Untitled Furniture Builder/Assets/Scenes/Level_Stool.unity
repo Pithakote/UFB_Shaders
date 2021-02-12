@@ -9352,7 +9352,7 @@ PrefabInstance:
     - target: {fileID: 7957797220911691368, guid: 23415c558aaad6448a6be6bc03680a16,
         type: 3}
       propertyPath: startTime
-      value: 5
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7957797220911691368, guid: 23415c558aaad6448a6be6bc03680a16,
         type: 3}
@@ -10310,7 +10310,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5e1f195db69f0ac43a4fb8dcf049d993, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a0c6ca3c375615c4fb3d7ff028be3a43, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12834,6 +12834,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445814531348986470, guid: 0b455560250cb6840b972298f7f04b05,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fc2118c125362a041b3a057a83fe94d7,
+        type: 3}
+    - target: {fileID: 8445814531348986470, guid: 0b455560250cb6840b972298f7f04b05,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8445814531348986488, guid: 0b455560250cb6840b972298f7f04b05,
         type: 3}
