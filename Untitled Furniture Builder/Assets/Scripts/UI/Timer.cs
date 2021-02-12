@@ -52,7 +52,7 @@ public class Timer : MonoBehaviour
         if (time <= 0)
         {
             
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             GameOverUI.SetActive(true);
         }
     }
