@@ -11,11 +11,25 @@ public class InnerButtonAddListener : MonoBehaviour
    // [SerializeField]
     RectTransform _thisButtonRectTransform;
     [SerializeField]
-    Vector2 _ComeToScreenPosition, _HideFromScreenPosition;
-    [SerializeField]
-    float duration, _delayTime;
-    [SerializeField]
     bool _IsBackButton;
+
+    [Header("Come To Screen")]
+    [SerializeField]
+    Vector2 _ComeToScreenPosition;
+
+    [SerializeField]
+    float ctsDuration, _ctsDelay;
+
+    [Header("Hide From Screen")]
+    [SerializeField]
+    Vector2 _HideFromScreenPosition;
+
+    [SerializeField]
+    float hfsDuration, _hfsDelay;
+  
+    
+
+   
     
 
     private void Start()
@@ -33,26 +47,27 @@ public class InnerButtonAddListener : MonoBehaviour
 
         InnerButtonBehaviour InnerButtonMove = new InnerButtonBehaviour(_thisButtonRectTransform,
                                                                         _ComeToScreenPosition,
-                                                                        duration,
-                                                                        _delayTime);
+                                                                        ctsDuration,
+                                                                        _ctsDelay);
         //buttonInteraction = InnerButtonMove;
         InnerButtonMove.ButtonBehaviour();
         //  Debug.Log("MoveToScreen function done");
         Debug.Log("Initial UI moving for "+gameObject.name);
 
     }
-    /*
+    
     public void MoveAwayFromScreen()
     {
-
+        if (_thisButtonRectTransform == null)
+            _thisButtonRectTransform = this.gameObject.GetComponent<RectTransform>();
         InnerButtonBehaviour InnerButtonMoveAway = new InnerButtonBehaviour(_thisButtonRectTransform,
                                                                             _HideFromScreenPosition,
-                                                                            duration,
-                                                                            0);
+                                                                            hfsDuration,
+                                                                            _hfsDelay);
         //buttonInteraction = InnerButtonMove;
         InnerButtonMoveAway.ButtonBehaviour();
       //  Debug.Log("MoveToScreen function done");
 
     }
-    */
+    
 }
