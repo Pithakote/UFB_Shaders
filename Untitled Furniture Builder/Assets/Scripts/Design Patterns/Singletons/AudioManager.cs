@@ -30,6 +30,7 @@ public class AudioManager : MonoBehaviour
     AudioSource _audioSourceUIEffects, _audioSourceBackgroundMusic;
 
     public AudioSource AudioSourceBackgroundMusic { get { return _audioSourceBackgroundMusic; } }
+    public AudioSource AudioSourceUIEffects{ get { return _audioSourceUIEffects; } }
 
     private void Awake()
     {
