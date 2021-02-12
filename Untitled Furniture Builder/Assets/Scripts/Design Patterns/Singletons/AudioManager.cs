@@ -25,25 +25,42 @@ public class AudioManager : MonoBehaviour
     */
 
     [SerializeField]
-    AudioClip _audio1, _audio2, _audio3;
-    AudioSource _audioSource;
+    AudioClip _audio1, _audio2, _audio3, _backgroundMusic;
+    [SerializeField]
+    AudioSource _audioSourceUIEffects, _audioSourceBackgroundMusic;
+
+    public AudioSource AudioSourceBackgroundMusic { get { return _audioSourceBackgroundMusic; } }
+    public AudioSource AudioSourceUIEffects{ get { return _audioSourceUIEffects; } }
 
     private void Awake()
     {
-        _audioSource = GetComponent<AudioSource>();
+       // _audioSource = GetComponent<AudioSource>();
     }
-
+    private void Start()
+    {
+        PlayBGMusic();
+    }
+    void UIEffectSourceNullCheck()
+    {
+        if (_audioSourceUIEffects == null)
+            return;
+    }
+    
     public void PlayHoverAudio()
     {
-        _audioSource.clip = _audio1;
-        _audioSource.PlayOneShot(_audioSource.clip);
+        UIEffectSourceNullCheck();
+
+        _audioSourceUIEffects.clip = _audio1;
+        _audioSourceUIEffects.PlayOneShot(_audioSourceUIEffects.clip);
        // if(_audioSource.isPlaying)
           //  _audioSource.Stop();
     }
     public void PlayClickAudio()
     {
-        _audioSource.clip = _audio2;
-        _audioSource.PlayOneShot(_audioSource.clip);
+        UIEffectSourceNullCheck();
+
+        _audioSourceUIEffects.clip = _audio2;
+        _audioSourceUIEffects.PlayOneShot(_audioSourceUIEffects.clip);
     }
 
     public void StopHoverAudio()
@@ -51,5 +68,21 @@ public class AudioManager : MonoBehaviour
         //_audioSource.clip = _audio1;
        // if (_audioSource.isPlaying)
            // _audioSource.Stop();
+    }
+
+    void BackgroundMusicSourceNullCheck()
+    {
+        if (_audioSourceBackgroundMusic == null)
+            return;
+    }
+
+    void PlayBGMusic()
+    {
+        BackgroundMusicSourceNullCheck();
+
+        if (_audioSourceBackgroundMusic.clip == null)
+            _audioSourceBackgroundMusic.clip = _backgroundMusic;
+
+        _audioSourceBackgroundMusic.Play();
     }
 }

@@ -26,6 +26,7 @@ public class InGameState : BaseState
         _pauseMenu.SetActive(true);
         Cursor.visible = true;
         Time.timeScale = 0f;
+
     }
  
     
