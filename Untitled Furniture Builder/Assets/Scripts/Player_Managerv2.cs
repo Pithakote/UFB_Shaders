@@ -233,7 +233,20 @@ public class Player_Managerv2 : MonoBehaviour
 							_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
 							_renderer.material.SetColor("_OutlineColor", pickupColor);
 						} else if ( ent.tag == "Snappable" || ent.transform.root.tag == "Snappable") {
-							screwEnt.GetComponent<screw>().onMouseAttach( ent );
+							snap comp = ent.GetComponent<snap>();
+							screw comp_screw = screwEnt.GetComponent<screw>();
+							int snap_to = comp_screw.snap_to_id;
+							
+							if ( snap_to == comp.id ){
+								print("eee");
+								int closest_id = comp.findClosestScrewable( hit.point );
+								bool screwable = comp.isPieceScrewable(closest_id);
+								bool screwed = comp.isPieceScrewed(closest_id);
+								
+								print(closest_id);
+								if ( screwable == true && screwed == false )
+									comp_screw.onMouseAttach( ent );
+							}
 						}
 					}
 				}

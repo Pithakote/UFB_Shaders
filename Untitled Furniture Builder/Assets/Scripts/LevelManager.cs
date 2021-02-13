@@ -15,7 +15,9 @@ public class LevelManager : MonoBehaviour
 	public Mesh[] snap_meshes;
 	public int[] snap_tos;
 	public Vector3[] snap_offsets;
-	public int[] screw_snap_id;
+	public int[] screw_snapto;
+	public int[] screw_pieceid;
+	public Vector3[] screw_offsets;
 	public GameObject[] snappables;
 	public GameObject[] screws;
 	
@@ -39,17 +41,27 @@ public class LevelManager : MonoBehaviour
 		
 		//Spawn Screws
 		Vector3 tray_pos = tray.transform.position + new Vector3(0,3.5f,0);
-		screws = new GameObject[screw_snap_id.Length];
+		int max_screws = screw_snapto.Length;
+		screws = new GameObject[max_screws];
 		
-		for (int i = 0; i <= screw_snap_id.Length - 1; i++)
+		for (int i = 0; i <= max_screws - 1; i++)
 		{
 			GameObject newScrew = Instantiate(screw);
 			newScrew.transform.position = tray_pos;
-			newScrew.GetComponent<screw>().snap_to_id = i;
+			//
+			int id = screw_snapto[i];
+			newScrew.GetComponent<screw>().piece_id = screw_pieceid[i];
+			newScrew.GetComponent<screw>().snap_to_id = id;
+			newScrew.GetComponent<screw>().offset = screw_offsets[i];
 			//--
-			int id = screw_snap_id[i];
 			GameObject piece = snappables[id];
-			piece.GetComponent<snap>().screwable = true;
+			snap comp = piece.GetComponent<snap>();
+			
+			comp.max_screws = max_screws;
+			comp.AddPieceIDScrewable( screw_pieceid[i], screw_offsets[i] );
+			
+			//piece.GetComponent<snap>().screwable = new bool[screw_snap_id.Length];
+			//piece.GetComponent<snap>().screwable[i] = true;
 		}
 		
 		Player_Managerv2.snappables = snappables;

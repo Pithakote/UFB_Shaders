@@ -6,6 +6,7 @@ public class screw : MonoBehaviour
 {
 	//Values
 	public int snap_to_id;
+	public int piece_id;	
 	public Vector3 offset;
 	public GameObject snapped;
 	
@@ -139,13 +140,10 @@ public class screw : MonoBehaviour
 	
 	public void onMouseAttach( GameObject ent )
 	{
-		snap s = ent.GetComponent<snap>();
-		GameObject parent = s.snapped;
+		SetAttached( ent );
 		
-		if (parent != null){
-			SetAttached( ent );
-			s.screwed = true;
-		}
+		snap s = ent.GetComponent<snap>();
+		s.AddPieceIDScrewed( piece_id );
 	}
 	
 	public void SetModel( Mesh loaded )

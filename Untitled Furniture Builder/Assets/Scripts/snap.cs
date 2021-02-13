@@ -10,8 +10,12 @@ public class snap : MonoBehaviour
 	public Vector3 offset;
 	public GameObject preview;
 	
-	public bool screwable = false;
-	public bool screwed = false;
+	//Screwing
+	public int max_screws;
+	public int[] screwable;
+	public int[] screwed;
+	public Vector3[] screw_offsets;
+	
 	public int min_angle = 45;
 	public float triggerMinDistance = 0;
 	public GameObject snapped;
@@ -49,6 +53,93 @@ public class snap : MonoBehaviour
 		col = GetComponent<MeshCollider>();
 	}
 	
+	//SCREWING
+	public void AddPieceIDScrewable( int id, Vector3 offset )
+	{
+		if (screwable == null || screwable.Length < 1){
+			screwable = new int[max_screws];
+			screw_offsets = new Vector3[max_screws];
+			
+			for (int i = 0; i < max_screws; i++)
+				screwable[i] = -1;
+		}
+		
+		for (int i = 0; i < screwable.Length; i++){
+			if (screwable[i] == -1){
+				screwable[i] = id;
+				screw_offsets[i] = offset;
+				break;
+			}
+		}
+	}
+	
+	public void AddPieceIDScrewed( int id )
+	{
+		if (screwed == null || screwed.Length < 1){
+			screwed = new int[max_screws];
+			
+			for (int i = 0; i < max_screws; i++)
+				screwed[i] = -1;
+		}
+		
+		for (int i = 0; i < screwed.Length; i++){
+			if (screwed[i] == -1){
+				screwed[i] = id;
+				break;
+			}
+		}
+	}	
+	
+	public int findClosestScrewable( Vector3 pos )
+	{
+		if (screw_offsets == null || screw_offsets.Length < 1)
+			return -1;
+		//--
+		float furthest = 10000;
+		int selected = 0;
+		for (int i = 0; i < screw_offsets.Length; i++)
+		{
+			Vector3 off = screw_offsets[i];
+			Vector3 worldPos = transform.root.TransformPoint( off );
+			float dist = Vector3.Distance( pos, worldPos );
+			
+			print(off);
+			print(dist);
+			
+			if (dist < furthest){
+				furthest = dist;
+				selected = screwable[i];
+			}
+		}
+		//--
+		return selected;
+	}
+	
+	public bool isPieceScrewable( int id )
+	{
+		for (int i = 0; i < screwable.Length; i++){
+			if (screwable[i] == null)
+				continue;
+			//--
+			if (screwable[i] == id)
+				return true;
+		}
+		return false;
+	}
+	
+	public bool isPieceScrewed( int id )
+	{
+		for (int i = 0; i < screwed.Length; i++){
+			if (screwed[i] == null)
+				continue;
+			//--
+			if (screwed[i] == id)
+				return true;
+		}
+		return false;
+	}	
+	//---------------
+	
 	void SetSnapToPos()
 	{
 		if (snapped == null)
@@ -60,7 +151,7 @@ public class snap : MonoBehaviour
 		transform.eulerAngles = lerp_ang;
 		snapped.transform.eulerAngles = angles;
 	}
-
+	
 	void DropPiece()
 	{
 		transform.SetParent( null );
@@ -95,11 +186,16 @@ public class snap : MonoBehaviour
 				snapped.transform.root.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 			}
 			
-			if ( screwable == true && lerp_start + anim_time + stay_time <= Time.time){
-				//Drop
-				if (snapped != null && screwed == false)
+			if (snapped != null){
+				snap parent_comp = snapped.GetComponent<snap>();
+				if (parent_comp.isPieceScrewable(id) && parent_comp.isPieceScrewed(id) != true)
 					DropPiece();
 			}
+			
+			//if ( screwable == true && lerp_start + anim_time + stay_time <= Time.time){
+			//for (int i = 0; i < screwable.Length; i++){
+				//Drop
+			// }
 			//--
 			return;
 		}
