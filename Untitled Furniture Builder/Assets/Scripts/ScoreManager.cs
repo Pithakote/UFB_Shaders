@@ -87,6 +87,7 @@ public class ScoreManager : MonoBehaviour
 
         if (so.tutorialComplete)
             so.levelProgress = 1;
+            so.canSpawnRadio = true;
         if (so.l1Complete)
             so.levelProgress = 2;
         if (so.l2Complete)
@@ -95,6 +96,12 @@ public class ScoreManager : MonoBehaviour
             so.levelProgress = 4;
         if (so.l4Complete)
             so.levelProgress = 5;
+
+        Debug.Log("Radio: " + so.canSpawnRadio);
+            
+
+
+
         SaveManager.Save(so);
         //Debug.Log("Time left = " + numTimeLeft);
     }

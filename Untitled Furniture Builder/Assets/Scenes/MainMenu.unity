@@ -262,6 +262,7 @@ MonoBehaviour:
     l3Complete: 0
     l4Complete: 0
     l5Complete: 0
+    canSpawnRadio: 0
 --- !u!114 &188294166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +289,7 @@ MonoBehaviour:
     l3Complete: 0
     l4Complete: 0
     l5Complete: 0
+    canSpawnRadio: 0
 --- !u!1 &201499876
 GameObject:
   m_ObjectHideFlags: 0
@@ -5934,7 +5936,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 73b4f0fa4cda7c84980f1731d17dfe57, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
@@ -7227,6 +7229,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3301538402492696612, guid: 16c85a81fcd64794a8d16329290d9668,
         type: 3}
+    - target: {fileID: 3231293374686780835, guid: cb93d3948c669aa4f849730110f864bf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3231293374686780862, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
       propertyPath: m_Name

@@ -41,16 +41,21 @@ public class CheckLevelProg : MonoBehaviour
 
         switch (so.levelProgress)
         {
-
+            case 0:
+                Instantiate(zeroStar, tutorialButton.transform);
+                break;
             case 1:
                 level1.GetComponent<Image>().sprite = l1Sprite;
-                level1.interactable = true;
+                level1.interactable = true;           
+                Instantiate(zeroStar, level1.transform);
+               
                 break;
             case 2:
                 level1.GetComponent<Image>().sprite = l1Sprite;
                 level2.GetComponent<Image>().sprite = l2Sprite;
                 level1.interactable = true;
                 level2.interactable = true;
+                Instantiate(zeroStar, level2.transform);
                 break;
             case 3:
                 level1.GetComponent<Image>().sprite = l1Sprite;
@@ -59,6 +64,7 @@ public class CheckLevelProg : MonoBehaviour
                 level1.interactable = true;
                 level2.interactable = true;
                 level3.interactable = true;
+                Instantiate(zeroStar, level3.transform);
                 break;
             case 4:
                 level1.GetComponent<Image>().sprite = l1Sprite;
@@ -69,6 +75,7 @@ public class CheckLevelProg : MonoBehaviour
                 level2.interactable = true;
                 level3.interactable = true;
                 level4.interactable = true;
+                Instantiate(zeroStar, level4.transform);
                 break;
             case 5:
                 level1.GetComponent<Image>().sprite = l1Sprite;
@@ -81,6 +88,7 @@ public class CheckLevelProg : MonoBehaviour
                 level3.interactable = true;
                 level4.interactable = true;
                 level5.interactable = true;
+                Instantiate(zeroStar, level4.transform);
                 break;
             default:
                 break;
@@ -91,7 +99,7 @@ public class CheckLevelProg : MonoBehaviour
     {
         switch (so.tutorialRating)
         {
-
+            
             case 1:
                 Instantiate(oneStar, tutorialButton.transform);
                 break;
@@ -107,7 +115,7 @@ public class CheckLevelProg : MonoBehaviour
 
         switch (so.l1Rating)
         {
-
+            
             case 1:
                 Instantiate(oneStar, level1.transform);
                 break;

@@ -21,5 +21,7 @@ public class SaveObject
     public bool l4Complete;
     public bool l5Complete;
 
+    public bool canSpawnRadio;
+
    
 }
