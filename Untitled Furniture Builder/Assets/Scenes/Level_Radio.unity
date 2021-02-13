@@ -4484,6 +4484,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1216432772}
+        m_MethodName: levelComplete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &605856462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7806,6 +7817,15 @@ MonoBehaviour:
   oneStar: {fileID: 1660225665}
   twoStar: {fileID: 1724085726}
   threeStar: {fileID: 308091905}
+  so:
+    levelProgress: 0
+    levelRating: 0
+    tutorialComplete: 0
+    l1Complete: 0
+    l2Complete: 0
+    l3Complete: 0
+    l4Complete: 0
+    l5Complete: 0
 --- !u!1 &1218495895
 GameObject:
   m_ObjectHideFlags: 0
@@ -11510,7 +11530,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: Resume
+        m_MethodName: SaveGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14991,7 +15022,7 @@ PrefabInstance:
     - target: {fileID: 1996152982728822314, guid: 16c85a81fcd64794a8d16329290d9668,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000030517578
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1996152982728822314, guid: 16c85a81fcd64794a8d16329290d9668,
         type: 3}

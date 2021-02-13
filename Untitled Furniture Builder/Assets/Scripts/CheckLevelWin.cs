@@ -27,8 +27,8 @@ public class CheckLevelWin : MonoBehaviour
         var mesh = meshFilter.sharedMesh;
         //Debug.Log(mesh.name);
 
-        if (enteredObject.GetComponent<snap>().snap_to_id != -1 || other == null)
-            return;
+        if (enteredObject.GetComponent<snap>().snap_to_id != -1 || enteredObject == null || other == null || enteredObject.GetComponent<snap>() == null)
+            return;       
 
 
         //Debug.Log(other.gameObject.transform.childCount);
