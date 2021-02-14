@@ -140,5 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snap_to_id: 0
+  piece_id: 0
   offset: {x: 0, y: 0, z: 0}
   snapped: {fileID: 0}
+  iconPreview: {fileID: 5768531037145985946, guid: 79db7511e0248274c99be100eb8597f8,
+    type: 3}

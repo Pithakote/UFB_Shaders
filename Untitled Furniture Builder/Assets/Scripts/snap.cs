@@ -95,19 +95,23 @@ public class snap : MonoBehaviour
 		if (screw_offsets == null || screw_offsets.Length < 1)
 			return -1;
 		//--
-		float furthest = 10000;
+		float closest = 10000;
 		int selected = 0;
+		Vector3 empty = new Vector3(0,0,0);
 		for (int i = 0; i < screw_offsets.Length; i++)
 		{
 			Vector3 off = screw_offsets[i];
+			if (off == empty)
+				continue;
+			//--
 			Vector3 worldPos = transform.root.TransformPoint( off );
 			float dist = Vector3.Distance( pos, worldPos );
 			
-			print(off);
-			print(dist);
+			//print(off);
+			//print(dist);
 			
-			if (dist < furthest){
-				furthest = dist;
+			if (dist < closest){
+				closest = dist;
 				selected = screwable[i];
 			}
 		}
@@ -231,7 +235,7 @@ public class snap : MonoBehaviour
 		float difference = Mathf.DeltaAngle(otherAngles.z, myAngles.z);
 		difference = Mathf.Abs( difference );
 		
-		print(transform.name);
+		//print(transform.name);
 		//print(difference);
 		if ( difference > min_angle )
 			return;
