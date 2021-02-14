@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
@@ -28,15 +30,20 @@ public class AudioManager : MonoBehaviour
     AudioClip _audio1, _audio2, _audio3, _backgroundMusic;
     [SerializeField]
     AudioSource _audioSourceUIEffects, _audioSourceBackgroundMusic;
-
-    public AudioSource AudioSourceBackgroundMusic { get { return _audioSourceBackgroundMusic; } }
+    [SerializeField]
+    GameObject _radioObject, _bgAudioSource;
+    public AudioSource AudioSourceBackgroundMusic { get { return _audioSourceBackgroundMusic; } set { _audioSourceBackgroundMusic = value; } }
     public AudioSource AudioSourceUIEffects{ get { return _audioSourceUIEffects; } }
+    public GameObject RadioObject { get { return _radioObject; } set { _radioObject = value; } }
+    public GameObject BGAudioSource { get { return _bgAudioSource; } }
 
     private void Awake()
     {
-       // _audioSource = GetComponent<AudioSource>();
+        // _audioSource = GetComponent<AudioSource>();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+       
     }
-    private void Start()
+    private void Start()//only triggers once even for a singleton only onenable and awake are triggered everytime scene is changed
     {
         PlayBGMusic();
     }
@@ -82,7 +89,14 @@ public class AudioManager : MonoBehaviour
 
         if (_audioSourceBackgroundMusic.clip == null)
             _audioSourceBackgroundMusic.clip = _backgroundMusic;
-
+        if (_audioSourceBackgroundMusic.spatialBlend != 0)
+            _audioSourceBackgroundMusic.spatialBlend = 0;//for 2D
         _audioSourceBackgroundMusic.Play();
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        Debug.Log(mode);
     }
 }
