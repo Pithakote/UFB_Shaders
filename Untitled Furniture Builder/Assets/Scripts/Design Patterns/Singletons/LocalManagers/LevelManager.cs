@@ -18,6 +18,10 @@ public class LevelManager : LocalManager
 	[SerializeField]
 	GameObject _pauseMenuObject;
 
+	[SerializeField]
+	GameObject _radioObject;
+
+	SaveObject so;
 	protected override void SetInitialState()
 	{
 		//base class abstraction
@@ -55,8 +59,19 @@ public class LevelManager : LocalManager
 
 		InitializeSnappable();
 
+		SpawnRadio();
+
 	}
 
+    void SpawnRadio()
+    {
+		so = SaveManager.Load();
+		
+        if (so.canSpawnRadio)
+        {
+			Instantiate(_radioObject, new Vector3(0.226f, 2.154f, 32.189f), Quaternion.identity);
+        }
+    }
 
 	GameObject SpawnSnappable(Mesh model, Vector3 origin, Vector3 offset, int id, int snap_to)
 	{

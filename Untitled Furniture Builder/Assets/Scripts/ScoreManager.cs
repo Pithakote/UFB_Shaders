@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -23,7 +24,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]
     Image threeStar;
 
-    
+    public SaveObject so;
 
     void Start()
     {
@@ -83,6 +84,25 @@ public class ScoreManager : MonoBehaviour
             threeStar.color = new Color(255, 219, 1, 255) / 255;
         }
 
+
+        if (so.tutorialComplete)
+            so.levelProgress = 1;
+            so.canSpawnRadio = true;
+        if (so.l1Complete)
+            so.levelProgress = 2;
+        if (so.l2Complete)
+            so.levelProgress = 3;
+        if (so.l3Complete)
+            so.levelProgress = 4;
+        if (so.l4Complete)
+            so.levelProgress = 5;
+
+        Debug.Log("Radio: " + so.canSpawnRadio);
+            
+
+
+
+        SaveManager.Save(so);
         //Debug.Log("Time left = " + numTimeLeft);
     }
 
@@ -98,6 +118,30 @@ public class ScoreManager : MonoBehaviour
         CheckLevelWin.isWin = false;
     }
 
+    public void levelComplete()
+    {
+        
+        if (SceneManager.GetActiveScene().name == "Level_Radio")
+        {
+            so.tutorialComplete = true;
+            so.tutorialRating = levelRating;
+            SaveManager.Save(so);
+        }
+        else if (SceneManager.GetActiveScene().name == "Level_Stool")
+        {
+            so.l1Complete = true;
+            so.l1Rating = levelRating;
+            SaveManager.Save(so);
+        }
 
+        //so.levelProgress++;
+        
+       
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        so = SaveManager.Load();
+    }
 
 }
