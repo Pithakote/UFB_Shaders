@@ -500,7 +500,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4535426934880755331}
-  m_LocalRotation: {x: -0, y: -0.09820094, z: -0, w: 0.9951666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.226, y: 2.1543007, z: 32.189}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -521,7 +521,7 @@ Transform:
   - {fileID: 35873106629915485}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -11.271001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3616525833219664013
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -533,8 +533,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.15997395, y: 0.21188188, z: 0.42599583}
-  m_Center: {x: 0.07899974, y: -0.021244168, z: 0.0055572703}
+  m_Size: {x: 0.12511615, y: 0.21188188, z: 0.42599583}
+  m_Center: {x: 0.061570846, y: -0.021244168, z: 0.005557269}
 --- !u!82 &3616525833219664000
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1076,6 +1076,8 @@ GameObject:
   - component: {fileID: 6329886872953399834}
   - component: {fileID: 7753896647728718340}
   - component: {fileID: 3384913255632467119}
+  - component: {fileID: 8278734637080994558}
+  - component: {fileID: 6852711606421184489}
   m_Layer: 0
   m_Name: 14_low
   m_TagString: Untagged
@@ -1144,6 +1146,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8278734637080994558
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740825899814511614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.027312988, y: 0.02731298, z: 0.016845461}
+  m_Center: {x: -0.14734402, y: -0.08765649, z: 0.063467056}
+--- !u!114 &6852711606421184489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740825899814511614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c29f10dab1b3754eb038d2624c51f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8752895100123129430
 GameObject:
   m_ObjectHideFlags: 0

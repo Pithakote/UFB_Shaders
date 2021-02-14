@@ -116,7 +116,7 @@ public class AudioManager : MonoBehaviour
 
         _bgMusic.RemoveAt(_clipIndex);
     }
-    void PlayBGMusic()
+    public void PlayBGMusic()
     {
         BackgroundMusicSourceNullCheck();
 
