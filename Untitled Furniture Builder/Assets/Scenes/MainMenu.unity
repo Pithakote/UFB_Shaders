@@ -2104,6 +2104,7 @@ GameObject:
   - component: {fileID: 565393105}
   - component: {fileID: 565393104}
   - component: {fileID: 565393103}
+  - component: {fileID: 565393109}
   m_Layer: 5
   m_Name: Reset_Progress_button
   m_TagString: Untagged
@@ -2241,18 +2242,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 565393107}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 188294166}
-        m_MethodName: ResetProgress
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &565393107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2290,6 +2280,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565393101}
   m_CullTransparentMesh: 0
+--- !u!114 &565393109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565393101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12907c0e492d7134f9dcdc57fe8e3ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextScene: {fileID: 102900000, guid: 473be87b69323cc43a11d1ad4d8ce4f7, type: 3}
 --- !u!1 &598386845
 GameObject:
   m_ObjectHideFlags: 0
@@ -7221,6 +7224,16 @@ PrefabInstance:
     - target: {fileID: 850352807326571338, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
       propertyPath: Mute
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 850352807326571338, guid: cb93d3948c669aa4f849730110f864bf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 850352807326571338, guid: cb93d3948c669aa4f849730110f864bf,
+        type: 3}
+      propertyPath: m_Volume
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2656620914274500719, guid: cb93d3948c669aa4f849730110f864bf,

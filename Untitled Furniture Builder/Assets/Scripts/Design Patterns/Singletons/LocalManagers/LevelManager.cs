@@ -66,6 +66,7 @@ public class LevelManager : LocalManager
     void SpawnRadio()
     {
 		so = SaveManager.Load();
+		
         if (so.canSpawnRadio)
         {
 			Instantiate(_radioObject, new Vector3(0.226f, 2.154f, 32.189f), Quaternion.identity);

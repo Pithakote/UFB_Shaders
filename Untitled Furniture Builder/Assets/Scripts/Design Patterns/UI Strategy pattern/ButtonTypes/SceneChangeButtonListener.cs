@@ -8,7 +8,7 @@ public class SceneChangeButtonListener : ButtonAddListener, ICommand
     [SerializeField]
     SceneAsset _nextScene;
 
-    public void Execute()
+    public virtual void Execute()
     {
         if(Time.timeScale != 1f)
             Time.timeScale = 1f;

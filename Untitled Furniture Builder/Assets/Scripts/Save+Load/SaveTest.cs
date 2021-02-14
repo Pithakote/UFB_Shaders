@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class SaveTest : MonoBehaviour
@@ -35,6 +36,9 @@ public class SaveTest : MonoBehaviour
 
     public void ResetProgress()
     {
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
         so.levelProgress = 0;
         so.tutorialRating = 0;
         so.l1Rating = 0;
@@ -42,6 +46,8 @@ public class SaveTest : MonoBehaviour
         so.l3Rating = 0;
         so.l4Rating = 0;
         so.l5Rating = 0;
+        
         SaveManager.Save(so);
+
     }
 }
