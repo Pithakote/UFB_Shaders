@@ -10172,6 +10172,12 @@ MonoBehaviour:
   - {fileID: -5682358579144442839, guid: 13475daa8893b884cb27459ab1f18e6b, type: 3}
   - {fileID: -6037834795605609229, guid: 13475daa8893b884cb27459ab1f18e6b, type: 3}
   - {fileID: 3882374461693324457, guid: 13475daa8893b884cb27459ab1f18e6b, type: 3}
+  piece_scales:
+  - {x: 2, y: 2, z: 2}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   snap_tos: ffffffff00000000000000000000000000000000
   snap_offsets:
   - {x: 0, y: 0, z: 0}

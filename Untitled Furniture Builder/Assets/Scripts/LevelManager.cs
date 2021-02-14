@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
 	public GameObject tray;
 	public GameObject screw;
 	public Mesh[] snap_meshes;
+	public Vector3[] piece_scales;
 	public int[] snap_tos;
 	public Vector3[] snap_offsets;
 	public int[] screw_snapto;
@@ -77,7 +78,16 @@ public class LevelManager : MonoBehaviour
 	{
 		GameObject ent = Instantiate(snappable);
 		ent.transform.position = origin;
-		//ent.transform.localScale = new Vector3(0.25f,0.25f,0.25f);
+		//--
+		//Scale
+		Vector3 default_scale = new Vector3(1,1,1);
+		Vector3 empty_scale = new Vector3(0,0,0);
+		Vector3 custom_scale = piece_scales[id];
+		
+		if ( custom_scale != null && custom_scale != empty_scale )
+			ent.transform.localScale = custom_scale;
+		else
+			ent.transform.localScale = default_scale;
 		//
 		snap s = ent.GetComponent<snap>();
 		s.id = id;
