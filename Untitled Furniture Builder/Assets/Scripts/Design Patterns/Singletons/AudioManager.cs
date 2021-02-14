@@ -25,9 +25,15 @@ public class AudioManager : MonoBehaviour
         Instantiate(audioObj3, transform.position, transform.rotation);
     }
     */
-
+    [Header("SFX Clips")]
     [SerializeField]
-    AudioClip _audio1, _audio2, _audio3, _backgroundMusic;
+    AudioClip _audio1;
+    [SerializeField]
+    AudioClip _audio2, _audio3, _backgroundMusic;
+
+    //[Header("BG Music Clips")]
+    //[SerializeField]  AudioClip[] bgMusic;
+
     [SerializeField]
     AudioSource _audioSourceUIEffects, _audioSourceBackgroundMusic;
     [SerializeField]
@@ -37,6 +43,10 @@ public class AudioManager : MonoBehaviour
     public GameObject RadioObject { get { return _radioObject; } set { _radioObject = value; } }
     public GameObject BGAudioSource { get { return _bgAudioSource; } }
 
+    [Header("BG Music Clips")]
+    [SerializeField]
+    List<AudioClip> _backupClip, _bgMusic;
+
     private void Awake()
     {
         // _audioSource = GetComponent<AudioSource>();
@@ -45,7 +55,15 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()//only triggers once even for a singleton only onenable and awake are triggered everytime scene is changed
     {
+        if (_audioSourceBackgroundMusic.spatialBlend != 0)
+            _audioSourceBackgroundMusic.spatialBlend = 0;//for 2D
         PlayBGMusic();
+    }
+
+    private void Update()
+    {
+        if (!AudioSourceBackgroundMusic.isPlaying)
+            PlayBGMusic();
     }
     void UIEffectSourceNullCheck()
     {
@@ -82,15 +100,30 @@ public class AudioManager : MonoBehaviour
         if (_audioSourceBackgroundMusic == null)
             return;
     }
+    void SelectMusicClip()
+    {
+        if (_bgMusic.Count <= 0)
+        {
+            _bgMusic.AddRange(_backupClip);
+            _backupClip.Clear();
+        }
+        // if (_audioSourceBackgroundMusic.clip == null)
+        int _clipIndex = Random.Range(0, _bgMusic.Count-1);
+        _backupClip.Add(_bgMusic[_clipIndex]);
+        
 
+        _audioSourceBackgroundMusic.clip = _bgMusic[_clipIndex];
+
+        _bgMusic.RemoveAt(_clipIndex);
+    }
     void PlayBGMusic()
     {
         BackgroundMusicSourceNullCheck();
 
-        if (_audioSourceBackgroundMusic.clip == null)
-            _audioSourceBackgroundMusic.clip = _backgroundMusic;
-        if (_audioSourceBackgroundMusic.spatialBlend != 0)
-            _audioSourceBackgroundMusic.spatialBlend = 0;//for 2D
+        SelectMusicClip();
+
+       
+
         _audioSourceBackgroundMusic.Play();
     }
 
