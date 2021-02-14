@@ -21,18 +21,19 @@ public class CheckLevelProg : MonoBehaviour
         //levelProgress = PlayerPrefs.GetInt("levelProgress");
         //Instantiate(twoStar, level1.transform);
         //SaveManager.Save(so);
-        if (so == null)
-        {
-            SaveManager.Save(so);
-        }
+        if (!SaveManager.SaveExists())
+           SaveManager.Save(so);        
         else
+        {
             so = SaveManager.Load();
-
+            CheckLevelProgress();
+            CheckLevelRating();
+        }
         //Debug.Log(so.tutorialComplete);
         //Debug.Log("level prog: " + so.levelProgress);
 
-        CheckLevelProgress();
-        CheckLevelRating();
+
+        
     }
 
 

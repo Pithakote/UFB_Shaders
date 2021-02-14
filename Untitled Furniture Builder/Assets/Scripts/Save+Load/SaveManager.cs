@@ -45,7 +45,7 @@ public static class SaveManager
         return null;
     }
 
-    private static bool SaveExists()
+    public static bool SaveExists()
     {
         return File.Exists(GetFullPath());
     }
