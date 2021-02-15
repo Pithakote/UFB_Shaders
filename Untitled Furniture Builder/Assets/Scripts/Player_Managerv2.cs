@@ -78,7 +78,7 @@ public class Player_Managerv2 : MonoBehaviour
 				GameObject hitObj = hitMouse.collider.gameObject;
 				string tag = "";
 				if (hitObj != null){
-					print(hitObj.tag);
+					//print(hitObj.tag);
 					tag = hitObj.tag;
 				}
 				
@@ -221,9 +221,7 @@ public class Player_Managerv2 : MonoBehaviour
 							
 								//Enable preview
 								int to_id = comp.snap_to_id;
-								//print(snappables.Length);
 								if ( to_id > -1 && to_id < snappables.Length ){
-									//print(to_id);
 									GameObject connect_to = snappables[to_id];
 									snap p_comp = connect_to.GetComponent<snap>();
 									Mesh mesh = ent.GetComponent<MeshFilter>().mesh;
@@ -253,7 +251,19 @@ public class Player_Managerv2 : MonoBehaviour
 							_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
 							_renderer.material.SetColor("_OutlineColor", pickupColor);
 						} else if ( ent.tag == "Snappable" || ent.transform.root.tag == "Snappable") {
-							screwEnt.GetComponent<screw>().onMouseAttach( ent );
+							snap comp = ent.GetComponent<snap>();
+							screw comp_screw = screwEnt.GetComponent<screw>();
+							int snap_to = comp_screw.snap_to_id;
+							
+							if ( snap_to == comp.id ){
+								int closest_id = comp.findClosestScrewable( hit.point );
+								bool screwable = comp.isPieceScrewable(closest_id);
+								bool screwed = comp.isPieceScrewed(closest_id);
+								
+								//print(closest_id);
+								if ( screwable == true && screwed == false )
+									comp_screw.onMouseAttach( ent );
+							}
 						}
 					}
 				}

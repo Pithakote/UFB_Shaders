@@ -11,8 +11,12 @@ public class LevelManager : LocalManager
 	public Material materialShader;
 	public GameObject snappable;
 	public Mesh[] snap_meshes;
+	public Vector3[] piece_scales;
 	public int[] snap_tos;
 	public Vector3[] snap_offsets;
+	public int[] screw_snapto;
+	public int[] screw_pieceid;
+	public Vector3[] screw_offsets;
 	public GameObject[] snappables;
 
 	[SerializeField]
@@ -47,7 +51,32 @@ public class LevelManager : LocalManager
 
 			snappables[i] = SpawnSnappable(snap_meshes[i], startpos + (offset * i), snap_offsets[i], i, snap_tos[i]);
 		}
-
+		
+		//Spawn Screws
+		Vector3 tray_pos = tray.transform.position + new Vector3(0,3.5f,0);
+		int max_screws = screw_snapto.Length;
+		screws = new GameObject[max_screws];
+		
+		for (int i = 0; i <= max_screws - 1; i++)
+		{
+			GameObject newScrew = Instantiate(screw);
+			newScrew.transform.position = tray_pos;
+			//
+			int id = screw_snapto[i];
+			newScrew.GetComponent<screw>().piece_id = screw_pieceid[i];
+			newScrew.GetComponent<screw>().snap_to_id = id;
+			newScrew.GetComponent<screw>().offset = screw_offsets[i];
+			//--
+			GameObject piece = snappables[id];
+			snap comp = piece.GetComponent<snap>();
+			
+			comp.max_screws = max_screws;
+			comp.AddPieceIDScrewable( screw_pieceid[i], screw_offsets[i] );
+			
+			//piece.GetComponent<snap>().screwable = new bool[screw_snap_id.Length];
+			//piece.GetComponent<snap>().screwable[i] = true;
+		}
+		
 		Player_Managerv2.snappables = snappables;
 	}
 
@@ -68,7 +97,16 @@ public class LevelManager : LocalManager
 	{
 		GameObject ent = Instantiate(snappable);
 		ent.transform.position = origin;
-		//ent.transform.localScale = new Vector3(0.25f,0.25f,0.25f);
+		//--
+		//Scale
+		Vector3 default_scale = new Vector3(1,1,1);
+		Vector3 empty_scale = new Vector3(0,0,0);
+		Vector3 custom_scale = piece_scales[id];
+		
+		if ( custom_scale != null && custom_scale != empty_scale )
+			ent.transform.localScale = custom_scale;
+		else
+			ent.transform.localScale = default_scale;
 		//
 		snap s = ent.GetComponent<snap>();
 		s.id = id;
