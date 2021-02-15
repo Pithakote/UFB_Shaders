@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: c46f8d8b90d4c7b459cc590f934e3e3e,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -13257,12 +13257,20 @@ MonoBehaviour:
   materialShader: {fileID: 2100000, guid: 81e9620472744464cb74e29d2287d2d2, type: 2}
   snappable: {fileID: 4059220095760975271, guid: 1adad0167df1d1e4e85e61abefdd3e6c,
     type: 3}
+  tray: {fileID: 1120992987}
+  screw: {fileID: 319519196624610677, guid: ed747b92a421f8f47819f3a5829414b7, type: 3}
   snap_meshes:
   - {fileID: -8029413726392125436, guid: c214a7b395e521547aa29a3b4731e3f5, type: 3}
   - {fileID: -8723170690497991491, guid: c214a7b395e521547aa29a3b4731e3f5, type: 3}
   - {fileID: -566127155227573969, guid: c214a7b395e521547aa29a3b4731e3f5, type: 3}
   - {fileID: -3804597548161560880, guid: c214a7b395e521547aa29a3b4731e3f5, type: 3}
   - {fileID: -7829676329750517317, guid: c214a7b395e521547aa29a3b4731e3f5, type: 3}
+  piece_scales:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   snap_tos: 01000000ffffffff010000000100000001000000
   snap_offsets:
   - {x: 0, y: 0, z: 0}
@@ -13270,7 +13278,11 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0.07, y: 0.02, z: 0}
+  screw_snapto: 
+  screw_pieceid: 
+  screw_offsets: []
   snappables: []
+  screws: []
   _pauseMenuObject: {fileID: 894144550}
 --- !u!114 &1888105664
 MonoBehaviour:

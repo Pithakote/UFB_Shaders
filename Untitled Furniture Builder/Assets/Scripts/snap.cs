@@ -10,10 +10,19 @@ public class snap : MonoBehaviour
 	public Vector3 offset;
 	public GameObject preview;
 	
+	//Screwing
+	public int max_screws;
+	public int[] screwable;
+	public int[] screwed;
+	public Vector3[] screw_offsets;
+	
 	public int min_angle = 45;
 	public float triggerMinDistance = 0;
 	public GameObject snapped;
 	public GameObject preview_ent;
+	
+	//Drop
+	float stay_time = 3.0f;
 	
 	//Lerp
 	float anim_time = 1.0f;
@@ -30,15 +39,15 @@ public class snap : MonoBehaviour
 	MeshCollider col;
 
 	public static int numSnapped;
-	
-    // Start is called before the first frame update
-    void Start()
+
+	// Start is called before the first frame update
+	void Start()
     {
 		loadVars();
 		//if (snap_to_id != -1)
 		//	InitPreview();
 		numSnapped = 0;
-    }
+	}
 	
 	void loadVars()
 	{
@@ -46,7 +55,118 @@ public class snap : MonoBehaviour
 		rigid = GetComponent<Rigidbody>();
 		col = GetComponent<MeshCollider>();
 	}
-
+	
+	//SCREWING
+	public void AddPieceIDScrewable( int id, Vector3 offset )
+	{
+		if (screwable == null || screwable.Length < 1){
+			screwable = new int[max_screws];
+			screw_offsets = new Vector3[max_screws];
+			
+			for (int i = 0; i < max_screws; i++)
+				screwable[i] = -1;
+		}
+		
+		for (int i = 0; i < screwable.Length; i++){
+			if (screwable[i] == -1){
+				screwable[i] = id;
+				screw_offsets[i] = offset;
+				break;
+			}
+		}
+	}
+	
+	public void AddPieceIDScrewed( int id )
+	{
+		if (screwed == null || screwed.Length < 1){
+			screwed = new int[max_screws];
+			
+			for (int i = 0; i < max_screws; i++)
+				screwed[i] = -1;
+		}
+		
+		for (int i = 0; i < screwed.Length; i++){
+			if (screwed[i] == -1){
+				screwed[i] = id;
+				break;
+			}
+		}
+	}	
+	
+	public int findClosestScrewable( Vector3 pos )
+	{
+		if (screw_offsets == null || screw_offsets.Length < 1)
+			return -1;
+		//--
+		float closest = 10000;
+		int selected = 0;
+		Vector3 empty = new Vector3(0,0,0);
+		for (int i = 0; i < screw_offsets.Length; i++)
+		{
+			Vector3 off = screw_offsets[i];
+			if (off == empty)
+				continue;
+			//--
+			Vector3 worldPos = transform.root.TransformPoint( off );
+			float dist = Vector3.Distance( pos, worldPos );
+			
+			//print(off);
+			//print(dist);
+			
+			if (dist < closest){
+				closest = dist;
+				selected = screwable[i];
+			}
+		}
+		//--
+		return selected;
+	}
+	
+	public bool isPieceScrewable( int id )
+	{
+		for (int i = 0; i < screwable.Length; i++){
+			if (screwable[i] == null)
+				continue;
+			//--
+			if (screwable[i] == id)
+				return true;
+		}
+		return false;
+	}
+	
+	public bool isPieceScrewed( int id )
+	{
+		for (int i = 0; i < screwed.Length; i++){
+			if (screwed[i] == null)
+				continue;
+			//--
+			if (screwed[i] == id)
+				return true;
+		}
+		return false;
+	}	
+	//---------------
+	
+	void SetSnapToPos()
+	{
+		if (snapped == null)
+			return;
+		//--
+		Vector3 angles = snapped.transform.eulerAngles;
+		snapped.transform.eulerAngles = new Vector3(0,0,0);
+		transform.position = lerp_pos;
+		transform.eulerAngles = lerp_ang;
+		snapped.transform.eulerAngles = angles;
+	}
+	
+	void DropPiece()
+	{
+		transform.SetParent( null );
+		snapped = null;
+		Rigidbody rg = gameObject.AddComponent<Rigidbody>();
+		rigid = rg;
+	}
+	
 	void Update()
 	{
 		UpdateLerp();
@@ -62,8 +182,6 @@ public class snap : MonoBehaviour
 			if (preview_ent.activeSelf == false)
 				preview_ent.SetActive(true);
 		}
-
-		
 	}
 	
 	void UpdateLerp()
@@ -74,6 +192,17 @@ public class snap : MonoBehaviour
 				
 				snapped.transform.root.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 			}
+			
+			if (snapped != null){
+				snap parent_comp = snapped.GetComponent<snap>();
+				if (parent_comp.isPieceScrewable(id) && parent_comp.isPieceScrewed(id) != true)
+					DropPiece();
+			}
+			
+			//if ( screwable == true && lerp_start + anim_time + stay_time <= Time.time){
+			//for (int i = 0; i < screwable.Length; i++){
+				//Drop
+			// }
 			//--
 			return;
 		}
@@ -103,13 +232,13 @@ public class snap : MonoBehaviour
 		if (tag != "Preview" || snapped != null)
 			return;
 		
-		
 		//Angle Check
 		Vector3 myAngles = transform.eulerAngles;
 		Vector3 otherAngles = hit.transform.eulerAngles;
 		float difference = Mathf.DeltaAngle(otherAngles.z, myAngles.z);
 		difference = Mathf.Abs( difference );
 		
+		//print(transform.name);
 		//print(difference);
 		if ( difference > min_angle )
 			return;
@@ -139,7 +268,6 @@ public class snap : MonoBehaviour
 			snapped.transform.eulerAngles = new Vector3(0,0,0);
 			SetGameObjectMoveTo( oldPos, oldAng, snapped.transform.position + offset, angles );
 			transform.position = snapped.transform.position + offset;
-			
 			snapped.transform.eulerAngles = angles;
 			//transform.eulerAngles = angles;
 			
