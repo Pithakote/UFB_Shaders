@@ -19,10 +19,14 @@ public class UITweenManager : MonoBehaviour
     // controls panel
     public RectTransform controlsText, controlsBackButton;
     */
-    [SerializeField]
+
+    [SerializeField] RectTransform cog1, cog2;
+  [SerializeField]
     List<GameObject> _initialUIElements;
     void Start()
     {
+        cog1.DOLocalRotate(new Vector3(0.0f, 0.0f, 90f), 1.0f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear).SetRelative();
+        cog2.DOLocalRotate(new Vector3(0.0f, 0.0f, -90f), 1.0f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear).SetRelative();
         #region old code 
         /*
         homeMenu.DOAnchorPos(Vector2.zero, 0.50f);
@@ -33,8 +37,7 @@ public class UITweenManager : MonoBehaviour
 
        // if (SceneManager.GetActiveScene().name == "MainMenu")
        // {
-            cog1.DOLocalRotate(new Vector3(0.0f, 0.0f, 90f), 1.0f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear).SetRelative();
-            cog2.DOLocalRotate(new Vector3(0.0f, 0.0f, -90f), 1.0f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear).SetRelative();
+            
        // }
        // else
        //     return;

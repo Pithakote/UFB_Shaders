@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LocalMainMenuManager : LocalManager
 {
-   
+    [SerializeField] RectTransform cog1, cog2;
     protected override void SetInitialState()
     {
 
@@ -13,6 +13,9 @@ public class LocalMainMenuManager : LocalManager
       
     }
 
+    
+
+   
 
 
 
