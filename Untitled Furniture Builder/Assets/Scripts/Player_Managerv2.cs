@@ -50,7 +50,7 @@ public class Player_Managerv2 : MonoBehaviour
 		//SpawnSnappable(model, pos, offset, 1, 2);
 		//SpawnSnappable(model, pos - offset_pos, offset2, 3, 4);
 		levelManager = GameObject.Find("LevelManager");
-		//snappables = levelManager.GetComponent<LevelManager>().snappables;
+		snappables = levelManager.GetComponent<LevelManager>().snappables;
 	}
 	
 	void Update()

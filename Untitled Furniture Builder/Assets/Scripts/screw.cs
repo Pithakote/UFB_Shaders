@@ -101,7 +101,7 @@ public class screw : MonoBehaviour
 			if (perc_change > 0)
 				cur_perc += perc_change;
 			
-			print(perc_change);
+			//print(perc_change);
 			
 			if (cur_perc >= 1){
 				cur_perc = 0;
@@ -192,7 +192,7 @@ public class screw : MonoBehaviour
 		Vector3 angles = snapped.transform.eulerAngles;
 			
 		snapped.transform.eulerAngles = new Vector3(0,0,0);
-		SetGameObjectMoveTo( oldPos, oldAng, snapped.transform.position + offset, angles );
+		SetGameObjectMoveTo( oldPos, oldAng, snapped.transform.TransformPoint(offset), angles );
 		snapped.transform.eulerAngles = angles;
     }
 
@@ -216,6 +216,7 @@ public class screw : MonoBehaviour
 		
 		snap s = ent.GetComponent<snap>();
 		s.AddPieceIDScrewed( piece_id );
+		snap.numSnapped++;
 	}
 	
 	//---------------------

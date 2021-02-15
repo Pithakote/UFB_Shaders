@@ -59,26 +59,30 @@ public class LevelManager : LocalManager
 		Vector3 tray_pos = tray.transform.position + new Vector3(0,3.5f,0);
 		int max_screws = screw_snapto.Length;
 		screws = new GameObject[max_screws];
-		
-		for (int i = 0; i <= max_screws - 1; i++)
-		{
-			GameObject newScrew = Instantiate(screw);
-			newScrew.transform.position = tray_pos;
-			//
-			int id = screw_snapto[i];
-			newScrew.GetComponent<screw>().piece_id = screw_pieceid[i];
-			newScrew.GetComponent<screw>().snap_to_id = id;
-			newScrew.GetComponent<screw>().offset = screw_offsets[i];
-			//--
-			GameObject piece = snappables[id];
-			snap comp = piece.GetComponent<snap>();
-			
-			comp.max_screws = max_screws;
-			comp.AddPieceIDScrewable( screw_pieceid[i], screw_offsets[i] );
-			
-			//piece.GetComponent<snap>().screwable = new bool[screw_snap_id.Length];
-			//piece.GetComponent<snap>().screwable[i] = true;
+		if (max_screws > 0)
+        {
+			for (int i = 0; i <= max_screws - 1; i++)
+			{
+				GameObject newScrew = Instantiate(screw);
+				newScrew.transform.position = tray_pos;
+				//
+				int id = screw_snapto[i];
+				newScrew.GetComponent<screw>().piece_id = screw_pieceid[i];
+				newScrew.GetComponent<screw>().snap_to_id = id;
+				newScrew.GetComponent<screw>().offset = screw_offsets[i];
+				//--
+				GameObject piece = snappables[id];
+				snap comp = piece.GetComponent<snap>();
+
+				comp.max_screws = max_screws;
+				comp.AddPieceIDScrewable(screw_pieceid[i], screw_offsets[i]);
+
+				//piece.GetComponent<snap>().screwable = new bool[screw_snap_id.Length];
+				//piece.GetComponent<snap>().screwable[i] = true;
+			}
 		}
+		
+		
 		
 		Player_Managerv2.snappables = snappables;
 	}
@@ -89,7 +93,7 @@ public class LevelManager : LocalManager
 		base.Start();
 
 		InitializeSnappable();
-
+		print("test");
 		
 
 	}

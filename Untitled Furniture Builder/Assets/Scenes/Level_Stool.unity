@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: c46f8d8b90d4c7b459cc590f934e3e3e,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1158,6 +1158,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 556166458}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &270649591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1073417881763542768, guid: cb93d3948c669aa4f849730110f864bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 759307781}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &271211569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2025,6 +2031,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 882808306}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &444011862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 444011863}
+  m_Layer: 0
+  m_Name: tray
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &444011863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444011862}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.03, y: 1.285, z: 35.619}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &444345164
 GameObject:
   m_ObjectHideFlags: 0
@@ -4323,6 +4359,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1073417881763542768, guid: cb93d3948c669aa4f849730110f864bf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231293374686780835, guid: cb93d3948c669aa4f849730110f864bf,
+        type: 3}
+      propertyPath: _bgMusic.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231293374686780835, guid: cb93d3948c669aa4f849730110f864bf,
+        type: 3}
+      propertyPath: _radioObject
+      value: 
+      objectReference: {fileID: 1561375505}
+    - target: {fileID: 3231293374686780835, guid: cb93d3948c669aa4f849730110f864bf,
+        type: 3}
+      propertyPath: _bgAudioSource
+      value: 
+      objectReference: {fileID: 270649591}
+    - target: {fileID: 3231293374686780835, guid: cb93d3948c669aa4f849730110f864bf,
+        type: 3}
+      propertyPath: _bgMusic.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 50a78bf2b6a4f58418b4155f63261c24, type: 3}
+    - target: {fileID: 3231293374686780835, guid: cb93d3948c669aa4f849730110f864bf,
+        type: 3}
+      propertyPath: _bgMusic.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 858e46fb9347eff4b81016a93e61c46b, type: 3}
     - target: {fileID: 3231293374686780862, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
       propertyPath: m_Name
@@ -4366,7 +4432,7 @@ PrefabInstance:
     - target: {fileID: 3231293374686780863, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 3231293374686780863, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
@@ -4570,6 +4636,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Screw (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 319519196624610677, guid: ed747b92a421f8f47819f3a5829414b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1091271512617009103, guid: ed747b92a421f8f47819f3a5829414b7,
         type: 3}
@@ -5433,7 +5504,7 @@ PrefabInstance:
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4015755547284541891, guid: d86f001c0a9236440b367314445a79fd,
         type: 3}
@@ -6040,7 +6111,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 18.649, y: 8.499001, z: 0.052}
 --- !u!1 &1120992987
 GameObject:
@@ -6134,7 +6205,7 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1124327740
 PrefabInstance:
@@ -8276,6 +8347,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 319519196624610677, guid: ed747b92a421f8f47819f3a5829414b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1091271512617009103, guid: ed747b92a421f8f47819f3a5829414b7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9331,7 +9407,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70900
+  m_Name: pb_Mesh106254
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9488,6 +9564,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1561375505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3533961835372625050, guid: cb93d3948c669aa4f849730110f864bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 759307781}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1566690946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4068732887779152, guid: ba577e1642715534585fb21ba6d0529a,
@@ -11033,12 +11115,20 @@ MonoBehaviour:
   materialShader: {fileID: 2100000, guid: 572836f6f4637ab4a9b1c63a1b2f98f9, type: 2}
   snappable: {fileID: 4059220095760975271, guid: 1adad0167df1d1e4e85e61abefdd3e6c,
     type: 3}
+  tray: {fileID: 444011862}
+  screw: {fileID: 319519196624610677, guid: ed747b92a421f8f47819f3a5829414b7, type: 3}
   snap_meshes:
   - {fileID: 2534964839176971238, guid: 13475daa8893b884cb27459ab1f18e6b, type: 3}
   - {fileID: 5225931376564760844, guid: 13475daa8893b884cb27459ab1f18e6b, type: 3}
   - {fileID: -5682358579144442839, guid: 13475daa8893b884cb27459ab1f18e6b, type: 3}
   - {fileID: -6037834795605609229, guid: 13475daa8893b884cb27459ab1f18e6b, type: 3}
   - {fileID: 3882374461693324457, guid: 13475daa8893b884cb27459ab1f18e6b, type: 3}
+  piece_scales:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   snap_tos: ffffffff00000000000000000000000000000000
   snap_offsets:
   - {x: 0, y: 0, z: 0}
@@ -11046,7 +11136,15 @@ MonoBehaviour:
   - {x: -0.1001, y: -0.3, z: -0.0524}
   - {x: 0.05933, y: -0.3, z: -0.09447}
   - {x: 0.0966, y: -0.3, z: 0.0587}
+  screw_snapto: 00000000000000000000000000000000
+  screw_pieceid: 01000000020000000300000004000000
+  screw_offsets:
+  - {x: 0.0692, y: -0.0075, z: 0.0786}
+  - {x: -0.0787, y: -0.0075, z: 0.0745}
+  - {x: -0.0803, y: -0.0075, z: -0.0737}
+  - {x: 0.0762, y: -0.0075, z: -0.0752}
   snappables: []
+  screws: []
   _pauseMenuObject: {fileID: 894144550}
 --- !u!4 &1888105662
 Transform:
@@ -12165,6 +12263,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 319519196624610677, guid: ed747b92a421f8f47819f3a5829414b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1091271512617009103, guid: ed747b92a421f8f47819f3a5829414b7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12248,6 +12351,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Screw
+      objectReference: {fileID: 0}
+    - target: {fileID: 319519196624610677, guid: ed747b92a421f8f47819f3a5829414b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1091271512617009103, guid: ed747b92a421f8f47819f3a5829414b7,
         type: 3}
