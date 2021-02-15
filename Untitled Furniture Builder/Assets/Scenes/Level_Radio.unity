@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: c46f8d8b90d4c7b459cc590f934e3e3e,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7113,6 +7113,12 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3762537565554048671, guid: b37603f8ea8ba83489df2180bfd8eef2, type: 3}
+--- !u!1 &1054482981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3533961835372625050, guid: cb93d3948c669aa4f849730110f864bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1662364444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1063329980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13247,7 +13253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0bee04bae367140aa0a5e5d9a81707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radioObject: {fileID: 0}
+  _radioObject: {fileID: 1054482981}
   _radioInstantiation: {fileID: 4535426934880755331, guid: 9a13eb830432e074882840c2a38e9d54,
     type: 3}
   _radioLocation: {fileID: 1023822848}
@@ -13257,12 +13263,15 @@ MonoBehaviour:
   materialShader: {fileID: 2100000, guid: 81e9620472744464cb74e29d2287d2d2, type: 2}
   snappable: {fileID: 4059220095760975271, guid: 1adad0167df1d1e4e85e61abefdd3e6c,
     type: 3}
+  tray: {fileID: 0}
+  screw: {fileID: 0}
   snap_meshes:
   - {fileID: -8029413726392125436, guid: c214a7b395e521547aa29a3b4731e3f5, type: 3}
   - {fileID: -8723170690497991491, guid: c214a7b395e521547aa29a3b4731e3f5, type: 3}
   - {fileID: -566127155227573969, guid: c214a7b395e521547aa29a3b4731e3f5, type: 3}
   - {fileID: -3804597548161560880, guid: c214a7b395e521547aa29a3b4731e3f5, type: 3}
   - {fileID: -7829676329750517317, guid: c214a7b395e521547aa29a3b4731e3f5, type: 3}
+  piece_scales: []
   snap_tos: 01000000ffffffff010000000100000001000000
   snap_offsets:
   - {x: 0, y: 0, z: 0}
@@ -13270,7 +13279,11 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0.07, y: 0.02, z: 0}
+  screw_snapto: 
+  screw_pieceid: 
+  screw_offsets: []
   snappables: []
+  screws: []
   _pauseMenuObject: {fileID: 894144550}
 --- !u!114 &1888105664
 MonoBehaviour:

@@ -10,6 +10,8 @@ public class LevelManager : LocalManager
 	public Vector3 startpos;
 	public Material materialShader;
 	public GameObject snappable;
+	public GameObject tray;
+	public GameObject screw;
 	public Mesh[] snap_meshes;
 	public Vector3[] piece_scales;
 	public int[] snap_tos;
@@ -18,6 +20,7 @@ public class LevelManager : LocalManager
 	public int[] screw_pieceid;
 	public Vector3[] screw_offsets;
 	public GameObject[] snappables;
+	public GameObject[] screws;
 
 	[SerializeField]
 	GameObject _pauseMenuObject;
