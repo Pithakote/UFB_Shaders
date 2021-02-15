@@ -55,7 +55,7 @@ public class LevelManager : LocalManager
 			if (min == 0)
 				min = 0.5f;
 			Material selectedMaterial;
-			if (materialShaders != null)
+			if (materialShaders[i] != null)
 			{
 				selectedMaterial = materialShaders[i];
 			}
