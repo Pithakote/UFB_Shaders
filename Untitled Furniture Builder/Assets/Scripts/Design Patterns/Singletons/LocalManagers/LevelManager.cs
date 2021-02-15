@@ -55,12 +55,14 @@ public class LevelManager : LocalManager
 			if (min == 0)
 				min = 0.5f;
 			Material selectedMaterial;
-			if (materialShaders.Length > 0 && materialShaders[i] != null)
+			if (materialShaders != null)
 			{
 				selectedMaterial = materialShaders[i];
 			}
 			else
 				selectedMaterial = materialShader;
+
+			
 			snappables[i] = SpawnSnappable(snap_meshes[i], startpos + (offset * i), snap_offsets[i], i, snap_tos[i], selectedMaterial);
 		}
 		
