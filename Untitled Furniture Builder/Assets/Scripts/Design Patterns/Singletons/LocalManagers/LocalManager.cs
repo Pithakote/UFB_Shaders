@@ -6,7 +6,7 @@ public abstract class LocalManager: MonoBehaviour
 {
     protected GameManager _instance;
     protected abstract void SetInitialState();
-    [SerializeField] protected GameObject _radioObject, _radioInstantiation;
+    //[SerializeField] protected GameObject _radioObject, _radioInstantiation;
     protected SaveObject so;
 
     protected bool _radioActive;
