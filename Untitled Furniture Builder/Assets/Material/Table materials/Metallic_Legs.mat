@@ -94,7 +94,7 @@ Material:
     - _Specular: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Strength: 18.9
+    - _Strength: 2
     - _Surface: 0
     - _ViewSpecCutOff: 0.5
     - _WorkflowMode: 1
