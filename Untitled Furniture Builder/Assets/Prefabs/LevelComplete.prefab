@@ -167,6 +167,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 348.37, y: 122.6086}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!114 &1805552157651262162
 MonoBehaviour:
@@ -271,6 +272,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 140.8, y: 76}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 2.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &1805552157939588870
 GameObject:
@@ -307,7 +309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4254, y: -151.57068}
+  m_AnchoredPosition: {x: -307, y: -158}
   m_SizeDelta: {x: 223.9602, y: 86.49933}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1805552157939588874
@@ -362,6 +364,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: -273.0945, y: -151.5707}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &1805552158145005942
 GameObject:
@@ -518,6 +521,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: -236.0943, y: 0}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!114 &1805552158145005945
 MonoBehaviour:
@@ -622,6 +626,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: -11.19998, y: 76}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 2
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &1805552158470261202
 GameObject:
@@ -693,7 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8588236, b: 0.003921569, a: 0.77254903}
+  m_Color: {r: 1, g: 0.8588236, b: 0.003921569, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -861,6 +866,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: -87.99999}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &1805552158859071368
 GameObject:
@@ -1012,6 +1018,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: -322.5706}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &1805552158870136676
 GameObject:
@@ -1040,7 +1047,7 @@ RectTransform:
   m_GameObject: {fileID: 1805552158870136676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.15, z: 1}
   m_Children: []
   m_Father: {fileID: 1805552158470261203}
   m_RootOrder: 0
@@ -1071,13 +1078,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8627451}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5e19a9e01da954748b3c4283a44c8e85, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40318c264e69365498caa6f46ff2cc45, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1254,6 +1261,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: -360.66, y: 122.6087}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!114 &1805552158974239985
 MonoBehaviour:
@@ -1572,6 +1580,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: -165.1197}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &1805552159223906967
 GameObject:
@@ -1797,6 +1806,7 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: -165, y: 76}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 1.5
+  _delayTime: 0
   _IsBackButton: 0
 --- !u!1 &1805552159695589410
 GameObject:
@@ -1948,4 +1958,5 @@ MonoBehaviour:
   _ComeToScreenPosition: {x: 0, y: -198}
   _HideFromScreenPosition: {x: 0, y: 0}
   duration: 0.5
+  _delayTime: 0
   _IsBackButton: 0

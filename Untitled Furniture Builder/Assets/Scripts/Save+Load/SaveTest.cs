@@ -45,7 +45,7 @@ public class SaveTest : MonoBehaviour
         so.l2Rating = 0;
         so.l3Rating = 0;
         so.l4Rating = 0;
-        so.l5Rating = 0;
+        so.l5Rating = 0;       
         
         SaveManager.Save(so);
 

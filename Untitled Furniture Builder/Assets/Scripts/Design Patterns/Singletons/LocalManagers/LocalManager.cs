@@ -36,6 +36,11 @@ public abstract class LocalManager: MonoBehaviour
 
        // _instance.AudioManager.AudioSourceBackgroundMusic.Pause();
         _instance.AudioManager.RadioObject.transform.position = _radioLocation.position;
+        _instance.AudioManager.RadioObject.transform.localScale = _radioLocation.transform.localScale;
+        // _instance.AudioManager.RadioObject.transform.localRotation = _radioLocation.transform.localRotation;
+        _instance.AudioManager.RadioObject.transform.forward = _radioLocation.transform.forward;
+
+
         _instance.AudioManager.AudioSourceBackgroundMusic.spatialBlend = 1; //for 3D
        // _instance.AudioManager.RadioObject.GetComponent<AudioSource>().clip = _instance.AudioManager.AudioSourceBackgroundMusic.clip;
        // _instance.AudioManager.RadioObject.GetComponent<AudioSource>().time = _instance.AudioManager.AudioSourceBackgroundMusic.time;
