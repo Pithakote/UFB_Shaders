@@ -11113,6 +11113,12 @@ MonoBehaviour:
   minAngleSnap: 1
   startpos: {x: 2.6, y: 2.5, z: 35.9}
   materialShader: {fileID: 2100000, guid: b95d34cf952b5714ea6bd325f2a50203, type: 2}
+  materialShaders:
+  - {fileID: 2100000, guid: b95d34cf952b5714ea6bd325f2a50203, type: 2}
+  - {fileID: 2100000, guid: 30eeb3493903a604e968ac35e709cecc, type: 2}
+  - {fileID: 2100000, guid: 30eeb3493903a604e968ac35e709cecc, type: 2}
+  - {fileID: 2100000, guid: 30eeb3493903a604e968ac35e709cecc, type: 2}
+  - {fileID: 2100000, guid: 30eeb3493903a604e968ac35e709cecc, type: 2}
   snappable: {fileID: 4059220095760975271, guid: 1adad0167df1d1e4e85e61abefdd3e6c,
     type: 3}
   tray: {fileID: 444011862}

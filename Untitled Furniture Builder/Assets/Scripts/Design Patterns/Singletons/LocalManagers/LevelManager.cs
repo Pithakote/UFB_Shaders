@@ -9,6 +9,9 @@ public class LevelManager : LocalManager
 	public int minAngleSnap = 45;
 	public Vector3 startpos;
 	public Material materialShader;
+	public Material[] materialShaders;
+	
+
 	public GameObject snappable;
 	public GameObject tray;
 	public GameObject screw;
@@ -45,14 +48,20 @@ public class LevelManager : LocalManager
 
 		int amt_snappables = snap_tos.Length;
 		snappables = new GameObject[amt_snappables];
-
+		
 		for (int i = 0; i <= amt_snappables - 1; i++)
 		{
 			float min = Random.Range(-1, 1);
 			if (min == 0)
 				min = 0.5f;
-
-			snappables[i] = SpawnSnappable(snap_meshes[i], startpos + (offset * i), snap_offsets[i], i, snap_tos[i]);
+			Material selectedMaterial;
+			if (materialShaders.Length > 0 && materialShaders[i] != null)
+			{
+				selectedMaterial = materialShaders[i];
+			}
+			else
+				selectedMaterial = materialShader;
+			snappables[i] = SpawnSnappable(snap_meshes[i], startpos + (offset * i), snap_offsets[i], i, snap_tos[i], selectedMaterial);
 		}
 		
 		//Spawn Screws
@@ -100,7 +109,7 @@ public class LevelManager : LocalManager
 
    
 
-	GameObject SpawnSnappable(Mesh model, Vector3 origin, Vector3 offset, int id, int snap_to)
+	GameObject SpawnSnappable(Mesh model, Vector3 origin, Vector3 offset, int id, int snap_to, Material selectedMaterial)
 	{
 		GameObject ent = Instantiate(snappable);
 		ent.transform.position = origin;
@@ -109,6 +118,7 @@ public class LevelManager : LocalManager
 		Vector3 default_scale = new Vector3(1,1,1);
 		Vector3 empty_scale = new Vector3(0,0,0);
 		Vector3 custom_scale = piece_scales[id];
+
 		
 		if ( custom_scale != null && custom_scale != empty_scale )
 			ent.transform.localScale = custom_scale;
@@ -126,10 +136,14 @@ public class LevelManager : LocalManager
 		{
 			col.sharedMesh = null;
 			col.sharedMesh = model;
+
 		}
 
 		ent.GetComponent<MeshCollider>().sharedMesh = model;
-		ent.GetComponent<MeshRenderer>().material = materialShader;
+		
+		
+		ent.GetComponent<MeshRenderer>().material = selectedMaterial;
+		
 
 		if (triggerMinDistance > 0)
 			s.triggerMinDistance = triggerMinDistance;
