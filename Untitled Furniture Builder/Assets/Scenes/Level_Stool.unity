@@ -8839,7 +8839,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0cf1c8d9e3a6a2647bb1e0203e785ae1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.2292366
+      value: 1.0500001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0cf1c8d9e3a6a2647bb1e0203e785ae1,
         type: 3}
@@ -8874,7 +8874,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0cf1c8d9e3a6a2647bb1e0203e785ae1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0cf1c8d9e3a6a2647bb1e0203e785ae1,
         type: 3}
@@ -10760,7 +10760,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 70.037, y: -79.96001, z: 11.868001}
 --- !u!1 &1810082177
 GameObject:
@@ -11182,14 +11182,12 @@ MonoBehaviour:
   minAngleSnap: 1
   startpos: {x: 2.6, y: 2.5, z: 35.9}
   materialShader: {fileID: 2100000, guid: 572836f6f4637ab4a9b1c63a1b2f98f9, type: 2}
-
   materialShaders:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-
   snappable: {fileID: 4059220095760975271, guid: 1adad0167df1d1e4e85e61abefdd3e6c,
     type: 3}
   tray: {fileID: 444011862}
