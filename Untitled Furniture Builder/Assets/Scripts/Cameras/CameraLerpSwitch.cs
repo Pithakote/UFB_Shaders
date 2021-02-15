@@ -28,7 +28,13 @@ public class CameraLerpSwitch : MonoBehaviour
 
     public delegate void onKeyPressed();
     public event onKeyPressed keyPressedEvent;
-        
+
+    [SerializeField]
+    AudioClip _kitchenSFX, _hammerSFX, _whooshSFX, _pageFlipSFX;
+    [SerializeField]
+    AudioSource audioSource;
+
+    
 
     private void Start()
     {
@@ -45,7 +51,10 @@ public class CameraLerpSwitch : MonoBehaviour
     {
         transform.DOShakePosition(duration, new Vector3(0, 0, strength), vibrato, randomness);
     }
-
+    public void PlayKitchenSFX()
+    {
+        
+    }
     void getKeysPressed()
     {               
         // check for 1,2,3,4 keyboard input and switch camera position accordingly
@@ -53,21 +62,31 @@ public class CameraLerpSwitch : MonoBehaviour
         {
             nextPos = camPos[0];
             currentPosText.text = "Instructions";
+            audioSource.clip = _pageFlipSFX;
+            audioSource.Play();
+
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             nextPos = camPos[1];
             currentPosText.text = "Build";
+            audioSource.clip = _hammerSFX;
+            audioSource.Play();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             nextPos = camPos[2];
             currentPosText.text = "Kitchen";
+            audioSource.clip = _kitchenSFX;
+            audioSource.Play();
+           
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             nextPos = camPos[3];
             currentPosText.text = "Top-Down";
+            audioSource.clip = _whooshSFX;
+            audioSource.Play();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {

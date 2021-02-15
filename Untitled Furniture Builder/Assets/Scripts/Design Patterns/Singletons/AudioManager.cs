@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     AudioClip _audio1;
     [SerializeField]
-    AudioClip _audio2, _audio3, _backgroundMusic;
+    AudioClip _audio2, _audio3,  _backgroundMusic;
 
     //[Header("BG Music Clips")]
     //[SerializeField]  AudioClip[] bgMusic;
@@ -87,6 +87,8 @@ public class AudioManager : MonoBehaviour
         _audioSourceUIEffects.clip = _audio2;
         _audioSourceUIEffects.PlayOneShot(_audioSourceUIEffects.clip);
     }
+
+   
 
     public void StopHoverAudio()
     {
