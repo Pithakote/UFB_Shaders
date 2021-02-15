@@ -44,7 +44,7 @@ Material:
     - _AmbientColor: {r: 1, g: 0.8608516, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlinePosition: {r: 0, g: 0, b: 0, a: 1}
-    - _TextureColor: {r: 1, g: 0.85882354, b: 0.003921569, a: 1}
+    - _TextureColor: {r: 1, g: 0.0039215684, b: 0.062382907, a: 1}
 --- !u!114 &4329965943301763912
 MonoBehaviour:
   m_ObjectHideFlags: 11
