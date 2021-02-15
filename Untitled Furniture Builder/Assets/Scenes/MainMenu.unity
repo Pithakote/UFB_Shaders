@@ -7365,7 +7365,7 @@ PrefabInstance:
     - target: {fileID: 3231293374686780835, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
       propertyPath: _bgMusic.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3231293374686780835, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
@@ -7411,7 +7411,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _bgMusic.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 749882363b1897f46ae9e6a9a44375ba, type: 3}
+      objectReference: {fileID: 8300000, guid: 0132d20566574624599471e4d65c57f0, type: 3}
     - target: {fileID: 3231293374686780835, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
       propertyPath: _bgMusic.Array.data[3]
@@ -7422,6 +7422,11 @@ PrefabInstance:
       propertyPath: _bgMusic.Array.data[4]
       value: 
       objectReference: {fileID: 8300000, guid: 35991f0ac8859484ea8b872bdeba3aae, type: 3}
+    - target: {fileID: 3231293374686780835, guid: cb93d3948c669aa4f849730110f864bf,
+        type: 3}
+      propertyPath: _bgMusic.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 749882363b1897f46ae9e6a9a44375ba, type: 3}
     - target: {fileID: 3231293374686780862, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
       propertyPath: m_Name
