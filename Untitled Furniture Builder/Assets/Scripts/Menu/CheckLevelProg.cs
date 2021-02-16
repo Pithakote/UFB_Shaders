@@ -162,6 +162,22 @@ public class CheckLevelProg : MonoBehaviour
                 break;
         }
 
+        switch (so.l4Rating)
+        {
+
+            case 1:
+                Instantiate(oneStar, level4.transform);
+                break;
+            case 2:
+                Instantiate(twoStar, level4.transform);
+                break;
+            case 3:
+                Instantiate(threeStar, level4.transform);
+                break;
+            default:
+                break;
+        }
+
 
     }
 }
