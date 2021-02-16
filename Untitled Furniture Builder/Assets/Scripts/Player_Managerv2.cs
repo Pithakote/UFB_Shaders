@@ -38,7 +38,7 @@ public class Player_Managerv2 : MonoBehaviour
 	[SerializeField]
 	float upDistance;
 	[SerializeField]
-	Color pickupColor;
+	Color pickupColor, releaseColor;
 
 	[SerializeField]
 	float rotSpeed;
@@ -46,6 +46,7 @@ public class Player_Managerv2 : MonoBehaviour
 	
 	void Start()
 	{
+		releaseColor = Color.black;
 		//SpawnSnappable(model, pos + offset_pos, offset, 0, 1);
 		//SpawnSnappable(model, pos, offset, 1, 2);
 		//SpawnSnappable(model, pos - offset_pos, offset2, 3, 4);
@@ -249,7 +250,9 @@ public class Player_Managerv2 : MonoBehaviour
 
 							Renderer _renderer = pickedUp.GetComponent<Renderer>();
 							_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
-							_renderer.material.SetColor("_OutlineColor", pickupColor);
+							if(_renderer.material.HasProperty("_OutlineColor") == true)
+								_renderer.material.SetColor("_OutlineColor", pickupColor);
+
 						} else if ( ent.tag == "Snappable" || ent.transform.root.tag == "Snappable") {
 							snap comp = ent.GetComponent<snap>();
 							screw comp_screw = screwEnt.GetComponent<screw>();
@@ -278,7 +281,8 @@ public class Player_Managerv2 : MonoBehaviour
 				FreezeConstraints( pickedUp.GetComponent<Rigidbody>(), false );
 				Renderer _renderer = pickedUp.GetComponent<Renderer>();
 				_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
-				_renderer.material.SetColor("_OutlineColor", Color.black);
+				if (_renderer.material.HasProperty("_OutlineColor") == true)
+					_renderer.material.SetColor("_OutlineColor", releaseColor);
 				pickedUp = null;
 			}
 		}
