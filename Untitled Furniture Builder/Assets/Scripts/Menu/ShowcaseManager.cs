@@ -33,7 +33,10 @@ public class ShowcaseManager : MonoBehaviour
     {
         if (!so.tutorialComplete)
             Instantiate(questionBox, boxTutPos.transform.position, boxTutPos.transform.rotation);
-        
+        else if(so.tutorialComplete)
+            Instantiate(questionBox, new Vector3(1000,1000,1000), boxTutPos.transform.rotation);
+
+
 
         if (so.l1Complete)        
             Instantiate(level1, level1Pos.transform.position, Quaternion.identity);        
