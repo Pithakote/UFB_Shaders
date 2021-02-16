@@ -26,7 +26,7 @@ public class screw : MonoBehaviour
 	float lerp_start = -100;
 	
 	//Mouse Minigame
-	float screw_time = 2.5f;
+	float screw_time = .65f;
 	GameObject attempt_ent;
 	float req_rotations = 5;
 	float rotations = 0;
