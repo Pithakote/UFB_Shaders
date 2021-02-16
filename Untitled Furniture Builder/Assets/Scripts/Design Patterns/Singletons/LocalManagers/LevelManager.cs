@@ -35,7 +35,8 @@ public class LevelManager : LocalManager
 
 	protected override void SetInitialState()
 	{
-		_instance.LocalManager = this;
+		if (_pauseMenuObject == null)
+			return;
 		//base class abstraction
 		_instance.StateManager.PauseMenuObject = _pauseMenuObject;
 		_instance.StateManager.InGameState = new InGameState(_instance, _pauseMenuObject);

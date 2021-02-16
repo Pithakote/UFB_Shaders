@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: c46f8d8b90d4c7b459cc590f934e3e3e,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -10811,6 +10811,52 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2475517773136409290, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _delayTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483662435280275971, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _delayTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660371392444181594, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1847.0312
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660371392444181594, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -49.000008
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660371392679828235, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1847.0312
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660371392679828235, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 116.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660371393442338222, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203188596920413084, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: startTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4652055638468159060, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _nextScene
+      value: 
+      objectReference: {fileID: 102900000, guid: b270dbbd4e609124399c5b115744199a,
+        type: 3}
     - target: {fileID: 4763618080212095011, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: _enterTriggerPoint
@@ -10941,10 +10987,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6543940460678518982, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _delayTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6563250406261002538, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _nextScene
+      value: 
+      objectReference: {fileID: 102900000, guid: b270dbbd4e609124399c5b115744199a,
+        type: 3}
     - target: {fileID: 6563250406343146068, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: m_text
       value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 6563250408181284002, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _nextScene
+      value: 
+      objectReference: {fileID: 102900000, guid: 0bb7b5d0c53538b41a4a18e6166775c5,
+        type: 3}
+    - target: {fileID: 6903734480489375672, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1847.0312
+      objectReference: {fileID: 0}
+    - target: {fileID: 8131315693310881634, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _delayTime
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23c6219dfb011784f8e09f6eb1933a55, type: 3}

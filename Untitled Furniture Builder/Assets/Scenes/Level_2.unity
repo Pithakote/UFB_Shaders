@@ -3739,6 +3739,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2475517773136409290, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _delayTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483662435280275971, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _delayTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660371393442338222, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203188596920413084, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: startTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4652055638468159060, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _nextScene
+      value: 
+      objectReference: {fileID: 102900000, guid: f4110d142ef6eb94780a1495571a47b6,
+        type: 3}
     - target: {fileID: 4763618081013858720, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3849,13 +3875,47 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6543940460678518982, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _delayTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6563250406261002538, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _nextScene
+      value: 
+      objectReference: {fileID: 102900000, guid: f4110d142ef6eb94780a1495571a47b6,
+        type: 3}
     - target: {fileID: 6563250406343146068, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: m_text
       value: Level 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6563250408181284002, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _nextScene
+      value: 
+      objectReference: {fileID: 102900000, guid: 9f74906846d521e479100f5a1e54ac9b,
+        type: 3}
+    - target: {fileID: 8131315693310881634, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _delayTime
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23c6219dfb011784f8e09f6eb1933a55, type: 3}
+--- !u!1 &703415570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4763618079965749966, guid: 23c6219dfb011784f8e09f6eb1933a55,
+    type: 3}
+  m_PrefabInstance: {fileID: 703415569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &703415571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4763618080212095009, guid: 23c6219dfb011784f8e09f6eb1933a55,
+    type: 3}
+  m_PrefabInstance: {fileID: 703415569}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &733340957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 404536, guid: 7d5fac0efe938994aba24a88ba9c3057,
@@ -4927,7 +4987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76367dbfaed5af44b40eb5d48dbf452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkButton: {fileID: 0}
+  checkButton: {fileID: 703415571}
   numChildrenRequired: 8
 --- !u!65 &1053405076
 BoxCollider:
@@ -9795,7 +9855,7 @@ MonoBehaviour:
   - {x: 0.0762, y: -0.0075, z: -0.0752}
   snappables: []
   screws: []
-  _pauseMenuObject: {fileID: 0}
+  _pauseMenuObject: {fileID: 703415570}
 --- !u!4 &1888105662
 Transform:
   m_ObjectHideFlags: 0
