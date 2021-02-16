@@ -3825,7 +3825,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 626931769}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0006}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0042}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 437437585}
@@ -4108,6 +4108,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23c6219dfb011784f8e09f6eb1933a55, type: 3}
+--- !u!1 &703415570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2762553824971885877, guid: 23c6219dfb011784f8e09f6eb1933a55,
+    type: 3}
+  m_PrefabInstance: {fileID: 703415569}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &703415571 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4763618080212095009, guid: 23c6219dfb011784f8e09f6eb1933a55,
@@ -6326,12 +6332,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2766541631056868802, guid: 0bf0e70a8bd45044eaa51b5387ba5c07, type: 3}
---- !u!1 &1266872317 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4763618079965749966, guid: 23c6219dfb011784f8e09f6eb1933a55,
-    type: 3}
-  m_PrefabInstance: {fileID: 703415569}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1276635795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10384,7 +10384,7 @@ MonoBehaviour:
   - {x: 0.0762, y: -0.0075, z: -0.0752}
   snappables: []
   screws: []
-  _pauseMenuObject: {fileID: 1266872317}
+  _pauseMenuObject: {fileID: 703415570}
 --- !u!4 &1888105662
 Transform:
   m_ObjectHideFlags: 0
