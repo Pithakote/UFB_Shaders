@@ -9,7 +9,7 @@ public class ShowcaseManager : MonoBehaviour
     [SerializeField]
     GameObject level1;
     [SerializeField]
-    GameObject level2, level3, level4, level5;
+    GameObject level2, level3, level4, level5, questionBox;
 
     
 
@@ -17,7 +17,7 @@ public class ShowcaseManager : MonoBehaviour
     [SerializeField]
     GameObject level1Pos;
     [SerializeField]
-    GameObject level2Pos, level3Pos, level4Pos, level5Pos;
+    GameObject level2Pos, level3Pos, level4Pos, level5Pos, box1Pos, box2Pos, box3Pos, box4Pos, box5Pos;
 
     SaveObject so;
     private void Start()
@@ -32,28 +32,32 @@ public class ShowcaseManager : MonoBehaviour
     void SpawnFurniture()
     {
         
-        if (so.l1Complete)
-        {
-            Instantiate(level1, level1Pos.transform.position, Quaternion.identity);
+        if (so.l1Complete)        
+            Instantiate(level1, level1Pos.transform.position, Quaternion.identity);        
+        else if (!so.l1Complete)
+            Instantiate(questionBox, box1Pos.transform.position, box1Pos.transform.rotation);
 
-        }
-        if (so.l2Complete)
-        {
+        if (so.l2Complete)        
             Instantiate(level2, level2Pos.transform.position, Quaternion.identity);
-        }
-        if (so.l3Complete)
-        {
+        else if (!so.l2Complete)
+            Instantiate(questionBox, box2Pos.transform.position, box2Pos.transform.rotation);
+
+        if (so.l3Complete)        
             Instantiate(level3, level3Pos.transform.position, level3Pos.transform.rotation);
-        }
-        if (so.l4Complete)
-        {
+        else if (!so.l3Complete)
+            Instantiate(questionBox, box3Pos.transform.position, box3Pos.transform.rotation);
+
+        if (so.l4Complete)        
             Instantiate(level4, level4Pos.transform.position, Quaternion.identity);
-        }
-        if (so.l5Complete)
-        {
+        else if (!so.l4Complete)
+            Instantiate(questionBox, box4Pos.transform.position, box4Pos.transform.rotation);
+
+        if (so.l5Complete)        
             Instantiate(level5, level5Pos.transform.position, Quaternion.identity);
-        }
-        
+        else if (!so.l5Complete)
+            Instantiate(questionBox, box5Pos.transform.position, box5Pos.transform.rotation);
+
+
     }
 
     public void CompleteAllLevels()
