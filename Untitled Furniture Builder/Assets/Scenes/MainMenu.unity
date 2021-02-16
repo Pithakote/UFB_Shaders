@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -458,12 +458,6 @@ Light:
 --- !u!1 &140713919 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3533961835372625050, guid: cb93d3948c669aa4f849730110f864bf,
-    type: 3}
-  m_PrefabInstance: {fileID: 3231293373957335250}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &140713921 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4452457223552404121, guid: cb93d3948c669aa4f849730110f864bf,
     type: 3}
   m_PrefabInstance: {fileID: 3231293373957335250}
   m_PrefabAsset: {fileID: 0}
@@ -18416,11 +18410,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3301538402492696612, guid: 16c85a81fcd64794a8d16329290d9668,
         type: 3}
-    - target: {fileID: 3231293374686780834, guid: cb93d3948c669aa4f849730110f864bf,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3231293374686780835, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
       propertyPath: bgMusic.Array.size
@@ -18428,6 +18417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3231293374686780835, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
+
       propertyPath: _bgMusic.Array.size
       value: 7
       objectReference: {fileID: 0}
@@ -18448,6 +18438,8 @@ PrefabInstance:
       objectReference: {fileID: 140713921}
     - target: {fileID: 3231293374686780835, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
+
+
       propertyPath: bgMusic.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 116ab4143b4bceb47ae655cfd9a422c0, type: 3}
@@ -18461,6 +18453,7 @@ PrefabInstance:
       propertyPath: bgMusic.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 0bcfda9a4098b7a4d8806a7d9a4afc28, type: 3}
+
     - target: {fileID: 3231293374686780835, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
       propertyPath: _bgMusic.Array.data[0]
@@ -18496,6 +18489,8 @@ PrefabInstance:
       propertyPath: _bgMusic.Array.data[6]
       value: 
       objectReference: {fileID: 8300000, guid: 367a190f116efe940a55a3bb3ad618cd, type: 3}
+
+
     - target: {fileID: 3231293374686780862, guid: cb93d3948c669aa4f849730110f864bf,
         type: 3}
       propertyPath: m_Name

@@ -37,11 +37,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     AudioSource _audioSourceUIEffects, _audioSourceBackgroundMusic;
     [SerializeField]
-    GameObject _radioObject, _bgAudioSource;
+    GameObject _radioObject;
     public AudioSource AudioSourceBackgroundMusic { get { return _audioSourceBackgroundMusic; } set { _audioSourceBackgroundMusic = value; } }
     public AudioSource AudioSourceUIEffects{ get { return _audioSourceUIEffects; } }
     public GameObject RadioObject { get { return _radioObject; } set { _radioObject = value; } }
-    public GameObject BGAudioSource { get { return _bgAudioSource; } }
+   
 
     [Header("BG Music Clips")]
     [SerializeField]
@@ -123,8 +123,7 @@ public class AudioManager : MonoBehaviour
         BackgroundMusicSourceNullCheck();
 
         SelectMusicClip();
-
-       
+               
 
         _audioSourceBackgroundMusic.Play();
     }
