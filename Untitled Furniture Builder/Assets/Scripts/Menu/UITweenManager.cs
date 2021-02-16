@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 public class UITweenManager : MonoBehaviour
 {
     /*
@@ -21,10 +21,13 @@ public class UITweenManager : MonoBehaviour
     */
 
     [SerializeField] RectTransform cog1, cog2;
+    
+
   [SerializeField]
     List<GameObject> _initialUIElements;
     void Start()
     {
+
         cog1.DOLocalRotate(new Vector3(0.0f, 0.0f, 90f), 1.0f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear).SetRelative();
         cog2.DOLocalRotate(new Vector3(0.0f, 0.0f, -90f), 1.0f).SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear).SetRelative();
         #region old code 
@@ -67,9 +70,10 @@ public class UITweenManager : MonoBehaviour
 
 
     }
-    
 
-   
+ 
+
+
     /*
     public void OpenControls()
     {
