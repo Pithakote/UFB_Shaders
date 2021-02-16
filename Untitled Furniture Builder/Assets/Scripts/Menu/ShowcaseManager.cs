@@ -17,7 +17,7 @@ public class ShowcaseManager : MonoBehaviour
     [SerializeField]
     GameObject level1Pos;
     [SerializeField]
-    GameObject level2Pos, level3Pos, level4Pos, level5Pos, box1Pos, box2Pos, box3Pos, box4Pos, box5Pos;
+    GameObject level2Pos, level3Pos, level4Pos, level5Pos, boxTutPos, box1Pos, box2Pos, box3Pos, box4Pos, box5Pos;
 
     SaveObject so;
     private void Start()
@@ -31,7 +31,10 @@ public class ShowcaseManager : MonoBehaviour
 
     void SpawnFurniture()
     {
+        if (!so.tutorialComplete)
+            Instantiate(questionBox, boxTutPos.transform.position, boxTutPos.transform.rotation);
         
+
         if (so.l1Complete)        
             Instantiate(level1, level1Pos.transform.position, Quaternion.identity);        
         else if (!so.l1Complete)

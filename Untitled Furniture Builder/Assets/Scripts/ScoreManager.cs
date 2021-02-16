@@ -43,7 +43,7 @@ public class ScoreManager : MonoBehaviour
 
             numTimeLeft = (int)timeLeft;
 
-           
+
             //if (score >= 3800)
             //    levelRating = 3;
             //else if (score <= 3799 && score >= 3200)
@@ -57,8 +57,8 @@ public class ScoreManager : MonoBehaviour
                 levelRating = 2;
             else if (numTimeLeft <= Timer.initialTime * 0.49f)
                 levelRating = 1;
-            else if (numTimeLeft >= 0)
-                return;
+            else if (numTimeLeft <= 0)
+                levelRating = 0;
 
             Debug.Log(score);
             Debug.Log("lvlRating" + levelRating);
