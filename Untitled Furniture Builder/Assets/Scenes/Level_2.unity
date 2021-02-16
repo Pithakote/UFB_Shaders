@@ -8980,7 +8980,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59992
+  m_Name: pb_Mesh79282
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10916,11 +10916,11 @@ MonoBehaviour:
   startpos: {x: 2.6, y: 2.5, z: 35.9}
   materialShader: {fileID: 2100000, guid: 572836f6f4637ab4a9b1c63a1b2f98f9, type: 2}
   materialShaders:
-  - {fileID: 2100000, guid: b95d34cf952b5714ea6bd325f2a50203, type: 2}
-  - {fileID: 2100000, guid: 66d48484d1a25ed4cb7318117e2dff06, type: 2}
-  - {fileID: 2100000, guid: 66d48484d1a25ed4cb7318117e2dff06, type: 2}
-  - {fileID: 2100000, guid: 66d48484d1a25ed4cb7318117e2dff06, type: 2}
-  - {fileID: 2100000, guid: 66d48484d1a25ed4cb7318117e2dff06, type: 2}
+  - {fileID: 2100000, guid: 9bbba734a5c57fb44bcbfe2a9eae4335, type: 2}
+  - {fileID: 2100000, guid: 245ab7f3fbb632c44b93a2f8b0c9ad81, type: 2}
+  - {fileID: 2100000, guid: 245ab7f3fbb632c44b93a2f8b0c9ad81, type: 2}
+  - {fileID: 2100000, guid: 245ab7f3fbb632c44b93a2f8b0c9ad81, type: 2}
+  - {fileID: 2100000, guid: 245ab7f3fbb632c44b93a2f8b0c9ad81, type: 2}
   snappable: {fileID: 4059220095760975271, guid: 1adad0167df1d1e4e85e61abefdd3e6c,
     type: 3}
   tray: {fileID: 1801279303}
@@ -10940,10 +10940,10 @@ MonoBehaviour:
   snap_tos: ffffffff00000000000000000000000000000000
   snap_offsets:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: -0.6, y: 1, z: 0.3}
+  - {x: 0.6, y: 1, z: 0.3}
+  - {x: -0.6, y: 1, z: -0.3}
+  - {x: 0.6, y: 1, z: -0.3}
   screw_snapto: 00000000000000000000000000000000
   screw_pieceid: 01000000020000000300000004000000
   screw_offsets:

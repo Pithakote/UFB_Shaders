@@ -294,9 +294,9 @@ public class snap : MonoBehaviour
 		
 		GameObject spawned = Instantiate(preview);
 		spawned.layer = 8;
-		spawned.transform.localScale = transform.localScale;
+		
 		spawned.transform.SetParent( transform );
-			
+		spawned.transform.localScale = transform.localScale;
 		MeshFilter filter = spawned.GetComponent<MeshFilter>();
 		filter.sharedMesh = mesh;
 		filter.mesh = mesh;

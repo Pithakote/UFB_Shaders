@@ -249,7 +249,7 @@ public class Player_Managerv2 : MonoBehaviour
 
 
 							Renderer _renderer = pickedUp.GetComponent<Renderer>();
-							_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
+							//_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
 							if(_renderer.material.HasProperty("_OutlineColor") == true)
 								_renderer.material.SetColor("_OutlineColor", pickupColor);
 
@@ -280,7 +280,7 @@ public class Player_Managerv2 : MonoBehaviour
 				IgnoreRaycast( pickedUp, false );
 				FreezeConstraints( pickedUp.GetComponent<Rigidbody>(), false );
 				Renderer _renderer = pickedUp.GetComponent<Renderer>();
-				_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
+				//_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
 				if (_renderer.material.HasProperty("_OutlineColor") == true)
 					_renderer.material.SetColor("_OutlineColor", releaseColor);
 				pickedUp = null;
