@@ -55,7 +55,10 @@ public class UINextPanelBehaviour : IButtonInteractable
 
         
                   
-        _children.ForEach(childr => childr.GetComponent<InnerButtonAddListener>().MoveToScreen());
+        
+      
+                _children.ForEach(childr => childr.GetComponent<InnerButtonAddListener>().MoveToScreen());
+
         
 
     }
