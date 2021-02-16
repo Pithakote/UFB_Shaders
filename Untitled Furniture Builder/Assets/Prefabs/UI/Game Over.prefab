@@ -147,6 +147,8 @@ GameObject:
   - component: {fileID: 5276582015501564175}
   - component: {fileID: 1697853746230225188}
   - component: {fileID: 1690907899161714276}
+  - component: {fileID: 6212724225634999100}
+  - component: {fileID: 6935837184399919197}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -273,6 +275,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6212724225634999100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921558243499895175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ed0b11850145c4995dd76170bb2500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6935837184399919197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921558243499895175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd62ca247b62eb44ac17b22a0b179ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ComeToScreenPosition: {x: 0, y: -219}
+  _HideFromScreenPosition: {x: 0, y: 0}
+  duration: 0.7
+  _delayTime: 60
+  _IsBackButton: 0
 --- !u!1 &7417513008504423358
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +451,8 @@ GameObject:
   - component: {fileID: 7417513008788054430}
   - component: {fileID: 7417513008788054429}
   - component: {fileID: 5715721149330416005}
+  - component: {fileID: 7841520004770963994}
+  - component: {fileID: 3658042119508383221}
   m_Layer: 5
   m_Name: Retry
   m_TagString: Untagged
@@ -546,6 +579,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7841520004770963994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7417513008788054419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa1da4f11c097f458f6a1b2a742a683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextScene: {fileID: 102900000, guid: b270dbbd4e609124399c5b115744199a, type: 3}
+--- !u!114 &3658042119508383221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7417513008788054419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd62ca247b62eb44ac17b22a0b179ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ComeToScreenPosition: {x: 0, y: 116}
+  _HideFromScreenPosition: {x: 0, y: 0}
+  duration: 0.5
+  _delayTime: 60
+  _IsBackButton: 0
 --- !u!1 &7417513009160083148
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,6 +622,8 @@ GameObject:
   - component: {fileID: 7417513009160083151}
   - component: {fileID: 7417513009160083150}
   - component: {fileID: 5233894463669540355}
+  - component: {fileID: 4061088027918387074}
+  - component: {fileID: 6948061043879882900}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -685,6 +750,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4061088027918387074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7417513009160083148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa1da4f11c097f458f6a1b2a742a683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextScene: {fileID: 102900000, guid: 473be87b69323cc43a11d1ad4d8ce4f7, type: 3}
+--- !u!114 &6948061043879882900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7417513009160083148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd62ca247b62eb44ac17b22a0b179ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ComeToScreenPosition: {x: 0, y: -49}
+  _HideFromScreenPosition: {x: 0, y: 0}
+  duration: 0.7
+  _delayTime: 60
+  _IsBackButton: 0
 --- !u!1 &7417513010020232810
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,6 +791,7 @@ GameObject:
   - component: {fileID: 7417513010020232811}
   - component: {fileID: 7417513010020232789}
   - component: {fileID: 7417513010020232788}
+  - component: {fileID: 1786656139402863185}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -819,6 +915,23 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1786656139402863185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7417513010020232810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd62ca247b62eb44ac17b22a0b179ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ComeToScreenPosition: {x: 0, y: -128}
+  _HideFromScreenPosition: {x: 0, y: 0}
+  duration: 0.6
+  _delayTime: 60
+  _IsBackButton: 0
 --- !u!1 &7417513010141441849
 GameObject:
   m_ObjectHideFlags: 0

@@ -10498,6 +10498,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1958916936}
     m_Modifications:
+    - target: {fileID: 1786656139402863185, guid: 30b5333e10e61324e9f786e39e3f66d5,
+        type: 3}
+      propertyPath: _delayTime
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658042119508383221, guid: 30b5333e10e61324e9f786e39e3f66d5,
+        type: 3}
+      propertyPath: _delayTime
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935837184399919197, guid: 30b5333e10e61324e9f786e39e3f66d5,
+        type: 3}
+      propertyPath: _delayTime
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935837184399919197, guid: 30b5333e10e61324e9f786e39e3f66d5,
+        type: 3}
+      propertyPath: duration
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948061043879882900, guid: 30b5333e10e61324e9f786e39e3f66d5,
+        type: 3}
+      propertyPath: _delayTime
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 7417513010141441849, guid: 30b5333e10e61324e9f786e39e3f66d5,
         type: 3}
       propertyPath: m_Name
@@ -10613,6 +10638,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7841520004770963994, guid: 30b5333e10e61324e9f786e39e3f66d5,
+        type: 3}
+      propertyPath: _nextScene
+      value: 
+      objectReference: {fileID: 102900000, guid: 2796cf4dc0c6e9046be223f7f2eafa6b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b5333e10e61324e9f786e39e3f66d5, type: 3}
 --- !u!224 &1790917145 stripped
