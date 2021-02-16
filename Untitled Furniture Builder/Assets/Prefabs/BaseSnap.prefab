@@ -143,5 +143,12 @@ MonoBehaviour:
   id: 0
   offset: {x: 0, y: 0, z: 0}
   preview: {fileID: 2519711695792753198, guid: a692c05a7e9b48448ae48e8a12e8c629, type: 3}
+  max_screws: 0
+  screwable: 
+  screwed: 
+  screw_offsets: []
+  min_angle: 45
+  triggerMinDistance: 0
   snapped: {fileID: 0}
   preview_ent: {fileID: 0}
+  tempScaleVal: {x: 1, y: 1, z: 1}

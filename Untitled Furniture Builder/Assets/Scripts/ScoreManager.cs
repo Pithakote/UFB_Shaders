@@ -53,7 +53,7 @@ public class ScoreManager : MonoBehaviour
 
             if (numTimeLeft >= Timer.initialTime * 0.75f)
                 levelRating = 3;
-            else if (numTimeLeft <= Timer.initialTime * 0.74f && numTimeLeft >= Timer.initialTime * 0.50f)
+            else if (numTimeLeft <= Timer.initialTime * 0.749999f && numTimeLeft >= Timer.initialTime * 0.50f)
                 levelRating = 2;
             else if (numTimeLeft <= Timer.initialTime * 0.49f)
                 levelRating = 1;
@@ -110,7 +110,7 @@ public class ScoreManager : MonoBehaviour
     {
         score = score + baseScore + (numTimeLeft * 56);
         scoreText.text = score.ToString();
-        
+        SaveManager.Save(so);
     }
 
     public void Reset()
@@ -127,16 +127,29 @@ public class ScoreManager : MonoBehaviour
             so.tutorialRating = levelRating;
             SaveManager.Save(so);
         }
-        else if (SceneManager.GetActiveScene().name == "Level_Stool")
+        else if (SceneManager.GetActiveScene().name == "Level_1")
         {
             so.l1Complete = true;
             so.l1Rating = levelRating;
             SaveManager.Save(so);
         }
+        else if (SceneManager.GetActiveScene().name == "Level_2")
+        {
+            so.l2Complete = true;
+            so.l2Rating = levelRating;
+            SaveManager.Save(so);
+        }
+        else if (SceneManager.GetActiveScene().name == "Level_3")
+        {
+            so.l3Complete = true;
+            so.l3Rating = levelRating;
+            SaveManager.Save(so);
+        }
+        
 
         //so.levelProgress++;
-        
-       
+
+
     }
 
     private void OnLevelWasLoaded(int level)

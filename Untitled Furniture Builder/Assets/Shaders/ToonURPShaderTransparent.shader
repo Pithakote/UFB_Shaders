@@ -37,8 +37,8 @@ Shader "Custom/ToonURPShaderTransparent"
 
                 
                 // _AmbientLight("AmbientLight",Float) = half3(unity_SHAr.w,unity_SHAg.w,unity_SHAb.w)
-                _OutlineThickness("Outline Thickness", Float) = 1.07
-            _OutlineColor("Outline Color", Color) = (0,0,0,1)
+           //     _OutlineThickness("Outline Thickness", Float) = 1.07
+           // _OutlineColor("Outline Color", Color) = (0,0,0,1)
         }
        // CustomEditor "ToonURPShaderGUI"
         SubShader

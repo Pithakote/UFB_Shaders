@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     #endregion
     public ButtonListenerManager ButtonListenerManager { get { return _buttonListenerManager; } }
 
-    
+    public LevelManager LocalManager { get; set; }
     
     
     

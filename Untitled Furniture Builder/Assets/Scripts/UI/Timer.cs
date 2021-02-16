@@ -19,14 +19,16 @@ public class Timer : MonoBehaviour
     public static string minutes;
     public static string seconds;
 
-   
+    List<GameObject> _children;
+    bool _isOver;
     // Start is called before the first frame update
     void Awake()
     {
         //startTime = 60.0f;
         time = startTime;
         initialTime = time;
-        
+        _children = new List<GameObject>();
+        _isOver = false;
     }
 
     // Update is called once per frame
@@ -49,11 +51,24 @@ public class Timer : MonoBehaviour
 
         //need to load a different scene or UI text when timer hits 0
         // for now it just resets
-        if (time <= 0)
+        if (time <= 0 && _isOver == false)
         {
             
             //gameObject.SetActive(false);
             GameOverUI.SetActive(true);
+
+            for (int i = 0; i < GameOverUI.transform.childCount; i++)
+            {
+                //if the InnerButtonAddListener is not present continue the loop but don't add
+                if (GameOverUI.transform.GetChild(i).GetComponentInChildren<InnerButtonAddListener>() == null)
+                    continue;
+
+                //  if (_nextUI.gameObject.transform.GetChild(i).GetComponentInChildren<InnerButtonAddListener>() != null)
+                _children.Add(GameOverUI.transform.GetChild(i).gameObject);
+            }
+            _children.ForEach(childr => childr.GetComponent<InnerButtonAddListener>().MoveToScreen());
+
+            _isOver = true;
         }
     }
 }

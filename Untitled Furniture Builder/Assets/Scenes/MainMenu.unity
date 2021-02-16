@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5341,6 +5341,7 @@ GameObject:
   - component: {fileID: 627365748}
   - component: {fileID: 627365751}
   - component: {fileID: 627365752}
+  - component: {fileID: 627365753}
   m_Layer: 5
   m_Name: L3_button
   m_TagString: Untagged
@@ -5483,6 +5484,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &627365753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627365746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa1da4f11c097f458f6a1b2a742a683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextScene: {fileID: 102900000, guid: 9f74906846d521e479100f5a1e54ac9b, type: 3}
 --- !u!1 &649357907
 GameObject:
   m_ObjectHideFlags: 0
@@ -7734,6 +7748,7 @@ GameObject:
   - component: {fileID: 910156143}
   - component: {fileID: 910156146}
   - component: {fileID: 910156147}
+  - component: {fileID: 910156148}
   m_Layer: 5
   m_Name: L2_button
   m_TagString: Untagged
@@ -7876,6 +7891,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &910156148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910156141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa1da4f11c097f458f6a1b2a742a683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextScene: {fileID: 102900000, guid: f4110d142ef6eb94780a1495571a47b6, type: 3}
 --- !u!1 &916489542
 GameObject:
   m_ObjectHideFlags: 0
@@ -12862,7 +12890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa1da4f11c097f458f6a1b2a742a683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextScene: {fileID: 102900000, guid: 2796cf4dc0c6e9046be223f7f2eafa6b, type: 3}
+  _nextScene: {fileID: 102900000, guid: 0bb7b5d0c53538b41a4a18e6166775c5, type: 3}
 --- !u!114 &1485471670
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,12 +27,16 @@ public class LevelManager : LocalManager
 
 	[SerializeField]
 	GameObject _pauseMenuObject;
+	//[SerializeField]
+	//private Player_Managerv2 _pManagerv2;
+	//public Player_Managerv2 PManagerv2 { get { return _pManagerv2; } }
+	//
 
-	
 
-	
 	protected override void SetInitialState()
 	{
+		if (_pauseMenuObject == null)
+			return;
 		//base class abstraction
 		_instance.StateManager.PauseMenuObject = _pauseMenuObject;
 		_instance.StateManager.InGameState = new InGameState(_instance, _pauseMenuObject);

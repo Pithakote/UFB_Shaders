@@ -38,7 +38,7 @@ public class Player_Managerv2 : MonoBehaviour
 	[SerializeField]
 	float upDistance;
 	[SerializeField]
-	Color pickupColor;
+	Color pickupColor, releaseColor;
 
 	[SerializeField]
 	float rotSpeed;
@@ -46,6 +46,7 @@ public class Player_Managerv2 : MonoBehaviour
 	
 	void Start()
 	{
+		releaseColor = Color.black;
 		//SpawnSnappable(model, pos + offset_pos, offset, 0, 1);
 		//SpawnSnappable(model, pos, offset, 1, 2);
 		//SpawnSnappable(model, pos - offset_pos, offset2, 3, 4);
@@ -159,14 +160,14 @@ public class Player_Managerv2 : MonoBehaviour
 			//float mouseDY = Mathf.Clamp(Input.GetAxis("Mouse Y"), -1, 1);
 			float mouseDX = Input.GetAxis("Mouse X");
 			float mouseDY = Input.GetAxis("Mouse Y");
-
+			
 
 			rigidbody.velocity = new Vector3(0, 0, 0);
 			rigidbody.angularVelocity = new Vector3(0, 0, 0);
 			
 			FreezeConstraints( rigidbody, true );
-			pickedUp.transform.Rotate(new Vector3(mouseDX, 0, mouseDY) * Time.deltaTime * rotSpeed);
-			
+			//pickedUp.transform.Rotate(new Vector3(mouseDX, mouseDY, 0) * Time.deltaTime * rotSpeed);
+			pickedUp.transform.RotateAround(pickedUp.transform.position, new Vector3(mouseDX, 0, mouseDY), Time.deltaTime * rotSpeed);
 			if (rotating == false)
 				rotating = true;
 			
@@ -248,8 +249,10 @@ public class Player_Managerv2 : MonoBehaviour
 
 
 							Renderer _renderer = pickedUp.GetComponent<Renderer>();
-							_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
-							_renderer.material.SetColor("_OutlineColor", pickupColor);
+							//_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
+							if(_renderer.material.HasProperty("_OutlineColor") == true)
+								_renderer.material.SetColor("_OutlineColor", pickupColor);
+
 						} else if ( ent.tag == "Snappable" || ent.transform.root.tag == "Snappable") {
 							snap comp = ent.GetComponent<snap>();
 							screw comp_screw = screwEnt.GetComponent<screw>();
@@ -277,8 +280,9 @@ public class Player_Managerv2 : MonoBehaviour
 				IgnoreRaycast( pickedUp, false );
 				FreezeConstraints( pickedUp.GetComponent<Rigidbody>(), false );
 				Renderer _renderer = pickedUp.GetComponent<Renderer>();
-				_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
-				_renderer.material.SetColor("_OutlineColor", Color.black);
+				//_renderer.material.shader = Shader.Find("Custom/ToonURPShader"); //finds the shader
+				if (_renderer.material.HasProperty("_OutlineColor") == true)
+					_renderer.material.SetColor("_OutlineColor", releaseColor);
 				pickedUp = null;
 			}
 		}
