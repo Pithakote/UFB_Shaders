@@ -160,14 +160,14 @@ public class Player_Managerv2 : MonoBehaviour
 			//float mouseDY = Mathf.Clamp(Input.GetAxis("Mouse Y"), -1, 1);
 			float mouseDX = Input.GetAxis("Mouse X");
 			float mouseDY = Input.GetAxis("Mouse Y");
-
+			
 
 			rigidbody.velocity = new Vector3(0, 0, 0);
 			rigidbody.angularVelocity = new Vector3(0, 0, 0);
 			
 			FreezeConstraints( rigidbody, true );
-			pickedUp.transform.Rotate(new Vector3(mouseDX, 0, mouseDY) * Time.deltaTime * rotSpeed);
-			
+			//pickedUp.transform.Rotate(new Vector3(mouseDX, mouseDY, 0) * Time.deltaTime * rotSpeed);
+			pickedUp.transform.RotateAround(pickedUp.transform.position, new Vector3(mouseDX, 0, mouseDY), Time.deltaTime * rotSpeed);
 			if (rotating == false)
 				rotating = true;
 			

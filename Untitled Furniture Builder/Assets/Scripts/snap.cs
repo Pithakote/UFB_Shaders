@@ -39,14 +39,20 @@ public class snap : MonoBehaviour
 	MeshCollider col;
 
 	public static int numSnapped;
+	[SerializeField]
+	Vector3 tempScaleVal;
+	GameManager _instance;
+
 
 	// Start is called before the first frame update
 	void Start()
     {
+		_instance = GameManager.Instance;
 		loadVars();
 		//if (snap_to_id != -1)
 		//	InitPreview();
 		numSnapped = 0;
+
 	}
 	
 	void loadVars()
@@ -296,7 +302,9 @@ public class snap : MonoBehaviour
 		spawned.layer = 8;
 		
 		spawned.transform.SetParent( transform );
-		spawned.transform.localScale = transform.localScale;
+		//preview.transform.localScale = spawned.transform.localScale;
+		spawned.transform.localScale = tempScaleVal;
+
 		MeshFilter filter = spawned.GetComponent<MeshFilter>();
 		filter.sharedMesh = mesh;
 		filter.mesh = mesh;
