@@ -53,7 +53,7 @@ public class ScoreManager : MonoBehaviour
 
             if (numTimeLeft >= Timer.initialTime * 0.75f)
                 levelRating = 3;
-            else if (numTimeLeft <= Timer.initialTime * 0.74f && numTimeLeft >= Timer.initialTime * 0.50f)
+            else if (numTimeLeft <= Timer.initialTime * 0.749999f && numTimeLeft >= Timer.initialTime * 0.50f)
                 levelRating = 2;
             else if (numTimeLeft <= Timer.initialTime * 0.49f)
                 levelRating = 1;
