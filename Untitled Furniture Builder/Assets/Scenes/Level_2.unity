@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: c46f8d8b90d4c7b459cc590f934e3e3e,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3757,7 +3757,7 @@ PrefabInstance:
     - target: {fileID: 3203188596920413084, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: startTime
-      value: 2
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4652055638468159060, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
@@ -3765,6 +3765,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 102900000, guid: f4110d142ef6eb94780a1495571a47b6,
         type: 3}
+    - target: {fileID: 4763618080212095013, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1216432772}
+    - target: {fileID: 4763618080212095013, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: showScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763618080212095013, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1216432772}
+    - target: {fileID: 4763618080212095013, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763618080212095013, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1216432772}
+    - target: {fileID: 4763618080212095013, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: levelComplete
+      objectReference: {fileID: 0}
     - target: {fileID: 4763618081013858720, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3916,6 +3946,54 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 703415569}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &703415572 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6563250407056520357, guid: 23c6219dfb011784f8e09f6eb1933a55,
+    type: 3}
+  m_PrefabInstance: {fileID: 703415569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &703415573 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6563250407970066132, guid: 23c6219dfb011784f8e09f6eb1933a55,
+    type: 3}
+  m_PrefabInstance: {fileID: 703415569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &703415574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6563250407434152310, guid: 23c6219dfb011784f8e09f6eb1933a55,
+    type: 3}
+  m_PrefabInstance: {fileID: 703415569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &703415575 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6563250406579840506, guid: 23c6219dfb011784f8e09f6eb1933a55,
+    type: 3}
+  m_PrefabInstance: {fileID: 703415569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &733340957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 404536, guid: 7d5fac0efe938994aba24a88ba9c3057,
@@ -5973,10 +6051,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8371e8c240cbda458807b2c1628cffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  oneStar: {fileID: 0}
-  twoStar: {fileID: 0}
-  threeStar: {fileID: 0}
+  scoreText: {fileID: 703415575}
+  oneStar: {fileID: 703415572}
+  twoStar: {fileID: 703415573}
+  threeStar: {fileID: 703415574}
   so:
     levelProgress: 0
     tutorialRating: 0

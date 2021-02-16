@@ -24,7 +24,7 @@ public class ShowcaseManager : MonoBehaviour
     {
         so = SaveManager.Load();
         SpawnFurniture();
-       
+        Debug.Log(so.l1Complete);
     }
 
    

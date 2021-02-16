@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_Radio.unity
     guid: b270dbbd4e609124399c5b115744199a
   - enabled: 1
-    path: Assets/Scenes/Level_Stool.unity
-    guid: 2796cf4dc0c6e9046be223f7f2eafa6b
+    path: Assets/Scenes/Level_1.unity
+    guid: 0bb7b5d0c53538b41a4a18e6166775c5
   - enabled: 1
     path: Assets/Scenes/Level_2.unity
     guid: f4110d142ef6eb94780a1495571a47b6
+  - enabled: 1
+    path: Assets/Scenes/Level_3.unity
+    guid: 9f74906846d521e479100f5a1e54ac9b
   m_configObjects: {}
