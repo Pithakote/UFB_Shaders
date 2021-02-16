@@ -145,7 +145,13 @@ public class ScoreManager : MonoBehaviour
             so.l3Rating = levelRating;
             SaveManager.Save(so);
         }
-        
+        else if (SceneManager.GetActiveScene().name == "Level_4")
+        {
+            so.l4Complete = true;
+            so.l4Rating = levelRating;
+            SaveManager.Save(so);
+        }
+
 
         //so.levelProgress++;
 
