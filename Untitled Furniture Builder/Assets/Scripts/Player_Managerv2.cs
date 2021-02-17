@@ -282,12 +282,21 @@ public class Player_Managerv2 : MonoBehaviour
 			//released
 			if (pickedUp != null) {
 				//Remove preview
-				//int id = pickedUp.GetComponent<snap>().snap_to_id;
-				//GameObject preview = snappables[id].GetComponent<snap>().preview;
+				snap comp = pickedUp.GetComponent<snap>();
 
-				//if (preview != null)
-				//	Destroy(preview);
-				//--
+				if (comp != null)
+				{
+					int id = comp.snap_to_id;
+					if (id > -1 && id < snappables.Length)
+					{
+						GameObject snapTo = snappables[id];
+						snap p_comp = snapTo.GetComponent<snap>();
+						GameObject preview = comp.preview_ent;
+
+						if (preview != null)
+							p_comp.DestroyPreview();
+					}
+				}
 				IgnoreRaycast( pickedUp, false );
 				FreezeConstraints( pickedUp.GetComponent<Rigidbody>(), false );
 				Renderer _renderer = pickedUp.GetComponent<Renderer>();

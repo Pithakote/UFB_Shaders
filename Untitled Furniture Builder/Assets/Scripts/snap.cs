@@ -41,13 +41,13 @@ public class snap : MonoBehaviour
 	public static int numSnapped;
 	[SerializeField]
 	Vector3 tempScaleVal;
-	GameManager _instance;
+	//GameManager _instance;
 
 
 	// Start is called before the first frame update
 	void Start()
     {
-		_instance = GameManager.Instance;
+		//_instance = GameManager.Instance;
 		loadVars();
 		//if (snap_to_id != -1)
 		//	InitPreview();
@@ -292,7 +292,12 @@ public class snap : MonoBehaviour
 		lerp_startang = startAng;
 		lerp_start = Time.time;
 	}
-	
+	public void DestroyPreview()
+	{
+		if (preview_ent != null)
+			Destroy(preview_ent);
+	}
+
 	public void InitPreview(Mesh mesh, Vector3 newOffset)
 	{
 		if (preview_ent != null)
