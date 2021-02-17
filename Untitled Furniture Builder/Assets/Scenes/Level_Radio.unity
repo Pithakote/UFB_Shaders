@@ -10983,6 +10983,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 102900000, guid: b270dbbd4e609124399c5b115744199a,
         type: 3}
+    - target: {fileID: 4763618080212095009, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763618080212095010, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -75
+      objectReference: {fileID: 0}
     - target: {fileID: 4763618080212095011, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: _enterTriggerPoint

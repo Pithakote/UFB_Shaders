@@ -4129,6 +4129,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 102900000, guid: 0bb7b5d0c53538b41a4a18e6166775c5,
         type: 3}
+    - target: {fileID: 4763618080212095010, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -75
+      objectReference: {fileID: 0}
     - target: {fileID: 4763618080212095011, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: _enterTriggerPoint
