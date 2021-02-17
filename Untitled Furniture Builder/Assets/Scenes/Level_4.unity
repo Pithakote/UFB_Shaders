@@ -2326,6 +2326,11 @@ PrefabInstance:
       propertyPath: _delayTime
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 2648748258940897711, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _nextScene
+      value: Level_4
+      objectReference: {fileID: 0}
     - target: {fileID: 3203188596920413084, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: startTime

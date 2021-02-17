@@ -1278,7 +1278,8 @@ GameObject:
   - component: {fileID: 5274504034394327041}
   - component: {fileID: 8343711279746230340}
   - component: {fileID: 2369147171736204224}
-  - component: {fileID: 4999879328082821673}
+  - component: {fileID: 2960967778309452497}
+  - component: {fileID: 3181448562240787159}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1361,7 +1362,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1399,7 +1400,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextScene: 
---- !u!114 &4999879328082821673
+--- !u!95 &2960967778309452497
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5272291311690723043}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e09893aef4c7af948b98fae52b7c13d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3181448562240787159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2789,12 +2809,12 @@ PrefabInstance:
     - target: {fileID: 3575884784745463233, guid: 9bc2df9c12034134297032c2a2eee98c,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575884784745463233, guid: 9bc2df9c12034134297032c2a2eee98c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575884784745463234, guid: 9bc2df9c12034134297032c2a2eee98c,
         type: 3}
@@ -2874,12 +2894,12 @@ PrefabInstance:
     - target: {fileID: 3575884785492287353, guid: 9bc2df9c12034134297032c2a2eee98c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 384.88498
       objectReference: {fileID: 0}
     - target: {fileID: 3575884785492287353, guid: 9bc2df9c12034134297032c2a2eee98c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -243.11562
       objectReference: {fileID: 0}
     - target: {fileID: 3575884785492287353, guid: 9bc2df9c12034134297032c2a2eee98c,
         type: 3}
@@ -2899,7 +2919,7 @@ PrefabInstance:
     - target: {fileID: 3575884785492287353, guid: 9bc2df9c12034134297032c2a2eee98c,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575884785492287353, guid: 9bc2df9c12034134297032c2a2eee98c,
         type: 3}
@@ -2909,7 +2929,7 @@ PrefabInstance:
     - target: {fileID: 3575884785492287353, guid: 9bc2df9c12034134297032c2a2eee98c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575884785492287353, guid: 9bc2df9c12034134297032c2a2eee98c,
         type: 3}
@@ -2959,17 +2979,17 @@ PrefabInstance:
     - target: {fileID: 3575884786188331047, guid: 9bc2df9c12034134297032c2a2eee98c,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575884786188331047, guid: 9bc2df9c12034134297032c2a2eee98c,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575884786188331047, guid: 9bc2df9c12034134297032c2a2eee98c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575884786188331047, guid: 9bc2df9c12034134297032c2a2eee98c,
         type: 3}
