@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: c46f8d8b90d4c7b459cc590f934e3e3e,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4087,9 +4087,8 @@ PrefabInstance:
     - target: {fileID: 6563250406261002538, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: _nextScene
-      value: 
-      objectReference: {fileID: 102900000, guid: f4110d142ef6eb94780a1495571a47b6,
-        type: 3}
+      value: Level_1
+      objectReference: {fileID: 0}
     - target: {fileID: 6563250406343146068, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: m_text
@@ -4098,9 +4097,8 @@ PrefabInstance:
     - target: {fileID: 6563250408181284002, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: _nextScene
-      value: 
-      objectReference: {fileID: 102900000, guid: f4110d142ef6eb94780a1495571a47b6,
-        type: 3}
+      value: Level_2
+      objectReference: {fileID: 0}
     - target: {fileID: 8131315693310881634, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: _delayTime

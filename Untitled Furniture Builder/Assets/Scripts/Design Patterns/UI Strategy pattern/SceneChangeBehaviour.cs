@@ -5,15 +5,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneChangeBehaviour : IButtonInteractable
 {
-    SceneAsset _nextSceneToLoad;
-
-    public SceneChangeBehaviour(SceneAsset nextSceneToLoad)
+    //SceneAsset _nextSceneToLoad;
+   // Scene _nextScene;
+    string _nextScene;
+   
+    public SceneChangeBehaviour(string nextScene)
     {
-        _nextSceneToLoad = nextSceneToLoad;
+        _nextScene = nextScene;
     }
     public void ButtonBehaviour()
     {
-        if (_nextSceneToLoad == null)
+        if (_nextScene == null)
             return;
 
         LoadNextScene();
@@ -22,6 +24,6 @@ public class SceneChangeBehaviour : IButtonInteractable
     public void LoadNextScene()
     {
        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        SceneManager.LoadScene(_nextSceneToLoad.name);
+        SceneManager.LoadScene(_nextScene);
     }
 }

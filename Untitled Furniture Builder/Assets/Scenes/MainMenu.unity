@@ -920,7 +920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa1da4f11c097f458f6a1b2a742a683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextScene: {fileID: 102900000, guid: 1d22a4343538c5549800d11a84b0796d, type: 3}
+  _nextScene: Level_4
 --- !u!114 &201499884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3969,8 +3969,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radioLocation: {fileID: 200703808}
-  cog1: {fileID: 0}
-  cog2: {fileID: 0}
 --- !u!114 &526011802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4715,7 +4713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12907c0e492d7134f9dcdc57fe8e3ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextScene: {fileID: 102900000, guid: 473be87b69323cc43a11d1ad4d8ce4f7, type: 3}
+  _nextScene: MainMenu
   _hideRadioPos: {fileID: 1394505080}
 --- !u!1 &571891437
 GameObject:
@@ -5525,7 +5523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa1da4f11c097f458f6a1b2a742a683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextScene: {fileID: 102900000, guid: 9f74906846d521e479100f5a1e54ac9b, type: 3}
+  _nextScene: Level_3
 --- !u!114 &627365754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7946,7 +7944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa1da4f11c097f458f6a1b2a742a683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextScene: {fileID: 102900000, guid: f4110d142ef6eb94780a1495571a47b6, type: 3}
+  _nextScene: Level_2
 --- !u!114 &910156149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11218,6 +11216,7 @@ GameObject:
   - component: {fileID: 1360526817}
   - component: {fileID: 1360526818}
   - component: {fileID: 1360526819}
+  - component: {fileID: 1360526820}
   m_Layer: 5
   m_Name: L5_button
   m_TagString: Untagged
@@ -11373,6 +11372,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &1360526820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360526812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa1da4f11c097f458f6a1b2a742a683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextScene: Level_5
 --- !u!1 &1376510777
 GameObject:
   m_ObjectHideFlags: 0
@@ -12960,7 +12972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa1da4f11c097f458f6a1b2a742a683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextScene: {fileID: 102900000, guid: 0bb7b5d0c53538b41a4a18e6166775c5, type: 3}
+  _nextScene: Level_1
 --- !u!114 &1485471670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17156,7 +17168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa1da4f11c097f458f6a1b2a742a683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextScene: {fileID: 102900000, guid: b270dbbd4e609124399c5b115744199a, type: 3}
+  _nextScene: Level_Radio
 --- !u!95 &1980227567
 Animator:
   serializedVersion: 3

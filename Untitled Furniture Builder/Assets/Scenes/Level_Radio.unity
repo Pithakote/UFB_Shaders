@@ -11057,9 +11057,8 @@ PrefabInstance:
     - target: {fileID: 6563250408181284002, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: _nextScene
-      value: 
-      objectReference: {fileID: 102900000, guid: 0bb7b5d0c53538b41a4a18e6166775c5,
-        type: 3}
+      value: Level_1
+      objectReference: {fileID: 0}
     - target: {fileID: 6903734480489375672, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: m_AnchoredPosition.x

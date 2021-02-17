@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneChangeButtonListener : ButtonAddListener, ICommand
 {
+    //[SerializeField]
+    //SceneAsset _nextScene;
     [SerializeField]
-    SceneAsset _nextScene;
+    string _nextScene;
 
     public virtual void Execute()
     {

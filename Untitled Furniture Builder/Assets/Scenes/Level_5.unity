@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: c46f8d8b90d4c7b459cc590f934e3e3e,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2515,9 +2515,8 @@ PrefabInstance:
     - target: {fileID: 6563250406261002538, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: _nextScene
-      value: 
-      objectReference: {fileID: 102900000, guid: 9f74906846d521e479100f5a1e54ac9b,
-        type: 3}
+      value: Level_5
+      objectReference: {fileID: 0}
     - target: {fileID: 6563250406343146068, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: m_text
@@ -2528,9 +2527,8 @@ PrefabInstance:
     - target: {fileID: 6563250408181284002, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: _nextScene
-      value: 
-      objectReference: {fileID: 102900000, guid: 473be87b69323cc43a11d1ad4d8ce4f7,
-        type: 3}
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 8131315693310881634, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: _delayTime
@@ -9194,6 +9192,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 759307781}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1714677805 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2762553824971885877, guid: 23c6219dfb011784f8e09f6eb1933a55,
+    type: 3}
+  m_PrefabInstance: {fileID: 468170950}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1720609193 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4029276965778842, guid: eded3844e29c2ec40bc278e2cbd31279,
@@ -10298,7 +10302,7 @@ MonoBehaviour:
   - {x: -0.0011, y: -0.0351, z: -0.2925}
   snappables: []
   screws: []
-  _pauseMenuObject: {fileID: 0}
+  _pauseMenuObject: {fileID: 1714677805}
 --- !u!4 &1888105662
 Transform:
   m_ObjectHideFlags: 0
