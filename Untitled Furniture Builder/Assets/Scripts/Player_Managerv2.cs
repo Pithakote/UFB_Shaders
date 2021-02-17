@@ -255,17 +255,21 @@ public class Player_Managerv2 : MonoBehaviour
 
 						} else if ( ent.tag == "Snappable" || ent.transform.root.tag == "Snappable") {
 							snap comp = ent.GetComponent<snap>();
-							screw comp_screw = screwEnt.GetComponent<screw>();
-							int snap_to = comp_screw.snap_to_id;
-							
-							if ( snap_to == comp.id ){
-								int closest_id = comp.findClosestScrewable( hit.point );
-								bool screwable = comp.isPieceScrewable(closest_id);
-								bool screwed = comp.isPieceScrewed(closest_id);
-								
-								//print(closest_id);
-								if ( screwable == true && screwed == false )
-									comp_screw.onMouseAttach( ent );
+							if (comp != null)
+							{
+								screw comp_screw = screwEnt.GetComponent<screw>();
+								int snap_to = comp_screw.snap_to_id;
+
+								if (snap_to == comp.id)
+								{
+									int closest_id = comp.findClosestScrewable(hit.point);
+									bool screwable = comp.isPieceScrewable(closest_id);
+									bool screwed = comp.isPieceScrewed(closest_id);
+
+									//print(closest_id);
+									if (screwable == true && screwed == false)
+										comp_screw.onMouseAttach(ent);
+								}
 							}
 						}
 					}
@@ -277,6 +281,13 @@ public class Player_Managerv2 : MonoBehaviour
 		{
 			//released
 			if (pickedUp != null) {
+				//Remove preview
+				//int id = pickedUp.GetComponent<snap>().snap_to_id;
+				//GameObject preview = snappables[id].GetComponent<snap>().preview;
+
+				//if (preview != null)
+				//	Destroy(preview);
+				//--
 				IgnoreRaycast( pickedUp, false );
 				FreezeConstraints( pickedUp.GetComponent<Rigidbody>(), false );
 				Renderer _renderer = pickedUp.GetComponent<Renderer>();

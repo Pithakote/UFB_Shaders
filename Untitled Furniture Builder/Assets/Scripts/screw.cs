@@ -26,14 +26,15 @@ public class screw : MonoBehaviour
 	float lerp_start = -100;
 	
 	//Mouse Minigame
-	float screw_time = 2.5f;
+	float screw_time = .65f;
 	GameObject attempt_ent;
 	float req_rotations = 5;
 	float rotations = 0;
 	float cur_perc = 0;
 	float lastAngle = 0;
-	
+
 	//Components
+	bool attached = false;
 	Rigidbody rigid;
 	MeshFilter meshFilter;
 	
@@ -53,12 +54,25 @@ public class screw : MonoBehaviour
 	
 	void SetSnapToPos()
 	{
+		//if (snapped == null)
+		//	return;
+		////--
+		//Vector3 angles = snapped.transform.eulerAngles;
+		//snapped.transform.eulerAngles = new Vector3(0,0,0);
+		//transform.position = lerp_pos;
+		//transform.eulerAngles = lerp_ang;
+		//snapped.transform.eulerAngles = angles;
 		if (snapped == null)
 			return;
 		//--
+		corrected = true;
 		Vector3 angles = snapped.transform.eulerAngles;
-		snapped.transform.eulerAngles = new Vector3(0,0,0);
-		transform.position = lerp_pos;
+		Quaternion rotation = snapped.transform.rotation;
+		Quaternion inverse = Quaternion.Inverse(rotation);
+
+		//transform.position = snapped.transform.position + offset;
+		snapped.transform.eulerAngles = new Vector3(0, 0, 0);
+		transform.position = snapped.transform.position + offset;
 		transform.eulerAngles = lerp_ang;
 		snapped.transform.eulerAngles = angles;
 	}
@@ -80,11 +94,12 @@ public class screw : MonoBehaviour
 		if ( rigid != null ){
 			rigid.angularVelocity = new Vector3(0,0,0);
 		}
-		
+
 		//Lerp
-		UpdateLerp();
+		if (corrected == false)
+			UpdateLerp();
 		
-		if (moving_to_screw == false || lerp_start + anim_time + air_time > Time.time)
+		if (attached == true || moving_to_screw == false || lerp_start + anim_time + air_time > Time.time)
 			return;
 		
 		//Minigame
@@ -123,19 +138,19 @@ public class screw : MonoBehaviour
 	{
 		if (lerp_start == null || lerp_start + anim_time <= Time.time){
 			//Lerp Finished
-			if (corrected == false){
-				corrected = true;
+			if (attached == true && corrected == false){				
 				SetSnapToPos();
 			}
 			
 			//Drops from air
-			if (moving == true && lerp_start + anim_time + air_time <= Time.time ){
+			if (attached == false && moving == true && lerp_start + anim_time + air_time <= Time.time ){
 				if ( moving_to_screw == true ){
 					//If not icon spawned, spawn it
 					if (icon == null){
 						icon = Instantiate( iconPreview );
 						icon.transform.position = transform.position;
-						icon.transform.eulerAngles = transform.eulerAngles + new Vector3(-90,0,0);
+						Vector3 localAng = transform.eulerAngles;
+						icon.transform.eulerAngles = transform.eulerAngles + new Vector3(90,0,90);
 						
 						//icon.transform.SetParent( transform );
 						//icon.transform.position = new Vector3(0,0,0);
@@ -150,8 +165,8 @@ public class screw : MonoBehaviour
 						attempt_ent = null;
 						SetGameObjectMoveTo(  lerp_pos, lerp_ang, lerp_startpos, lerp_startang );
 					}
-				}	
-				else
+				}
+				else if (attached == false)
 					Drop();
 			}
 			//--
@@ -174,12 +189,15 @@ public class screw : MonoBehaviour
 		//--
 		Vector3 oldPos = transform.position;
 		Vector3 oldAng = transform.eulerAngles;
-			
-		transform.position =  parent.transform.position;
-		transform.SetParent( parent.transform );
-			
-		//Physics.IgnoreCollision(col, parent.GetComponent<MeshCollider>());
+
 		snapped = parent;
+		attached = true;
+		transform.SetParent(parent.transform);
+		//transform.position =  parent.transform.position;
+		Player_Managerv2.screwEnt = null;
+
+		//Physics.IgnoreCollision(col, parent.GetComponent<MeshCollider>());
+		
 		Destroy( rigid );
 		
 		CapsuleCollider[] colliders = GetComponentsInChildren<CapsuleCollider>();
@@ -187,22 +205,23 @@ public class screw : MonoBehaviour
 		{
 			Destroy( col );
 		}
-			
+
 		//Snap to position (connect)
 		Vector3 angles = snapped.transform.eulerAngles;
-			
-		snapped.transform.eulerAngles = new Vector3(0,0,0);
-		SetGameObjectMoveTo( oldPos, oldAng, snapped.transform.TransformPoint(offset), angles );
-		snapped.transform.eulerAngles = angles;
-    }
+		Quaternion rotation = snapped.transform.rotation;
+		Quaternion inverse = Quaternion.Inverse(rotation);
+		//transform.position =  new Vector3(0,0,0);
+
+		//snapped.transform.eulerAngles = new Vector3(0,0,0);
+		SetGameObjectMoveTo(oldPos, oldAng, parent.transform.position + parent.transform.TransformDirection(offset), angles);
+		//snapped.transform.eulerAngles = angles;
+	}
 
 	void SetGameObjectMoveTo(  Vector3 startPos, Vector3 startAng, Vector3 pos, Vector3 toAng )
 	{
-		corrected = false;
 		moving = true;
 		rigid.constraints = RigidbodyConstraints.FreezePosition;
 		//--
-		//col.enabled = false;
 		lerp_startpos = startPos;
 		lerp_pos = pos;
 		lerp_ang = toAng;
@@ -223,7 +242,7 @@ public class screw : MonoBehaviour
 	//EVENTS
 	public void onMouseClick()
 	{
-		if (moving == true || snapped != null)
+		if (attached == true || moving == true || snapped != null)
 			return;
 		//--
 		Vector3 startPos = transform.position;
@@ -236,20 +255,24 @@ public class screw : MonoBehaviour
 	
 	public void onMouseAttach( GameObject ent )
 	{
-		if (moving_to_screw == true)
+		if (attached == true || moving_to_screw == true)
 			return;
-		
+
 		attempt_ent = ent;
 		moving_to_screw = true;
 		move_back_time = Time.time + air_time + anim_time + screw_time;
 		//--
+		Quaternion rotation = ent.transform.rotation;
+		Quaternion inverse = Quaternion.Inverse(rotation);
+
 		Vector3 startPos = transform.position;
 		Vector3 startAng = transform.eulerAngles;
-		Vector3 up = (transform.up*.25f);
-		Vector3 pos = ent.transform.TransformPoint(offset) + up;
-		Vector3 toAng = startAng;
-		
-		SetGameObjectMoveTo(  startPos, startAng, pos, toAng );
+		Vector3 up = (transform.up * .25f);
+
+		Vector3 pos = ent.transform.position + ent.transform.TransformDirection(offset);
+		Vector3 toAng = new Vector3(0, -180, 0);
+
+		SetGameObjectMoveTo(startPos, startAng, pos, toAng);
 	}
 	//---------
 	
