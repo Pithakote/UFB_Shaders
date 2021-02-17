@@ -10,7 +10,8 @@ public class LevelManager : LocalManager
 	public Vector3 startpos;
 	public Material materialShader;
 	public Material[] materialShaders;
-	
+	public float newIconScale;
+
 
 	public GameObject snappable;
 	public GameObject tray;
@@ -52,7 +53,7 @@ public class LevelManager : LocalManager
 
 		int amt_snappables = snap_tos.Length;
 		snappables = new GameObject[amt_snappables];
-		
+
 		for (int i = 0; i <= amt_snappables - 1; i++)
 		{
 			float min = Random.Range(-1, 1);
@@ -66,25 +67,31 @@ public class LevelManager : LocalManager
 			else
 				selectedMaterial = materialShader;
 
-			
+
 			snappables[i] = SpawnSnappable(snap_meshes[i], startpos + (offset * i), snap_offsets[i], i, snap_tos[i], selectedMaterial);
 		}
-		
+
 		//Spawn Screws
-		Vector3 tray_pos = tray.transform.position + new Vector3(0,3.5f,0);
+		Vector3 tray_pos = tray.transform.position + new Vector3(0, 3.5f, 0);
 		int max_screws = screw_snapto.Length;
 		screws = new GameObject[max_screws];
 		if (max_screws > 0)
-        {
+		{
 			for (int i = 0; i <= max_screws - 1; i++)
 			{
 				GameObject newScrew = Instantiate(screw);
 				newScrew.transform.position = tray_pos;
 				//
 				int id = screw_snapto[i];
-				newScrew.GetComponent<screw>().piece_id = screw_pieceid[i];
-				newScrew.GetComponent<screw>().snap_to_id = id;
-				newScrew.GetComponent<screw>().offset = screw_offsets[i];
+				screw comp_screw = newScrew.GetComponent<screw>();
+
+
+				comp_screw.piece_id = screw_pieceid[i];
+				comp_screw.snap_to_id = id;
+				comp_screw.offset = screw_offsets[i];
+
+				if (newIconScale != null && newIconScale != 0)
+					comp_screw.newScale = newIconScale;
 				//--
 				GameObject piece = snappables[id];
 				snap comp = piece.GetComponent<snap>();
@@ -96,9 +103,9 @@ public class LevelManager : LocalManager
 				//piece.GetComponent<snap>().screwable[i] = true;
 			}
 		}
-		
-		
-		
+
+
+
 		Player_Managerv2.snappables = snappables;
 	}
 
@@ -109,11 +116,11 @@ public class LevelManager : LocalManager
 
 		InitializeSnappable();
 		print("test");
-		
+
 
 	}
 
-   
+
 
 	GameObject SpawnSnappable(Mesh model, Vector3 origin, Vector3 offset, int id, int snap_to, Material selectedMaterial)
 	{
@@ -121,12 +128,12 @@ public class LevelManager : LocalManager
 		ent.transform.position = origin;
 		//--
 		//Scale
-		Vector3 default_scale = new Vector3(1,1,1);
-		Vector3 empty_scale = new Vector3(0,0,0);
+		Vector3 default_scale = new Vector3(1, 1, 1);
+		Vector3 empty_scale = new Vector3(0, 0, 0);
 		Vector3 custom_scale = piece_scales[id];
 
-		
-		if ( custom_scale != null && custom_scale != empty_scale )
+
+		if (custom_scale != null && custom_scale != empty_scale)
 			ent.transform.localScale = custom_scale;
 		else
 			ent.transform.localScale = default_scale;
@@ -146,10 +153,10 @@ public class LevelManager : LocalManager
 		}
 
 		ent.GetComponent<MeshCollider>().sharedMesh = model;
-		
-		
+
+
 		ent.GetComponent<MeshRenderer>().material = selectedMaterial;
-		
+
 
 		if (triggerMinDistance > 0)
 			s.triggerMinDistance = triggerMinDistance;
