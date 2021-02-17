@@ -4740,6 +4740,11 @@ PrefabInstance:
       propertyPath: startTime
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 3371341805236934797, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _nextScene
+      value: Level_2
+      objectReference: {fileID: 0}
     - target: {fileID: 4652055638468159060, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: _nextScene

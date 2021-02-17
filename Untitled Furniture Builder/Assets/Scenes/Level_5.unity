@@ -2408,15 +2408,13 @@ PrefabInstance:
     - target: {fileID: 3371341805236934797, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: _nextScene
-      value: 
-      objectReference: {fileID: 102900000, guid: 9f74906846d521e479100f5a1e54ac9b,
-        type: 3}
+      value: Level_5
+      objectReference: {fileID: 0}
     - target: {fileID: 4652055638468159060, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: _nextScene
       value: 
-      objectReference: {fileID: 102900000, guid: 9f74906846d521e479100f5a1e54ac9b,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4763618080212095010, guid: 23c6219dfb011784f8e09f6eb1933a55,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2600,6 +2598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _delayTime
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809084219893923093, guid: 23c6219dfb011784f8e09f6eb1933a55,
+        type: 3}
+      propertyPath: _nextScene
+      value: MainMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23c6219dfb011784f8e09f6eb1933a55, type: 3}

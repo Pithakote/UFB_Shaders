@@ -67,7 +67,7 @@ public class Timer : MonoBehaviour
                 _children.Add(GameOverUI.transform.GetChild(i).gameObject);
             }
             _children.ForEach(childr => childr.GetComponent<InnerButtonAddListener>().MoveToScreen());
-
+            GameManager.Instance.StateManager.CurrentState = GameManager.Instance.StateManager.MainMenuState;
             _isOver = true;
         }
     }
