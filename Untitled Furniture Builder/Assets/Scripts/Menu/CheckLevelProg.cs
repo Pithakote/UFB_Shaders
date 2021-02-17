@@ -178,6 +178,22 @@ public class CheckLevelProg : MonoBehaviour
                 break;
         }
 
+        switch (so.l5Rating)
+        {
+
+            case 1:
+                Instantiate(oneStar, level5.transform);
+                break;
+            case 2:
+                Instantiate(twoStar, level5.transform);
+                break;
+            case 3:
+                Instantiate(threeStar, level5.transform);
+                break;
+            default:
+                break;
+        }
+
 
     }
 }
