@@ -27,20 +27,24 @@ Material:
     m_Floats:
     - GLOSS: 1
     - _Alpha: 1
-    - _Brightness: -1
+    - _Brightness: 0.162
     - _Diffuse: 0
-    - _Emission: 0
+    - _Emission: 0.015
     - _Gloss: 0
     - _Metallic: 1
     - _Occlusion: 0
+    - _OutlineThickness: 1.04
     - _Overlay: 0
     - _Prop2: 1.05
     - _ScaleAndNumberOfRings: 0.546
     - _Smoothness: 0.701
     - _Specular: 0.665
-    - _Strength: 20.1
+    - _Strength: 27.7
     m_Colors:
     - _AmbientColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 1, g: 0, b: 0, a: 255}
+    - _OutlinePosition: {r: 0, g: 0, b: 0, a: 1}
+    - _TextureColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &4329965943301763912
 MonoBehaviour:
   m_ObjectHideFlags: 11
