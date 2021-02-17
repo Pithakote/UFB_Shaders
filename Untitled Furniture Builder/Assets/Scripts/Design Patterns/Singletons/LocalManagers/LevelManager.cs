@@ -48,7 +48,7 @@ public class LevelManager : LocalManager
 
 	void InitializeSnappable()
 	{
-		Vector3 offset = new Vector3(0.5f, 0, -0.5f);
+		Vector3 offset = new Vector3(0.2f, 0, -0.2f);
 
 		int amt_snappables = snap_tos.Length;
 		snappables = new GameObject[amt_snappables];
