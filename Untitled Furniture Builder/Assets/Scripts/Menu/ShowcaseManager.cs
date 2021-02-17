@@ -22,19 +22,28 @@ public class ShowcaseManager : MonoBehaviour
     SaveObject so;
     private void Start()
     {
-        so = SaveManager.Load();
+       
         SpawnFurniture();
         Debug.Log(so.l1Complete);
     }
 
-   
+    private void Awake()
+    {
+        so = SaveManager.Load();
+    }
 
     void SpawnFurniture()
     {
         if (!so.tutorialComplete)
+        {
             Instantiate(questionBox, boxTutPos.transform.position, boxTutPos.transform.rotation);
+            Debug.LogWarning("NOT COMPLETE");
+        }            
         else if(so.tutorialComplete)
-            Instantiate(questionBox, new Vector3(1000,1000,1000), boxTutPos.transform.rotation);
+        {
+            Instantiate(questionBox, new Vector3(1000, 1000, 1000), boxTutPos.transform.rotation);
+            Debug.LogWarning("COMPLETE");
+        }
 
 
 

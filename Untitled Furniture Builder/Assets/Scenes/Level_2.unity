@@ -11125,6 +11125,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 245ab7f3fbb632c44b93a2f8b0c9ad81, type: 2}
   - {fileID: 2100000, guid: 245ab7f3fbb632c44b93a2f8b0c9ad81, type: 2}
   - {fileID: 2100000, guid: 245ab7f3fbb632c44b93a2f8b0c9ad81, type: 2}
+  newIconScale: 0.025
   snappable: {fileID: 4059220095760975271, guid: 007abeee5cfbd884ca8a53541bb3c761,
     type: 3}
   tray: {fileID: 1789713213}

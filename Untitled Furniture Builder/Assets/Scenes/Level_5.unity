@@ -10619,7 +10619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radioLocation: {fileID: 150541651}
-  triggerMinDistance: 0
+  triggerMinDistance: 0.3
   minAngleSnap: 1
   startpos: {x: 2.6, y: 2.5, z: 35.9}
   materialShader: {fileID: 2100000, guid: 572836f6f4637ab4a9b1c63a1b2f98f9, type: 2}
@@ -10629,7 +10629,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 93390e74f71f875479027268d5f6c3f2, type: 2}
   - {fileID: 2100000, guid: 93390e74f71f875479027268d5f6c3f2, type: 2}
   - {fileID: 2100000, guid: 93390e74f71f875479027268d5f6c3f2, type: 2}
-  - {fileID: 2100000, guid: a6a0dcb702a554243b8ed86ae385afc7, type: 2}
+  - {fileID: 2100000, guid: 5f2cc9a06f247a04faee4749b868990b, type: 2}
+  newIconScale: 0.025
   snappable: {fileID: 4059220095760975271, guid: 1adad0167df1d1e4e85e61abefdd3e6c,
     type: 3}
   tray: {fileID: 1345581536}
