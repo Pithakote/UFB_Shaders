@@ -7,14 +7,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToonMetallicLit
+  m_Name: ToonSpecularLit
   m_Shader: {fileID: 4800000, guid: 419443d4493cfa7409e0656aca16b47f, type: 3}
-  m_ShaderKeywords: GLOSS_METALLIC_COLOR GLOSS__METALLIC_COLOR _GLOSS_METALLIC _GLOSS__METALLIC
-    _SPECULAR_COLOR _SPECULAR_SETUP
+  m_ShaderKeywords: GLOSS_METALLIC_COLOR GLOSS__METALLIC_COLOR _GLOSS_SPECULAR_SETUP
+    _GLOSS__METALLIC _SPECULAR_COLOR _SPECULAR_SETUP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -27,19 +27,25 @@ Material:
     m_Floats:
     - GLOSS: 1
     - _Alpha: 1
-    - _Brightness: 1
+    - _Brightness: -1
     - _Diffuse: 0
     - _Emission: 0
-    - _Gloss: 1
+    - _Gloss: 0
     - _Metallic: 1
     - _Occlusion: 0
     - _OutlineThickness: 1.15
+    - _OutlineXPosition: 0
+    - _OutlineXScale: 1.07
+    - _OutlineYPosition: 0
+    - _OutlineYScale: 1.07
+    - _OutlineZPosition: 0
+    - _OutlineZScale: 1.07
     - _Overlay: 0
     - _Prop2: 1.05
     - _ScaleAndNumberOfRings: 0.395
-    - _Smoothness: 0.765
-    - _Specular: 0.847
-    - _Strength: 50
+    - _Smoothness: 0.721
+    - _Specular: 0.934
+    - _Strength: 36
     m_Colors:
     - _AmbientColor: {r: 0.9245283, g: 0.6172141, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
