@@ -35,6 +35,12 @@ Material:
     - _Metallic: 1
     - _Occlusion: 0
     - _OutlineThickness: 1.14
+    - _OutlineXPosition: 0
+    - _OutlineXScale: 1.07
+    - _OutlineYPosition: 0
+    - _OutlineYScale: 1.07
+    - _OutlineZPosition: 0
+    - _OutlineZScale: 1.07
     - _Overlay: 0
     - _Prop2: 1.05
     - _ScaleAndNumberOfRings: 0.364
@@ -43,6 +49,7 @@ Material:
     - _Strength: 6.6
     m_Colors:
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 255}
+    - _OutlinePosition: {r: 0, g: 0, b: 0, a: 1}
     - _TextureColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &4329965943301763912
 MonoBehaviour:

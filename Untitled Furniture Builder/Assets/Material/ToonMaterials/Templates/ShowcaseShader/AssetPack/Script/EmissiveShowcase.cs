@@ -5,6 +5,7 @@ using UnityEngine;
 public class EmissiveShowcase : MonoBehaviour
 {
     Renderer _renderer;
+    float _emissiveness;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class EmissiveShowcase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float _emissiveness = Mathf.PingPong(Time.time,1.0f);
+         _emissiveness = Mathf.PingPong(Time.time,1.0f);
         _renderer.material.SetFloat("_Emission", _emissiveness);
 
     }
