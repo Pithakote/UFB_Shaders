@@ -19,9 +19,14 @@ struct VertexOutput
 	float2 uv : TEXCOORD1;
 	float3 normalWS : TEXCOORD2;
 };
-float _OutlineThickness;
+float _OutlineXScale;
+float _OutlineYScale;
+float _OutlineZScale;
 float4 _OutlineColor;
-Vector _OutlinePosition;
+
+float _OutlineXPosition;
+float _OutlineYPosition;
+float _OutlineZPosition;
 VertexOutput Vertex(Attributes input)
 {
 	VertexOutput output = (VertexOutput)0;
@@ -31,8 +36,14 @@ VertexOutput Vertex(Attributes input)
 	//extruding the object along the normal to make it a little bigger
 	//float3 posOS = input.positionOS.xyz + input.normalOS * _Thickness;
 	//float3 posOS = input.positionOS.xyz  * _OutlineThickness;
-	input.positionOS.xyz += _OutlinePosition;
-	input.positionOS.xyz *= _OutlineThickness;
+	input.positionOS.x += _OutlineXPosition;
+	input.positionOS.y += _OutlineYPosition;
+	input.positionOS.z += _OutlineZPosition;
+
+
+	input.positionOS.x *= _OutlineXScale;
+	input.positionOS.y *= _OutlineYScale;
+	input.positionOS.z *= _OutlineZScale;
 
 	//output.positionCS = GetVertexPositionInputs(input.positionOS).positionCS;
 	VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);

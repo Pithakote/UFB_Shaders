@@ -59,24 +59,24 @@ Material:
     - _DstBlend: 0
     - _Emission: 0
     - _EnvironmentReflections: 1
-    - _FresnelInnerRimPower: 0.0436
-    - _FresnelInnerRimSmoothness: 0.016
-    - _FresnelOuterRimSmoothness: 0.173
+    - _FresnelInnerRimPower: 0.162
+    - _FresnelInnerRimSmoothness: 0
+    - _FresnelOuterRimSmoothness: 0
     - _FresnelRimPower: 1.14
     - _Gloss: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _InnerRimPower: 0.74
-    - _LightSpecCutOff: 0.512
-    - _LightSpecCutOffSmoothness: 0.041
+    - _LightSpecCutOff: 0
+    - _LightSpecCutOffSmoothness: 0
     - _Metallic: 0.964
     - _Occlusion: 0.138
     - _OcclusionStrength: 1
     - _OutlineThickness: 1.06
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RimPower: 0.772
+    - _RimPower: 0.865
     - _ScaleAndNumberOfRings: 0.1
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
@@ -85,7 +85,7 @@ Material:
     - _SrcBlend: 1
     - _Strength: 0
     - _Surface: 0
-    - _ViewSpecCutOff: 0.54
+    - _ViewSpecCutOff: 0.3
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -93,13 +93,13 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FinalColor: {r: 0, g: 1, b: 0.96721315, a: 0.09803922}
-    - _FresnelOuterRimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _InnerRimColor: {r: 1, g: 0.34433955, b: 0.34433955, a: 1}
-    - _OuterRimColor: {r: 0, g: 0.9631133, b: 1, a: 0}
+    - _FinalColor: {r: 0.28924885, g: 0.9433962, b: 0.8587419, a: 0}
+    - _FresnelOuterRimColor: {r: 1, g: 1, b: 1, a: 0.9490196}
+    - _InnerRimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OuterRimColor: {r: 0, g: 0, b: 0, a: 0.27058825}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 0.59607846}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SpecularColor: {r: 0.36320752, g: 1, b: 1, a: 1}
+    - _SpecularColor: {r: 0.5424528, g: 1, b: 1, a: 0.95686275}
 --- !u!114 &5218997568424806776
 MonoBehaviour:
   m_ObjectHideFlags: 11

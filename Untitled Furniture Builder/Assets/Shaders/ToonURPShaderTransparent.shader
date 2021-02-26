@@ -28,7 +28,7 @@ Shader "Custom/ToonURPShaderTransparent"
                 _LightSpecCutOffSmoothness("LightSpecularCutoffSmoothness", Range(0,1)) = 0.05
                 _ViewSpecCutOff("ViewSpecCutOff", Range(0,1)) = 0.5
                  _RimPower("Rim Power", Range(0,1)) = 1
-                _FresnelInnerRimPower("Inner Rim Power", Range(0,0.1)) = 1
+                _FresnelInnerRimPower("Inner Rim Power", Range(0,0.5)) = 1
                  _FresnelOuterRimSmoothness("FresnelOuterRimSmoothness", Range(0,1)) = 0.5
                  _FresnelInnerRimSmoothness("FresnelInnerRimSmoothness", Range(0,0.1)) = 0.5
             _OuterRimColor("Outer Rim Color", Color) = (1,0,0,1)

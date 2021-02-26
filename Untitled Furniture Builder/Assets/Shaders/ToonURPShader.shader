@@ -23,9 +23,14 @@ Shader "Custom/ToonURPShader"
 
 
             [Header(Outline Options)]
-            _OutlineThickness("Outline Thickness", Float) = 1.07
+            _OutlineXScale("Outline X Scale",  Range(0,10)) = 1.07
+            _OutlineYScale("Outline Y Scale", Range(0,10))= 1.07
+            _OutlineZScale("Outline Z Scale", Range(0,10)) = 1.07
             _OutlineColor("Outline Color", Color) = (0,0,0,255)
-            _OutlinePosition("Outline Position", Vector) = (0,0,0)
+
+            _OutlineXPosition("Outline X Position", Range(0,1)) = 0.0
+            _OutlineYPosition("Outline Y Position", Range(0,1)) = 0.0
+            _OutlineZPosition("Outline Z Position", Range(0,1)) = 0.0
            
         }
         SubShader

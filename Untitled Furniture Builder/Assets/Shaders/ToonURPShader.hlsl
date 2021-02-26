@@ -11,15 +11,7 @@
 
 struct Attributes
 {
-    /*
-    float4 positionOS       : POSITION;
-    float2 uv               : TEXCOORD0;
-    float3 positionWS :TEXCOORD1;
-    float3 normalOS : NORMAL;
-    float4 tangentOS :TANGENT;
-    //float3 normalWS                 : TEXCOORD1;
-    */
-    //  UNITY_FOG_COORDS(1)
+    
     float3 positionOS : POSITION;//position in world space
     float3 normalOS : NORMAL;   
     float4 tangentOS : TANGENT;
@@ -31,14 +23,7 @@ struct Attributes
 
 struct Varyings
 {
-    /*
-    float2 uv        : TEXCOORD0;
-    float fogCoord : TEXCOORD1;
-    float3 positionWS :TEXCOORD2;
-    float4 positionCS : SV_POSITION;
-    float3 normalWS : TEXCOORD3;
-    */
-    //  UNITY_FOG_COORDS(1)
+    
     float3 positionWS : TEXCOORD0;//position in world space
     float2 uv : TEXCOORD1;
     float3 normalWS : TEXCOORD2;
@@ -82,14 +67,6 @@ Varyings Vertex(Attributes input)
 
 half4 Fragment(Varyings input) : SV_Target
 {
-    // #ifdef SHADOW_CASTER_PASS
-    //    // If in the shadow caster pass, we can just return now
-    //    // It's enough to signal that should will cast a shadow
-    //    return half4(0,0,0,0);
-    //#else
-      //  UNITY_SETUP_INSTANCE_ID(input);
-      //  UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
-
     #ifdef SHADOW_CASTER_PASS
 
             return 0;
@@ -113,23 +90,9 @@ half4 Fragment(Varyings input) : SV_Target
                     * _TextureColor.rgb;
    
     albedo *= Toon(input.normalWS, _MainLightPosition.xyz) * _Strength + _Brightness;
-    /*
-    float3 lightcalc = dot(input.normalWS, _MainLightPosition.xyz);// *_Strength + _Brightness;
-    lightcalc = smoothstep(0.01,0.01, lightcalc);
-    lightcalc = lightcalc + GetMainLight(lightingInput.shadowCoord).color;
-    lightcalc = lightcalc + half3(unity_SHAr.w, unity_SHAg.w, unity_SHAb.w);
-
-    lightcalc = lightcalc * albedo;
-    */
-        //* _AmbientColor.rgb;
-                //return  half4(color, alpha);
-                //return  half4(albedo, 1.0);
-               // return UniversalFragmentBlinnPhong(lightingInput, albedo,1,0,0,1);
-    //half4 fragColor = UniversalFragmentBlinnPhong(lightingInput, albedo, _Specular, _Smoothness,  _Emission, 1);// *half4(color, 1);
-   // return UniversalFragmentPBR(inputData, albedo, metallic, specular, smoothness, occlusion, emission, alpha);
+  
     half4 fragColor = UFBUniversalFragmentPBR(lightingInput, albedo, _Metallic, _Specular, _Smoothness, _Occlusion, _Emission* _TextureColor, _Alpha);// *half4(color, 1);
-   // half4 fragColor = LightweightFragmentBlinnPhong(lightingInput, albedo, _Specular, _Smoothness, _Emission, 1);// *half4(color, 1);
-   // fragColor = half4(albedo,1) + MainLightRealtimeShadow(TransformWorldToShadowCoord(lightingInput.positionWS));// *half4(color, 1);
+   
     return fragColor ;
 #endif
 }
