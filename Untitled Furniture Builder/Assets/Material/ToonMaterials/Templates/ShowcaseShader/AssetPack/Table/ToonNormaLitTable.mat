@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 7728ecc1645fc83488fe60c476ec17d6, type: 3}
+        m_Texture: {fileID: 2800000, guid: ccfd11c02bc10234199c6ee6d2f8e24a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -46,7 +46,7 @@ Material:
     - _ScaleAndNumberOfRings: 0.364
     - _Smoothness: 0.421
     - _Specular: 0
-    - _Strength: 6.6
+    - _Strength: 2.2
     m_Colors:
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 255}
     - _OutlinePosition: {r: 0, g: 0, b: 0, a: 1}
