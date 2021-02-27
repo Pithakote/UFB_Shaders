@@ -48,7 +48,7 @@ Material:
     - _Specular: 0
     - _Strength: 40.9
     m_Colors:
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 255}
+    - _OutlineColor: {r: 0, g: 0.9906864, b: 1, a: 1}
     - _OutlinePosition: {r: 0, g: 0, b: 0, a: 1}
     - _TextureColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &4329965943301763912
