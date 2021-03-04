@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 1ac7c462ff776ee4aaf86d51efadfceb, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -43,14 +43,14 @@ Material:
     - _OutlineZScale: 1.07
     - _Overlay: 0
     - _Prop2: 1.05
-    - _ScaleAndNumberOfRings: 0.347
+    - _ScaleAndNumberOfRings: 0.327
     - _Smoothness: 0
     - _Specular: 0
-    - _Strength: 40.9
+    - _Strength: 32.7
     m_Colors:
     - _OutlineColor: {r: 0, g: 0.9906864, b: 1, a: 1}
     - _OutlinePosition: {r: 0, g: 0, b: 0, a: 1}
-    - _TextureColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TextureColor: {r: 0.8490566, g: 0.27634388, b: 0.27634388, a: 1}
 --- !u!114 &4329965943301763912
 MonoBehaviour:
   m_ObjectHideFlags: 11
